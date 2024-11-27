@@ -1,5 +1,4 @@
 import React from "react";
-import { FaHome } from "react-icons/fa";
 
 interface Props {
   Title: String;

@@ -4,10 +4,6 @@ import OffCanvas from "./offCanvas/offCanvas";
 
 const Navbar = () => {
   const [Active, setActive] = useState<boolean>(false);
-
-  const changeActive = () => {
-    setActive(!Active);
-  };
   return (
     <>
       <div

@@ -1,7 +1,5 @@
-import { useState } from "react";
 import {
   FaArrowRight,
-  FaBars,
   FaHome,
   FaPhone,
   FaUser,
@@ -9,7 +7,6 @@ import {
 } from "react-icons/fa";
 import Links from "./links";
 import { CiLogin } from "react-icons/ci";
-import { FcContacts } from "react-icons/fc";
 
 function OffCanvas(props: { Active: boolean; setActive: any }) {
   return (
@@ -56,9 +53,6 @@ function OffCanvas(props: { Active: boolean; setActive: any }) {
           <hr />
         </div>
       ) : null}
-      {/* <div className="sm:hidden absolute right-0  top-0 bg-blue-600 h-[56.95pc] w-72">
-        <h1>Mosha</h1>
-      </div> */}
     </>
   );
 }
