@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa";
 import Links from "./links";
 import { CiLogin } from "react-icons/ci";
+import { Link } from "react-router";
 
 function OffCanvas(props: { Active: boolean; setActive: any }) {
   return (
@@ -41,10 +42,12 @@ function OffCanvas(props: { Active: boolean; setActive: any }) {
             Icon={<FaUserCheck className="font-bold text-2xl " />}
           />
           <hr />
-          <Links
-            Title={"Login"}
-            Icon={<CiLogin className="font-bold text-2xl " />}
-          />
+          <Link to={"/login"}>
+            <Links
+              Title={"Login"}
+              Icon={<CiLogin className="font-bold text-2xl " />}
+            />
+          </Link>
           <hr />
           <Links
             Title={"Contact Us"}
