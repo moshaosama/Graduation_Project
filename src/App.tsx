@@ -1,12 +1,18 @@
+import { Route, Routes, useLocation } from "react-router";
 import "./App.css";
+import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 
 function App() {
+  const location = useLocation();
   return (
     <>
-      <div className="bg-[rgba(0,0,0,0.5)]">
-        <Home />
-      </div>
+      {location.pathname === "/login" ? null : <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </>
   );
 }
