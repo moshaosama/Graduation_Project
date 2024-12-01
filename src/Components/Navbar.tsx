@@ -18,7 +18,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center gap-3 max-sm:hidden">
             <button className="border border-white text-white p-2 rounded-xl hover:bg-white hover:text-blue-500 transition-all duration-300">
-              sign up
+              <Link to={"/signup"}>sign up</Link>
             </button>
             <Link
               to={"/login"}

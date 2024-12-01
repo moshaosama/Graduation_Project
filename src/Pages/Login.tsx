@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import ButtonForm from "../Components/Form/ButtonForm";
-import Form from "../Components/Form/Form";
 import { FaArrowLeft, FaFacebookSquare } from "react-icons/fa";
+import FormLogin from "../Components/Form/FormLogin";
 
 const Login = () => {
   const URL =
@@ -14,9 +14,9 @@ const Login = () => {
             <h1 className="text-center text-white font-bold p-1">login</h1>
           </div>
           <form action="">
-            <Form Title="Mobile or Email" Type="text" Id="Email" />
-            <Form Title="Password" Type="password" Id="Password" />
-            <ButtonForm Value="Login" />
+            <FormLogin Title="Mobile or Email" Type="text" Id="Email" />
+            <FormLogin Title="Password" Type="password" Id="Password" />
+            <ButtonForm Width="full" Value="Login" handleClick={() => {}} />
           </form>
 
           <div className="w-full text-end my-2 hover:underline">
@@ -52,7 +52,9 @@ const Login = () => {
             <Link to={"/"}>
               <div className="flex items-center gap-2">
                 <span className="font-bold">New User?</span>
-                <span className="text-blue-500 hover:underline">Sign Up</span>
+                <span className="text-blue-500 hover:underline">
+                  <Link to={"/signup"}>Sign Up</Link>
+                </span>
               </div>
             </Link>
           </div>
