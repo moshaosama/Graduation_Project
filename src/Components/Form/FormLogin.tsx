@@ -4,7 +4,7 @@ interface Props {
   Id: string;
 }
 
-const Form = ({ Title, Type, Id }: Props) => {
+const FormLogin = ({ Title, Type, Id }: Props) => {
   return (
     <>
       <div className="my-7 ">
@@ -16,7 +16,7 @@ const Form = ({ Title, Type, Id }: Props) => {
             type={Type}
             name={Id}
             id={Id}
-            className="my-2 rounded-lg p-2"
+            className="my-2 rounded-lg p-2 border-[2px] border-black"
           />
         </p>
       </div>
@@ -24,4 +24,4 @@ const Form = ({ Title, Type, Id }: Props) => {
   );
 };
 
-export default Form;
+export default FormLogin;
