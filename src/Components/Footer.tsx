@@ -1,6 +1,5 @@
-import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { FaX, FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router";
 
 const Footer = () => {
@@ -10,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col gap-4 sm:contents">
           <div className="flex justify-between sm:contents">
             <div>
-              <h1 className="font-bold text-xl max-sm:text-sm">BrandName</h1>
+              <h1 className="font-bold text-xl max-sm:text-sm">BrandNam</h1>
               <div className="flex flex-col gap-2 text-white my-2">
                 <a href="" className="hover:underline text-sm">
                   About Us
