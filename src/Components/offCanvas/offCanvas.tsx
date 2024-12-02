@@ -49,10 +49,12 @@ function OffCanvas(props: { Active: boolean; setActive: any }) {
             />
           </Link>
           <hr />
-          <Links
-            Title={"Contact Us"}
-            Icon={<FaPhone className="font-bold text-2xl " />}
-          />
+          <Link to={"/contactus"}>
+            <Links
+              Title={"Contact Us"}
+              Icon={<FaPhone className="font-bold text-2xl " />}
+            />
+          </Link>
           <hr />
         </div>
       ) : null}
