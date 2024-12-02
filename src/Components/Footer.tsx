@@ -1,6 +1,5 @@
-import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import { FaX, FaXTwitter } from "react-icons/fa6";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router";
 
 const Footer = () => {
