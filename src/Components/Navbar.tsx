@@ -27,9 +27,12 @@ const Navbar = () => {
               login
             </Link>
             <p className="text-white">|</p>
-            <p className="hover:underline cursor-pointer text-white">
+            <Link
+              to={"/contactus"}
+              className="hover:underline cursor-pointer text-white"
+            >
               Contact us
-            </p>
+            </Link>
             <p className="text-white">|</p>
             <p className="hover:underline cursor-pointer text-white">عربي</p>
             <p className="text-white">|</p>
