@@ -4,8 +4,9 @@ import Navbar from "./Components/Navbar";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
-import Contact from "./Pages/contact";
+
 import Footer from "./Components/Footer";
+import Contact from "./Pages/Contact";
 
 function App() {
   const location = useLocation();
