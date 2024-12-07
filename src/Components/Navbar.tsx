@@ -19,7 +19,7 @@ const Navbar = () => {
             <div className="flex items-center gap-3 cursor-pointer">
               <img src="Vector.png" alt="" className="w-10" />
               <h1
-                className="font-bold text-3xl font-Arbutus Slab text-blue-700"
+                className=" text-3xl font-Arbutus Slab text-blue-700"
                 style={{ fontFamily: "Arbutus Slab" }}
               >
                 MediPulse
