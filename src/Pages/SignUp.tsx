@@ -94,11 +94,7 @@ const SignUp = () => {
             </p>
           </div>
           <div className="flex justify-center">
-            <ButtonForm
-              Value="Join Now"
-              Width="[10pc]"
-              handleClick={Submiteed}
-            />
+            <ButtonForm Value="Join Now" Width="44" handleClick={Submiteed} />
           </div>
         </form>
         <hr className="p-1 my-5" />

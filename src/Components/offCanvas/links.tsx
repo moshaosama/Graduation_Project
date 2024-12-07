@@ -11,8 +11,8 @@ function Links(props: Props) {
   return (
     <>
       <div className="flex items-center gap-5 cursor-pointer  py-5 mx-5 my-5 ">
-        <div>{Icon}</div>
-        <div className="font-bold">{Title}</div>
+        <div className="text-black">{Icon}</div>
+        <div className="font-bold text-black">{Title}</div>
       </div>
     </>
   );

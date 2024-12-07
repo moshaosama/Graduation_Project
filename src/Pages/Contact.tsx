@@ -1,34 +1,6 @@
 const Contact = () => {
   return (
-    <div>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
-      <h1>Contact Us</h1>
+    <div className="font-bold text-4xl h-screen flex justify-center items-center">
       <h1>Contact Us</h1>
     </div>
   );

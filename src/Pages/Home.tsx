@@ -1,7 +1,9 @@
 function Home() {
   return (
     <>
-      <h1>Home page</h1>
+      <div className="flex flex-col h-screen justify-center items-center">
+        <h1 className="font-bold  text-4xl">Home page</h1>
+      </div>
     </>
   );
 }

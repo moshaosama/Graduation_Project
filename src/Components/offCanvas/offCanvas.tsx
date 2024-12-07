@@ -14,14 +14,14 @@ function OffCanvas(props: { Active: boolean; setActive: any }) {
     <>
       {props.Active ? (
         <div
-          className={`fixed top-0 right-0 w-0 h-full bg-blue-800 text-white sm:hidden ${
+          className={`fixed top-0 right-0 w-0 h-full bg-[#82c0ff] text-white sm:hidden rounded-l-xl  ${
             props.Active
               ? "w-64 transition-all duration-600 ease-in-out"
               : "w-0"
           }`}
         >
           <div
-            className="m-5 text-center cursor-pointer"
+            className="m-5 text-center cursor-pointer text-black"
             onClick={() => props.setActive(!props.Active)}
           >
             <FaArrowRight />
