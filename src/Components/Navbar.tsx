@@ -18,22 +18,34 @@ const Navbar = () => {
           <Link to={"/"}>
             <div className="flex items-center gap-3 cursor-pointer">
               <img src="Vector.png" alt="" className="w-10" />
-              <h1 className="font-bold text-3xl">MediPulse</h1>
+              <h1
+                className="font-bold text-3xl font-Arbutus Slab text-blue-700"
+                style={{ fontFamily: "Arbutus Slab" }}
+              >
+                MediPulse
+              </h1>
             </div>
           </Link>
           <div className="flex items-center gap-5 max-sm:hidden">
             <Link
               to={"/contactus"}
               className="hover:underline cursor-pointer text-black font-bold"
+              style={{ fontFamily: "Crimson Text" }}
             >
               Contact us
             </Link>
 
-            <p className="hover:underline cursor-pointer text-black font-bold">
+            <p
+              className="hover:underline cursor-pointer text-black font-bold"
+              style={{ fontFamily: "Crimson Text" }}
+            >
               عربي
             </p>
 
-            <p className="hover:underline cursor-pointer text-black font-bold">
+            <p
+              className="hover:underline cursor-pointer text-black font-bold"
+              style={{ fontFamily: "Crimson Text" }}
+            >
               Egypt
             </p>
           </div>
