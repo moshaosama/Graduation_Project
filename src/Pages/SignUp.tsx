@@ -2,16 +2,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import FormSignUp from "../Components/Form/FormSignUp";
 import ButtonForm from "../Components/Form/ButtonForm";
 import { Link } from "react-router-dom";
-import React, { ChangeEvent, useState } from "react";
-interface formState {
-  formState: {
-    userName: string;
-    mobildPhone: string;
-    EmaiL: string;
-    birthDate: string;
-    Password: string;
-  };
-}
+import { ChangeEvent, useState } from "react";
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
