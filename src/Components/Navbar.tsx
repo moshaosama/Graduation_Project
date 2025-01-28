@@ -1,16 +1,29 @@
 import React from "react";
 import { useState } from "react";
-import { FaBars } from "react-icons/fa";
 import { Link } from "react-router";
 
 const OffCanvas = React.lazy(() => import("./offCanvas/offCanvas"));
 
-const Navbar = () => {
+interface NavbarProps {
+  setFun: () => void;
+}
+
+const Navbar = ({ setFun }: NavbarProps) => {
   const [Active, setActive] = useState<boolean>(false);
+  const Language = JSON.stringify(window.localStorage.getItem("Language"));
+
+  function ChangeTextByLanguage(Text: string, newText: string) {
+    if (Language == '"English"') {
+      return Text;
+    } else {
+      return newText;
+    }
+  }
+
   return (
     <>
       <div
-        className={`py-5 shadow-2xl sm:bg-[#007fff4a] ${
+        className={`py-2 shadow-4xl  sm:bg-[#007fff4a] ${
           Active ? "bg-[rgba(0,0,0,0.5)]" : "bg-[#007fff4a]"
         }`}
       >
@@ -32,38 +45,32 @@ const Navbar = () => {
               className="hover:underline cursor-pointer text-black font-bold"
               style={{ fontFamily: "Crimson Text" }}
             >
-              Contact us
+              {ChangeTextByLanguage("contact us", "اتصل بنا")}
             </Link>
 
             <p
               className="hover:underline cursor-pointer text-black font-bold"
               style={{ fontFamily: "Crimson Text" }}
+              onClick={() => setFun()}
             >
-              عربي
+              {ChangeTextByLanguage("عربي", "English")}
             </p>
 
-            <p
-              className="hover:underline cursor-pointer text-black font-bold"
-              style={{ fontFamily: "Crimson Text" }}
-            >
-              Egypt
-            </p>
-          </div>
+            <h1>|</h1>
 
-          <div className="flex items-center gap-5 max-sm:hidden">
-            <Link
-              to={"/login"}
-              className="hover:underline cursor-pointer text-black font-bold "
-            >
-              login
-            </Link>
-            <button className="bg-blue-700  text-white font-bold p-2 rounded-xl hover:bg-blue-400 hover:text-black transition-all duration-300">
-              <Link to={"/signup"}>sign up</Link>
-            </button>
-          </div>
-
-          <div className="sm:hidden" onClick={() => setActive(!Active)}>
-            <FaBars className="text-white" />
+            <div className="flex items-center gap-5 max-sm:hidden">
+              <Link
+                to={"/login"}
+                className="hover:underline cursor-pointer text-black font-bold "
+              >
+                {ChangeTextByLanguage("login", "دخول")}
+              </Link>
+              <button className="bg-blue-400  text-white font-bold p-2 rounded-xl hover:bg-blue-400 hover:text-black transition-all duration-300">
+                <Link to={"/signup"}>
+                  {ChangeTextByLanguage("sign up", "انضم الان")}
+                </Link>
+              </button>
+            </div>
           </div>
         </div>
       </div>
