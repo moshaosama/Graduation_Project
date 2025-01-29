@@ -8,7 +8,7 @@ function Home() {
           <img
             src="https://www.accruent.com/hubfs/Healthcare-Hero.webp"
             alt="ImageHome.png"
-            className="h-[43pc] opacity-75  transition-all duration-1000 w-full object-cover"
+            className="h-[47pc] opacity-75  transition-all duration-1000 w-full object-cover"
           />
         </div>
         <div className="absolute top-20 left-80 flex flex-col gap-3 text-black">

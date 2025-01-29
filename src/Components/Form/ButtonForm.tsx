@@ -1,10 +1,6 @@
-interface Props {
-  Value: string;
-  Width: string;
-  handleClick: () => void;
-}
+import { ButtonFormProps } from "../../Types/User/Login";
 
-const ButtonForm = ({ Value, Width, handleClick }: Props) => {
+const ButtonForm = ({ Value, Width, handleClick }: ButtonFormProps) => {
   return (
     <>
       <input

@@ -1,11 +1,6 @@
-import React from "react";
+import { LinksProps } from "../../Types/offCanvas/Links";
 
-interface Props {
-  Title: String;
-  Icon: React.ReactNode;
-}
-
-function Links(props: Props) {
+function Links(props: LinksProps) {
   const { Title, Icon } = props;
 
   return (

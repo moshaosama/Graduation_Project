@@ -1,10 +1,6 @@
-interface Props {
-  Title: string;
-  Type: string;
-  Id: string;
-}
+import { loginProps } from "../../Types/User/Login";
 
-const FormLogin = ({ Title, Type, Id }: Props) => {
+const FormLogin = ({ Title, Type, Id, CahngeEvent }: loginProps) => {
   return (
     <>
       <div className="my-7 ">
@@ -17,6 +13,7 @@ const FormLogin = ({ Title, Type, Id }: Props) => {
             name={Id}
             id={Id}
             className="my-2 rounded-lg p-2 border-[2px] border-black"
+            onChange={CahngeEvent}
           />
         </p>
       </div>

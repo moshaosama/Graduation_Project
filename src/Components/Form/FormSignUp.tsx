@@ -1,12 +1,4 @@
-import React from "react";
-
-interface Props {
-  Placeholder: string;
-  Title: string;
-  Type: string;
-  Name: string;
-  HandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+import { signUpProps } from "../../Types/User/sgnUp";
 
 const FormSignUp = ({
   Placeholder,
@@ -14,7 +6,7 @@ const FormSignUp = ({
   Type,
   Name,
   HandleChange,
-}: Props) => {
+}: signUpProps) => {
   return (
     <div className="my-5">
       <p className="flex max-sm:flex-col max-sm:items-start  justify-between items-center">
