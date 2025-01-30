@@ -22,7 +22,7 @@ function Home() {
         </div>
         <div className="bg-white max-sm:px-3 max-sm:py-6 flex flex-col gap-5 ">
           <div
-            className="absolute max-sm:relative my-24 top-10 opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex flex-col gap-3 text-black"
+            className="absolute max-sm:relative sm:my-24 top-10 opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex flex-col gap-3 text-black"
             id="HeaderText"
           >
             <h1 className="text-4xl font-bold max-sm:text-lg max-sm:text-[#757575] max-sm:w-40 ">
