@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router";
 import { NavbarProps, User } from "../Types/Navbar";
+import { FaBars } from "react-icons/fa";
 
 const OffCanvas = React.lazy(() => import("./offCanvas/offCanvas"));
 
@@ -39,6 +40,9 @@ const Navbar = ({ setFun }: NavbarProps) => {
               </h1>
             </div>
           </Link>
+          <div className="sm:hidden" onClick={() => setActive(!Active)}>
+            <FaBars className="text-blue-500 text-xl" />
+          </div>
           <div className="flex items-center gap-5 max-sm:hidden">
             {Token ? (
               <h1>{User?.userName}</h1>
@@ -77,7 +81,6 @@ const Navbar = ({ setFun }: NavbarProps) => {
           </div>
         </div>
       </div>
-
       <div>
         <OffCanvas Active={Active} setActive={setActive} />
       </div>

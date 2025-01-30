@@ -10,11 +10,41 @@ import { CiLogin } from "react-icons/ci";
 import { Link } from "react-router";
 
 function OffCanvas(props: { Active: boolean; setActive: any }) {
+  const LinksLists = [
+    {
+      Title: "Home Page",
+      Icon: <FaHome className="font-bold text-2xl " />,
+      linkTo: "/",
+      onclick: () => props.setActive(false),
+    },
+    {
+      Title: "Join now as a user",
+      Icon: <FaUser className="font-bold text-2xl " />,
+      onclick: () => props.setActive(false),
+    },
+    {
+      Title: "bransName for Doctors",
+      Icon: <FaUserCheck className="font-bold text-2xl " />,
+      onclick: () => props.setActive(false),
+    },
+    {
+      Title: "Login",
+      Icon: <CiLogin className="font-bold text-2xl " />,
+      onclick: () => props.setActive(false),
+      linkTo: "/login",
+    },
+    {
+      Title: "Contact Us",
+      Icon: <FaPhone className="font-bold text-2xl " />,
+      onclick: () => props.setActive(false),
+      linkTo: "/contactus",
+    },
+  ];
   return (
     <>
       {props.Active ? (
         <div
-          className={`fixed top-0 right-0 w-0 h-full bg-[#82c0ff] text-white sm:hidden rounded-l-xl  ${
+          className={`fixed top-0 right-0 w-0 h-full z-50 bg-[#82c0ff] text-white sm:hidden rounded-l-xl  ${
             props.Active
               ? "w-64 transition-all duration-600 ease-in-out"
               : "w-0"
@@ -27,35 +57,11 @@ function OffCanvas(props: { Active: boolean; setActive: any }) {
             <FaArrowRight />
           </div>
           <hr />
-          <Links
-            Title={"Home Page"}
-            Icon={<FaHome className="font-bold text-2xl " />}
-          />
-          <hr />
-          <Links
-            Title={"Join now as a user"}
-            Icon={<FaUser className="font-bold text-2xl " />}
-          />
-          <hr />
-          <Links
-            Title={"bransName for Doctors"}
-            Icon={<FaUserCheck className="font-bold text-2xl " />}
-          />
-          <hr />
-          <Link to={"/login"}>
-            <Links
-              Title={"Login"}
-              Icon={<CiLogin className="font-bold text-2xl " />}
-            />
-          </Link>
-          <hr />
-          <Link to={"/contactus"}>
-            <Links
-              Title={"Contact Us"}
-              Icon={<FaPhone className="font-bold text-2xl " />}
-            />
-          </Link>
-          <hr />
+          {LinksLists.map((el) => (
+            <Link to={`${el.linkTo}`} onClick={el.onclick}>
+              <Links Title={el.Title} Icon={el.Icon} />
+            </Link>
+          ))}
         </div>
       ) : null}
     </>

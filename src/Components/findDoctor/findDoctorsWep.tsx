@@ -1,14 +1,16 @@
-import SpecialityCard from "./Card/SpecialityCard";
+import SpecialityCard from "../Card/SpecialityCard";
 import { FaStethoscope } from "react-icons/fa";
 import { CgFolderAdd } from "react-icons/cg";
 import { IoLocationSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaPersonBreastfeeding } from "react-icons/fa6";
 import { useState } from "react";
+import "../../App.css";
 
-const FindDoctors = () => {
+const FindDoctorsWep = () => {
   const Language = JSON.stringify(window.localStorage.getItem("Language")!);
-  const [ActiveSpecialityCard] = useState<boolean>(false);
+  const [ActiveSpecialityCard, setActiveSpecialityCard] =
+    useState<boolean>(true);
   const Elements = [
     {
       id: "1",
@@ -18,6 +20,7 @@ const FindDoctors = () => {
         "الفحص أو الإجراء"
       ),
       Element: <CgFolderAdd className="text-4xl" />,
+      onclick: () => setActiveSpecialityCard(true),
     },
     {
       id: "2",
@@ -27,6 +30,7 @@ const FindDoctors = () => {
         "المتابعة عبر مكالمة مع دكتور"
       ),
       Element: <FaStethoscope className="text-4xl" />,
+      onclick: () => setActiveSpecialityCard(false),
     },
   ];
 
@@ -74,7 +78,11 @@ const FindDoctors = () => {
           {Elements.map((el) => {
             return (
               <>
-                <div id={el.id}>
+                <div
+                  id={el.id}
+                  className={`${el.id == "1" ? "Active" : null}`}
+                  onClick={el.onclick}
+                >
                   <div
                     className={`flex ${
                       Language == '"English"' ? "flex-row" : "flex-row-reverse"
@@ -156,4 +164,4 @@ const FindDoctors = () => {
   );
 };
 
-export default FindDoctors;
+export default FindDoctorsWep;
