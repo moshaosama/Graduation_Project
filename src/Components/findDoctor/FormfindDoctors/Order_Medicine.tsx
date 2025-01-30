@@ -6,7 +6,7 @@ const Order_Medicine = () => {
   const handleClick = () => {
     const Input = document.getElementById("Input");
     if (Input) {
-      window.scroll(0, Input.getBoundingClientRect().y - 15);
+      window.scroll(0, Input.getBoundingClientRect().y - 14);
     }
   };
   return (
@@ -19,6 +19,7 @@ const Order_Medicine = () => {
             <input
               id="Input"
               type="text"
+              className="w-full"
               placeholder="Search For a Product"
               onClick={handleClick}
             />
