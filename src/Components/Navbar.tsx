@@ -28,7 +28,7 @@ const Navbar = ({ setFun }: NavbarProps) => {
           Active ? "bg-[rgba(0,0,0,0.5)]" : "bg-[#007fff4a]"
         }`}
       >
-        <div className="flex items-center justify-between mx-48 max-sm:justify-between max-sm:mx-5">
+        <div className="flex items-center justify-between mx-64 max-sm:justify-between max-sm:mx-5">
           <Link to={"/"}>
             <div className="flex items-center gap-3 cursor-pointer">
               <img src="Vector.png" alt="" className="w-10" />

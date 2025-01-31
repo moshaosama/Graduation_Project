@@ -40,7 +40,7 @@ const FindDoctorContent = () => {
               <div
                 className={`bg-white ${
                   el.id === 1 ? "rounded-l-xl" : ""
-                }  w-56 p-3 flex items-center justify-between hover:bg-[#0a84ff7a] cursor-pointer transition-all duration-300`}
+                }  w-56 p-3 border-[#ddd] border-[1px] shadow-md flex items-center justify-between hover:bg-[#0a84ff7a] cursor-pointer transition-all duration-300`}
               >
                 <div className="flex flex-col gap-1">
                   <p className="text-[#808080] text-sm font-semibold">
