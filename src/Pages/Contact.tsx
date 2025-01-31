@@ -5,7 +5,7 @@ import FormContact from "../Components/findDoctor/findDoctorContent/FormContact/
 const Contact = () => {
   return (
     <>
-      <div className="relative">
+      <div className="relative max-sm:hidden">
         <img
           src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/jenkins-93/images/search-header-background-en.jpg"
           alt="Doctors.png"
