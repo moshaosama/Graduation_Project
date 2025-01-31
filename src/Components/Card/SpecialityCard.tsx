@@ -1,5 +1,5 @@
-import { FaArrowDown } from "react-icons/fa";
 import { SpecialityCardProps } from "../../Types/Card/SpecialityCard";
+import { MdArrowDropDown } from "react-icons/md";
 
 const SpecialityCard = ({ Title, Label, Element }: SpecialityCardProps) => {
   return (
@@ -13,7 +13,7 @@ const SpecialityCard = ({ Title, Label, Element }: SpecialityCardProps) => {
           </div>
         </div>
         <div>
-          <FaArrowDown className="text-sm text-[#8b8b8b]" />
+          <MdArrowDropDown className="text-3xl text-[#8b8b8b]" />
         </div>
       </div>
     </>

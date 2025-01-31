@@ -1,5 +1,5 @@
 import { IoIosCall } from "react-icons/io";
-import FindDoctorContent from "../Components/findDoctor/findDoctorContent/findDoctorContent";
+import FindDoctorContent from "../Components/findDoctor/findDoctorContent/findDoctorContent/findDoctorContent";
 
 const Contact = () => {
   return (
