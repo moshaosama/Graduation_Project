@@ -1,4 +1,4 @@
-import { findDoctor } from "../../Types/FormDoctor/findDoctor";
+import { findDoctor } from "../../../Types/FormDoctor/findDoctor";
 
 const FormDoctors = ({ Element }: findDoctor) => {
   return (

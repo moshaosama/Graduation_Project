@@ -2,9 +2,9 @@ import { useState } from "react";
 import { FaClinicMedical } from "react-icons/fa";
 import { GiMedicines } from "react-icons/gi";
 import { IoIosCall } from "react-icons/io";
-import Clinic_Visit from "./FormfindDoctors/Clinic_Visit";
-import Order_Medicine from "./FormfindDoctors/Order_Medicine";
-import Doctor_Call from "./FormfindDoctors/Doctor_Call";
+import Clinic_Visit from "../FormfindDoctors/Clinic_Visit";
+import Order_Medicine from "../FormfindDoctors/Order_Medicine";
+import Doctor_Call from "../FormfindDoctors/Doctor_Call";
 
 const FindDectorResponsive = () => {
   const [ActiveFindDeoctor, setFindDoctor] = useState("Clinic Visit");

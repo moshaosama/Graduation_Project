@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import FindDectorResponsive from "../Components/findDoctor/findDectorResponsive";
-import FindDoctorsWep from "../Components/findDoctor/findDoctorsWep";
+import FindDoctorsWep from "../Components/findDoctor/findDoctorWep/findDoctorsWep";
+import FindDectorResponsive from "../Components/findDoctor/findDoctorResponsive/findDectorResponsive";
 
 function Home() {
   useEffect(() => {

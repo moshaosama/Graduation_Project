@@ -1,5 +1,5 @@
 import { CiSearch } from "react-icons/ci";
-import FormDoctors from "../FormDoctors";
+import FormDoctors from "./FormDoctors";
 import "../../../App.css";
 
 const Order_Medicine = () => {

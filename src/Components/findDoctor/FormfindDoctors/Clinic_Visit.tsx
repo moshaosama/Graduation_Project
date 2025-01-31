@@ -1,4 +1,4 @@
-import FormDoctors from "../FormDoctors";
+import FormDoctors from "./FormDoctors";
 
 const Clinic_Visit = () => {
   return (

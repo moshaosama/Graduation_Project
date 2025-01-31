@@ -1,11 +1,11 @@
-import SpecialityCard from "../Card/SpecialityCard";
 import { FaStethoscope } from "react-icons/fa";
 import { CgFolderAdd } from "react-icons/cg";
 import { IoLocationSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaPersonBreastfeeding } from "react-icons/fa6";
 import { useState } from "react";
-import "../../App.css";
+import "../../../App.css";
+import SpecialityCard from "../../Card/SpecialityCard";
 
 const FindDoctorsWep = () => {
   const Language = JSON.stringify(window.localStorage.getItem("Language")!);
