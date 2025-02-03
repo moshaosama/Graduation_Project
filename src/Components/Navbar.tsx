@@ -14,7 +14,6 @@ const Navbar = ({ setFun }: NavbarProps) => {
   const Language = JSON.stringify(window.localStorage.getItem("Language"));
   const Token = window.localStorage.getItem("Token");
   const User: User = JSON.parse(window.localStorage.getItem("User")!);
-  console.log(User);
 
   function ChangeTextByLanguage(Text: string, newText: string) {
     if (Language == '"English"') {
