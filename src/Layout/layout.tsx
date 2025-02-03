@@ -6,6 +6,9 @@ import Contact from "../Pages/Contact";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import Profile from "../Pages/Profile";
+import ChangePassword from "../Components/ProfileData/changePassword";
+import InfoProfile from "../Components/ProfileData/infoProfile";
 
 const Layout = () => {
   const location = useLocation();
@@ -28,6 +31,10 @@ const Layout = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/contactus" element={<Contact />} />
+        <Route path="/Account" element={<Profile />}>
+          <Route path="profile" element={<InfoProfile />} />
+          <Route path="changepassword" element={<ChangePassword />} />
+        </Route>
       </Routes>
       {location.pathname == "/login" ||
       location.pathname === "/signup" ? null : (

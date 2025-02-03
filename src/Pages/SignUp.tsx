@@ -88,6 +88,7 @@ const SignUp = () => {
                 Type={el.Type}
                 Title={el.Title}
                 HandleChange={ChangeFromState}
+                Margin="0"
               />
             );
           })}

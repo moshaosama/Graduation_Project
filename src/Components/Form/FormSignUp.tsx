@@ -6,9 +6,10 @@ const FormSignUp = ({
   Type,
   Name,
   HandleChange,
+  Margin,
 }: signUpProps) => {
   return (
-    <div className="my-5">
+    <div className="my-2">
       <p className="flex max-sm:flex-col max-sm:items-start  justify-between items-center">
         <label htmlFor="">
           {Title} <span className="text-red-500">*</span>
@@ -18,7 +19,7 @@ const FormSignUp = ({
           type={Type}
           name={Name}
           placeholder={Placeholder}
-          className="my-2 w-96 max-sm:w-full rounded-lg p-1 border-[2px] border-black"
+          className={`my-2 mx-${Margin} w-96 max-sm:w-full rounded-lg p-1 border-[2px] border-black`}
           onChange={HandleChange}
         />
       </p>

@@ -4,4 +4,5 @@ export interface signUpProps {
   Type: string;
   Name: string;
   HandleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  Margin: string;
 }
