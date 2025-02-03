@@ -1,6 +1,6 @@
 import { InputProps } from "../../Types/Forms/input";
 
-const Inputs = ({ Label, Type }: InputProps) => {
+const Inputs = ({ Label, Type, placeHolder, ChangeEvent }: InputProps) => {
   return (
     <>
       <p className="flex max-sm:flex-col my-2  justify-between">
@@ -10,7 +10,9 @@ const Inputs = ({ Label, Type }: InputProps) => {
         </label>
         <input
           type={Type}
-          className="w-96 max-sm:w-full h-10 border-[#ddd] border-[1px] rounded-lg shadow-sm"
+          className="w-96 px-3 max-sm:w-full h-10 border-[#ddd] border-[1px] rounded-lg shadow-sm"
+          placeholder={placeHolder}
+          onChange={ChangeEvent}
         />
       </p>
     </>

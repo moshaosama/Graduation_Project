@@ -42,28 +42,28 @@ function OffCanvas(props: { Active: boolean; setActive: any }) {
   ];
   return (
     <>
-      {props.Active ? (
-        <div
-          className={`fixed top-0 right-0 w-0 h-full z-50 bg-[#82c0ff] text-white sm:hidden rounded-l-xl  ${
-            props.Active
-              ? "w-64 transition-all duration-600 ease-in-out"
-              : "w-0"
-          }`}
-        >
-          <div
-            className="m-5 text-center cursor-pointer text-black"
-            onClick={() => props.setActive(!props.Active)}
-          >
-            <FaArrowRight />
+      <div
+        className={`fixed top-0 right-0  ${
+          props.Active ? "w-64" : "w-0"
+        }  h-full z-50 transition-all duration-300 bg-[#82c0ff] text-white sm:hidden rounded-l-xl`}
+      >
+        {props.Active ? (
+          <div>
+            <div
+              className="m-5 text-center cursor-pointer text-black"
+              onClick={() => props.setActive(!props.Active)}
+            >
+              <FaArrowRight />
+            </div>
+            <hr />
+            {LinksLists.map((el) => (
+              <Link to={`${el.linkTo}`} onClick={el.onclick}>
+                <Links Title={el.Title} Icon={el.Icon} />
+              </Link>
+            ))}
           </div>
-          <hr />
-          {LinksLists.map((el) => (
-            <Link to={`${el.linkTo}`} onClick={el.onclick}>
-              <Links Title={el.Title} Icon={el.Icon} />
-            </Link>
-          ))}
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </>
   );
 }
