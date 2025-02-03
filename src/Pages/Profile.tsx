@@ -1,6 +1,4 @@
-import { NavLink, Outlet, Route, Routes } from "react-router";
-import ChangePassword from "../Components/ProfileData/changePassword";
-import InfoProfile from "../Components/ProfileData/infoProfile";
+import { NavLink, Outlet } from "react-router";
 
 const Profile = () => {
   const DetailsList = [
