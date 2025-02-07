@@ -69,7 +69,7 @@ const FindDoctorsWep = () => {
   };
   return (
     <>
-      <div className="bg-white shadow-2xl w-[75pc] text-[rgb(116,116,112)] p-5 absolute top-80 left-80  rounded-2xl">
+      <div className="bg-white shadow-2xl w-[80pc] text-[rgb(116,116,112)] p-5 absolute top-80 left-80  rounded-2xl">
         <div
           className={`flex ${
             Language == '"English"' ? "flex-row" : "flex-row-reverse"

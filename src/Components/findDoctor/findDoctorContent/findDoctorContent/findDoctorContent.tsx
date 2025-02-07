@@ -10,25 +10,25 @@ const FindDoctorContent = () => {
       id: 1,
       Label: "Select a specialty",
       Title: "Choose specialty",
-      Element: <FaStethoscope className="text-2xl" />,
+      Element: <FaStethoscope className="text-md" />,
     },
     {
       id: 2,
       Label: "In this city",
       Title: "Choose city",
-      Element: <IoLocationSharp className="text-2xl" />,
+      Element: <IoLocationSharp className="text-md" />,
     },
     {
       id: 3,
       Label: "In this area",
       Title: "Choose area",
-      Element: <IoLocationSharp className="text-2xl" />,
+      Element: <IoLocationSharp className="text-md" />,
     },
     {
       id: 4,
       Label: "My insurance is",
       Title: "Choose insurance",
-      Element: <IoLocationSharp className="text-2xl" />,
+      Element: <IoLocationSharp className="text-md" />,
     },
   ];
   return (
@@ -40,15 +40,15 @@ const FindDoctorContent = () => {
               <div
                 className={`bg-white ${
                   el.id === 1 ? "rounded-l-xl" : ""
-                }  w-56 p-3 border-[#ddd] border-[1px] shadow-md flex items-center justify-between hover:bg-[#0a84ff7a] cursor-pointer transition-all duration-300`}
+                }  w-52 py-1 px-3 border-[#ddd] border-[1px] shadow-md flex items-center justify-between hover:bg-[#0a84ff7a] cursor-pointer transition-all duration-300`}
               >
                 <div className="flex flex-col gap-1">
                   <p className="text-[#808080] text-sm font-semibold">
                     {el.Label}
                   </p>
-                  <div className="flex items-center gap-4 text-[#0a84ff7a]">
+                  <div className="flex items-center  gap-2 text-[#0a84ff7a]">
                     {el.Element}
-                    <h1>{el.Title}</h1>
+                    <h1 className="text-md">{el.Title}</h1>
                   </div>
                 </div>
                 <div>
@@ -66,12 +66,13 @@ const FindDoctorContent = () => {
             >
               Or search by name
             </label>
-            <div className="flex gap-2">
-              <FaPersonBreastfeeding className="text-2xl text-[#0a84ff7a]" />
+            <div className="flex items-center gap-1">
+              <FaPersonBreastfeeding className="text-md text-[#0a84ff7a]" />
               <input
                 type="text"
                 id="personName"
-                className="focus:border-none"
+                className="focus:border-none "
+                placeholder="Doctor name or hospital"
               />
             </div>
           </form>

@@ -40,6 +40,10 @@ function Home() {
           </div>
         </div>
       </div>
+
+      <div className="mx-80">
+        <h1>Mosha</h1>
+      </div>
     </>
   );
 }

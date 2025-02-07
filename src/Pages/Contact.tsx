@@ -11,7 +11,7 @@ const Contact = () => {
           alt="Doctors.png"
           className="w-[100%]"
         />
-        <div className="my-3 absolute top-0 left-64">
+        <div className="my-3 absolute top-0 left-64 mx-16">
           <div className="flex flex-col gap-1">
             <h1 className="text-lg font-bold text-[rgb(111,112,114)]">
               Book with The best Doctor

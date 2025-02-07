@@ -31,7 +31,7 @@ const Navbar = ({ setFun }: NavbarProps) => {
             Active ? "bg-[rgba(0,0,0,0.5)]" : "bg-[#007fff4a]"
           }`}
         >
-          <div className="flex items-center justify-between mx-64 max-sm:justify-between max-sm:mx-5">
+          <div className="flex items-center justify-between mx-80 max-sm:justify-between max-sm:mx-5">
             <Link to={"/"}>
               <div className="flex items-center gap-3 cursor-pointer">
                 <img src="Vector.png" alt="" className="w-10" />
@@ -99,7 +99,7 @@ const Navbar = ({ setFun }: NavbarProps) => {
           <div
             className={`absolute flex  transition-all duration-300 flex-col gap-1 right-96 top-14  rounded shadow-md shadow-black z-50 bg-white w-fit`}
           >
-            <Link to={"/Account/profile"}>
+            <Link to={"/profile/info"}>
               <div
                 onClick={() => setActiveDashboard(false)}
                 className="flex gap-2 p-3 text-[#0a84ff7a] font-bold hover:bg-[#0a84ff7a] hover:text-black cursor-pointer transition-all duration-300"
@@ -116,10 +116,19 @@ const Navbar = ({ setFun }: NavbarProps) => {
               <CiLogout className="text-xl" />
               <h1>My Insurance</h1>
             </div>
-            <div className="flex gap-2 p-3 text-[#0a84ff7a] font-bold hover:bg-[#0a84ff7a] hover:text-black cursor-pointer transition-all duration-300">
-              <CiLogout className="text-xl" />
-              <h1>Logout</h1>
-            </div>
+            <Link to={""}>
+              <div
+                onClick={() => {
+                  window.localStorage.removeItem("Token");
+                  // window.location.reload();
+                  setActiveDashboard(false);
+                }}
+                className="flex gap-2 p-3 text-[#0a84ff7a] font-bold hover:bg-[#0a84ff7a] hover:text-black cursor-pointer transition-all duration-300"
+              >
+                <CiLogout className="text-xl" />
+                <h1>Logout</h1>
+              </div>
+            </Link>
           </div>
         ) : null}
       </div>

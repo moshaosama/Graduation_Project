@@ -1,9 +1,9 @@
-import Layout from "./Layout/layout";
+import Router_pages from "./Routers/Router";
 
 function App() {
   return (
     <>
-      <Layout />
+      <Router_pages />
     </>
   );
 }

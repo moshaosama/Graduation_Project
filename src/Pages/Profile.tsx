@@ -18,19 +18,19 @@ const Profile = () => {
     {
       id: 1,
       Title: ChangeTextByLanguage("Profile", "صفحتي"),
-      link: "/Account/profile",
+      link: "/profile/info",
       Element: <FaDatabase />,
     },
     {
       id: 2,
       Title: ChangeTextByLanguage("Change Password", "تغيير كلمه المرور"),
-      link: "/Account/changepassword",
+      link: "/profile/changepassword",
       Element: <RiLockPasswordFill />,
     },
     {
       id: 3,
       Title: ChangeTextByLanguage("My Insurance", "تأميني الطبي"),
-      link: "/Account/my",
+      link: "/profile/my",
       Element: <AiOutlineFileProtect />,
     },
   ];
@@ -60,9 +60,7 @@ const Profile = () => {
             </NavLink>
           ))}
         </div>
-        <div>
-          <Outlet />
-        </div>
+        <Outlet />
       </div>
     </>
   );
