@@ -1,85 +1,61 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import ProfileData from "./ProfileData";
+import { ChangeTextByLanguage } from "../../Language/Language";
+import { useNavigate } from "react-router";
 
 const ChangePassword = () => {
-  const Language = JSON.stringify(window.localStorage.getItem("Language"));
+  const User = JSON.parse(window.localStorage.getItem("User")!);
+  const Navigation = useNavigate();
 
-  function ChangeTextByLanguage(Text: string, newText: string) {
-    if (Language == '"English"') {
-      return Text;
-    } else {
-      return newText;
-    }
-  }
+  const [changeInput, setChangeInput] = useState({
+    Password: "",
+    newPassword: "",
+  });
+
+  const formConfig = [
+    {
+      Label: ChangeTextByLanguage("Password", "كلمه المرور"),
+      Type: "password",
+      placeHolder: "Enter a Password",
+    },
+    {
+      Label: ChangeTextByLanguage("newPassword", "كلمه المرور الجديده"),
+      Type: "password",
+      placeHolder: "Enter a New_Password",
+    },
+  ];
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChangeInput({ ...changeInput, [e.target.name]: e.target.value });
+  };
+
+  const HandleClickSave = () => {
+    fetch(`http://localhost:3000/changepassword/${User?.Email}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(changeInput),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then(() => {
+        window.localStorage.removeItem("Token");
+        Navigation("/login");
+      });
+  };
+
   return (
-    <div className="bg-white pb-4 w-[50rem] max-sm:w-full rounded-lg">
-      <div className="bg-[rgb(0,112,205)] text-center text-white font-bold p-1 rounded-lg">
-        <h1>{ChangeTextByLanguage("Change Passwrd", "تغيير كلمه المرور")}</h1>
-      </div>
-      <div>
-        <form action="" className="mx-10">
-          <p
-            className={`flex ${
-              Language == '"English"' ? "flex" : "flex-row-reverse"
-            } max-sm:flex-col max-sm:items-start  justify-between items-center`}
-          >
-            <label
-              className={`font-bold ${
-                Language == '"English"' ? "flex" : "flex-row-reverse"
-              } flex gap-1`}
-            >
-              {ChangeTextByLanguage("Password", "كلمه المرور ")}{" "}
-              <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              className={`my-2 ${
-                Language == '"English"' ? "text-start" : "text-end"
-              } w-96 max-sm:w-full rounded-lg p-1 border-[2px] border-black`}
-            />
-          </p>
-          <p
-            className={`flex ${
-              Language == '"English"' ? "flex" : "flex-row-reverse"
-            } max-sm:flex-col max-sm:items-start  justify-between items-center`}
-          >
-            <label
-              className={`font-bold ${
-                Language == '"English"' ? "flex" : "flex-row-reverse"
-              } flex gap-1`}
-            >
-              {ChangeTextByLanguage("New Password", "كلمه المرور الجديده")}{" "}
-              <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              className={`my-2 ${
-                Language == '"English"' ? "text-start" : "text-end"
-              } w-96 max-sm:w-full rounded-lg p-1 border-[2px] border-black`}
-            />
-          </p>
-        </form>
-      </div>
-      <div
-        className={`flex ${
-          Language == '"English"'
-            ? "flex-row  mx-[16.5pc]"
-            : "flex-row-reverse mx-[23.5pc]"
-        } gap-3 my-4  max-sm:mx-10`}
-      >
-        <div>
-          <button className="rounded-lg text-white font-bold hover:bg-red-600 transition-all duration-300 bg-[red] w-28 p-1">
-            {ChangeTextByLanguage("Save", "حفظ")}
-          </button>
-        </div>
-        <Link to={"/"}>
-          <div>
-            <button className="rounded-lg text-black  hover:bg-[rgb(143,143,143)] transition-all duration-300 bg-[rgb(245,245,245)] w-28 p-1">
-              {ChangeTextByLanguage("Cancel", "ألغاء")}
-            </button>
-          </div>
-        </Link>
-      </div>
-    </div>
+    <>
+      <ProfileData
+        TitleEN="Change Password"
+        TitleAR="تغيير كلمه المرور"
+        Lists={formConfig}
+        handleChange={handleChangeInput}
+        handleClickSave={HandleClickSave}
+      />
+    </>
   );
 };
 

@@ -5,23 +5,15 @@ import { NavbarProps, User } from "../Types/Navbar";
 import { FaBars } from "react-icons/fa";
 import { MdOutlineArrowDropDown, MdOutlinePerson2 } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
+import { ChangeTextByLanguage } from "../Language/Language";
 
 const OffCanvas = React.lazy(() => import("./offCanvas/offCanvas"));
 
 const Navbar = ({ setFun }: NavbarProps) => {
   const [Active, setActive] = useState<boolean>(false);
   const [ActiveDashboard, setActiveDashboard] = useState<boolean>(false);
-  const Language = JSON.stringify(window.localStorage.getItem("Language"));
   const Token = window.localStorage.getItem("Token");
   const User: User = JSON.parse(window.localStorage.getItem("User")!);
-
-  function ChangeTextByLanguage(Text: string, newText: string) {
-    if (Language == '"English"') {
-      return Text;
-    } else {
-      return newText;
-    }
-  }
 
   return (
     <>
@@ -33,7 +25,10 @@ const Navbar = ({ setFun }: NavbarProps) => {
         >
           <div className="flex items-center justify-between mx-80 max-sm:justify-between max-sm:mx-5">
             <Link to={"/"}>
-              <div className="flex items-center gap-3 cursor-pointer">
+              <div
+                className="flex items-center gap-3 cursor-pointer"
+                onClick={() => setActiveDashboard(false)}
+              >
                 <img src="Vector.png" alt="" className="w-10" />
                 <h1
                   className=" text-3xl font-Arbutus Slab text-blue-700"
@@ -75,7 +70,7 @@ const Navbar = ({ setFun }: NavbarProps) => {
               )}
               <h1>|</h1>
               <Link
-                to={"/contactus"}
+                to={"/contact"}
                 className="hover:underline cursor-pointer text-black font-bold"
                 style={{ fontFamily: "Crimson Text" }}
               >

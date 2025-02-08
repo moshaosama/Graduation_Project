@@ -11,6 +11,7 @@ const Layout = () => {
   const handleClick = () => {
     const newLanguag = Language === "English" ? "Arabic" : "English";
     setLanguage(newLanguag);
+    window.location.reload();
     window.localStorage.setItem("Language", newLanguag);
   };
   return (
