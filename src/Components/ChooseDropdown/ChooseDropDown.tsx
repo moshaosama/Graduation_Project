@@ -24,7 +24,7 @@ const ChooseDropDown = ({
 
   useEffect(() => {
     dispatch(fetchData());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>

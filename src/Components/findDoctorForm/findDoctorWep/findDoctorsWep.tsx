@@ -11,19 +11,30 @@ import ChooseDropDown from "../../ChooseDropdown/ChooseDropDown";
 import { fetchLocation } from "../../../Store/Reducer/Location/LocationReducer";
 import { fetchSpeciality } from "../../../Store/Reducer/Speciality/SpecialityReducer";
 import { fetchArea } from "../../../Store/Reducer/Area/AreaReducer";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../Store/Store";
+import { fetchDoctor } from "../../../Store/Reducer/Doctor/DoctorReducer";
+import { Link } from "react-router-dom";
 
 const FindDoctorsWep = () => {
   const Language = JSON.stringify(window.localStorage.getItem("Language")!);
-  const [DropDownState, setDropDownState] = useState({
-    Speciality: false,
-    Location: false,
-    Area: false,
-  });
 
   const [data, setData] = useState({
     Speciality: ChangeTextByLanguage("Choose specialty", "أختار التخصص"),
     City: ChangeTextByLanguage("Choose city", "القاهره"),
     Area: ChangeTextByLanguage("Choose area", "اختار المنطقه"),
+  });
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleClickSave = () => {
+    dispatch(fetchDoctor(data));
+  };
+
+  const [DropDownState, setDropDownState] = useState({
+    Speciality: false,
+    Location: false,
+    Area: false,
   });
 
   const handleSpecialityState = () => {
@@ -152,33 +163,32 @@ const FindDoctorsWep = () => {
         >
           {Elements.map((el) => {
             return (
-              <>
+              <div
+                key={el.id}
+                id={el.id}
+                className={`${el.id == "1" ? "Active" : null}`}
+                onClick={el.onclick}
+              >
                 <div
-                  id={el.id}
-                  className={`${el.id == "1" ? "Active" : null}`}
-                  onClick={el.onclick}
+                  className={`flex ${
+                    Language == '"English"' ? "flex-row" : "flex-row-reverse"
+                  } items-center gap-5 cursor-pointer  hover:text-[#0a84ff7a] transition-all duration-300`}
+                  onClick={() => hancleClick(el.id)}
                 >
-                  <div
-                    className={`flex ${
-                      Language == '"English"' ? "flex-row" : "flex-row-reverse"
-                    } items-center gap-5 cursor-pointer  hover:text-[#0a84ff7a] transition-all duration-300`}
-                    onClick={() => hancleClick(el.id)}
-                  >
-                    <div>{el.Element}</div>
-                    <div className="text-xl" key={el.id}>
-                      <h1
-                        className={`font-bold ${
-                          Language == '"English"' ? "text-start" : "text-end"
-                        }`}
-                      >
-                        {el.headerText}
-                      </h1>
-                      <p className="text-sm font-bold">{el.Text}</p>
-                    </div>
+                  <div>{el.Element}</div>
+                  <div className="text-xl" key={el.id}>
+                    <h1
+                      className={`font-bold ${
+                        Language == '"English"' ? "text-start" : "text-end"
+                      }`}
+                    >
+                      {el.headerText}
+                    </h1>
+                    <p className="text-sm font-bold">{el.Text}</p>
                   </div>
-                  <hr className="bg-[#ddd]" />
                 </div>
-              </>
+                <hr className="bg-[#ddd]" />
+              </div>
             );
           })}
         </div>
@@ -191,6 +201,7 @@ const FindDoctorsWep = () => {
               {SpecialityCardList.map((el) => {
                 return (
                   <SpecialityCard
+                    key={el.Title}
                     onCLick={el.onClick}
                     Title={el.Title}
                     Label={el.Label}
@@ -223,15 +234,18 @@ const FindDoctorsWep = () => {
                 className={`h-[4.6pc] border border-solid ${
                   Language == '"English"' ? "rounded-r-xl" : "rounded-l-xl"
                 } bg-red-600 cursor-pointer hover:bg-red-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
+                onClick={handleClickSave}
               >
-                <div
-                  className={`flex ${Traslation.ConvertFLex} items-center gap-3`}
-                >
-                  <CiSearch className="text-white text-3xl font-bold" />
-                  <h1 className="text-white font-semibold">
-                    {ChangeTextByLanguage("Search", "بحث")}
-                  </h1>
-                </div>
+                <Link to={"/doctors"}>
+                  <div
+                    className={`flex ${Traslation.ConvertFLex} items-center gap-3`}
+                  >
+                    <CiSearch className="text-white text-3xl font-bold" />
+                    <h1 className="text-white font-semibold">
+                      {ChangeTextByLanguage("Search", "بحث")}
+                    </h1>
+                  </div>
+                </Link>
               </div>
             </div>
           </>

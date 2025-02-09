@@ -1,12 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ReduxData } from "../../../Types/Store/ReduxData";
 
-const initialState: ReduxData = {
-  loading: true,
-  data: {},
-  error: "",
-};
+import { ReduxData } from "../../../Types/StoreData/ReduxData";
 
 export const fetchSpeciality = createAsyncThunk(
   "Specialty/fetchSpeciality",
@@ -19,6 +14,12 @@ export const fetchSpeciality = createAsyncThunk(
     }
   }
 );
+
+const initialState: ReduxData = {
+  loading: true,
+  data: {},
+  error: "",
+};
 
 const SpecialityReducer = createSlice({
   name: "Specialty",

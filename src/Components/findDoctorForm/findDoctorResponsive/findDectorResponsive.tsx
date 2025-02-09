@@ -51,10 +51,11 @@ const FindDectorResponsive = () => {
       <div className="flex justify-between   border-blue-500">
         {listFindDoctor.map((el) => (
           <div
-            className={`  flex flex-col items-center ${
-              el.id == "3" ? "active rounded-tl-lg" : null
-            }  ${
-              el.id == "5" ? "rounded-tr-lg" : null
+            key={el.id}
+            className={`flex flex-col items-center ${
+              el.id === "3" ? "active rounded-tl-lg" : ""
+            } ${
+              el.id === "5" ? "rounded-tr-lg" : ""
             } py-4 w-full text-blue-600 bg-[rgb(229,241,255)]`}
             id={el.id}
             onClick={() => activeItem(el.id, el.Name)}

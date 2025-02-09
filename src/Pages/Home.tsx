@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import FindDoctorsWep from "../Components/findDoctor/findDoctorWep/findDoctorsWep";
-import FindDectorResponsive from "../Components/findDoctor/findDoctorResponsive/findDectorResponsive";
+
 import { ChangeTextByLanguage, Traslation } from "../Language/Language";
+import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
+import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDectorResponsive";
 
 function Home() {
   useEffect(() => {
@@ -11,6 +12,7 @@ function Home() {
       HeaderText.style.setProperty("opacity", "100");
     }
   }, []);
+
   return (
     <>
       <div className="relative">

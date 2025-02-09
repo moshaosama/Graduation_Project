@@ -9,6 +9,7 @@ import ChangePassword from "../Components/ProfileData/changePassword";
 import { RouterProvider } from "react-router-dom";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
+import Doctor from "../Pages/Doctor";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -46,6 +47,10 @@ const Router_pages = () => {
         {
           path: "signup",
           element: <SignUp />,
+        },
+        {
+          path: "doctors",
+          element: <Doctor />,
         },
       ],
     },

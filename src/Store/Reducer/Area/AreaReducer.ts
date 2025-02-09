@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ReduxData } from "../../../Types/Store/ReduxData";
+import { ReduxData } from "../../../Types/StoreData/ReduxData";
 import axios from "axios";
+
+export const fetchArea = createAsyncThunk("Area/fetchArea", async () => {
+  const response = await axios.get("http://localhost:3000/getArea");
+  return response.data;
+});
 
 const initialState: ReduxData = {
   loading: true,
   data: {},
   error: "",
 };
-
-export const fetchArea = createAsyncThunk("Area/fetchArea", async () => {
-  const response = await axios.get("http://localhost:3000/getArea");
-  return response.data;
-});
 
 const AreaSlice = createSlice({
   name: "Area",

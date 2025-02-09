@@ -1,12 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ReduxData } from "../../../Types/Store/ReduxData";
-import axios from "axios";
 
-const initialState: ReduxData = {
-  loading: true,
-  data: {},
-  error: "",
-};
+import axios from "axios";
+import { ReduxData } from "../../../Types/StoreData/ReduxData";
 
 export const fetchLocation = createAsyncThunk(
   "location/fetchLocation",
@@ -19,6 +14,11 @@ export const fetchLocation = createAsyncThunk(
     }
   }
 );
+const initialState: ReduxData = {
+  loading: true,
+  data: {},
+  error: "",
+};
 
 const locationReducer = createSlice({
   name: "location",
