@@ -1,6 +1,5 @@
 import { IoIosArrowForward } from "react-icons/io";
 import { newServiceProps } from "../../Types/newService/newService";
-import { Link } from "react-router-dom";
 
 const NewService = ({
   Image,
