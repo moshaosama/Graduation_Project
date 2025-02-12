@@ -3,6 +3,7 @@ import specialityReducer from "./Reducer/Speciality/SpecialityReducer.ts";
 import locationReducer from "./Reducer/Location/LocationReducer.ts";
 import AreaReducer from "./Reducer/Area/AreaReducer.ts";
 import doctorReducer from "./Reducer/Doctor/DoctorReducer.ts";
+import allDoctorReducer from "./Reducer/AllDoctor/AllDoctor.ts";
 
 export const Store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const Store = configureStore({
     Location: locationReducer,
     Area: AreaReducer,
     Doctor: doctorReducer,
+    allDoctor: allDoctorReducer,
   },
 });
 

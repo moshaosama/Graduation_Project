@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router";
 import Layout from "../Layout/layout";
 import NotFound from "../Pages/NotFound";
 import Home from "../Pages/Home";
-import Contact from "../Pages/Contact";
 import Profile from "../Pages/Profile";
 import InfoProfile from "../Components/ProfileData/infoProfile";
 import ChangePassword from "../Components/ProfileData/changePassword";
@@ -10,6 +9,8 @@ import { RouterProvider } from "react-router-dom";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Doctor from "../Pages/Doctor";
+import FormContact from "../Components/findDoctorForm/findDoctorContent/FormContact/formContact";
+import Contact from "../Pages/Contact";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -25,6 +26,16 @@ const Router_pages = () => {
         {
           path: "contact",
           element: <Contact />,
+          children: [
+            {
+              index: true,
+              element: <FormContact />,
+            },
+            {
+              path: "doctor",
+              element: <Doctor />,
+            },
+          ],
         },
         {
           path: "profile",

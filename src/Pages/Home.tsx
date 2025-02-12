@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import { ChangeTextByLanguage, Traslation } from "../Language/Language";
 import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
 import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDectorResponsive";
+import ChatBot from "../Components/NewServieces/ChatBot";
+import FeatureDoctor from "../Components/NewServieces/FeatureDoctor";
+import MedicineTracker from "../Components/NewServieces/MedicineTracker";
 
 function Home() {
   useEffect(() => {
@@ -25,7 +28,7 @@ function Home() {
         </div>
         <div className="bg-white max-sm:px-3 max-sm:py-6 flex flex-col gap-5">
           <div
-            className="absolute w-[80pc] max-sm:w-0  max-sm:relative sm:my-10  opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex  flex-col gap-3 text-black"
+            className="absolute top-10 w-[80pc] max-sm:w-0  max-sm:relative sm:my-10  opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex  flex-col gap-3 text-black"
             id="HeaderText"
           >
             <h1
@@ -54,20 +57,13 @@ function Home() {
         </div>
       </div>
 
-      <div className="mx-80 max-sm:mx-3">
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
-        <h1>Mosha</h1>
+      <div className="mx-80 my-10 max-sm:mx-3">
+        <h1 className="text-3xl text-gray-600 font-bold">
+          New services for better healthcare
+        </h1>
+        <ChatBot />
+        <FeatureDoctor />
+        <MedicineTracker />
       </div>
     </>
   );

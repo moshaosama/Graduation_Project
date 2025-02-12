@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { RootState } from "../Store/Store";
 import { useSelector } from "react-redux";
+import DoctorsSec from "../Components/Doctors/DoctorsSec";
+import Filtering from "../Components/Filtering/Filtering";
 
 const Doctor = () => {
   const state = useSelector((state: RootState) => state.Doctor);
@@ -15,14 +17,20 @@ const Doctor = () => {
       setDoctors(state.data);
     }
   }, [state.data]);
+  // console.log(Doctors);
 
   return (
     <>
-      <div>
-        {Doctors?.result?.map((el: any) => (
-          <h1 key={el.DoctorID}>{el.FullName}</h1>
-        ))}
-      </div>
+      {Doctors == null ? (
+        <h1 className="my-2 text-red-700 flex justify-center font-bold">
+          No Doctors Yet!!
+        </h1>
+      ) : (
+        <div className="mx-80 my-2 flex gap-10 items-start">
+          <Filtering />
+          <DoctorsSec />
+        </div>
+      )}
     </>
   );
 };

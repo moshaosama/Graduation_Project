@@ -6,4 +6,5 @@ export interface SpecialityCardProps {
   Title: string;
   onCLick: () => void;
   DropDown: ReactElement;
+  Width: string;
 }

@@ -28,7 +28,7 @@ const ChooseDropDown = ({
 
   return (
     <>
-      <div className="bg-white absolute w-96 border-[1px] border-gray-700 rounded-xl py-3 px-7">
+      <div className="bg-white absolute w-96 border-[1px] z-50 border-gray-700 rounded-xl py-3 px-7">
         <h1 className="text-sm font-bold text-gray-400">
           {ChangeTextByLanguage("Most Popular", "الأكثر اختيارا")}
         </h1>

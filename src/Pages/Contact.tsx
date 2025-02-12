@@ -1,6 +1,6 @@
 import { IoIosCall } from "react-icons/io";
 import FindDoctorContent from "../Components/findDoctorForm/findDoctorContent/findDoctorContent/findDoctorContent";
-import FormContact from "../Components/findDoctorForm/findDoctorContent/FormContact/formContact";
+import { Outlet } from "react-router";
 
 const Contact = () => {
   return (
@@ -34,9 +34,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div>
-        <FormContact />
-      </div>
+      <Outlet />
     </>
   );
 };

@@ -8,13 +8,14 @@ const SpecialityCard = ({
   Element,
   onCLick,
   DropDown,
+  Width,
 }: SpecialityCardProps) => {
   const Language = JSON.stringify(window.localStorage.getItem("Language")!);
   return (
     <>
       <div className="flex flex-col relative">
         <div
-          className={`p-2 border border-solid border-[#9b9b9b] w-72 cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`}
+          className={`p-2 border border-solid border-[#9b9b9b] w-${Width} cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`}
           onClick={onCLick}
         >
           <div>

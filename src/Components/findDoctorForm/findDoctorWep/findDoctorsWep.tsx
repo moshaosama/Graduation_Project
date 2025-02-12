@@ -207,6 +207,7 @@ const FindDoctorsWep = () => {
                     Label={el.Label}
                     Element={el.Element}
                     DropDown={el.DropDown}
+                    Width="72"
                   />
                 );
               })}
@@ -236,7 +237,7 @@ const FindDoctorsWep = () => {
                 } bg-red-600 cursor-pointer hover:bg-red-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
                 onClick={handleClickSave}
               >
-                <Link to={"/doctors"}>
+                <Link to={"/contact/doctor"}>
                   <div
                     className={`flex ${Traslation.ConvertFLex} items-center gap-3`}
                   >
@@ -256,6 +257,7 @@ const FindDoctorsWep = () => {
             <SpecialityCard
               Title={"Choose specialty"}
               Label={"Select a specialty"}
+              Width="72"
               Element={<FaStethoscope className="text-2xl" />}
               onCLick={handleSpecialityState}
               DropDown={
