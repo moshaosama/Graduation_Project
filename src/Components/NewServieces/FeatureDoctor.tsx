@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../Store/Store";
 import { useEffect } from "react";
 import { fetchSpeciality } from "../../Store/Reducer/Speciality/SpecialityReducer";
-import { fetchDoctor } from "../../Store/Reducer/Doctor/DoctorReducer";
 import { fetchAllDoctor } from "../../Store/Reducer/AllDoctor/AllDoctor";
 import { DoctorType, SpecialtyType } from "../../Types/Doctor/Doctor";
 import { IoLocationSharp } from "react-icons/io5";
@@ -45,7 +44,7 @@ const FeatureDoctor = () => {
             );
           })}
         </div>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-3 gap-3 max-sm:gap-x-96 max-sm:w-full max-sm:overflow-x-scroll">
           {stateAllDoctor?.data?.result
             ?.slice(0, 9)
             ?.map((el: DoctorType, index: number) => {
@@ -53,7 +52,7 @@ const FeatureDoctor = () => {
                 <>
                   <div
                     key={index}
-                    className="border-[1px] cursor-pointer border-solid flex items-start gap-2 p-2 rounded-xl shadow-md"
+                    className="border-[1px] max-sm:w-96 cursor-pointer border-solid flex items-start gap-2 p-2 rounded-xl shadow-md"
                   >
                     <img
                       src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
@@ -61,13 +60,13 @@ const FeatureDoctor = () => {
                       className="w-14 rounded-full"
                     />
                     <div className="flex flex-col gap-2">
-                      <h1 className="font-semibold text-sm text-gray-600">
+                      <h1 className="font-semibold text-sm max-sm:font-sans text-gray-600">
                         {el.FullName}
                       </h1>
                       <p className="text-sm">{el.Specialty_name}</p>
                       <div className="flex gap-1 items-center">
                         <IoLocationSharp className="text-blue-500" />
-                        <p className="text-md font-semibold text-gray-600">
+                        <p className="text-md max-sm:text-sm font-semibold text-gray-600">
                           {el?.Clinic.slice(0, 40)}
                         </p>
                       </div>

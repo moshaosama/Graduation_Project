@@ -8,7 +8,7 @@ const ChatBot = () => {
           <img
             src="/download-removebg-preview (6).png"
             alt="Chatbot.png"
-            className="w-20"
+            className="w-20 max-sm:w-10"
           />
         }
         Title="ChatBot"
