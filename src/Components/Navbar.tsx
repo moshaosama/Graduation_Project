@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa";
 import { MdOutlineArrowDropDown, MdOutlinePerson2 } from "react-icons/md";
 import { CiLogout } from "react-icons/ci";
 import { ChangeTextByLanguage } from "../Language/Language";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const OffCanvas = React.lazy(() => import("./offCanvas/offCanvas"));
 
@@ -14,6 +15,23 @@ const Navbar = ({ setFun }: NavbarProps) => {
   const [ActiveDashboard, setActiveDashboard] = useState<boolean>(false);
   const Token = window.localStorage.getItem("Token");
   const User: User = JSON.parse(window.localStorage.getItem("User")!);
+
+  const [medicineDetail, setMedicineDetaile] = useState(false);
+
+  const changeMedicineDetail = () => {
+    setMedicineDetaile(!medicineDetail);
+  };
+
+  const BtnList = [
+    {
+      Title: "Add New",
+      Link: "/createmedicine",
+    },
+    {
+      Title: "View List",
+      Link: "",
+    },
+  ];
 
   return (
     <>
@@ -77,6 +95,18 @@ const Navbar = ({ setFun }: NavbarProps) => {
                 {ChangeTextByLanguage("contact us", "اتصل بنا")}
               </Link>
               <h1>|</h1>
+
+              <div
+                className="hover:underline flex items-center cursor-pointer
+                text-black font-bold"
+                style={{ fontFamily: "Crimson Text" }}
+                onClick={changeMedicineDetail}
+              >
+                {ChangeTextByLanguage("medicines", "اتصل بنا")}
+                <IoMdArrowDropdown />
+              </div>
+
+              <h1>|</h1>
               <p
                 className="hover:underline cursor-pointer text-black font-bold"
                 style={{ fontFamily: "Crimson Text" }}
@@ -87,12 +117,35 @@ const Navbar = ({ setFun }: NavbarProps) => {
             </div>
           </div>
         </div>
+        {medicineDetail ? (
+          <div className="bg-white w-fit absolute right-96 py-2 rounded-md z-50">
+            <div className="flex flex-col ">
+              {BtnList?.map(
+                (el: { Title: string; Link: string }, index: number) => {
+                  return (
+                    <Link
+                      to={el.Link}
+                      onClick={() => setMedicineDetaile(false)}
+                    >
+                      <button
+                        className="w-full hover:bg-[#ddd] transition-all duration-500 px-14 py-2"
+                        key={index}
+                      >
+                        {el.Title}
+                      </button>
+                    </Link>
+                  );
+                }
+              )}
+            </div>
+          </div>
+        ) : null}
         <div>
           <OffCanvas Active={Active} setActive={setActive} />
         </div>
         {ActiveDashboard ? (
           <div
-            className={`absolute flex  transition-all duration-300 flex-col gap-1 right-96 top-14  rounded shadow-md shadow-black z-50 bg-white w-fit`}
+            className={`absolute flex  transition-all duration-300 flex-col gap-1 right-[32pc] top-14  rounded shadow-md shadow-black z-50 bg-white w-fit`}
           >
             <Link to={"/profile/info"}>
               <div

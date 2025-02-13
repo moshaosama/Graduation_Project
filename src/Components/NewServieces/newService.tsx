@@ -12,7 +12,9 @@ const NewService = ({
 }: newServiceProps) => {
   return (
     <div
-      className={`bg-gradient-to-r from-${BackGroundFrom} to-${BackGroundTo} p-5 max-sm:w-full  my-4 rounded-lg flex justify-between items-center`}
+      className={`bg-gradient-to-r from-${
+        BackGroundFrom || "blue-400"
+      }  to-${BackGroundTo} p-5 max-sm:w-full  my-4 rounded-lg flex justify-between items-center`}
     >
       <div className={`text-${ColorText} flex gap-5 items-center`}>
         {Image}

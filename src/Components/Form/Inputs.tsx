@@ -5,7 +5,7 @@ const Inputs = ({ Label, Type, placeHolder, ChangeEvent }: InputProps) => {
   return (
     <>
       <p
-        className={`flex ${Traslation.ConvertFLex} max-sm:flex-col my-2  justify-between`}
+        className={`flex ${Traslation.ConvertFLex} max-sm:flex-col my-2 gap-4 items-center  justify-between`}
       >
         <label
           htmlFor={Label}
