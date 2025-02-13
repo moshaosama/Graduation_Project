@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Inputs from "../Components/Form/Inputs";
-import { AppDispatch, RootState } from "../Store/Store";
+import { AppDispatch } from "../Store/Store";
 import ButtonForm from "../Components/Form/ButtonForm";
 import { createNewMedicine } from "../Store/Reducer/MedicineTracker/CreateNewMedicine";
 import React, { useState } from "react";
 
 const CreateNewMedicine = () => {
-  const state = useSelector((state: RootState) => state.createMedicine);
   const dispatch = useDispatch<AppDispatch>();
   const [Name, setName] = useState("");
   const [Description, setDescription] = useState("");
