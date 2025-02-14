@@ -1,7 +1,13 @@
 import { Traslation } from "../../Language/Language";
 import { InputProps } from "../../Types/Forms/input";
 
-const Inputs = ({ Label, Type, placeHolder, ChangeEvent }: InputProps) => {
+const Inputs = ({
+  Label,
+  Type,
+  placeHolder,
+  ChangeEvent,
+  Value,
+}: InputProps) => {
   return (
     <>
       <p
@@ -20,6 +26,7 @@ const Inputs = ({ Label, Type, placeHolder, ChangeEvent }: InputProps) => {
           placeholder={placeHolder}
           onChange={ChangeEvent}
           name={Label}
+          value={Value}
         />
       </p>
     </>

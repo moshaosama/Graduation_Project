@@ -13,6 +13,8 @@ export interface DataMedicine {
   Description: string;
 }
 
+export const user = JSON.parse(window.localStorage.getItem("User")!);
+
 export const createNewMedicine = createAsyncThunk(
   "createMedicine/createNewSlice",
   async ({ Name, Description }: DataMedicine) => {
@@ -20,6 +22,7 @@ export const createNewMedicine = createAsyncThunk(
       const response = await axios.post(
         "http://localhost:3000/create_new_medicine",
         {
+          userId: user?.id,
           Name,
           Description,
         }

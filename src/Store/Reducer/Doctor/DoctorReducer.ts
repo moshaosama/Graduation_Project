@@ -17,7 +17,7 @@ export const fetchDoctor = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      return "Something went wrong";
+      console.log("Something went wrong");
     }
   }
 );

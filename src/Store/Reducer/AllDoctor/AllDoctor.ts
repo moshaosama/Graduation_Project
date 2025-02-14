@@ -15,7 +15,7 @@ export const fetchAllDoctor = createAsyncThunk(
       const response = await axios.get("http://localhost:3000/findDoctor/all");
       return response.data;
     } catch (error) {
-      return error;
+      console.log(error);
     }
   }
 );

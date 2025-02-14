@@ -11,8 +11,9 @@ import SignUp from "../Pages/SignUp";
 import Doctor from "../Pages/Doctor";
 import FormContact from "../Components/findDoctorForm/findDoctorContent/FormContact/formContact";
 import Contact from "../Pages/Contact";
-import MedicineTracker from "../Pages/MedicineTracker";
 import CreateNewMedicine from "../Pages/CreateNewMedicine";
+import ListMedicine from "../Pages/ListMedicine/ListMedicine";
+import EditMedicine from "../Pages/EditMedicine/editMedicine";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -58,13 +59,18 @@ const Router_pages = () => {
           element: <Login />,
         },
         {
-          path: "medicinetracker",
-          element: <MedicineTracker />,
-        },
-        {
           path: "createmedicine",
           element: <CreateNewMedicine />,
         },
+        {
+          path: "listmedicine",
+          element: <ListMedicine />,
+        },
+        {
+          path: "listmedicine/:id",
+          element: <EditMedicine />,
+        },
+
         {
           path: "signup",
           element: <SignUp />,

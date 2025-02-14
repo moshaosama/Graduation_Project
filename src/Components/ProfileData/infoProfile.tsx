@@ -3,7 +3,7 @@ import ProfileData from "./ProfileData";
 import { ChangeTextByLanguage } from "../../Language/Language";
 
 const InfoProfile = () => {
-  const User = JSON.parse(window.localStorage.getItem("User")!);
+  const User = JSON.parse(window.localStorage.getItem("User") || "{}");
 
   const [formState, setFormState] = useState({
     userName: User?.userName,

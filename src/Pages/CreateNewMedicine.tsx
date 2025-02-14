@@ -4,14 +4,16 @@ import { AppDispatch } from "../Store/Store";
 import ButtonForm from "../Components/Form/ButtonForm";
 import { createNewMedicine } from "../Store/Reducer/MedicineTracker/CreateNewMedicine";
 import React, { useState } from "react";
+import TitleText from "../Components/TitleText";
+import { Link } from "react-router-dom";
 
 const CreateNewMedicine = () => {
   const dispatch = useDispatch<AppDispatch>();
   const [Name, setName] = useState("");
   const [Description, setDescription] = useState("");
   return (
-    <div className=" flex flex-col py-32 justify-center items-center gap-10">
-      <h1 className=" text-2xl font-bold font-sans ">Create New Medcine</h1>
+    <div className=" flex flex-col py-28 justify-center items-center gap-10">
+      <TitleText Title="Create New Medicine" />
       <div className="flex flex-col gap-2">
         <Inputs
           Label="Medicine Name"
@@ -22,7 +24,7 @@ const CreateNewMedicine = () => {
           }
         />
         <p
-          className={`flex  max-sm:flex-col my-2 gap-4 items-center  justify-between`}
+          className={`flex  max-sm:flex-col my-4 gap-4 items-center  justify-between`}
         >
           <label htmlFor="Description" className={`font-bold flex gap-2 `}>
             <span>Description</span>
@@ -38,13 +40,16 @@ const CreateNewMedicine = () => {
           />
         </p>
         <div className="flex justify-center gap-10">
-          <ButtonForm
-            Value="Save"
-            Width="28"
-            handleClick={() =>
-              dispatch(createNewMedicine({ Name, Description }))
-            }
-          />
+          <Link to={"/listmedicine"}>
+            <ButtonForm
+              Value="Save"
+              Width="28"
+              handleClick={() =>
+                dispatch(createNewMedicine({ Name, Description }))
+              }
+            />
+          </Link>
+
           <ButtonForm Value="Cancel" Width="28" handleClick={() => {}} />
         </div>
       </div>

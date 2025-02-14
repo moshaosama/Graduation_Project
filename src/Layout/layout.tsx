@@ -6,7 +6,7 @@ import Navbar from "../Components/Navbar";
 const Layout = () => {
   const location = useLocation();
   const [Language, setLanguage] = useState(
-    window.localStorage.getItem("Language") || "English"
+    window.localStorage.getItem("Language") || "Arabic"
   );
   const handleClick = () => {
     const newLanguag = Language === "English" ? "Arabic" : "English";

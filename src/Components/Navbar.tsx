@@ -29,7 +29,7 @@ const Navbar = ({ setFun }: NavbarProps) => {
     },
     {
       Title: "View List",
-      Link: "",
+      Link: "/listmedicine",
     },
   ];
 
