@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "../../Store/Store";
 import { useEffect } from "react";
 import { fetchSpeciality } from "../../Store/Reducer/Speciality/SpecialityReducer";
 import { ChangeTextByLanguage } from "../../Language/Language";
+import TitleForSection from "../TitleForSection/TitleForSection";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
 
 const SpecialityForm = ({ image }: { image: string }) => {
@@ -21,22 +22,27 @@ const ExploreUs = () => {
   const state = useSelector((state: RootState) => state.Speciality);
   const dispatch = useDispatch<AppDispatch>();
   const { language } = useConvertLanguage();
-  console.log(language);
 
   useEffect(() => {
     dispatch(fetchSpeciality());
   }, []);
 
+  window.addEventListener("scroll", () => {
+    const SpecialityForm = document.getElementById("SpecialityForm");
+    if (window.scrollY >= 300) {
+      if (SpecialityForm) {
+        SpecialityForm.style.setProperty("gap", "20px");
+        SpecialityForm.style.setProperty("opacity", "100%");
+      }
+    }
+  });
+
   return (
     <>
       <div className="flex flex-col  gap-5">
-        <h1
-          className={`text-[#184C99] text-5xl font-bold ${
-            language === "English" ? "text-end" : ""
-          } `}
-        >
-          {ChangeTextByLanguage("استكشفنا", "Explore US")}
-        </h1>
+        <TitleForSection
+          Text={ChangeTextByLanguage("استكشفنا", "Explore US")}
+        />
         <div
           className={`flex items-center ${
             language == "English" ? "justify-end" : " "
@@ -45,7 +51,10 @@ const ExploreUs = () => {
           <p>{ChangeTextByLanguage("التخصصات", "Specialties")}</p>
           <p>{ChangeTextByLanguage("الأعلى تقييما", "Top rated")}</p>
         </div>
-        <div className="flex justify-between gap-20 items-center">
+        <div
+          className="flex justify-between gap-60 transition-all duration-500 opacity-5 items-center"
+          id="SpecialityForm"
+        >
           {state.data?.result
             ?.slice(0, 5)
             .map((el: { Specialty_name: string }, index: number) => {

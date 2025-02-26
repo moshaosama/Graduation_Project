@@ -1,27 +1,64 @@
+import useConvertLanguage from "../../Hooks/useConvertLanguage";
+import { ChangeTextByLanguage } from "../../Language/Language";
+import ImageRender from "../ImageRender";
 import NewService from "../NewServieces/newService";
 
 const ChatBot = () => {
+  const { language } = useConvertLanguage();
+
+  window.addEventListener("scroll", function () {
+    const ChatGbtSec = document.getElementById("ChatGbtSec");
+    if (window.scrollY >= 800) {
+      ChatGbtSec?.style.setProperty("gap", "0px");
+      ChatGbtSec?.style.setProperty("opacity", "100%");
+    }
+  });
+
   return (
     <>
-      <NewService
-        Image={
-          <img
-            src="/download-removebg-preview (6).png"
-            alt="Chatbot.png"
-            className="w-20 max-sm:w-10"
+      <div
+        className={`bg-blue-700 ${
+          language == "English" ? "flex-row-reverse" : "flex-row"
+        } w-full flex justify-center py-10 my-4 items-center gap-10`}
+      >
+        <ImageRender
+          src="src\assets\WhatsApp_Image_2025-02-26_at_22.44.55_0078e028-removebg-preview.png"
+          alt="ChatIcon.png"
+          width="20"
+        />
+        <h1 className="text-5xl font-bold text-white">
+          {ChangeTextByLanguage(
+            "تحقق من صحتك بشكل أكثر ذكاءً",
+            "Check your health smarter"
+          )}
+        </h1>
+      </div>
+
+      <div
+        className="w-full m-10 flex justify-around gap-96 transition-all duration-500 opacity-5"
+        id="ChatGbtSec"
+      >
+        <div>
+          <h1 className="text-4xl text-[#184C99] font-bold">Smart AI</h1>
+          <div className="m-10 flex items-center gap-10">
+            <ImageRender
+              src="src\assets\WhatsApp_Image_2025-02-26_at_22.59.18_b28e4f7c-removebg-preview.png"
+              alt="ChatBgtIcon.png"
+              width="36"
+            />
+            <button className="py-4 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
+              Ask....
+            </button>
+          </div>
+        </div>
+        <div>
+          <ImageRender
+            src="src\assets\WhatsApp_Image_2025-02-26_at_23.05.16_522ef8e0-removebg-preview.png"
+            alt="DoctorIcon.png"
+            width="96"
           />
-        }
-        Title="ChatBot"
-        Description="An AI-powered chatbot for seamless and intelligent conversations."
-        Button={
-          <button className="bg-white p-4 w-72 rounded-xl text-black font-bold">
-            See Details
-          </button>
-        }
-        BackGroundFrom="blue-400"
-        BackGroundTo="blue-700"
-        ColorText="white"
-      />
+        </div>
+      </div>
     </>
   );
 };

@@ -30,7 +30,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="mx-80 my-[55pc] max-sm:mx-3">
+      <div className="mx-80 mt-[55pc] max-sm:mx-3">
         <ExploreUs />
 
         <ChatBot />
