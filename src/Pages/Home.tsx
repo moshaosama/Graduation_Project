@@ -7,6 +7,7 @@ import HeaderText from "../Components/HeaderText/HeaderText";
 import Header from "../Components/Header/Header";
 import ExploreUs from "../Components/ExploreUs/ExploreUs";
 import TopDoctors from "../Components/TopDoctors/TopDoctors";
+import OurService from "../Components/OurServices/OurService";
 
 function Home() {
   useEffect(() => {
@@ -35,7 +36,7 @@ function Home() {
 
         <ChatBot />
         <TopDoctors />
-
+        <OurService />
         <MedicineTracker />
       </div>
     </>

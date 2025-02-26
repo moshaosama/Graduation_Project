@@ -19,7 +19,7 @@ const ChatBot = () => {
       <div
         className={`bg-blue-700 ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        } w-full flex justify-center rounded py-10 my-4 items-center gap-10`}
+        } w-full flex justify-center py-10 my-4 items-center gap-10`}
       >
         <ImageRender
           src="src\assets\WhatsApp_Image_2025-02-26_at_22.44.55_0078e028-removebg-preview.png"
