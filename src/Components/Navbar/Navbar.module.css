@@ -1,0 +1,11 @@
+.LogoBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.TextLogo {
+  font-size: 30px;
+  font-family: "Arbutus Slab";
+  color: rgba(29, 78, 216, 1);
+}

@@ -13,7 +13,7 @@ import FormContact from "../Components/findDoctorForm/findDoctorContent/FormCont
 import Contact from "../Pages/Contact";
 import CreateNewMedicine from "../Pages/CreateNewMedicine";
 import ListMedicine from "../Pages/ListMedicine/ListMedicine";
-import EditMedicine from "../Pages/EditMedicine/editMedicine";
+import EditMedicine from "../Pages/EditMedicine/EditMedicine";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([

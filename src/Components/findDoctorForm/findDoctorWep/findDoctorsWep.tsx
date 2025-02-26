@@ -3,7 +3,7 @@ import { CgFolderAdd } from "react-icons/cg";
 import { IoLocationSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaPersonBreastfeeding } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../../App.css";
 import SpecialityCard from "../../Card/SpecialityCard";
 import { ChangeTextByLanguage, Traslation } from "../../../Language/Language";
@@ -14,21 +14,28 @@ import { fetchArea } from "../../../Store/Reducer/Area/AreaReducer";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../Store/Store";
 import { fetchDoctor } from "../../../Store/Reducer/Doctor/DoctorReducer";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ImageRender from "../../ImageRender";
 
 const FindDoctorsWep = () => {
   const Language = JSON.stringify(window.localStorage.getItem("Language")!);
+  const [isLoading, setLoading] = useState(false);
+  const Navigator = useNavigate();
 
   const [data, setData] = useState({
-    Speciality: ChangeTextByLanguage("Choose specialty", "أختار التخصص"),
-    City: ChangeTextByLanguage("Choose city", "القاهره"),
-    Area: ChangeTextByLanguage("Choose area", "اختار المنطقه"),
+    Speciality: ChangeTextByLanguage("أختار التخصص", "Choose specialty"),
+    City: ChangeTextByLanguage("القاهره", "Choose city"),
+    Area: ChangeTextByLanguage("اختار المنطقه", "Choose area"),
   });
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const handleClickSave = () => {
+  const handleClickSave = async () => {
+    setLoading(true);
+    await new Promise((resolver) => setTimeout(resolver, 1000));
+    setLoading(false);
     dispatch(fetchDoctor(data));
+    Navigator("/contact/doctor");
   };
 
   const [DropDownState, setDropDownState] = useState({
@@ -42,14 +49,14 @@ const FindDoctorsWep = () => {
       ...DropDownState,
       Speciality: !DropDownState.Speciality,
     });
-    window.scrollTo({ top: 385, behavior: "smooth" });
+    window.scrollTo({ top: 510, behavior: "smooth" });
   };
   const handleLocationState = () => {
     setDropDownState({
       ...DropDownState,
       Location: !DropDownState.Location,
     });
-    window.scrollTo({ top: 385, behavior: "smooth" });
+    window.scrollTo({ top: 510, behavior: "smooth" });
   };
 
   const handleAreaState = () => {
@@ -57,7 +64,7 @@ const FindDoctorsWep = () => {
       ...DropDownState,
       Area: !DropDownState.Area,
     });
-    window.scrollTo({ top: 385, behavior: "smooth" });
+    window.scrollTo({ top: 510, behavior: "smooth" });
   };
 
   const [ActiveSpecialityCard, setActiveSpecialityCard] =
@@ -65,20 +72,20 @@ const FindDoctorsWep = () => {
   const Elements = [
     {
       id: "1",
-      headerText: ChangeTextByLanguage("Book a doctor", "احجز دكتور"),
+      headerText: ChangeTextByLanguage("احجز دكتور", "Book a doctor"),
       Text: ChangeTextByLanguage(
-        "Examination or procedure",
-        "الفحص أو الإجراء"
+        "الفحص أو الإجراء",
+        "Examination or procedure"
       ),
       Element: <CgFolderAdd className="text-3xl" />,
       onclick: () => setActiveSpecialityCard(true),
     },
     {
       id: "2",
-      headerText: ChangeTextByLanguage("Telehealth", "مكالمة دكتور"),
+      headerText: ChangeTextByLanguage("مكالمة دكتور", "Telehealth"),
       Text: ChangeTextByLanguage(
-        "Call consultation with doctor",
-        "المتابعة عبر مكالمة مع دكتور"
+        "المتابعة عبر مكالمة مع دكتور",
+        "Call consultation with doctor"
       ),
       Element: <FaStethoscope className="text-3xl" />,
       onclick: () => setActiveSpecialityCard(false),
@@ -86,7 +93,7 @@ const FindDoctorsWep = () => {
   ];
   const SpecialityCardList = [
     {
-      Label: ChangeTextByLanguage("Select a specialty", "أنا ابحث عن دكتور"),
+      Label: ChangeTextByLanguage("أنا ابحث عن دكتور", "Select a specialty"),
       Title: data.Speciality,
       Element: <FaStethoscope className="text-xl" />,
       onClick: handleSpecialityState,
@@ -105,7 +112,7 @@ const FindDoctorsWep = () => {
       ),
     },
     {
-      Label: ChangeTextByLanguage("In this city", "في محافظه"),
+      Label: ChangeTextByLanguage("في محافظه", "In this city"),
       Title: data.City,
       Element: <IoLocationSharp className="text-xl" />,
       onClick: handleLocationState,
@@ -124,7 +131,7 @@ const FindDoctorsWep = () => {
       ),
     },
     {
-      Label: ChangeTextByLanguage("In this area", "في منطقه"),
+      Label: ChangeTextByLanguage("في منطقه", "In this area"),
       Title: data.Area,
       Element: <IoLocationSharp className="text-xl" />,
       onClick: handleAreaState,
@@ -153,144 +160,164 @@ const FindDoctorsWep = () => {
     ELement?.classList.add("Active");
   };
 
+  useEffect(() => {
+    const findDoctorContainer = document.getElementById("findDoctorContainer");
+    if (findDoctorContainer) {
+      findDoctorContainer.style.setProperty("top", "26pc");
+      findDoctorContainer.style.setProperty("opacity", "100%");
+    }
+  });
+
   return (
     <>
-      <div className="bg-white shadow-2xl w-[80pc] text-[rgb(116,116,112)] p-5 absolute top-80 left-80  rounded-2xl">
+      <div>
         <div
-          className={`flex ${
-            Language == '"English"' ? "flex-row" : "flex-row-reverse"
-          }  items-center justify-center gap-60`}
+          className="bg-white  shadow-2xl w-[80pc] transition-all duration-500 opacity-5 text-[rgb(116,116,112)] p-5 z-50 absolute top-[20pc] left-80  rounded-2xl"
+          id="findDoctorContainer"
         >
-          {Elements.map((el) => {
-            return (
-              <div
-                key={el.id}
-                id={el.id}
-                className={`${el.id == "1" ? "Active" : null}`}
-                onClick={el.onclick}
-              >
+          <div
+            className={`flex ${
+              Language == '"English"' ? "flex-row" : "flex-row-reverse"
+            }  items-center justify-center gap-60`}
+          >
+            {Elements.map((el) => {
+              return (
                 <div
-                  className={`flex ${
-                    Language == '"English"' ? "flex-row" : "flex-row-reverse"
-                  } items-center gap-5 cursor-pointer  hover:text-[#0a84ff7a] transition-all duration-300`}
-                  onClick={() => hancleClick(el.id)}
+                  key={el.id}
+                  id={el.id}
+                  className={`${el.id == "1" ? "Active" : null}`}
+                  onClick={el.onclick}
                 >
-                  <div>{el.Element}</div>
-                  <div className="text-xl" key={el.id}>
-                    <h1
-                      className={`font-bold ${
-                        Language == '"English"' ? "text-start" : "text-end"
-                      }`}
-                    >
-                      {el.headerText}
-                    </h1>
-                    <p className="text-sm font-bold">{el.Text}</p>
-                  </div>
-                </div>
-                <hr className="bg-[#ddd]" />
-              </div>
-            );
-          })}
-        </div>
-        <hr className="bg-[#ddd] w-full my-4 h-1" />
-        {ActiveSpecialityCard ? (
-          <>
-            <div
-              className={`rounded-xl ${Traslation.ConvertFLex} flex  items-center`}
-            >
-              {SpecialityCardList.map((el) => {
-                return (
-                  <SpecialityCard
-                    key={el.Title}
-                    onCLick={el.onClick}
-                    Title={el.Title}
-                    Label={el.Label}
-                    Element={el.Element}
-                    DropDown={el.DropDown}
-                    Width="72"
-                  />
-                );
-              })}
-              <div className="border max-h-[74px] border-[#9b9b9b]">
-                <form action="" className="p-2 flex flex-col  gap-4">
-                  <label
-                    className={`text-sm ${
-                      Language == '"English"' ? "text-start" : "text-end"
-                    } font-semibold text-[#868686]`}
-                    htmlFor="personName"
+                  <div
+                    className={`flex ${
+                      Language == '"English"' ? "flex-row" : "flex-row-reverse"
+                    } items-center gap-5 cursor-pointer  hover:text-[#0a84ff7a] transition-all duration-300`}
+                    onClick={() => hancleClick(el.id)}
                   >
-                    {ChangeTextByLanguage("Or search by name", "أو اكتب اسم")}
-                  </label>
-                  <div className={`flex ${Traslation.ConvertFLex} gap-2`}>
-                    <FaPersonBreastfeeding className="text-2xl text-[#0a84ff7a]" />
-                    <input
-                      type="text"
-                      id="personName"
-                      className="focus:border-none"
-                    />
+                    <div>{el.Element}</div>
+                    <div className="text-xl" key={el.id}>
+                      <h1
+                        className={`font-bold ${
+                          Language == '"English"' ? "text-start" : "text-end"
+                        }`}
+                      >
+                        {el.headerText}
+                      </h1>
+                      <p className="text-sm font-bold">{el.Text}</p>
+                    </div>
                   </div>
-                </form>
-              </div>
+                  <hr className="bg-[#ddd]" />
+                </div>
+              );
+            })}
+          </div>
+          <hr className="bg-[#ddd] w-full my-4 h-1" />
+          {ActiveSpecialityCard ? (
+            <>
               <div
-                className={`h-[4.6pc] border border-solid ${
-                  Language == '"English"' ? "rounded-r-xl" : "rounded-l-xl"
-                } bg-red-600 cursor-pointer hover:bg-red-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
-                onClick={handleClickSave}
+                className={`rounded-xl ${Traslation.ConvertFLex} flex  items-center`}
               >
-                <Link to={"/contact/doctor"}>
+                {SpecialityCardList.map((el) => {
+                  return (
+                    <SpecialityCard
+                      key={el.Title}
+                      onCLick={el.onClick}
+                      Title={el.Title}
+                      Label={el.Label}
+                      Element={el.Element}
+                      DropDown={el.DropDown}
+                      Width="72"
+                    />
+                  );
+                })}
+                <div className="border max-h-[74px] border-[#9b9b9b]">
+                  <form action="" className="p-2 flex flex-col  gap-4">
+                    <label
+                      className={`text-sm ${
+                        Language == '"English"' ? "text-start" : "text-end"
+                      } font-semibold text-[#868686]`}
+                      htmlFor="personName"
+                    >
+                      {ChangeTextByLanguage("أو اكتب اسم", "Or search by name")}
+                    </label>
+                    <div className={`flex ${Traslation.ConvertFLex} gap-2`}>
+                      <FaPersonBreastfeeding className="text-2xl text-[#0a84ff7a]" />
+                      <input
+                        type="text"
+                        id="personName"
+                        className="focus:border-none"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div
+                  className={`h-[4.6pc] border border-solid ${
+                    Language == '"English"' ? "rounded-r-xl" : "rounded-l-xl"
+                  } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
+                  onClick={handleClickSave}
+                >
                   <div
                     className={`flex ${Traslation.ConvertFLex} items-center gap-3`}
                   >
                     <CiSearch className="text-white text-3xl font-bold" />
                     <h1 className="text-white font-semibold">
-                      {ChangeTextByLanguage("Search", "بحث")}
+                      {isLoading
+                        ? "Loading..."
+                        : ChangeTextByLanguage("بحث", "Search")}
                     </h1>
                   </div>
-                </Link>
+                </div>
               </div>
-            </div>
-          </>
-        ) : (
-          <div
-            className={`rounded-xl flex ${Traslation.ConvertFLex} justify-center items-center`}
-          >
-            <SpecialityCard
-              Title={"Choose specialty"}
-              Label={"Select a specialty"}
-              Width="72"
-              Element={<FaStethoscope className="text-2xl" />}
-              onCLick={handleSpecialityState}
-              DropDown={
-                DropDownState.Speciality ? (
-                  <ChooseDropDown
-                    Row="Specialty_name"
-                    stateData="Speciality"
-                    fetchData={fetchSpeciality}
-                    handleClick={(el: string) => {
-                      setData({ ...data, Speciality: el }),
-                        setDropDownState({
-                          ...DropDownState,
-                          Speciality: false,
-                        });
-                    }}
-                  />
-                ) : (
-                  <h1></h1>
-                )
-              }
-            />
+            </>
+          ) : (
             <div
-              className={`h-[4.6pc] border border-solid bg-red-600 ${
-                Language == '"English"' ? "rounded-r-xl" : "rounded-l-xl"
-              } border-[#9b9b9b]  flex items-center justify-center w-40`}
+              className={`rounded-xl flex ${Traslation.ConvertFLex} justify-center items-center`}
             >
-              <div className="flex items-center gap-5">
-                <CiSearch className="text-white text-3xl font-bold" />
-                <h1 className="text-white font-semibold">Search</h1>
+              <SpecialityCard
+                Title={"Choose specialty"}
+                Label={"Select a specialty"}
+                Width="72"
+                Element={<FaStethoscope className="text-2xl" />}
+                onCLick={handleSpecialityState}
+                DropDown={
+                  DropDownState.Speciality ? (
+                    <ChooseDropDown
+                      Row="Specialty_name"
+                      stateData="Speciality"
+                      fetchData={fetchSpeciality}
+                      handleClick={(el: string) => {
+                        setData({ ...data, Speciality: el }),
+                          setDropDownState({
+                            ...DropDownState,
+                            Speciality: false,
+                          });
+                      }}
+                    />
+                  ) : (
+                    <h1></h1>
+                  )
+                }
+              />
+              <div
+                className={`h-[4.6pc] border border-solid bg-blue-700 cursor-pointer hover:bg-blue-950 ${
+                  Language == '"English"' ? "rounded-r-xl" : "rounded-l-xl"
+                } border-[#9b9b9b]  flex items-center justify-center w-40`}
+              >
+                <div className="flex items-center gap-5">
+                  <CiSearch className="text-white text-3xl font-bold" />
+                  <h1 className="text-white font-semibold">Search</h1>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+        <div className="absolute top-[20pc]">
+          <img
+            src="src\assets\WhatsApp_Image_2025-02-26_at_19.26.09_761871f5-removebg-preview.png"
+            alt="Form.png"
+            style={{ width: "125pc", height: "30pc" }}
+          />
+        </div>
       </div>
     </>
   );

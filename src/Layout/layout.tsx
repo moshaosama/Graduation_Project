@@ -1,30 +1,18 @@
-import { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Components/Footer";
-import Navbar from "../Components/Navbar";
+import Navbar from "../Components/Navbar/Navbar";
 
 const Layout = () => {
-  const location = useLocation();
-  const [Language, setLanguage] = useState(
-    window.localStorage.getItem("Language") || "Arabic"
-  );
-  const handleClick = () => {
-    const newLanguag = Language === "English" ? "Arabic" : "English";
-    setLanguage(newLanguag);
-    window.location.reload();
-    window.localStorage.setItem("Language", newLanguag);
-  };
+  const location = useLocation().pathname;
   return (
     <>
-      {location.pathname == "/login" ||
-      location.pathname === "/signup" ? null : (
-        <Navbar setFun={handleClick} />
+      {location == "/login" ||
+      location === "/signup" ||
+      location === "/contact" ? null : (
+        <Navbar />
       )}
       <Outlet />
-      {location.pathname == "/login" ||
-      location.pathname === "/signup" ? null : (
-        <Footer />
-      )}
+      {location == "/login" || location === "/signup" ? null : <Footer />}
     </>
   );
 };
