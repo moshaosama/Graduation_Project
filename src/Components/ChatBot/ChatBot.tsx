@@ -1,4 +1,4 @@
-import NewService from "./newService";
+import NewService from "../NewServieces/newService";
 
 const ChatBot = () => {
   return (

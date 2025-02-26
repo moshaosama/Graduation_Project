@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../Store/Store";
 import { useEffect } from "react";
 import { fetchSpeciality } from "../../Store/Reducer/Speciality/SpecialityReducer";
+import { ChangeTextByLanguage } from "../../Language/Language";
+import useConvertLanguage from "../../Hooks/useConvertLanguage";
 
 const SpecialityForm = ({ image }: { image: string }) => {
   return (
@@ -18,6 +20,8 @@ const SpecialityForm = ({ image }: { image: string }) => {
 const ExploreUs = () => {
   const state = useSelector((state: RootState) => state.Speciality);
   const dispatch = useDispatch<AppDispatch>();
+  const { language } = useConvertLanguage();
+  console.log(language);
 
   useEffect(() => {
     dispatch(fetchSpeciality());
@@ -25,18 +29,23 @@ const ExploreUs = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-5">
-        <h1 className="text-[#184C99] text-5xl font-bold">Explore US</h1>
-        <div className="flex items-center gap-10 text-xl font-semibold text-[#184C99]">
-          <p>Specialties</p>
-          <p>Top rated</p>
+      <div className="flex flex-col  gap-5">
+        <h1
+          className={`text-[#184C99] text-5xl font-bold ${
+            language === "English" ? "text-end" : ""
+          } `}
+        >
+          {ChangeTextByLanguage("استكشفنا", "Explore US")}
+        </h1>
+        <div
+          className={`flex items-center ${
+            language == "English" ? "justify-end" : " "
+          }  gap-10 text-xl font-semibold text-[#184C99]`}
+        >
+          <p>{ChangeTextByLanguage("التخصصات", "Specialties")}</p>
+          <p>{ChangeTextByLanguage("الأعلى تقييما", "Top rated")}</p>
         </div>
         <div className="flex justify-between gap-20 items-center">
-          {/* <SpecialityForm image="src\assets\WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
-          <SpecialityForm image="src\assets\WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
-          <SpecialityForm image="src\assets\WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
-          <SpecialityForm image="src\assets\WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
-          <SpecialityForm image="src\assets\WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" /> */}
           {state.data?.result
             ?.slice(0, 5)
             .map((el: { Specialty_name: string }, index: number) => {
@@ -51,8 +60,14 @@ const ExploreUs = () => {
             })}
         </div>
 
-        <div className="flex items-center cursor-pointer hover:underline w-fit">
-          <p className="text-[#184C99]">View all specialties</p>
+        <div
+          className={`flex items-center ${
+            language == "English" ? "justify-end" : ""
+          } hover:underline w-full`}
+        >
+          <p className="text-[#184C99] w-fit cursor-pointer ">
+            {ChangeTextByLanguage("عرض جميع التخصصات", "View all specialties")}
+          </p>
           <p>
             <MdKeyboardArrowRight className="text-xl text-[#184C99]" />
           </p>

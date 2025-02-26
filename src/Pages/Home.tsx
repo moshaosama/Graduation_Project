@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
 import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDectorResponsive";
-import ChatBot from "../Components/NewServieces/ChatBot";
+import ChatBot from "../Components/ChatBot/ChatBot";
 import FeatureDoctor from "../Components/NewServieces/FeatureDoctor";
 import MedicineTracker from "../Components/NewServieces/MedicineTracker";
 import HeaderText from "../Components/HeaderText/HeaderText";
@@ -32,9 +32,7 @@ function Home() {
 
       <div className="mx-80 my-[55pc] max-sm:mx-3">
         <ExploreUs />
-        <h1 className="text-3xl text-gray-600 font-bold">
-          New services for better healthcare
-        </h1>
+
         <ChatBot />
         <FeatureDoctor />
         <MedicineTracker />
