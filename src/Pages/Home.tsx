@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
 import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDectorResponsive";
 import ChatBot from "../Components/ChatBot/ChatBot";
-import FeatureDoctor from "../Components/NewServieces/FeatureDoctor";
 import MedicineTracker from "../Components/NewServieces/MedicineTracker";
 import HeaderText from "../Components/HeaderText/HeaderText";
 import Header from "../Components/Header/Header";
 import ExploreUs from "../Components/ExploreUs/ExploreUs";
+import TopDoctors from "../Components/TopDoctors/TopDoctors";
 
 function Home() {
   useEffect(() => {
@@ -34,7 +34,8 @@ function Home() {
         <ExploreUs />
 
         <ChatBot />
-        <FeatureDoctor />
+        <TopDoctors />
+
         <MedicineTracker />
       </div>
     </>
