@@ -1,7 +1,6 @@
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
 import { ChangeTextByLanguage } from "../../Language/Language";
 import ImageRender from "../ImageRender";
-import NewService from "../NewServieces/newService";
 
 const ChatBot = () => {
   const { language } = useConvertLanguage();
