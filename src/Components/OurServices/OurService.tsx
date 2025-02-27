@@ -4,6 +4,8 @@ import { CiSettings } from "react-icons/ci";
 import { FaMessage, FaUserDoctor } from "react-icons/fa6";
 import { GiMedicines } from "react-icons/gi";
 import { MdLocalHospital, MdReviews } from "react-icons/md";
+import useConvertLanguage from "../../Hooks/useConvertLanguage";
+import { ChangeTextByLanguage } from "../../Language/Language";
 
 export const CartService = ({
   Icon,
@@ -36,13 +38,22 @@ window.addEventListener("scroll", () => {
 });
 
 const OurService = () => {
+  const { language } = useConvertLanguage();
   return (
     <>
-      <div className="bg-blue-700 rounded-t-xl py-16 flex gap-5 justify-center items-center">
+      <div
+        className={`bg-blue-700 rounded-t-xl py-16 flex ${
+          language == "English" ? "flex-row-reverse" : "flex-row"
+        } gap-5 justify-center items-center`}
+      >
         <CiSettings className="text-5xl text-white" />
-        <h1 className="text-white text-2xl flex items-center gap-2">
-          our <span className="text-5xl font-bold">Services</span>
-        </h1>
+        {language == "English" ? (
+          <span className="text-5xl font-bold text-white">خدمتنا</span>
+        ) : (
+          <h1 className="text-white text-2xl flex items-center gap-2">
+            our <span className="text-5xl  font-bold">Services</span>
+          </h1>
+        )}
       </div>
 
       <div className="bg-white rounded-b-xl p-16">
@@ -52,26 +63,27 @@ const OurService = () => {
         >
           <CartService
             Icon={<FaUserDoctor className="text-5xl text-blue-700" />}
-            Text="Find Yout Doctor"
-            Paragraph="Locate doctors quickly by searching for their name, specialty, or
-            location. MediPluse ensures you find qualified professionals that
-            suit your medical needs with ease."
+            Text={ChangeTextByLanguage("ابحث عن طبيبك", "Find Yout Doctor")}
+            Paragraph={ChangeTextByLanguage(
+              "ابحث بسرعة عن الأطباء من خلال البحث عن اسمهم أو تخصصهم أو موقعهم. يضمن لك MediPluse العثور على المتخصصين المؤهلين الذين يناسبون احتياجاتك الطبية بسهولة.",
+              "Locate doctors quickly by searching for their name, specialty, orlocation. MediPluse ensures you find qualified professionals thatsuit your medical needs with ease."
+            )}
           />
           <CartService
             Icon={<MdLocalHospital className="text-5xl text-blue-700" />}
-            Text="Find a Facility"
-            Paragraph=" Explore clinics or hospitals based on
-            specialty and location.
-            Our platform provides detailed facility information,
-            helping you choose the best healthcare option."
+            Text={ChangeTextByLanguage("البحث عن منشأة", "Find a Facility")}
+            Paragraph={ChangeTextByLanguage(
+              "استكشف العيادات أو المستشفيات بناءً على التخصص والموقع. توفر منصتنا معلومات مفصلة عن المرافق، مما يساعدك في اختيار أفضل خيار للرعاية الصحية.",
+              "Explore clinics or hospitals based onspecialty and location.Our platform provides detailed facility information,helping you choose the best healthcare option."
+            )}
           />
           <CartService
             Icon={<GiMedicines className="text-5xl text-blue-700" />}
-            Text="Medicine Tracker"
-            Paragraph="Manage your prescriptions efficiently with
- reminders for medication schedules.
-Track refills and dosages to maintain consistency in
- your treatment"
+            Text={ChangeTextByLanguage("متتبع الأدوية", "Medicine Tracker")}
+            Paragraph={ChangeTextByLanguage(
+              "قم بإدارة وصفاتك الطبية بكفاءة من خلال التذكيرات بمواعيد الأدوية. تتبع عمليات إعادة التعبئة والجرعات للحفاظ على الاتساق في علاجك",
+              "Manage your prescriptions efficiently withreminders for medication schedules.Track refills and dosages to maintain consistency inyour treatment"
+            )}
           />
           <CartService
             Icon={<FaMessage className="text-5xl text-blue-700" />}

@@ -1,6 +1,7 @@
 import { IoIosCall } from "react-icons/io";
 import FindDoctorContent from "../Components/findDoctorForm/findDoctorContent/findDoctorContent/findDoctorContent";
 import { Outlet } from "react-router";
+import { memo } from "react";
 
 const Contact = () => {
   return (
@@ -39,4 +40,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default memo(Contact);

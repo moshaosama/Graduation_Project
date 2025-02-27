@@ -5,9 +5,9 @@ import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
 
-const OffCanvas = React.lazy(() => import("../offCanvas/offCanvas"));
+// const OffCanvas = React.lazy(() => import("../offCanvas/offCanvas"));
 
-const Navbar = React.memo(() => {
+const Navbar = () => {
   // const [Active, setActive] = useState<boolean>(false);
   // const [ActiveDashboard, setActiveDashboard] = useState<boolean>(false);
   const { container } = globalStyle;
@@ -71,6 +71,6 @@ const Navbar = React.memo(() => {
       </div>
     </>
   );
-});
+};
 
 export default Navbar;

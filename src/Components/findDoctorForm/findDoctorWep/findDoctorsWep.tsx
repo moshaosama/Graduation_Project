@@ -3,7 +3,7 @@ import { CgFolderAdd } from "react-icons/cg";
 import { IoLocationSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaPersonBreastfeeding } from "react-icons/fa6";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import "../../../App.css";
 import SpecialityCard from "../../Card/SpecialityCard";
 import { ChangeTextByLanguage, Traslation } from "../../../Language/Language";
@@ -15,7 +15,6 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../Store/Store";
 import { fetchDoctor } from "../../../Store/Reducer/Doctor/DoctorReducer";
 import { useNavigate } from "react-router-dom";
-import ImageRender from "../../ImageRender";
 
 const FindDoctorsWep = () => {
   const Language = JSON.stringify(window.localStorage.getItem("Language")!);
@@ -44,31 +43,33 @@ const FindDoctorsWep = () => {
     Area: false,
   });
 
-  const handleSpecialityState = () => {
-    setDropDownState({
-      ...DropDownState,
-      Speciality: !DropDownState.Speciality,
-    });
+  const handleSpecialityState = useCallback(() => {
+    setDropDownState((prevState) => ({
+      ...prevState,
+      Speciality: !prevState.Speciality,
+    }));
     window.scrollTo({ top: 510, behavior: "smooth" });
-  };
-  const handleLocationState = () => {
-    setDropDownState({
-      ...DropDownState,
-      Location: !DropDownState.Location,
-    });
-    window.scrollTo({ top: 510, behavior: "smooth" });
-  };
+  }, []);
 
-  const handleAreaState = () => {
-    setDropDownState({
-      ...DropDownState,
-      Area: !DropDownState.Area,
-    });
+  const handleLocationState = useCallback(() => {
+    setDropDownState((prevState) => ({
+      ...prevState,
+      Location: !prevState.Location,
+    }));
     window.scrollTo({ top: 510, behavior: "smooth" });
-  };
+  }, []);
+
+  const handleAreaState = useCallback(() => {
+    setDropDownState((prevState) => ({
+      ...prevState,
+      Area: !prevState.Area,
+    }));
+    window.scrollTo({ top: 510, behavior: "smooth" });
+  }, []);
 
   const [ActiveSpecialityCard, setActiveSpecialityCard] =
     useState<boolean>(true);
+
   const Elements = [
     {
       id: "1",
@@ -91,65 +92,69 @@ const FindDoctorsWep = () => {
       onclick: () => setActiveSpecialityCard(false),
     },
   ];
-  const SpecialityCardList = [
-    {
-      Label: ChangeTextByLanguage("أنا ابحث عن دكتور", "Select a specialty"),
-      Title: data.Speciality,
-      Element: <FaStethoscope className="text-xl" />,
-      onClick: handleSpecialityState,
-      DropDown: DropDownState.Speciality ? (
-        <ChooseDropDown
-          Row="Specialty_name"
-          stateData="Speciality"
-          fetchData={fetchSpeciality}
-          handleClick={(el: string) => {
-            setData({ ...data, Speciality: el }),
-              setDropDownState({ ...DropDownState, Speciality: false });
-          }}
-        />
-      ) : (
-        <h1></h1>
-      ),
-    },
-    {
-      Label: ChangeTextByLanguage("في محافظه", "In this city"),
-      Title: data.City,
-      Element: <IoLocationSharp className="text-xl" />,
-      onClick: handleLocationState,
-      DropDown: DropDownState.Location ? (
-        <ChooseDropDown
-          Row="Location"
-          stateData="Location"
-          fetchData={fetchLocation}
-          handleClick={(el: string) => {
-            setData({ ...data, City: el }),
-              setDropDownState({ ...DropDownState, Location: false });
-          }}
-        />
-      ) : (
-        <h1></h1>
-      ),
-    },
-    {
-      Label: ChangeTextByLanguage("في منطقه", "In this area"),
-      Title: data.Area,
-      Element: <IoLocationSharp className="text-xl" />,
-      onClick: handleAreaState,
-      DropDown: DropDownState.Area ? (
-        <ChooseDropDown
-          Row="Clinic"
-          stateData="Area"
-          fetchData={fetchArea}
-          handleClick={(el: string) => {
-            setData({ ...data, Area: el }),
-              setDropDownState({ ...DropDownState, Area: false });
-          }}
-        />
-      ) : (
-        <h1></h1>
-      ),
-    },
-  ];
+
+  const SpecialityCardList = useMemo(
+    () => [
+      {
+        Label: ChangeTextByLanguage("أنا ابحث عن دكتور", "Select a specialty"),
+        Title: data.Speciality,
+        Element: <FaStethoscope className="text-xl" />,
+        onClick: handleSpecialityState,
+        DropDown: DropDownState.Speciality ? (
+          <ChooseDropDown
+            Row="Specialty_name"
+            stateData="Speciality"
+            fetchData={fetchSpeciality}
+            handleClick={(el: string) => {
+              setData({ ...data, Speciality: el }),
+                setDropDownState({ ...DropDownState, Speciality: false });
+            }}
+          />
+        ) : (
+          <h1></h1>
+        ),
+      },
+      {
+        Label: ChangeTextByLanguage("في محافظه", "In this city"),
+        Title: data.City,
+        Element: <IoLocationSharp className="text-xl" />,
+        onClick: handleLocationState,
+        DropDown: DropDownState.Location ? (
+          <ChooseDropDown
+            Row="Location"
+            stateData="Location"
+            fetchData={fetchLocation}
+            handleClick={(el: string) => {
+              setData({ ...data, City: el }),
+                setDropDownState({ ...DropDownState, Location: false });
+            }}
+          />
+        ) : (
+          <h1></h1>
+        ),
+      },
+      {
+        Label: ChangeTextByLanguage("في منطقه", "In this area"),
+        Title: data.Area,
+        Element: <IoLocationSharp className="text-xl" />,
+        onClick: handleAreaState,
+        DropDown: DropDownState.Area ? (
+          <ChooseDropDown
+            Row="Clinic"
+            stateData="Area"
+            fetchData={fetchArea}
+            handleClick={(el: string) => {
+              setData({ ...data, Area: el }),
+                setDropDownState({ ...DropDownState, Area: false });
+            }}
+          />
+        ) : (
+          <h1></h1>
+        ),
+      },
+    ],
+    []
+  );
 
   const hancleClick = (id: string) => {
     const ELement = document.getElementById(id);
@@ -162,6 +167,7 @@ const FindDoctorsWep = () => {
 
   useEffect(() => {
     const findDoctorContainer = document.getElementById("findDoctorContainer");
+
     if (findDoctorContainer) {
       findDoctorContainer.style.setProperty("top", "26pc");
       findDoctorContainer.style.setProperty("opacity", "100%");

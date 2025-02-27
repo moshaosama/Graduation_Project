@@ -3,7 +3,7 @@ import Inputs from "../Components/Form/Inputs";
 import { AppDispatch } from "../Store/Store";
 import ButtonForm from "../Components/Form/ButtonForm";
 import { createNewMedicine } from "../Store/Reducer/MedicineTracker/CreateNewMedicine";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import TitleText from "../Components/TitleText";
 import { Link } from "react-router-dom";
 
@@ -57,4 +57,4 @@ const CreateNewMedicine = () => {
   );
 };
 
-export default CreateNewMedicine;
+export default memo(CreateNewMedicine);

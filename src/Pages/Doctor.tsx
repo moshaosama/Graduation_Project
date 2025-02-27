@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { RootState } from "../Store/Store";
 import { useSelector } from "react-redux";
 import DoctorsSec from "../Components/Doctors/DoctorsSec";
@@ -35,4 +35,4 @@ const Doctor = () => {
   );
 };
 
-export default Doctor;
+export default memo(Doctor);

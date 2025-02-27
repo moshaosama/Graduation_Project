@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
 import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDectorResponsive";
 import ChatBot from "../Components/ChatBot/ChatBot";
@@ -9,6 +9,7 @@ import TopDoctors from "../Components/TopDoctors/TopDoctors";
 import OurService from "../Components/OurServices/OurService";
 import WhyUs from "../Components/WhyUs/WhyUs";
 import DownloadApp from "../Components/DownloadApp/DownloadApp";
+import JoinUs from "../Components/JoinUs/JoinUs";
 
 function Home() {
   useEffect(() => {
@@ -40,9 +41,10 @@ function Home() {
         <OurService />
         <WhyUs />
         <DownloadApp />
+        <JoinUs />
       </div>
     </>
   );
 }
 
-export default Home;
+export default memo(Home);

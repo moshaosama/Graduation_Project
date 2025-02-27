@@ -2,7 +2,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import FormSignUp from "../Components/Form/FormSignUp";
 import ButtonForm from "../Components/Form/ButtonForm";
 import { Link } from "react-router-dom";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, memo, useState } from "react";
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
@@ -133,4 +133,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default memo(SignUp);

@@ -2,13 +2,14 @@ import { Link, useNavigate } from "react-router";
 import ButtonForm from "../Components/Form/ButtonForm";
 import { FaArrowLeft, FaFacebookSquare } from "react-icons/fa";
 import FormLogin from "../Components/Form/FormLogin";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 const Login = () => {
   const [formLogin, setFormLogin] = useState({
     Email: "",
     Password: "",
   });
+  const [isLoading, setLoading] = useState(false);
   const Navigation = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +17,7 @@ const Login = () => {
   };
 
   const handleClickFromLogin = () => {
+    setLoading(true);
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
@@ -36,6 +38,7 @@ const Login = () => {
             JSON.stringify(data?.result)
           );
           Navigation("/");
+          setLoading(false);
         }
       });
   };
@@ -72,7 +75,7 @@ const Login = () => {
           </form>
           <ButtonForm
             Width="full"
-            Value="Login"
+            Value={isLoading ? "Loading" : "Login"}
             handleClick={handleClickFromLogin}
           />
 
@@ -121,4 +124,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default memo(Login);
