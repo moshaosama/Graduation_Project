@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="bg-[#007fff4a] w-full py-7 rounded-tr-lg">
+    <div className="bg-blue-700 w-full py-7 rounded-tr-lg">
       <div className="flex justify-between mx-80 max-sm:mx-5">
         <div className="flex flex-col gap-4 sm:contents">
           <div className="flex justify-between sm:contents">

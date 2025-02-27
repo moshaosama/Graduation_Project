@@ -29,7 +29,7 @@ const TopDoctors = () => {
       <div
         className={`${
           language == "English" ? "text-end" : "text-start"
-        } bg-[#EDEDED] py-10 rounded`}
+        }  py-10 rounded`}
       >
         <div className="mx-5">
           <TitleForSection

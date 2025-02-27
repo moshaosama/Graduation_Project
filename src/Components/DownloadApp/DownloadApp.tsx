@@ -1,0 +1,37 @@
+import ImageRender from "../ImageRender";
+
+const DownloadApp = () => {
+  return (
+    <>
+      <div className="bg-white mt-20 p-8 rounded-lg">
+        <div className="bg-blue-700  rounded-xl p-10 flex justify-between">
+          <div className="text-white flex flex-col w-96  gap-10">
+            <h1 className="text-3xl font-bold">
+              Download Medipulse Application
+            </h1>
+            <p className="font-semibold text-md">
+              Search, compare and book doctor consultations with ease. Track
+              your medicine &make sure you feel alright
+            </p>
+            <button className="w-fit rounded-full">
+              <img
+                src="src\assets\WhatsApp Image 2025-02-27 at 17.42.34_ca5194f6.jpg"
+                alt="googleMobile.png"
+                className="w-40"
+              />
+            </button>
+          </div>
+          <div>
+            <img
+              src="src\assets\Medical-Record-App-removebg-preview.png"
+              alt="Mobild.png"
+              className="w-96"
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default DownloadApp;

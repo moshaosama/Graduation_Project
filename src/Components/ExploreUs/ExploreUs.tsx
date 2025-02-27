@@ -12,7 +12,7 @@ const SpecialityForm = ({ image }: { image: string }) => {
   return (
     <>
       <div className="bg-[#184C99] w-32 h-32 flex justify-center items-center rounded-full">
-        <ImageRender src={image} alt="icon.png" width="20" />
+        <ImageRender src={image} alt="icon.png" width="16" />
       </div>
     </>
   );

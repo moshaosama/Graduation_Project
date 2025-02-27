@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
 import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDectorResponsive";
 import ChatBot from "../Components/ChatBot/ChatBot";
-import MedicineTracker from "../Components/NewServieces/MedicineTracker";
 import HeaderText from "../Components/HeaderText/HeaderText";
 import Header from "../Components/Header/Header";
 import ExploreUs from "../Components/ExploreUs/ExploreUs";
 import TopDoctors from "../Components/TopDoctors/TopDoctors";
 import OurService from "../Components/OurServices/OurService";
+import WhyUs from "../Components/WhyUs/WhyUs";
+import DownloadApp from "../Components/DownloadApp/DownloadApp";
 
 function Home() {
   useEffect(() => {
@@ -37,7 +38,8 @@ function Home() {
         <ChatBot />
         <TopDoctors />
         <OurService />
-        <MedicineTracker />
+        <WhyUs />
+        <DownloadApp />
       </div>
     </>
   );

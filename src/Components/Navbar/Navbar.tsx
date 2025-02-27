@@ -59,11 +59,8 @@ const Navbar = React.memo(() => {
           {LinksPages.map(
             (el: { title: string; to: string }, index: number) => {
               return (
-                <Link to={el.to}>
-                  <p
-                    className="hover:underline cursor-pointer text-gray-600 font-semibold"
-                    key={index}
-                  >
+                <Link to={el.to} key={index}>
+                  <p className="hover:underline cursor-pointer text-gray-600 font-semibold">
                     {el.title}
                   </p>
                 </Link>

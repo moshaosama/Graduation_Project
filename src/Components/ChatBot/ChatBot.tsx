@@ -19,12 +19,12 @@ const ChatBot = () => {
       <div
         className={`bg-blue-700 ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        } w-full flex justify-center py-10 my-4 items-center gap-10`}
+        } w-full flex justify-center py-10  mt-4 items-center gap-10`}
       >
         <ImageRender
           src="src\assets\WhatsApp_Image_2025-02-26_at_22.44.55_0078e028-removebg-preview.png"
           alt="ChatIcon.png"
-          width="20"
+          width="16"
         />
         <h1 className="text-5xl font-bold text-white">
           {ChangeTextByLanguage(
@@ -34,37 +34,39 @@ const ChatBot = () => {
         </h1>
       </div>
 
-      <div
-        className={`w-full my-10 mx-5 flex ${
-          language == "English" ? "flex-row-reverse" : "flex-row"
-        } gap-96 transition-all duration-500 opacity-5`}
-        id="ChatGbtSec"
-      >
-        <div>
-          <TitleForSection
-            Text={ChangeTextByLanguage("الذكاء الاصطناعي الذكي", "Smart AI")}
-          />
-          <div
-            className={`m-10 flex ${
-              language == "English" ? "flex-row-reverse" : "flex-row"
-            } items-center gap-10`}
-          >
-            <ImageRender
-              src="src\assets\WhatsApp_Image_2025-02-26_at_22.59.18_b28e4f7c-removebg-preview.png"
-              alt="ChatBgtIcon.png"
-              width="36"
+      <div className="bg-white p-10">
+        <div
+          className={`w-full  flex ${
+            language == "English" ? "flex-row-reverse" : "flex-row"
+          } gap-96  transition-all duration-500 opacity-5`}
+          id="ChatGbtSec"
+        >
+          <div>
+            <TitleForSection
+              Text={ChangeTextByLanguage("الذكاء الاصطناعي الذكي", "Smart AI")}
             />
-            <button className="py-4 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
-              Ask....
-            </button>
+            <div
+              className={`m-10 flex ${
+                language == "English" ? "flex-row-reverse" : "flex-row"
+              } items-center gap-10`}
+            >
+              <ImageRender
+                src="src\assets\WhatsApp_Image_2025-02-26_at_22.59.18_b28e4f7c-removebg-preview.png"
+                alt="ChatBgtIcon.png"
+                width="36"
+              />
+              <button className="py-4 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
+                Ask....
+              </button>
+            </div>
           </div>
-        </div>
-        <div>
-          <ImageRender
-            src="src\assets\WhatsApp_Image_2025-02-26_at_23.05.16_522ef8e0-removebg-preview.png"
-            alt="DoctorIcon.png"
-            width="96"
-          />
+          <div>
+            <ImageRender
+              src="src\assets\WhatsApp_Image_2025-02-26_at_23.05.16_522ef8e0-removebg-preview.png"
+              alt="DoctorIcon.png"
+              width="96"
+            />
+          </div>
         </div>
       </div>
     </>
