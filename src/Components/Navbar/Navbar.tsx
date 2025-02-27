@@ -1,4 +1,3 @@
-import React from "react";
 import ImageRender from "../ImageRender";
 import globalStyle from "../../Style/globalStyle.module.css";
 import style from "./Navbar.module.css";

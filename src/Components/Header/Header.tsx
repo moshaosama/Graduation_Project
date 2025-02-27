@@ -30,7 +30,7 @@ const Header = () => {
     []
   );
   const ConvertSignUp = useMemo(
-    () => ChangeTextByLanguage("تسجيل دخول", "Login"),
+    () => ChangeTextByLanguage("أنشاء حساب", "SignUp"),
     []
   );
   const ConvertLang = useMemo(
@@ -42,7 +42,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="absolute -top-24 right-0 bg-blue-700 w-[45pc] h-[40pc] rounded-b-3xl">
+      <div className="absolute -top-24 right-0 bg-[#1F3FC3] w-[45pc] h-[40pc] rounded-b-3xl">
         <div className="flex items-center justify-between mx-10 p-4">
           {Token ? (
             <button className="bg-white hover:bg-[#b1b1b1] transition-all duration-500 p-2 w-40 rounded-xl flex justify-around items-center">
