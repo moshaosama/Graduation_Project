@@ -13,7 +13,7 @@ const TopDoctors = () => {
           language == "English" ? "text-end" : "text-start"
         }  py-10 rounded`}
       >
-        <div className="mx-5">
+        <div className="mx-80">
           <TitleForSection
             Text={ChangeTextByLanguage("أفضل الأطباء", "Top Doctors")}
           />
@@ -27,6 +27,7 @@ const TopDoctors = () => {
           </div>
 
           <div className="flex items-center gap-10">
+            <TopDoctorsDetails />
             <TopDoctorsDetails />
             <TopDoctorsDetails />
             <TopDoctorsDetails />

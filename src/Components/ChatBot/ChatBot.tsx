@@ -9,7 +9,7 @@ const ChatBot = () => {
   window.addEventListener("scroll", function () {
     const ChatGbtSec = document.getElementById("ChatGbtSec");
     if (window.scrollY >= 800) {
-      ChatGbtSec?.style.setProperty("gap", "0px");
+      ChatGbtSec?.style.setProperty("gap", "17pc");
       ChatGbtSec?.style.setProperty("opacity", "100%");
     }
   });
@@ -19,7 +19,7 @@ const ChatBot = () => {
       <div
         className={`bg-blue-700 ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        } w-full flex justify-center py-10  mt-4 items-center gap-10`}
+        } w-screen flex justify-center py-10  mt-6 items-center gap-10`}
       >
         <ImageRender
           src="src\assets\WhatsApp_Image_2025-02-26_at_22.44.55_0078e028-removebg-preview.png"
@@ -38,7 +38,7 @@ const ChatBot = () => {
         <div
           className={`w-full  flex ${
             language == "English" ? "flex-row-reverse" : "flex-row"
-          } gap-96  transition-all duration-500 opacity-5`}
+          } justify-center gap-[0pc] transition-all duration-500 opacity-5`}
           id="ChatGbtSec"
         >
           <div>

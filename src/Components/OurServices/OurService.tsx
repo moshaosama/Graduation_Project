@@ -58,7 +58,7 @@ const OurService = () => {
 
       <div className="bg-white rounded-b-xl p-16">
         <div
-          className=" grid grid-cols-3 opacity-5 transition-all duration-500 gap-96"
+          className=" grid grid-cols-3 mx-64 gap-28 opacity-5 transition-all duration-500 "
           id="CartService"
         >
           <CartService

@@ -32,10 +32,9 @@ function Home() {
           <FindDectorResponsive />
         </div>
       </div>
-
-      <div className="mx-80 mt-[55pc] max-sm:mx-3">
+      <div className="mt-[55pc] max-sm:mx-3">
+        {/* //mx-80 */}
         <ExploreUs />
-
         <ChatBot />
         <TopDoctors />
         <OurService />

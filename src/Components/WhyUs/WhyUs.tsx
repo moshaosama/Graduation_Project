@@ -10,12 +10,12 @@ const WhyUs = () => {
   return (
     <>
       <div className="mt-20 p-8 flex flex-col gap-8 bg-white rounded">
-        <div>
+        <div className="mx-80">
           <TitleForSection
             Text={ChangeTextByLanguage("لي احنا ؟", "Why US ?")}
           />
         </div>
-        <div className=" flex gap-5 mt-10">
+        <div className=" flex justify-center gap-5 mt-10">
           <CartService
             Icon={<MdHealthAndSafety className="text-4xl text-blue-600" />}
             Text="Top doctors match your condition"
