@@ -1,40 +1,122 @@
-import { signUpProps } from "../../Types/User/sgnUp";
+import { ChangeEvent, useCallback, useMemo, useState } from "react";
 
-const FormSignUp = ({
-  Placeholder,
-  Title,
-  Type,
-  Name,
-  HandleChange,
-  Margin,
-}: signUpProps) => {
-  const Language = JSON.stringify(window.localStorage.getItem("Language"));
+import ButtonForm from "./ButtonForm";
+import useConvertLanguage from "../../Hooks/useConvertLanguage";
+
+const FormSignUp = () => {
+  const [formState, setFormState] = useState({
+    userName: "",
+    mobilePhone: "",
+    Email: "",
+    birthDate: "",
+    Password: "",
+  });
+
+  const ChangeFromState = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormState({ ...formState, [e.target.name]: e.target.value });
+  };
+  const formConfig = useMemo(
+    () => ({
+      FormInputs: [
+        {
+          Title: "userName",
+          Type: "text",
+        },
+        {
+          Title: "mobilePhone",
+          Type: "mobilePhone",
+        },
+        {
+          Title: "Email",
+          Type: "Email",
+        },
+        {
+          Title: "birthDate",
+          Type: "birthDate",
+        },
+        {
+          Title: "Password",
+          Type: "password",
+        },
+      ],
+    }),
+    []
+  );
+
+  const createUser = useCallback(() => {
+    fetch("http://localhost:3000/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formState),
+    }).then((res) => {
+      return res.json();
+    });
+  }, [formState]);
+
+  const { language } = useConvertLanguage();
+
   return (
     <div className="my-2">
-      <p
-        className={`flex ${
-          Language == '"English"' ? "flex" : "flex-row-reverse"
-        } max-sm:flex-col max-sm:items-start  justify-between items-center`}
-      >
-        <label
-          htmlFor=""
-          className={`font-bold ${
-            Language == '"English"' ? "flex" : "flex-row-reverse"
-          } flex gap-1`}
-        >
-          {Title} <span className="text-red-500">*</span>
-        </label>
+      <form action="">
+        {formConfig.FormInputs.map((el, index: number) => {
+          return (
+            <div key={index}>
+              <p
+                className={`flex ${
+                  language == '"English"' ? "flex" : "flex-row-reverse"
+                } max-sm:flex-col max-sm:items-start  justify-between items-center`}
+              >
+                <label
+                  htmlFor=""
+                  className={`font-bold ${
+                    language == '"English"' ? "flex" : "flex-row-reverse"
+                  } flex gap-1`}
+                >
+                  {el.Title} <span className="text-red-500">*</span>
+                </label>
 
-        <input
-          type={Type}
-          name={Name}
-          placeholder={Placeholder}
-          className={`my-2 mx-${Margin} ${
-            Language == '"English"' ? "text-start" : "text-end"
-          } w-96 max-sm:w-full rounded-lg p-1 border-[2px] border-black`}
-          onChange={HandleChange}
-        />
-      </p>
+                <input
+                  type={el.Type}
+                  name={el.Title}
+                  placeholder={el.Title}
+                  className={`my-2  ${
+                    language == '"English"' ? "text-start" : "text-end"
+                  } w-96 max-sm:w-full rounded-lg p-1 border-[2px] border-black`}
+                  onChange={ChangeFromState}
+                />
+              </p>
+            </div>
+          );
+        })}
+        <div className="flex max-sm:flex-col justify-between">
+          <p>
+            <label htmlFor="">Gender</label>
+          </p>
+          <p className="flex max-sm:mx-0 gap-10 mx-36">
+            <label>
+              <input type="radio" name="gender" value="male" /> Male
+            </label>
+            <br />
+            <label>
+              <input type="radio" name="gender" value="female" /> Female
+            </label>
+          </p>
+        </div>
+
+        <div className="text-center my-2">
+          <p className="text-[10px]">
+            By signing up you agree to our{" "}
+            <a href="" className="text-blue-500 hover:underline ">
+              Terms Of Use
+            </a>
+          </p>
+        </div>
+        <div className="flex justify-center">
+          <ButtonForm Value="Join Now" Width="48" handleClick={createUser} />
+        </div>
+      </form>
     </div>
   );
 };

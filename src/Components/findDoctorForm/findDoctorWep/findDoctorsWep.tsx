@@ -17,7 +17,10 @@ import { fetchDoctor } from "../../../Store/Reducer/Doctor/DoctorReducer";
 import { useNavigate } from "react-router-dom";
 
 const FindDoctorsWep = () => {
-  const Language = JSON.stringify(window.localStorage.getItem("Language")!);
+  const Language = useMemo(
+    () => JSON.stringify(window.localStorage.getItem("Language")!),
+    []
+  );
   const [isLoading, setLoading] = useState(false);
   const Navigator = useNavigate();
 
@@ -43,29 +46,29 @@ const FindDoctorsWep = () => {
     Area: false,
   });
 
-  const handleSpecialityState = useCallback(() => {
-    setDropDownState((prevState) => ({
-      ...prevState,
-      Speciality: !prevState.Speciality,
-    }));
+  const handleSpecialityState = () => {
+    setDropDownState({
+      ...DropDownState,
+      Speciality: !DropDownState.Speciality,
+    });
     window.scrollTo({ top: 510, behavior: "smooth" });
-  }, []);
+  };
 
-  const handleLocationState = useCallback(() => {
-    setDropDownState((prevState) => ({
-      ...prevState,
-      Location: !prevState.Location,
-    }));
+  const handleLocationState = () => {
+    setDropDownState({
+      ...DropDownState,
+      Location: !DropDownState.Location,
+    });
     window.scrollTo({ top: 510, behavior: "smooth" });
-  }, []);
+  };
 
-  const handleAreaState = useCallback(() => {
-    setDropDownState((prevState) => ({
-      ...prevState,
-      Area: !prevState.Area,
-    }));
+  const handleAreaState = () => {
+    setDropDownState({
+      ...DropDownState,
+      Area: !DropDownState.Area,
+    });
     window.scrollTo({ top: 510, behavior: "smooth" });
-  }, []);
+  };
 
   const [ActiveSpecialityCard, setActiveSpecialityCard] =
     useState<boolean>(true);
@@ -93,68 +96,65 @@ const FindDoctorsWep = () => {
     },
   ];
 
-  const SpecialityCardList = useMemo(
-    () => [
-      {
-        Label: ChangeTextByLanguage("أنا ابحث عن دكتور", "Select a specialty"),
-        Title: data.Speciality,
-        Element: <FaStethoscope className="text-xl" />,
-        onClick: handleSpecialityState,
-        DropDown: DropDownState.Speciality ? (
-          <ChooseDropDown
-            Row="Specialty_name"
-            stateData="Speciality"
-            fetchData={fetchSpeciality}
-            handleClick={(el: string) => {
-              setData({ ...data, Speciality: el }),
-                setDropDownState({ ...DropDownState, Speciality: false });
-            }}
-          />
-        ) : (
-          <h1></h1>
-        ),
-      },
-      {
-        Label: ChangeTextByLanguage("في محافظه", "In this city"),
-        Title: data.City,
-        Element: <IoLocationSharp className="text-xl" />,
-        onClick: handleLocationState,
-        DropDown: DropDownState.Location ? (
-          <ChooseDropDown
-            Row="Location"
-            stateData="Location"
-            fetchData={fetchLocation}
-            handleClick={(el: string) => {
-              setData({ ...data, City: el }),
-                setDropDownState({ ...DropDownState, Location: false });
-            }}
-          />
-        ) : (
-          <h1></h1>
-        ),
-      },
-      {
-        Label: ChangeTextByLanguage("في منطقه", "In this area"),
-        Title: data.Area,
-        Element: <IoLocationSharp className="text-xl" />,
-        onClick: handleAreaState,
-        DropDown: DropDownState.Area ? (
-          <ChooseDropDown
-            Row="Clinic"
-            stateData="Area"
-            fetchData={fetchArea}
-            handleClick={(el: string) => {
-              setData({ ...data, Area: el }),
-                setDropDownState({ ...DropDownState, Area: false });
-            }}
-          />
-        ) : (
-          <h1></h1>
-        ),
-      },
-    ],
-    []
-  );
+  const SpecialityCardList = [
+    {
+      Label: ChangeTextByLanguage("أنا ابحث عن دكتور", "Select a specialty"),
+      Title: data.Speciality,
+      Element: <FaStethoscope className="text-xl" />,
+      onClick: handleSpecialityState,
+      DropDown: DropDownState.Speciality ? (
+        <ChooseDropDown
+          Row="Specialty_name"
+          stateData="Speciality"
+          fetchData={fetchSpeciality}
+          handleClick={(el: string) => {
+            setData({ ...data, Speciality: el }),
+              setDropDownState({ ...DropDownState, Speciality: false });
+          }}
+        />
+      ) : (
+        <h1></h1>
+      ),
+    },
+    {
+      Label: ChangeTextByLanguage("في محافظه", "In this city"),
+      Title: data.City,
+      Element: <IoLocationSharp className="text-xl" />,
+      onClick: handleLocationState,
+      DropDown: DropDownState.Location ? (
+        <ChooseDropDown
+          Row="Location"
+          stateData="Location"
+          fetchData={fetchLocation}
+          handleClick={(el: string) => {
+            setData({ ...data, City: el }),
+              setDropDownState({ ...DropDownState, Location: false });
+          }}
+        />
+      ) : (
+        <h1></h1>
+      ),
+    },
+    {
+      Label: ChangeTextByLanguage("في منطقه", "In this area"),
+      Title: data.Area,
+      Element: <IoLocationSharp className="text-xl" />,
+      onClick: handleAreaState,
+      DropDown: DropDownState.Area ? (
+        <ChooseDropDown
+          Row="Clinic"
+          stateData="Area"
+          fetchData={fetchArea}
+          handleClick={(el: string) => {
+            setData({ ...data, Area: el }),
+              setDropDownState({ ...DropDownState, Area: false });
+          }}
+        />
+      ) : (
+        <h1></h1>
+      ),
+    },
+  ];
 
   const hancleClick = (id: string) => {
     const ELement = document.getElementById(id);
