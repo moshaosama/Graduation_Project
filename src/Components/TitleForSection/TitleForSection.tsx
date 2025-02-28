@@ -1,6 +1,7 @@
+import React from "react";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
 
-const TitleForSection = ({ Text }: { Text: string }) => {
+const TitleForSection = React.memo(({ Text }: { Text: string }) => {
   const { language } = useConvertLanguage();
   return (
     <h1
@@ -11,6 +12,6 @@ const TitleForSection = ({ Text }: { Text: string }) => {
       {Text}
     </h1>
   );
-};
+});
 
 export default TitleForSection;

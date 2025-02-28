@@ -3,7 +3,7 @@ import { CgFolderAdd } from "react-icons/cg";
 import { IoLocationSharp } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaPersonBreastfeeding } from "react-icons/fa6";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "../../../App.css";
 import SpecialityCard from "../../Card/SpecialityCard";
 import { ChangeTextByLanguage, Traslation } from "../../../Language/Language";

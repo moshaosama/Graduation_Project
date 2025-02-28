@@ -34,8 +34,8 @@ const ProfileData = ({
         <div
           className={`flex ${
             Language == '"English"'
-              ? "flex-row  mx-[23.5pc]"
-              : "flex-row-reverse mx-[23.5pc]"
+              ? "flex-row-reverse  mx-[23.5pc]"
+              : "flex-row mx-[23.5pc]"
           } gap-3 my-4  max-sm:mx-10`}
         >
           <div>
@@ -43,13 +43,13 @@ const ProfileData = ({
               className="rounded-lg text-white font-bold hover:bg-red-600 transition-all duration-300 bg-[red] w-28 p-1"
               onClick={handleClickSave}
             >
-              {ChangeTextByLanguage("Save", "حفظ")}
+              {ChangeTextByLanguage("حفظ", "Save")}
             </button>
           </div>
           <Link to={"/"}>
             <div>
               <button className="rounded-lg text-black  hover:bg-[rgb(143,143,143)] transition-all duration-300 bg-[rgb(245,245,245)] w-28 p-1">
-                {ChangeTextByLanguage("Cancel", "ألغاء")}
+                {ChangeTextByLanguage("ألغاء", "Cancel")}
               </button>
             </div>
           </Link>

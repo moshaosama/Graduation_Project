@@ -7,21 +7,25 @@ import { fetchSpeciality } from "../../Store/Reducer/Speciality/SpecialityReduce
 import { ChangeTextByLanguage } from "../../Language/Language";
 import TitleForSection from "../TitleForSection/TitleForSection";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { fetchDoctor } from "../../Store/Reducer/Doctor/DoctorReducer";
 
-const SpecialityForm = ({ image }: { image: string }) => {
+const SpecialityForm = React.memo(({ image }: { image: string }) => {
   return (
     <>
-      <div className="bg-[#184C99] w-32 h-32 flex justify-center items-center rounded-full">
+      <div className="bg-[#184C99] border-dashed border-[1px] transition-all duration-500 hover:border-[10px] border-white w-32 h-32 flex justify-center items-center rounded-full">
         <ImageRender src={image} alt="icon.png" width="16" />
       </div>
     </>
   );
-};
+});
 
 const ExploreUs = () => {
   const state = useSelector((state: RootState) => state.Speciality);
   const dispatch = useDispatch<AppDispatch>();
   const { language } = useConvertLanguage();
+  const Navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchSpeciality());
@@ -36,6 +40,11 @@ const ExploreUs = () => {
       }
     }
   });
+
+  const handleClick = (data: any) => {
+    dispatch(fetchDoctor(data));
+    Navigate("/contact/doctor");
+  };
 
   return (
     <>
@@ -59,7 +68,11 @@ const ExploreUs = () => {
             ?.slice(0, 5)
             .map((el: { Specialty_name: string }, index: number) => {
               return (
-                <div key={index} className="text-center cursor-pointer">
+                <div
+                  key={index}
+                  className="text-center cursor-pointer"
+                  onClick={() => handleClick({ Speciality: el.Specialty_name })}
+                >
                   <SpecialityForm image="src\assets\WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
                   <p className="my-2 text-[#184C99] font-bold">
                     {el.Specialty_name}
@@ -74,9 +87,14 @@ const ExploreUs = () => {
             language == "English" ? "justify-end" : ""
           } hover:underline w-full`}
         >
-          <p className="text-[#184C99] w-fit cursor-pointer ">
-            {ChangeTextByLanguage("عرض جميع التخصصات", "View all specialties")}
-          </p>
+          <Link to={"/specialty-directory"}>
+            <p className="text-[#184C99] w-fit cursor-pointer ">
+              {ChangeTextByLanguage(
+                "عرض جميع التخصصات",
+                "View all specialties"
+              )}
+            </p>
+          </Link>
           <p>
             <MdKeyboardArrowRight className="text-xl text-[#184C99]" />
           </p>

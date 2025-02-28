@@ -8,6 +8,6 @@ export function ChangeTextByLanguage(Text: string, newText: string) {
 }
 
 export const Traslation = {
-  ConvertFLex: `${Language == '"English"' ? "flex" : "flex-row-reverse"}`,
+  ConvertFLex: `${Language == '"English"' ? "flex-row-reverse" : "flex"}`,
   ConvertTextAlign: `${Language == '"English"' ? "text-start" : "text-end"}`,
 };

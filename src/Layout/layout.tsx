@@ -6,11 +6,7 @@ const Layout = () => {
   const location = useLocation().pathname;
   return (
     <>
-      {location == "/login" ||
-      location === "/signup" ||
-      location === "/contact" ? null : (
-        <Navbar />
-      )}
+      {location == "/login" || location === "/signup" ? null : <Navbar />}
       <Outlet />
       {location == "/login" || location === "/signup" ? null : <Footer />}
     </>

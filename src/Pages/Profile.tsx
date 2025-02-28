@@ -17,26 +17,26 @@ const Profile = () => {
   const DetailsList = [
     {
       id: 1,
-      Title: ChangeTextByLanguage("Profile", "صفحتي"),
+      Title: ChangeTextByLanguage("صفحتي", "Profile"),
       link: "/profile/info",
       Element: <FaDatabase />,
     },
     {
       id: 2,
-      Title: ChangeTextByLanguage("Change Password", "تغيير كلمه المرور"),
+      Title: ChangeTextByLanguage("تغيير كلمه المرور", "Change Password"),
       link: "/profile/changepassword",
       Element: <RiLockPasswordFill />,
     },
     {
       id: 3,
-      Title: ChangeTextByLanguage("My Insurance", "تأميني الطبي"),
+      Title: ChangeTextByLanguage("تأميني الطبي", "My Insurance"),
       link: "/profile/my",
       Element: <AiOutlineFileProtect />,
     },
   ];
 
   const TransitionLanguage = {
-    Language: `${Language == '"English"' ? "flex" : "flex-row-reverse"}`,
+    Language: `${Language == '"English"' ? "flex-row-reverse" : "flex"}`,
   };
   return (
     <>

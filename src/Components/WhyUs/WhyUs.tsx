@@ -10,12 +10,12 @@ const WhyUs = () => {
   return (
     <>
       <div className="mt-20 p-8 flex flex-col gap-8 bg-white rounded">
-        <div className="mx-80">
+        <div className="mx-72">
           <TitleForSection
             Text={ChangeTextByLanguage("لي احنا ؟", "Why US ?")}
           />
         </div>
-        <div className=" flex justify-center gap-5 mt-10">
+        <div className="grid grid-cols-4 mx-72 gap-96 mt-10">
           <CartService
             Icon={<MdHealthAndSafety className="text-4xl text-blue-600" />}
             Text="Top doctors match your condition"
@@ -31,11 +31,11 @@ const WhyUs = () => {
             Text="Book for free, pay in clinic"
             Paragraph="Payment is remitted at the clinic or upon availing of medical services, with no additional fees incurred."
           />
-          <CartService
+          {/* <CartService
             Icon={<GiMedicines className="text-4xl text-blue-600" />}
             Text="Healthcare on Your Terms"
             Paragraph="book your doctor or healthcare provider anytime, anywhere 24\7."
-          />
+          /> */}
         </div>
       </div>
     </>

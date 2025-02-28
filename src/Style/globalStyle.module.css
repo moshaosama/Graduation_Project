@@ -4,3 +4,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.Header_For_Section {
+  margin-left: 20rem;
+  margin-right: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

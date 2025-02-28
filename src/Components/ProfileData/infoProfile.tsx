@@ -14,22 +14,22 @@ const InfoProfile = () => {
 
   const formConfig = [
     {
-      Label: ChangeTextByLanguage("userName", "ألاسم"),
+      Label: ChangeTextByLanguage("ألاسم", "userName"),
       Type: "text",
       Placeholder: User.userName,
     },
     {
-      Label: ChangeTextByLanguage("mobilePhone", "رقم الموبايل"),
+      Label: ChangeTextByLanguage("رقم الموبايل", "mobilePhone"),
       Type: "mobilePhone",
       Placeholder: User.mobilePhone,
     },
     {
-      Label: ChangeTextByLanguage("Email", "البريد الالكتروني"),
+      Label: ChangeTextByLanguage("البريد الالكتروني", "Email"),
       Type: "Email",
       Placeholder: User.Email,
     },
     {
-      Label: ChangeTextByLanguage("birthDate", "تاريخ الميلاد"),
+      Label: ChangeTextByLanguage("تاريخ الميلاد", "birthDate"),
       Type: "birthDate",
       Placeholder: User.birthDate,
     },
