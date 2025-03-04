@@ -6,4 +6,5 @@ export interface InputProps {
   placeHolder?: string;
   ChangeEvent: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Value?: string;
+  Active?: boolean;
 }

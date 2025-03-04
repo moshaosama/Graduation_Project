@@ -8,7 +8,7 @@ const ButtonForm = ({ Value, Width, handleClick }: ButtonFormProps) => {
       <input
         type="submit"
         value={Value}
-        className={`bg-red-600 hover:bg-red-900 transition-all duration-300 ${width} text-white font-bold py-1 rounded-lg cursor-pointer`}
+        className={`bg-[#5669FF] hover:bg-[#4e59ac] transition-all duration-300 ${width} text-white font-bold py-1 rounded-lg cursor-pointer`}
         onClick={handleClick}
       />
     </>

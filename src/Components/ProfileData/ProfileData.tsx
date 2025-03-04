@@ -40,7 +40,7 @@ const ProfileData = ({
         >
           <div>
             <button
-              className="rounded-lg text-white font-bold hover:bg-red-600 transition-all duration-300 bg-[red] w-28 p-1"
+              className="rounded-lg text-white font-bold bg-[#5669FF] hover:bg-[#4e59ac] transition-all duration-300  w-28 p-1"
               onClick={handleClickSave}
             >
               {ChangeTextByLanguage("حفظ", "Save")}

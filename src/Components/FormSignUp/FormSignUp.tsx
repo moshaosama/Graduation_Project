@@ -1,7 +1,6 @@
 import { ChangeEvent, useCallback, useMemo, useState } from "react";
-
-import ButtonForm from "./ButtonForm";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
+import ButtonForm from "../Form/ButtonForm";
 
 const FormSignUp = () => {
   const [formState, setFormState] = useState({

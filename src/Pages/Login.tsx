@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { FaArrowLeft, FaFacebookSquare } from "react-icons/fa";
-import FormLogin from "../Components/Form/FormLogin";
 import { useMemo } from "react";
+import FormLogin from "../Components/FormLogin/FormLogin";
 
 const Login = () => {
   const URL = useMemo(

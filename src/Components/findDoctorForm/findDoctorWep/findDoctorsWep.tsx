@@ -258,7 +258,7 @@ const FindDoctorsWep = () => {
                 </div>
                 <div
                   className={`h-[4.6pc] border border-solid ${
-                    Language == '"English"' ? "rounded-r-xl" : "rounded-l-xl"
+                    Language == '"English"' ? "rounded-l-xl" : "rounded-r-xl"
                   } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
                   onClick={handleClickSave}
                 >

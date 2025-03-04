@@ -4,7 +4,6 @@ import { CartService } from "../OurServices/OurService";
 import TitleForSection from "../TitleForSection/TitleForSection";
 import { PiDnaThin } from "react-icons/pi";
 import { RiHospitalFill } from "react-icons/ri";
-import { GiMedicines } from "react-icons/gi";
 
 const WhyUs = () => {
   return (

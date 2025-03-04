@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router";
-import ButtonForm from "./ButtonForm";
+import ButtonForm from "../Form/ButtonForm";
 
 const FormLogin = () => {
   const [formLogin, setFormLogin] = useState({

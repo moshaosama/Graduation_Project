@@ -1,12 +1,12 @@
 import { memo } from "react";
-import SpecialityStyle from "../Components/HeaderAllSpeciality/HeaderAllSpeciality.module.css";
+import { Link } from "react-router";
+import FormContactUs from "../Components/FormContactUs/FormContactUs";
 import GlobalStyle from "../Style/globalStyle.module.css";
-import { Link } from "react-router-dom";
-import FormContactUs from "../Components/Form/FormContactUs";
+import SpecialityStyle from "../Components/HeaderAllSpeciality/HeaderAllSpeciality.module.css";
 
 const Contact = () => {
-  const { Paths } = SpecialityStyle;
   const { Header_For_Section } = GlobalStyle;
+  const { Paths } = SpecialityStyle;
   return (
     <>
       <div className={Header_For_Section}>

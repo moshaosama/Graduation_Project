@@ -1,7 +1,7 @@
 import { FaFacebookSquare } from "react-icons/fa";
-import FormSignUp from "../Components/Form/FormSignUp";
 import { Link } from "react-router-dom";
 import { memo, useMemo } from "react";
+import FormSignUp from "../Components/FormSignUp/FormSignUp";
 
 const SignUp = () => {
   const URL = useMemo(

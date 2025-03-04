@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ProfileData from "./ProfileData";
 import { ChangeTextByLanguage } from "../../Language/Language";
 
@@ -12,28 +12,31 @@ const InfoProfile = () => {
     birthDate: User?.birthDate,
   });
 
-  const formConfig = [
-    {
-      Label: ChangeTextByLanguage("ألاسم", "userName"),
-      Type: "text",
-      Placeholder: User.userName,
-    },
-    {
-      Label: ChangeTextByLanguage("رقم الموبايل", "mobilePhone"),
-      Type: "mobilePhone",
-      Placeholder: User.mobilePhone,
-    },
-    {
-      Label: ChangeTextByLanguage("البريد الالكتروني", "Email"),
-      Type: "Email",
-      Placeholder: User.Email,
-    },
-    {
-      Label: ChangeTextByLanguage("تاريخ الميلاد", "birthDate"),
-      Type: "birthDate",
-      Placeholder: User.birthDate,
-    },
-  ];
+  const formConfig = useMemo(
+    () => [
+      {
+        Label: ChangeTextByLanguage("ألاسم", "userName"),
+        Type: "text",
+        Placeholder: User.userName,
+      },
+      {
+        Label: ChangeTextByLanguage("رقم الموبايل", "mobilePhone"),
+        Type: "mobilePhone",
+        Placeholder: User.mobilePhone,
+      },
+      {
+        Label: ChangeTextByLanguage("البريد الالكتروني", "Email"),
+        Type: "Email",
+        Placeholder: User.Email,
+      },
+      {
+        Label: ChangeTextByLanguage("تاريخ الميلاد", "birthDate"),
+        Type: "birthDate",
+        Placeholder: User.birthDate,
+      },
+    ],
+    []
+  );
 
   const ChangeFromState = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
