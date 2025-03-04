@@ -43,7 +43,7 @@ const ExploreUs = () => {
 
   const handleClick = (data: any) => {
     dispatch(fetchDoctor(data));
-    Navigate("/contact/doctor");
+    Navigate("/doctors");
   };
 
   return (

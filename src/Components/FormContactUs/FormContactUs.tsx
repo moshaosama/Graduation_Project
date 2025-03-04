@@ -24,7 +24,7 @@ const FormContactUs = () => {
     []
   );
 
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const [Comment, setComment] = useState({
     Name: "",

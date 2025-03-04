@@ -37,7 +37,7 @@ const FindDoctorsWep = () => {
     await new Promise((resolver) => setTimeout(resolver, 1000));
     setLoading(false);
     dispatch(fetchDoctor(data));
-    Navigator("/contact/doctor");
+    Navigator("/doctors");
   };
 
   const [DropDownState, setDropDownState] = useState({

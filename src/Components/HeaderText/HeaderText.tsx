@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
 import Button from "../Button/Button";
 
@@ -22,7 +23,9 @@ const HeaderText = () => {
         {ChangeTextByLanguage("صحتك هي مهمتنا", "Your health is our mission")}
       </p>
       <div className="flex gap-2">
-        <Button Title="Contact us" backGround="[#23A6F0]" Color="white" />
+        <Link to={"/contact"}>
+          <Button Title="Contact us" backGround="[#23A6F0]" Color="white" />
+        </Link>
         <Button Title="Learn More" backGround="" Color="[#23A6F0]" />
       </div>
     </div>
