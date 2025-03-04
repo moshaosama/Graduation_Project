@@ -73,7 +73,7 @@ const ExploreUs = () => {
                   className="text-center cursor-pointer"
                   onClick={() => handleClick({ Speciality: el.Specialty_name })}
                 >
-                  <SpecialityForm image="src\assets\WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
+                  <SpecialityForm image="WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
                   <p className="my-2 text-[#184C99] font-bold">
                     {el.Specialty_name}
                   </p>

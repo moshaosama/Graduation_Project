@@ -23,8 +23,8 @@ const Header = () => {
   };
   const Flags = useMemo(
     () => ({
-      EnFlaf: `src/assets/download.png`,
-      ArFlag: `src/assets/Flag_of_the_United_Kingdom_(1-2).svg.png`,
+      EnFlaf: `download.png`,
+      ArFlag: `Flag_of_the_United_Kingdom_(1-2).svg.png`,
     }),
     []
   );
@@ -90,7 +90,7 @@ const Header = () => {
           </div>
         </div>
         <img
-          src="src\assets\WhatsApp_Image_2025-02-25_at_00.57.24_f19a0d40-removebg-preview.png"
+          src="WhatsApp_Image_2025-02-25_at_00.57.24_f19a0d40-removebg-preview.png"
           alt="Image.png"
           className="absolute bottom-0"
         />

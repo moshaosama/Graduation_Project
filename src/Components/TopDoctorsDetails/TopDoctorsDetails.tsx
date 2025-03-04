@@ -22,7 +22,7 @@ const TopDoctorsDetails = () => {
         className="bg-white py-10 w-72 px-2 flex flex-col gap-4 items-center rounded-xl hover:translate-x-1 transition-all duration-500 cursor-pointer hover:bg-gray-200 shadow-2xl"
       >
         <img
-          src="src/assets/WhatsApp_Image_2025-02-27_at_01.00.00_8ea27a5f-removebg-preview.png"
+          src="WhatsApp_Image_2025-02-27_at_01.00.00_8ea27a5f-removebg-preview.png"
           alt="Person.png"
           className="w-36"
         />

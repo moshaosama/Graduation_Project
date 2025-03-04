@@ -22,7 +22,7 @@ const ChatBot = () => {
         } w-screen flex justify-center py-10  mt-6 items-center gap-10`}
       >
         <ImageRender
-          src="src\assets\WhatsApp_Image_2025-02-26_at_22.44.55_0078e028-removebg-preview.png"
+          src="WhatsApp_Image_2025-02-26_at_22.44.55_0078e028-removebg-preview.png"
           alt="ChatIcon.png"
           width="16"
         />
@@ -51,7 +51,7 @@ const ChatBot = () => {
               } items-center gap-10`}
             >
               <ImageRender
-                src="src\assets\WhatsApp_Image_2025-02-26_at_22.59.18_b28e4f7c-removebg-preview.png"
+                src="WhatsApp_Image_2025-02-26_at_22.59.18_b28e4f7c-removebg-preview.png"
                 alt="ChatBgtIcon.png"
                 width="36"
               />
@@ -62,7 +62,7 @@ const ChatBot = () => {
           </div>
           <div>
             <ImageRender
-              src="src\assets\WhatsApp_Image_2025-02-26_at_23.05.16_522ef8e0-removebg-preview.png"
+              src="WhatsApp_Image_2025-02-26_at_23.05.16_522ef8e0-removebg-preview.png"
               alt="DoctorIcon.png"
               width="96"
             />

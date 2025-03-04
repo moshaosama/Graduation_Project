@@ -35,7 +35,7 @@ const Navbar = () => {
     <>
       <div className="absolute z-50 top-0" id="ImageBlue">
         <ImageRender
-          src="src\assets\WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
+          src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
           alt="Image.png"
           width="40"
         />
@@ -47,7 +47,7 @@ const Navbar = () => {
         <Link to={"/"}>
           <div className={LogoBrand}>
             <ImageRender
-              src="src\assets\WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
+              src="WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
               alt="Logo.png"
               width="10"
             />
