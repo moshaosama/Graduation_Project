@@ -28,9 +28,6 @@ const TopDoctors = () => {
 
           <div className="flex items-center gap-10">
             <TopDoctorsDetails />
-            <TopDoctorsDetails />
-            <TopDoctorsDetails />
-            <TopDoctorsDetails />
           </div>
 
           <div className="bg-[#184c993a] w-10 h-24 py-20 px-12 rounded-l-full relative cursor-pointer">

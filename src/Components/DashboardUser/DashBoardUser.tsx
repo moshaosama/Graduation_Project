@@ -17,6 +17,11 @@ const DashBoardUser = () => {
         <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">
           <h1>My Appointments</h1>
         </div>
+        <Link to={"/listmedicine"}>
+          <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">
+            <h1>My MedicineList</h1>
+          </div>
+        </Link>
         <div
           className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white"
           onClick={handleClickLogout}
