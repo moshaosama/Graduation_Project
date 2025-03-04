@@ -1,6 +1,5 @@
 import { CiLocationOn } from "react-icons/ci";
 import ButtonForm from "../Form/ButtonForm";
-import Inputs from "../Form/Inputs";
 import { BiPhoneCall } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
@@ -25,7 +24,7 @@ const FormContactUs = () => {
     []
   );
 
-  const [isPending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   const [Comment, setComment] = useState({
     Name: "",
@@ -49,17 +48,25 @@ const FormContactUs = () => {
         Contact US
       </h1>
       <div className="flex items-center mt-10 mx-5">
-        <form action="" className="w-1/2">
+        <form action="" className="w-1/2 flex flex-col gap-2">
           {ListInput?.map(
             (el: { placeHolder: string; Label: string }, index: number) => {
               return (
                 <div key={index}>
-                  <Inputs
+                  {/* <Inputs
                     Label={el.Label}
                     Type="text"
                     placeHolder={el.placeHolder}
                     ChangeEvent={handleChange}
                     Active={false}
+                  /> */}
+
+                  <input
+                    type="text"
+                    className="w-96 rounded-lg p-3"
+                    placeholder={el.placeHolder}
+                    name={el.Label}
+                    onChange={handleChange}
                   />
                 </div>
               );
