@@ -1,74 +1,146 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { FaStethoscope } from "react-icons/fa";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { GrMoney } from "react-icons/gr";
 import { IoLocationSharp } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../Store/Store";
+import { fetchAllDoctor } from "../../Store/Reducer/AllDoctor/AllDoctor";
 
 const DoctorsSec = () => {
   const Doctors = JSON.parse(window.localStorage.getItem("Doctors")!);
-  const LengthDoctor = useMemo(() => Doctors?.result?.length, [Doctors]);
+  const state = useSelector((state: RootState) => state.allDoctor);
+  const dispatch = useDispatch<AppDispatch>();
+  const LengthDoctor = useMemo(() => {
+    if (Doctors?.result?.length !== 0) {
+      return Doctors?.result?.length;
+    } else {
+      return state.data?.result?.length;
+    }
+  }, [Doctors, state.data]);
+
+  useEffect(() => {
+    dispatch(fetchAllDoctor());
+  }, []);
 
   const DoctorsRender = () => {
     return (
       <>
-        {Doctors?.result?.map((el: any, index: number) => {
-          return (
-            <div
-              key={index}
-              className="bg-white w-full p-5 rounded-xl shadow-md flex flex-col my-4 hover:bg-gray-300 cursor-pointer  transition-all duration-300"
-            >
-              <div className="flex flex-col">
-                <div className="flex gap-5 items-center">
-                  <div>
-                    <img
-                      src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
-                      alt="Doctor.png"
-                      className="w-24 rounded-full border-[3px] border-gray-700"
-                    />
-                  </div>
-                  <div className="flex flex-col mx-3 text-sm items-start justify-center">
-                    <p className="text-blue-500">
-                      <span className="text-sm">Dr /</span>
-                      <span className="font-bold text-md">{el.FullName}</span>
-                    </p>
-                    <img
-                      src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
-                      alt="Star.png"
-                      className="w-32 -mx-3"
-                    />
-                    <p>Overall Rating From {el?.Visitors} Visitors</p>
+        {Doctors?.result?.length !== 0
+          ? Doctors?.result?.map((el: any, index: number) => {
+              return (
+                <div
+                  key={index}
+                  className="bg-white w-full p-5 rounded-xl shadow-md flex flex-col my-4 hover:bg-gray-300 cursor-pointer  transition-all duration-300"
+                >
+                  <div className="flex flex-col">
+                    <div className="flex gap-5 items-center">
+                      <div>
+                        <img
+                          src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
+                          alt="Doctor.png"
+                          className="w-24 rounded-full border-[3px] border-gray-700"
+                        />
+                      </div>
+                      <div className="flex flex-col mx-3 text-sm items-start justify-center">
+                        <p className="text-blue-500">
+                          <span className="text-sm">Dr /</span>
+                          <span className="font-bold text-md">{el.Name}</span>
+                        </p>
+                        <img
+                          src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
+                          alt="Star.png"
+                          className="w-32 -mx-3"
+                        />
+                      </div>
+                    </div>
+                    <div className="my-1 mx-32 flex flex-col gap-2">
+                      <div className="flex gap-3 items-center">
+                        <FaStethoscope className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          {el?.Specialty_name}
+                        </p>
+                      </div>
+                      <div className="flex gap-3 items-center">
+                        <IoLocationSharp className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          {el?.Clinic}
+                        </p>
+                      </div>
+                      <div className="flex gap-3 items-center">
+                        <GrMoney className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          {el?.ConsultationFee} EGB
+                        </p>
+                      </div>
+                      <div className="flex gap-3 items-center">
+                        <FaPhoneFlip className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          16676 - Cost of regular call
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="my-1 mx-32 flex flex-col gap-2">
-                  <div className="flex gap-3 items-center">
-                    <FaStethoscope className="text-blue-500" />
-                    <p className="text-md font-semibold text-gray-600">
-                      {el?.Specialty_name}
-                    </p>
-                  </div>
-                  <div className="flex gap-3 items-center">
-                    <IoLocationSharp className="text-blue-500" />
-                    <p className="text-md font-semibold text-gray-600">
-                      {el?.Clinic}
-                    </p>
-                  </div>
-                  <div className="flex gap-3 items-center">
-                    <GrMoney className="text-blue-500" />
-                    <p className="text-md font-semibold text-gray-600">
-                      {el?.Price} EGB
-                    </p>
-                  </div>
-                  <div className="flex gap-3 items-center">
-                    <FaPhoneFlip className="text-blue-500" />
-                    <p className="text-md font-semibold text-gray-600">
-                      16676 - Cost of regular call
-                    </p>
+              );
+            })
+          : state?.data?.result?.map((el: any, index: number) => {
+              return (
+                <div
+                  key={index}
+                  className="bg-white w-full p-5 rounded-xl shadow-md flex flex-col my-4 hover:bg-gray-300 cursor-pointer  transition-all duration-300"
+                >
+                  <div className="flex flex-col">
+                    <div className="flex gap-5 items-center">
+                      <div>
+                        <img
+                          src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
+                          alt="Doctor.png"
+                          className="w-24 rounded-full border-[3px] border-gray-700"
+                        />
+                      </div>
+                      <div className="flex flex-col mx-3 text-sm items-start justify-center">
+                        <p className="text-blue-500">
+                          <span className="text-sm">Dr /</span>
+                          <span className="font-bold text-md">{el.Name}</span>
+                        </p>
+                        <img
+                          src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
+                          alt="Star.png"
+                          className="w-32 -mx-3"
+                        />
+                      </div>
+                    </div>
+                    <div className="my-1 mx-32 flex flex-col gap-2">
+                      <div className="flex gap-3 items-center">
+                        <FaStethoscope className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          {el?.Specialty_name}
+                        </p>
+                      </div>
+                      <div className="flex gap-3 items-center">
+                        <IoLocationSharp className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          {el?.Clinic}
+                        </p>
+                      </div>
+                      <div className="flex gap-3 items-center">
+                        <GrMoney className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          {el?.ConsultationFee} EGB
+                        </p>
+                      </div>
+                      <div className="flex gap-3 items-center">
+                        <FaPhoneFlip className="text-blue-500" />
+                        <p className="text-md font-semibold text-gray-600">
+                          16676 - Cost of regular call
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          );
-        })}
+              );
+            })}
       </>
     );
   };

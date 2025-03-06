@@ -26,7 +26,7 @@ const TopDoctorsDetails = () => {
           alt="Person.png"
           className="w-36"
         />
-        <h1 className="text-md font-bold">{el.FullName}</h1>
+        <h1 className="text-md font-bold">{el.Name}</h1>
         <p className="text-sm font-semibold">{el.Specialty_name}</p>
         <div>
           <p>{el?.Location}</p>
