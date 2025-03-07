@@ -49,8 +49,8 @@ const ChangePassword = () => {
   return (
     <>
       <ProfileData
-        TitleEN="Change Password"
-        TitleAR="تغيير كلمه المرور"
+        TitleEN="تغيير كلمه المرور"
+        TitleAR="Change Password"
         Lists={formConfig}
         handleChange={handleChangeInput}
         handleClickSave={HandleClickSave}

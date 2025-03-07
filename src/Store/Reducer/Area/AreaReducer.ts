@@ -1,11 +1,11 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { ReduxData } from "../../../Types/StoreData/ReduxData";
-import axios from "axios";
+import useAxios from "../../../Hooks/useAxios";
 
-export const fetchArea = createAsyncThunk("Area/fetchArea", async () => {
-  const response = await axios.get("http://localhost:3000/getArea");
-  return response.data;
-});
+export const fetchArea = useAxios(
+  "Area/fetchArea",
+  "http://localhost:3000/getArea"
+);
 
 const initialState: ReduxData = {
   loading: true,

@@ -1,18 +1,10 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
-import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 import { ReduxData } from "../../../Types/StoreData/ReduxData";
+import useAxios from "../../../Hooks/useAxios";
 
-export const fetchLocation = createAsyncThunk(
+export const fetchLocation = useAxios(
   "location/fetchLocation",
-  async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/getLocation");
-      return response.data;
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  "http://localhost:3000/getLocation"
 );
 const initialState: ReduxData = {
   loading: true,

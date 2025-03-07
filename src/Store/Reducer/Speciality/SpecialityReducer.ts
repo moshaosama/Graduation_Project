@@ -1,18 +1,10 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-
+import { createSlice } from "@reduxjs/toolkit";
 import { ReduxData } from "../../../Types/StoreData/ReduxData";
+import useAxios from "../../../Hooks/useAxios";
 
-export const fetchSpeciality = createAsyncThunk(
+export const fetchSpeciality = useAxios(
   "Specialty/fetchSpeciality",
-  async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/getSpeciality");
-      return response.data;
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  "http://localhost:3000/getSpeciality"
 );
 
 const initialState: ReduxData = {

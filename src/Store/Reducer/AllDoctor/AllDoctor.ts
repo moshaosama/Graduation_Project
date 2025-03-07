@@ -1,6 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { ReduxData } from "../../../Types/StoreData/ReduxData";
-import axios from "axios";
+
+import useAxios from "../../../Hooks/useAxios";
 
 const initialState: ReduxData = {
   loading: true,
@@ -8,16 +9,9 @@ const initialState: ReduxData = {
   error: "",
 };
 
-export const fetchAllDoctor = createAsyncThunk(
+export const fetchAllDoctor = useAxios(
   "allDoctor/fetchAllDoctor",
-  async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/findDoctor/all");
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  "http://localhost:3000/findDoctor/all"
 );
 
 const allDoctorSlice = createSlice({

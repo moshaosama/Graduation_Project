@@ -62,8 +62,8 @@ const InfoProfile = () => {
   return (
     <>
       <ProfileData
-        TitleEN="Manage Profile"
-        TitleAR="ادارة الملف الشخصي"
+        TitleEN="ادارة الملف الشخصي "
+        TitleAR="Manage Profile"
         Lists={formConfig}
         handleChange={ChangeFromState}
         handleClickSave={HandleClickSave}
