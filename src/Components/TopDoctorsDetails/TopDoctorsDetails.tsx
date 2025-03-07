@@ -25,6 +25,7 @@ const TopDoctorsDetails = () => {
           src="WhatsApp_Image_2025-02-27_at_01.00.00_8ea27a5f-removebg-preview.png"
           alt="Person.png"
           className="w-36"
+          loading="lazy"
         />
         <h1 className="text-md font-bold">{el.Name}</h1>
         <p className="text-sm font-semibold">{el.Specialty_name}</p>

@@ -8,6 +8,7 @@ const NotFound = () => {
           src="/3dlat.net_23_17_89d0_98a8bff7b05917-removebg-preview.png"
           alt="Disney.png"
           className="max-sm:w-40"
+          loading="lazy"
         />
         <div className="flex flex-col gap-10">
           <h1 className="text-6xl font-bold w-96 max-sm:text-2xl max-sm:text-center">

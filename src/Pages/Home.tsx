@@ -1,6 +1,6 @@
 import { memo, useEffect } from "react";
 import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
-import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDectorResponsive";
+
 import ChatBot from "../Components/ChatBot/ChatBot";
 import HeaderText from "../Components/HeaderText/HeaderText";
 import Header from "../Components/Header/Header";
@@ -10,6 +10,7 @@ import OurService from "../Components/OurServices/OurService";
 import WhyUs from "../Components/WhyUs/WhyUs";
 import DownloadApp from "../Components/DownloadApp/DownloadApp";
 import JoinUs from "../Components/JoinUs/JoinUs";
+import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDoctorResponsive";
 
 function Home() {
   useEffect(() => {

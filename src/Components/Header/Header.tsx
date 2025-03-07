@@ -93,6 +93,7 @@ const Header = () => {
           src="WhatsApp_Image_2025-02-25_at_00.57.24_f19a0d40-removebg-preview.png"
           alt="Image.png"
           className="absolute bottom-0"
+          loading="lazy"
         />
       </div>
     </>

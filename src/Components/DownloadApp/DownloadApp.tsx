@@ -16,6 +16,7 @@ const DownloadApp = () => {
                 src="WhatsApp Image 2025-02-27 at 17.42.34_ca5194f6.jpg"
                 alt="googleMobile.png"
                 className="w-40"
+                loading="lazy"
               />
             </button>
           </div>
@@ -24,6 +25,7 @@ const DownloadApp = () => {
               src="Medical-Record-App-removebg-preview.png"
               alt="Mobild.png"
               className="w-96"
+              loading="lazy"
             />
           </div>
         </div>

@@ -27,6 +27,7 @@ const DoctorRender = () => {
                           src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
                           alt="Doctor.png"
                           className="w-24 rounded-full border-[3px] border-gray-700"
+                          loading="lazy"
                         />
                       </div>
                       <div className="flex flex-col mx-3 text-sm items-start justify-center">
@@ -38,6 +39,7 @@ const DoctorRender = () => {
                           src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
                           alt="Star.png"
                           className="w-32 -mx-3"
+                          loading="lazy"
                         />
                       </div>
                     </div>
@@ -84,6 +86,7 @@ const DoctorRender = () => {
                           src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
                           alt="Doctor.png"
                           className="w-24 rounded-full border-[3px] border-gray-700"
+                          loading="lazy"
                         />
                       </div>
                       <div className="flex flex-col mx-3 text-sm items-start justify-center">
@@ -95,6 +98,7 @@ const DoctorRender = () => {
                           src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
                           alt="Star.png"
                           className="w-32 -mx-3"
+                          loading="lazy"
                         />
                       </div>
                     </div>

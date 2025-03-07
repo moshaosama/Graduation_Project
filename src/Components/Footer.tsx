@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="flex justify-between sm:contents">
             <div>
               <div className="flex items-center gap-5">
-                <img src="Vector.png" alt="" className="w-10" />
+                <img src="Vector.png" alt="" className="w-10" loading="lazy" />
                 <h1
                   className="font-bold text-2xl max-sm:text-sm"
                   style={{ fontFamily: "Arbutus Slab" }}
