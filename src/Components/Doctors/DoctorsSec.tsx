@@ -1,4 +1,5 @@
-import DoctorRender from "./DoctorRender/DoctorRender";
+import { lazy } from "react";
+const DoctorRender = lazy(() => import("./DoctorRender/DoctorRender"));
 
 const DoctorsSec = () => {
   return (
