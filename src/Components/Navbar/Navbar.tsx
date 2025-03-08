@@ -33,13 +33,15 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="absolute z-50 top-0" id="ImageBlue">
-        <ImageRender
-          src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
-          alt="Image.png"
-          width="40"
-        />
-      </div>
+      {location.pathname === "/doctors" ? null : (
+        <div className="absolute z-50 top-0" id="ImageBlue">
+          <ImageRender
+            src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
+            alt="Image.png"
+            width="40"
+          />
+        </div>
+      )}
 
       {/* ///////////////////////////////////////// */}
 

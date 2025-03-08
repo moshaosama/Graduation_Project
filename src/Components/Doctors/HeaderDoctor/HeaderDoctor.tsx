@@ -2,12 +2,15 @@ import { memo, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { container } from "../../../Style";
 import { RootState } from "../../../Store/Store";
+import { FilterDoctorLists, FilterDoctorType } from "./Lists";
+import style from "./HeaderDoctor.module.css";
 
 type HeaderDoctorProps = {
   Specialty_name: string;
 };
 
 const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
+  const { FilterBtns, Locations } = style;
   const Doctors = useMemo(() => {
     return JSON.parse(window.localStorage.getItem("Doctors")!);
   }, []);
@@ -42,16 +45,29 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
             </h1>
           </div>
           <div className="mt-5 flex gap-3 items-center">
-            <div className="border-[1px] border-white rounded-full w-20 text-white text-center">
+            <div className={Locations}>
               <h1>Giza</h1>
             </div>
-            <div className="border-[1px] border-white rounded-full w-20 text-white text-center">
+            <div className={Locations}>
               <h1>Cairo</h1>
             </div>
-            <div className="border-[1px] border-white rounded-full w-20 text-white text-center">
+            <div className={Locations}>
               <h1>Alex</h1>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="bg-gray-300 py-3 border-b-[1px] border-b-black">
+        <div className=" mx-44 flex items-center gap-4">
+          {FilterDoctorLists?.map((el: FilterDoctorType, index: number) => {
+            return (
+              <div key={index}>
+                <div className={FilterBtns}>
+                  <h1>{el.Title}</h1>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

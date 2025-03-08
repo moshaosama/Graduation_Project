@@ -1,0 +1,20 @@
+.FilterBtns {
+  border: 1px solid white;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 20pc;
+  padding: 10px;
+  color: #1472ff;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+}
+.Locations {
+  border: 1px solid white;
+  border-radius: 20pc;
+  color: white;
+  width: 6pc;
+  text-align: center;
+}
+
+/* "border-[1px] border-white rounded-full w-20 text-white text-center" */
