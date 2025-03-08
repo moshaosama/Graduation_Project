@@ -14,6 +14,7 @@ import ListMedicine from "../Pages/ListMedicine/ListMedicine";
 import EditMedicine from "../Pages/EditMedicine/EditMedicine";
 import AllSpeciality from "../Pages/AllSpeciality";
 import Contact from "../Pages/Contact";
+import ProfileDoctor from "../Pages/ProfileDoctor";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -67,7 +68,16 @@ const Router_pages = () => {
         },
         {
           path: "doctors",
-          element: <Doctor />,
+          children: [
+            {
+              index: true,
+              element: <Doctor />,
+            },
+            {
+              path: ":id",
+              element: <ProfileDoctor />,
+            },
+          ],
         },
         {
           path: "specialty-directory",
