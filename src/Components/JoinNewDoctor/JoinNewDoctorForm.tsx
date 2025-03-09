@@ -10,14 +10,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../Store/Store";
 import { useEffect } from "react";
 import { fetchSpeciality } from "../../Store/Reducer/Speciality/SpecialityReducer";
-import useFetch from "../../Hooks/useFetch";
+// import useFetch from "../../Hooks/useFetch";
 const JoinNewDoctorForm = () => {
   const { Input } = style;
   const { language } = useConvertLanguage();
-  const data: any = useFetch(
-    "https://countriesnow.space/api/v0.1/countries/population/cities",
-    "GET"
-  );
+  // const data: any = useFetch(
+  //   "https://countriesnow.space/api/v0.1/countries/population/cities",
+  //   "GET"
+  // );
 
   const state = useSelector((state: RootState) => state.Speciality);
   const Dispatch = useDispatch<AppDispatch>();
