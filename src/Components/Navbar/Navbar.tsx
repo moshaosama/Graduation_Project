@@ -3,12 +3,9 @@ import globalStyle from "../../Style/globalStyle.module.css";
 import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
-
-// const OffCanvas = React.lazy(() => import("../offCanvas/offCanvas"));
+import { useCallback } from "react";
 
 const Navbar = () => {
-  // const [Active, setActive] = useState<boolean>(false);
-  // const [ActiveDashboard, setActiveDashboard] = useState<boolean>(false);
   const { container } = globalStyle;
   const { LogoBrand, TextLogo } = style;
 
@@ -27,24 +24,26 @@ const Navbar = () => {
     },
     {
       title: ChangeTextByLanguage("عربي", "For_Doctors"),
-      to: "",
+      to: "/joinnewdoctor",
     },
   ];
 
+  const ConditionNavbar = useCallback(() => {
+    location.pathname === "/doctors" ||
+    location.pathname === "/joinnewdoctor" ? null : (
+      <div className="absolute z-50 top-0" id="ImageBlue">
+        <ImageRender
+          src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
+          alt="Image.png"
+          width="40"
+        />
+      </div>
+    );
+  }, []);
+
   return (
     <>
-      {location.pathname === "/doctors" ? null : (
-        <div className="absolute z-50 top-0" id="ImageBlue">
-          <ImageRender
-            src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
-            alt="Image.png"
-            width="40"
-          />
-        </div>
-      )}
-
-      {/* ///////////////////////////////////////// */}
-
+      {ConditionNavbar}
       <div className={`${container}`} style={{ margin: "1pc 55pc 2pc 11pc" }}>
         <Link to={"/"}>
           <div className={LogoBrand}>

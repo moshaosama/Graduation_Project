@@ -15,6 +15,7 @@ import EditMedicine from "../Pages/EditMedicine/EditMedicine";
 import AllSpeciality from "../Pages/AllSpeciality";
 import Contact from "../Pages/Contact";
 import ProfileDoctor from "../Pages/ProfileDoctor";
+import JoinNewDoctor from "../Pages/JoinNewDoctor";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -61,7 +62,10 @@ const Router_pages = () => {
           path: "listmedicine/:id",
           element: <EditMedicine />,
         },
-
+        {
+          path: "joinnewdoctor",
+          element: <JoinNewDoctor />,
+        },
         {
           path: "signup",
           element: <SignUp />,

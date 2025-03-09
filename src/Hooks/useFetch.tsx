@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFetch = (
-  url: string,
-  methodType: string,
-  body: any,
-  operation: any
-) => {
+const useFetch = (url: string, methodType: string) => {
   const [FetchedData, setData] = useState([]);
   useEffect(() => {
     fetch(url, {
@@ -13,11 +8,9 @@ const useFetch = (
       headers: {
         "Content-Type": "application/json",
       },
-      body,
     })
-      .then((res) => res.json)
+      .then((res) => res.json())
       .then((data: any) => {
-        operation;
         setData(data);
       });
   }, []);
