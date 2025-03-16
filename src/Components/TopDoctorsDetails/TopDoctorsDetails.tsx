@@ -11,8 +11,6 @@ const TopDoctorsDetails = () => {
     Dispatch(fetchAllDoctor());
   }, []);
 
-  console.log(state.data);
-
   const FindDoctors = useMemo(() => {
     if (!state.data?.result) return <p>No doctors found</p>;
 

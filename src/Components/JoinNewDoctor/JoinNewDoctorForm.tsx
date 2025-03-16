@@ -3,27 +3,46 @@ import { container } from "../../Style";
 import Inputs from "../Form/Inputs";
 import { ChangeTextByLanguage } from "../../Language/Language";
 import style from "./JoinNewDoctor.module.css";
-import SelectOption from "../Form/SelectOption";
 import { Link } from "react-router-dom";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../Store/Store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchSpeciality } from "../../Store/Reducer/Speciality/SpecialityReducer";
+import { fetchJoinAsDoctor } from "../../Store/Reducer/JoinAsDoctor/JoinAsDoctor";
 // import useFetch from "../../Hooks/useFetch";
 const JoinNewDoctorForm = () => {
   const { Input } = style;
   const { language } = useConvertLanguage();
+  const state = useSelector((state: RootState) => state.Speciality);
+  const Dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    Dispatch(fetchSpeciality());
+  }, []);
+  const [doctorData, setDoctorData] = useState({
+    FirstName: "",
+    LastName: "",
+    Phone: "",
+    Speciality: "",
+    City: "Egypt",
+    Email: "",
+    Password: "",
+  });
   // const data: any = useFetch(
   //   "https://countriesnow.space/api/v0.1/countries/population/cities",
   //   "GET"
   // );
 
-  const state = useSelector((state: RootState) => state.Speciality);
-  const Dispatch = useDispatch<AppDispatch>();
-  useEffect(() => {
-    Dispatch(fetchSpeciality());
-  }, []);
+  const handleChange = (
+    el: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    setDoctorData({ ...doctorData, [el.target.name]: el.target.value });
+  };
+
+  const handleClick = () => {
+    Dispatch(fetchJoinAsDoctor(doctorData));
+  };
 
   return (
     <>
@@ -54,16 +73,14 @@ const JoinNewDoctorForm = () => {
               <Inputs
                 Label={ChangeTextByLanguage("ألاسم الاول", "FirstName")}
                 placeHolder={ChangeTextByLanguage("ألاسم الاول", "FirstName")}
-                ChangeEvent={() => {}}
-                Value=""
+                ChangeEvent={handleChange}
                 Type="text"
                 Active={false}
               />
               <Inputs
                 Label={ChangeTextByLanguage("ألاسم التاني", "LastName")}
                 placeHolder={ChangeTextByLanguage("ألاسم التاني", "LastName")}
-                ChangeEvent={() => {}}
-                Value=""
+                ChangeEvent={handleChange}
                 Type="text"
                 Active={false}
               />
@@ -74,27 +91,45 @@ const JoinNewDoctorForm = () => {
                 className={`${Input} max-sm:w-full shadow-sm`}
                 placeholder="Mobile Number"
                 name="Phone"
+                onChange={handleChange}
               />
-              <SelectOption Options={state.data?.result?.slice(0, 10) ?? []} />
-              <SelectOption Options={state.data?.result?.slice(0, 10) ?? []} />
+              <select
+                className={`${Input}  w-full shadow-sm font-semibold text-[#414141]`}
+                onChange={handleChange}
+                name="Speciality"
+              >
+                <option value="" disabled>
+                  Select an option
+                </option>
+                {state?.data?.result?.map((option: any, index: number) => (
+                  <option key={index} value={option.Specialty_name}>
+                    {option.Specialty_name}
+                  </option>
+                ))}
+              </select>
 
               <input
                 type="text"
                 className={`${Input} max-sm:w-full shadow-sm`}
                 placeholder="Email"
                 name="Email"
+                onChange={handleChange}
               />
               <input
                 type="password"
                 className={`${Input} max-sm:w-full shadow-sm`}
                 placeholder="Password"
                 name="Password"
+                onChange={handleChange}
               />
             </div>
           </form>
 
           <div className="flex justify-center">
-            <button className="bg-[#1F3FC3] p-2 mt-5 w-56 rounded-xl text-white font-semibold hover:bg-[#314491] transition-all duration-300">
+            <button
+              className="bg-[#1F3FC3] p-2 mt-5 w-56 rounded-xl text-white font-semibold hover:bg-[#314491] transition-all duration-300"
+              onClick={handleClick}
+            >
               {ChangeTextByLanguage("أنشاء حساب", "Create Account")}
             </button>
           </div>

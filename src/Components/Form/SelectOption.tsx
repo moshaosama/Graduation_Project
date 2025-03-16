@@ -7,16 +7,27 @@ type SelectOptionType<T> = {
 
 const SelectOption = memo(<T,>({ Options }: SelectOptionType<T>) => {
   const { Input } = styleJoinNewDoctor;
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log(event.target.value);
+  };
+
   return (
-    <select
-      className={`${Input} max-sm:w-full shadow-sm font-semibold text-[#414141]`}
-    >
-      {Options.map((option: any, index) => (
-        <option key={index} value={option as string}>
-          {option?.Specialty_name}
+    <div>
+      <select
+        className={`${Input}  w-full shadow-sm font-semibold text-[#414141]`}
+        onChange={handleChange}
+      >
+        <option value="" disabled>
+          Select an option
         </option>
-      ))}
-    </select>
+        {Options.map((option: any, index) => (
+          <option key={index} value={option.Specialty_name}>
+            {option.Specialty_name}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 });
 

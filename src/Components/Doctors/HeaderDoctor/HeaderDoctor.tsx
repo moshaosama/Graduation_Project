@@ -16,6 +16,18 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
   }, []);
   const state = useSelector((state: RootState) => state.allDoctor);
 
+  const FilterBTnsRender = useMemo(() => {
+    return FilterDoctorLists?.map((el: FilterDoctorType, index: number) => {
+      return (
+        <div key={index}>
+          <div className={FilterBtns} onClick={el.onclick}>
+            <h1>{el.Title}</h1>
+          </div>
+        </div>
+      );
+    });
+  }, []);
+
   const LengthDoctor = useMemo(() => {
     if (Doctors?.result?.length !== 0) {
       return Doctors?.result?.length;
@@ -58,17 +70,7 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
         </div>
       </div>
       <div className="bg-gray-300 py-3 border-b-[1px] border-b-black">
-        <div className=" mx-44 flex items-center gap-4">
-          {FilterDoctorLists?.map((el: FilterDoctorType, index: number) => {
-            return (
-              <div key={index}>
-                <div className={FilterBtns}>
-                  <h1>{el.Title}</h1>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <div className=" mx-44 flex items-center gap-4">{FilterBTnsRender}</div>
       </div>
     </>
   );
