@@ -3,12 +3,13 @@ export interface DoctorType {
   DoctorID: number;
   Email: null;
   Experience: number;
-  FullName: string;
+  Name: string;
   Location: string;
   PhoneNumber: string;
-  Price: string;
+  ConsultationFee: string;
   Specialty_name: string;
   Visitors: number;
+  Gender: string;
 }
 
 export interface SpecialtyType {

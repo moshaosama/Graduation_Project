@@ -48,7 +48,7 @@ const Navbar = () => {
         <Link to={"/"}>
           <div className={LogoBrand}>
             <ImageRender
-              src="WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
+              src="/WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
               alt="Logo.png"
               width="10"
             />

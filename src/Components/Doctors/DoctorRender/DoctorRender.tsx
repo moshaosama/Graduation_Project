@@ -5,6 +5,7 @@ import { GrMoney } from "react-icons/gr";
 import { IoLocationSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/Store";
+import { ImageFemale, ImageMale } from "../../../Utils/Images";
 
 const BookDoctor = React.lazy(() => import("../../BookDoctor/BookDoctor"));
 
@@ -20,17 +21,18 @@ const DoctorRender = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white w-[70pc] p-7 py-16 rounded-xl shadow-md flex flex-col my-4"
+                  className="bg-white w-[70pc] border-[1px] border-black p-7 py-16 rounded-xl shadow-md flex flex-col my-4"
                 >
                   <div className="flex justify-between">
                     <div className="flex flex-col">
                       <div className="flex gap-5 items-center">
                         <div>
                           <img
-                            src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
+                            src={el?.Gender == "Male" ? ImageMale : ImageFemale}
                             alt="Doctor.png"
-                            className="w-24 rounded-full border-[3px] border-gray-700"
+                            className="w-20 object-cover rounded-full border-[3px] border-gray-700"
                             loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <div className="flex flex-col mx-3 text-sm items-start justify-center">
@@ -91,10 +93,11 @@ const DoctorRender = () => {
                       <div className="flex gap-5 items-center">
                         <div>
                           <img
-                            src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
+                            src={el?.Gender == "Male" ? ImageMale : ImageFemale}
                             alt="Doctor.png"
-                            className="w-24 rounded-full border-[3px] border-gray-700"
+                            className="w-20 object-cover rounded-full border-[3px] border-gray-700"
                             loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <div className="flex flex-col mx-3 text-sm items-start justify-center">

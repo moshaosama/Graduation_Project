@@ -1,9 +1,7 @@
+import ProfileDoctorCom from "../Components/ProfileDoctorDoctorComponent/ProfileDoctorCom";
+
 const ProfileDoctor = () => {
-  return (
-    <div>
-      <h1>Mosha</h1>
-    </div>
-  );
+  return <ProfileDoctorCom />;
 };
 
 export default ProfileDoctor;
