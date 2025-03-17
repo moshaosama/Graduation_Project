@@ -1,8 +1,11 @@
 import { container } from "../../Style";
+
 import AboutDoctor from "./AboutDoctor/AboutDoctor";
 import DetailsProfileDoctor from "./DetailsProfileDoctor/DetailsProfileDoctor";
-import ReviewDoctor from "./ReviewsDoctor/ReviewDoctor";
+import FormReviewDoctor from "./FormReviewsDoctor/FormReviewDoctor";
+import { lazy, Suspense } from "react";
 
+const ReviewsCard = lazy(() => import("../ReviewsCard/ReviewsCard"));
 const ProfileDoctorCom = () => {
   return (
     <div
@@ -11,7 +14,10 @@ const ProfileDoctorCom = () => {
     >
       <DetailsProfileDoctor />
       <AboutDoctor />
-      <ReviewDoctor />
+      <Suspense fallback="Loading...">
+        <ReviewsCard />
+      </Suspense>
+      <FormReviewDoctor />
     </div>
   );
 };

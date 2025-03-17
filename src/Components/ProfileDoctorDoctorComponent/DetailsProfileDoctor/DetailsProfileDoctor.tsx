@@ -7,7 +7,6 @@ import { ImageFemale, ImageMale } from "../../../Utils/Images";
 
 const DetailsProfileDoctor = () => {
   const { id } = useParams();
-
   const Doctor: DoctorType = useFindDoctor(+id!)[0];
   return (
     <div className="w-full">
@@ -53,7 +52,10 @@ const DetailsProfileDoctor = () => {
             />
             <h1 className="text-blue-500 font-bold">4.0 (6 ratings)</h1>
           </div>
-          <a href="" className="text-blue-500 font-bold hover:underline">
+          <a
+            href="#leaveReview"
+            className="text-blue-500 font-bold hover:underline"
+          >
             Leave a review{" "}
           </a>
         </div>

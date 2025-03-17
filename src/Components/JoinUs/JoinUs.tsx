@@ -14,7 +14,7 @@ const JoinUs = () => {
           <input
             type="text"
             placeholder="Your Email"
-            className="p-3 w-[40pc]"
+            className="p-3 w-[40pc] bg-gray-200"
           />
           <button className="bg-[#23A6F0] p-3">Subscripe</button>
         </form>

@@ -63,7 +63,7 @@ const FormContactUs = () => {
 
                   <input
                     type="text"
-                    className="w-96 rounded-lg p-3"
+                    className="w-96 rounded-lg p-3 bg-gray-200"
                     placeholder={el.placeHolder}
                     name={el.Label}
                     onChange={handleChange}
@@ -74,7 +74,7 @@ const FormContactUs = () => {
           )}
           <textarea
             placeholder="Your Message"
-            className="w-96 rounded-lg px-3 h-20"
+            className="w-96 rounded-lg px-3 bg-gray-200 h-20"
             onChange={(el: React.ChangeEvent<HTMLTextAreaElement>) => {
               setComment({ ...Comment, Comment: el.target.value });
             }}
