@@ -80,7 +80,7 @@ const DoctorRender = () => {
                 </div>
               );
             })
-          : state?.data?.result?.map((el: any, index: number) => {
+          : state?.data?.result?.slice(1)?.map((el: any, index: number) => {
               return (
                 <div
                   key={index}

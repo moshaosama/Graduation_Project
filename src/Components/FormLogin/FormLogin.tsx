@@ -79,7 +79,7 @@ const FormLogin = () => {
         </form>
         <ButtonForm
           Width="full"
-          Value={isLoading ? "Loading" : "Login"}
+          Value={isLoading ? "Loading..." : "Login"}
           handleClick={handleClickFromLogin}
         />
       </div>

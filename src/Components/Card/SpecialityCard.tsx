@@ -3,6 +3,7 @@ import { Traslation } from "../../Language/Language";
 import { SpecialityCardProps } from "../../Types/Card/SpecialityCard";
 import { MdArrowDropDown } from "react-icons/md";
 import React from "react";
+import useConvertLanguage from "../../Hooks/useConvertLanguage";
 
 const SpecialityCard = React.memo(
   ({
@@ -13,10 +14,7 @@ const SpecialityCard = React.memo(
     DropDown,
     Width,
   }: SpecialityCardProps) => {
-    const Language = useMemo(
-      () => window.localStorage.getItem("Language") ?? "English",
-      []
-    );
+    const { language } = useConvertLanguage();
 
     const width = useMemo(() => `w-${Width}`, [Width]);
     return (
@@ -29,7 +27,7 @@ const SpecialityCard = React.memo(
             <div>
               <p
                 className={`text-sm ${
-                  Language == '"English"' ? "text-start" : "text-end"
+                  language == '"English"' ? "text-start" : "text-end"
                 } font-semibold text-[#868686]`}
               >
                 {Label}
