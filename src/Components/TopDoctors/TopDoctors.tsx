@@ -11,7 +11,7 @@ const TopDoctors = () => {
       <div
         className={`${
           language == "English" ? "text-end" : "text-start"
-        }  py-10 rounded`}
+        }  py-10  rounded`}
       >
         <div className="mx-80">
           <TitleForSection

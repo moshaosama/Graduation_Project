@@ -41,7 +41,7 @@ const Profile = () => {
   return (
     <>
       <div
-        className={`my-4  mx-64 max-sm:mx-3 flex  ${TransitionLanguage.Language} max-sm:flex-col gap-10 max-sm:gap-5`}
+        className={`my-24  mx-64 max-sm:mx-3 flex  ${TransitionLanguage.Language} max-sm:flex-col gap-10 max-sm:gap-5`}
       >
         <div className="bg-white h-fit rounded-lg w-64 max-sm:w-full flex flex-col">
           {DetailsList.map((el) => (

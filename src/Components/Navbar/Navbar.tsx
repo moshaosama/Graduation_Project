@@ -3,7 +3,9 @@ import globalStyle from "../../Style/globalStyle.module.css";
 import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
-import { useCallback } from "react";
+import { lazy, useCallback } from "react";
+
+const NavbarDetails = lazy(() => import("./NavbarDetails/NavbarDetails"));
 
 const Navbar = () => {
   const { container } = globalStyle;
@@ -44,29 +46,45 @@ const Navbar = () => {
   return (
     <>
       {ConditionNavbar}
-      <div className={`${container}`} style={{ margin: "1pc 55pc 2pc 11pc" }}>
-        <Link to={"/"}>
-          <div className={LogoBrand}>
-            <ImageRender
-              src="/WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
-              alt="Logo.png"
-              width="10"
-            />
-            <h1 className={TextLogo}>MediPulse</h1>
+      <div
+        className={`flex items-center ${
+          location.pathname !== "/" ? "bg-gray-100 mb-10" : ""
+        }`}
+      >
+        <div
+          className={`${container} ${location.pathname !== "/" ? "w-96" : ""}`}
+          style={{ margin: "1pc 55pc 2pc 10pc" }}
+        >
+          <div className="flex items-center gap-56">
+            <Link to={"/"}>
+              <div className={LogoBrand}>
+                <ImageRender
+                  src="/WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
+                  alt="Logo.png"
+                  width="10"
+                />
+                <h1 className={TextLogo}>MediPulse</h1>
+              </div>
+            </Link>
+            <div className="flex gap-10">
+              {LinksPages.map(
+                (el: { title: string; to: string }, index: number) => {
+                  return (
+                    <Link to={el.to} key={index}>
+                      <p className="hover:underline cursor-pointer text-gray-600 font-semibold">
+                        {el.title}
+                      </p>
+                    </Link>
+                  );
+                }
+              )}
+            </div>
           </div>
-        </Link>
-        <div className="flex gap-10">
-          {LinksPages.map(
-            (el: { title: string; to: string }, index: number) => {
-              return (
-                <Link to={el.to} key={index}>
-                  <p className="hover:underline cursor-pointer text-gray-600 font-semibold">
-                    {el.title}
-                  </p>
-                </Link>
-              );
-            }
-          )}
+        </div>
+        <div className="w-full mb-5">
+          {location.pathname !== "/" ? (
+            <NavbarDetails textColor="black" />
+          ) : null}
         </div>
       </div>
     </>

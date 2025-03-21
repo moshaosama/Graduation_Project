@@ -30,7 +30,7 @@ const Inputs = React.memo(
 
           <input
             type={Type}
-            className="w-96 px-3 max-sm:w-full h-10 bg-gray-200 border-[#ddd] border-[1px] rounded-lg shadow-sm"
+            className="w-[30pc] px-3 max-sm:w-full h-10 bg-gray-200 border-[#ddd] border-[1px] rounded-lg shadow-sm"
             placeholder={placeHolder}
             onChange={ChangeEvent}
             name={Label}

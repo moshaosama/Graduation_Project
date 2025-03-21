@@ -17,7 +17,7 @@ const TopDoctorsDetails = () => {
     return state.data.result?.slice(0, 4).map((el: any, index: number) => (
       <div
         key={index}
-        className="bg-white py-10 w-72 px-2 flex flex-col gap-4 items-center rounded-xl hover:translate-x-1 transition-all duration-500 cursor-pointer hover:bg-gray-200 shadow-2xl"
+        className="bg-white py-10 w-80 px-2 max-h-80 flex flex-col gap-4 items-center rounded-xl hover:translate-x-1 transition-all duration-500 cursor-pointer hover:bg-gray-200 shadow-2xl"
       >
         <img
           src="WhatsApp_Image_2025-02-27_at_01.00.00_8ea27a5f-removebg-preview.png"

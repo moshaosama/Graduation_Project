@@ -1,6 +1,8 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import ProfileData from "./ProfileData";
 import { ChangeTextByLanguage } from "../../Language/Language";
+import useNotifytoastify from "../../Hooks/useNotifytoastify";
+import { ToastContainer, Bounce } from "react-toastify";
 
 const InfoProfile = () => {
   const User = JSON.parse(window.localStorage.getItem("User") || "{}");
@@ -11,6 +13,8 @@ const InfoProfile = () => {
     Email: User?.Email,
     birthDate: User?.birthDate,
   });
+
+  const { notifySuccess } = useNotifytoastify();
 
   const formConfig = useMemo(
     () => [
@@ -42,7 +46,7 @@ const InfoProfile = () => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const HandleClickSave = () => {
+  const HandleClickSave = useCallback(() => {
     fetch(`http://localhost:3000/changeprofile/${User?.Email}`, {
       method: "PUT",
       headers: {
@@ -55,9 +59,11 @@ const InfoProfile = () => {
       })
       .then((data) => {
         window.localStorage.setItem("User", JSON.stringify(data?.result[0]));
-        window.location.reload();
+      })
+      .finally(() => {
+        notifySuccess("User saved");
       });
-  };
+  }, [formState]);
 
   return (
     <>
@@ -67,6 +73,19 @@ const InfoProfile = () => {
         Lists={formConfig}
         handleChange={ChangeFromState}
         handleClickSave={HandleClickSave}
+      />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
       />
     </>
   );

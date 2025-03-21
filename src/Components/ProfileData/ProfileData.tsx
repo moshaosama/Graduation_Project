@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { ProfileDataProps } from "../../Types/ProfileData/ProfileData";
 import Inputs from "../Form/Inputs";
 import { ChangeTextByLanguage } from "../../Language/Language";
-import { memo } from "react";
+import { memo, useState } from "react";
+import useConvertLanguage from "../../Hooks/useConvertLanguage";
 
 const ProfileData = memo(
   ({
@@ -12,7 +13,8 @@ const ProfileData = memo(
     handleChange,
     handleClickSave,
   }: ProfileDataProps) => {
-    const Language = JSON.stringify(window.localStorage.getItem("Language"));
+    const { language } = useConvertLanguage();
+    const [Loading] = useState(false);
     return (
       <>
         <div className="bg-white h-fit pb-4 w-[50rem] max-sm:w-full rounded-lg">
@@ -35,17 +37,15 @@ const ProfileData = memo(
           </div>
           <div
             className={`flex ${
-              Language == '"English"'
-                ? "flex-row-reverse  mx-[23.5pc]"
-                : "flex-row mx-[23.5pc]"
-            } gap-3 my-4  max-sm:mx-10`}
+              language == "English" ? "flex-row-reverse" : "flex-row"
+            } gap-3 my-4 mx-[17.5pc]  max-sm:mx-10`}
           >
             <div>
               <button
                 className="rounded-lg text-white font-bold bg-[#5669FF] hover:bg-[#4e59ac] transition-all duration-300  w-28 p-1"
                 onClick={handleClickSave}
               >
-                {ChangeTextByLanguage("حفظ", "Save")}
+                {ChangeTextByLanguage("حفظ", Loading ? "Loading..." : "Save")}
               </button>
             </div>
             <Link to={"/"}>

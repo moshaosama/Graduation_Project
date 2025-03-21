@@ -1,6 +1,8 @@
 import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router";
 import ButtonForm from "../Form/ButtonForm";
+import useNotifytoastify from "../../Hooks/useNotifytoastify";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const FormLogin = () => {
   const [formLogin, setFormLogin] = useState({
@@ -9,6 +11,7 @@ const FormLogin = () => {
   });
   const [isLoading, setLoading] = useState(false);
   const Navigation = useNavigate();
+  const { notifyError } = useNotifytoastify();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormLogin({ ...formLogin, [e.target.name]: e.target.value });
@@ -28,7 +31,7 @@ const FormLogin = () => {
       })
       .then(async (data) => {
         if (data.statusbar === "error") {
-          return;
+          notifyError(data.message);
         } else {
           await window.localStorage.setItem("Token", data?.Token);
           await window.localStorage.setItem(
@@ -81,6 +84,19 @@ const FormLogin = () => {
           Width="full"
           Value={isLoading ? "Loading..." : "Login"}
           handleClick={handleClickFromLogin}
+        />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          transition={Bounce}
         />
       </div>
     </>
