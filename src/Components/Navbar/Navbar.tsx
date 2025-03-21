@@ -48,11 +48,11 @@ const Navbar = () => {
       {ConditionNavbar}
       <div
         className={`flex items-center ${
-          location.pathname !== "/" ? "bg-gray-100 mb-10" : ""
+          location.pathname !== "/" ? " mb-7" : ""
         }`}
       >
         <div
-          className={`${container} ${location.pathname !== "/" ? "w-96" : ""}`}
+          className={` ${location.pathname !== "/" ? "w-96" : ""}`}
           style={{ margin: "1pc 55pc 2pc 10pc" }}
         >
           <div className="flex items-center gap-56">

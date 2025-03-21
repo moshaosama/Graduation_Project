@@ -144,7 +144,7 @@ const SpecialityCardListRender = () => {
           <form action="" className="p-2 flex flex-col  gap-4">
             <label
               className={`text-sm ${
-                language == '"English"' ? "text-start" : "text-end"
+                language == "English" ? "text-start" : "text-end"
               } font-semibold text-[#868686]`}
               htmlFor="personName"
             >
@@ -162,7 +162,7 @@ const SpecialityCardListRender = () => {
         </div>
         <div
           className={`h-[4.6pc] border border-solid ${
-            language == '"English"' ? "rounded-l-xl" : "rounded-r-xl"
+            language == "English" ? "rounded-l-xl" : "rounded-r-xl"
           } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
           onClick={handleClickSave}
         >

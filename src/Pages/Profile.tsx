@@ -43,7 +43,7 @@ const Profile = () => {
       <div
         className={`my-24  mx-64 max-sm:mx-3 flex  ${TransitionLanguage.Language} max-sm:flex-col gap-10 max-sm:gap-5`}
       >
-        <div className="bg-white h-fit rounded-lg w-64 max-sm:w-full flex flex-col">
+        <div className="bg-white border-[1px] border-solid border-black shadow-xl h-fit rounded-lg w-64 max-sm:w-full flex flex-col">
           {DetailsList.map((el) => (
             <NavLink
               to={el.link}

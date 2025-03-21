@@ -7,7 +7,7 @@ const DashBoardUser = () => {
     window.location.reload();
   };
   return (
-    <div className="absolute  bg-white w-44 z-50 rounded-lg mt-1">
+    <div className="absolute  bg-gray-200 w-44 z-50 rounded-lg mt-1">
       <div className="font-bold">
         <Link to={"/profile/info"}>
           <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">

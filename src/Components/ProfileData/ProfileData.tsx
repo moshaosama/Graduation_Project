@@ -17,7 +17,7 @@ const ProfileData = memo(
     const [Loading] = useState(false);
     return (
       <>
-        <div className="bg-white h-fit pb-4 w-[50rem] max-sm:w-full rounded-lg">
+        <div className="bg-white border-[1px] shadow-xl border-solid border-black h-fit pb-4 w-[50rem] max-sm:w-full rounded-lg">
           <div className="bg-[rgb(0,112,205)] text-center text-white font-bold p-1 rounded-lg">
             <h1>{ChangeTextByLanguage(TitleEN, TitleAR)}</h1>
           </div>

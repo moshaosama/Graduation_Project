@@ -33,18 +33,13 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
     () => ChangeTextByLanguage("English", "عربي"),
     []
   );
-  const Flags = useMemo(
-    () => ({
-      EnFlaf: `download.png`,
-      ArFlag: `Flag_of_the_United_Kingdom_(1-2).svg.png`,
-    }),
-    []
-  );
+  const Flags = {
+    EnFlaf: `/download.png`,
+    ArFlag: `/Flag_of_the_United_Kingdom_(1-2).svg.png`,
+  };
 
-  const FlagSrc = useMemo(
-    () => ChangeTextByLanguage(Flags.ArFlag, Flags.EnFlaf),
-    [Flags]
-  );
+  const FlagSrc = ChangeTextByLanguage(Flags.ArFlag, Flags.EnFlaf);
+
   const { toggleLanguage } = useConvertLanguage();
   return (
     <>
@@ -52,7 +47,7 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
         {Token ? (
           <div className="relative">
             <button
-              className="bg-white hover:bg-[#b1b1b1] transition-all duration-500 p-2 w-40 rounded-xl flex justify-around items-center"
+              className="bg-gray-200 hover:bg-[#b1b1b1] transition-all duration-500 p-2 w-40 rounded-xl flex justify-around items-center"
               onClick={handleClickUser}
             >
               <h1 className="font-bold">{User?.userName}</h1>
