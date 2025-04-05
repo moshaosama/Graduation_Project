@@ -11,13 +11,15 @@ const initialState: ReduxData = {
 export const fetchgetReviews = createAsyncThunk(
   "getReview/fetchgetReviews",
   async (id: number) => {
-    const response = await axios.get(`http://localhost:3000/getreview/${id}`);
-    return response.data;
+    if (id) {
+      const response = await axios.get(`http://localhost:3000/getreview/${id}`);
+      return response.data;
+    }
   }
 );
 
 const getReviewSlice = createSlice({
-  name: "getReview",
+  name: "getReview", // Get Review
   initialState,
   reducers: {},
   extraReducers: (builder) => {
