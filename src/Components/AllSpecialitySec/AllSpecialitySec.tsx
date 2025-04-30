@@ -21,8 +21,8 @@ const AllSpecialitySec = () => {
 
   return (
     <>
-      <div className={`bg-white mt-12 w-full`}>
-        <div className="mx-80 py-5">
+      <div className={`bg-white mt-12 w-full `}>
+        <div className="mx-80 max-sm:mx-7 py-5">
           <h1 className="text-2xl font-bold text-[#343437]">
             Select a specialty
           </h1>
