@@ -48,7 +48,7 @@ const FindDectorResponsive = () => {
   };
   return (
     <div>
-      <div className="flex justify-between   border-blue-500">
+      <div className="flex justify-between max-sm:w-[24.5pc]  border-blue-500">
         {listFindDoctor.map((el) => (
           <div
             key={el.id}
@@ -65,12 +65,12 @@ const FindDectorResponsive = () => {
           </div>
         ))}
       </div>
-      <div>{formDoctors()}</div>
+      <div className="max-sm:w-[24.5pc]">{formDoctors()}</div>
       <div>
         {ActiveFindDeoctor == "Clinic Visit" ||
         ActiveFindDeoctor == "Doctor Call" ? (
           <div className="my-4">
-            <div className="bg-[red] rounded-lg flex justify-center py-5">
+            <div className="bg-[red] max-sm:w-[24.5pc] rounded-lg flex justify-center py-5">
               <button className="text-white font-bold text-md">
                 Browse Doctors
               </button>
