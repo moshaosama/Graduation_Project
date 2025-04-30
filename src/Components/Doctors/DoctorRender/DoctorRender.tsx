@@ -5,6 +5,7 @@ import { GrMoney } from "react-icons/gr";
 import { IoLocationSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/Store";
+import { ChangeTextByLanguage } from "../../../Language/Language";
 
 const BookDoctor = React.lazy(() => import("../../BookDoctor/BookDoctor"));
 
@@ -20,11 +21,11 @@ const DoctorRender = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white w-[70pc] border-[1px] border-black border-solid p-7 py-16 rounded-xl shadow-md flex flex-col my-4"
+                  className="bg-white w-[70pc] max-sm:w-[24pc] border-[1px]  border-black border-solid p-7 py-16 rounded-xl shadow-md flex flex-col  my-4"
                 >
                   <div className="flex justify-between">
                     <div className="flex flex-col">
-                      <div className="flex gap-5 items-center">
+                      <div className="flex gap-5 max-sm:gap-10 items-center">
                         <div>
                           <img
                             src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
@@ -46,7 +47,7 @@ const DoctorRender = () => {
                           />
                         </div>
                       </div>
-                      <div className="my-1 mx-32 flex flex-col gap-2">
+                      <div className="my-1 mx-32 flex flex-col max-sm:mx-0 max-sm:mt-10 gap-2">
                         <div className="flex gap-3 items-center">
                           <FaStethoscope className="text-blue-500" />
                           <p className="text-md font-semibold text-gray-600">
@@ -70,6 +71,11 @@ const DoctorRender = () => {
                           <p className="text-md font-semibold text-gray-600">
                             16676 - Cost of regular call
                           </p>
+                        </div>
+                        <div className="sm:hidden ">
+                          <button className="bg-red-500 text-white p-2 rounded-xl">
+                            {ChangeTextByLanguage("أحجز الان", "Book now")}
+                          </button>
                         </div>
                       </div>
                     </div>
