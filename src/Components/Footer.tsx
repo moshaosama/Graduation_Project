@@ -2,7 +2,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-700 w-full py-7 rounded-tr-lg">
+    <div className="bg-blue-700 max-sm:w-[24.5pc] w-full py-7 rounded-tr-lg">
       <div className="flex justify-between mx-80 max-sm:mx-5">
         <div className="flex flex-col gap-4 sm:contents">
           <div className="flex justify-between sm:contents">
@@ -52,7 +52,7 @@ const Footer = () => {
               </h1>
               <div className="flex flex-col my-5 gap-2 text-white">
                 <a
-                  href=""
+                  href="/specialty-directory"
                   className="hover:underline text-black font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
@@ -123,7 +123,7 @@ const Footer = () => {
                   Medical Library
                 </a>
                 <Link
-                  to={"/contactus"}
+                  to={"/contact"}
                   className="hover:underline text-black font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
