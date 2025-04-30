@@ -4,5 +4,11 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  width: fit-content;
 }
 
+/* @media (max-width: 800px) {
+  .Paths {
+    margin: 0pc -18pc;
+  }
+} */
