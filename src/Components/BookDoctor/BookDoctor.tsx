@@ -8,7 +8,7 @@ type BookDoctorProps = {
 const BookDoctor = memo(({ id }: BookDoctorProps) => {
   return (
     <div>
-      <div className="flex gap-10 h-full">
+      <div className="flex gap-10 h-full max-sm:hidden">
         <div className="border-black  w-32 border-[1px] flex flex-col justify-between rounded-md  h-full">
           <div className="bg-[#0056D6] text-center py-1">
             <h1 className=" text-white font-bold h-fit w-full">Today</h1>
@@ -33,7 +33,7 @@ const BookDoctor = memo(({ id }: BookDoctorProps) => {
         </div>
       </div>
 
-      <div className="flex justify-center my-3">
+      <div className="flex justify-center my-3 max-sm:hidden">
         <Link to={`${id}`}>
           <button className="text-red-600 rounded-full w-56 hover:bg-gray-100 transition-all duration-200 font-bold border-[1px] p-1 border-red-400 ">
             View Profile
