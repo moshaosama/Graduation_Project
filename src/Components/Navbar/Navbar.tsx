@@ -1,15 +1,17 @@
 import ImageRender from "../ImageRender";
-import globalStyle from "../../Style/globalStyle.module.css";
 import style from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
 import { lazy, useCallback } from "react";
+import { IoIosMenu } from "react-icons/io";
+import MenuResponsiveLinks from "../MenuResponsiveLinks";
+import { useOpenMenu } from "../../Context/OpenMenuProvider";
 
 const NavbarDetails = lazy(() => import("./NavbarDetails/NavbarDetails"));
 
 const Navbar = () => {
-  const { container } = globalStyle;
   const { LogoBrand, TextLogo } = style;
+  const { OpenMenu, toggleMenu } = useOpenMenu();
 
   const LinksPages = [
     {
@@ -49,13 +51,13 @@ const Navbar = () => {
       <div
         className={`flex items-center ${
           location.pathname !== "/" ? " mb-7" : ""
-        }`}
+        } max-sm:mx-0 max-sm:w-[24.5pc]`}
       >
         <div
           className={` ${location.pathname !== "/" ? "w-96" : ""}`}
           style={{ margin: "1pc 55pc 2pc 10pc" }}
         >
-          <div className="flex items-center gap-56">
+          <div className="flex items-center gap-56 max-sm:gap-48">
             <Link to={"/"}>
               <div className={LogoBrand}>
                 <ImageRender
@@ -66,7 +68,11 @@ const Navbar = () => {
                 <h1 className={TextLogo}>MediPulse</h1>
               </div>
             </Link>
-            <div className="flex gap-10">
+            <div className="sm:hidden">
+              <IoIosMenu className="text-3xl" onClick={toggleMenu} />
+              {OpenMenu ? <MenuResponsiveLinks /> : null}
+            </div>
+            <div className="flex gap-10 max-sm:hidden">
               {LinksPages.map(
                 (el: { title: string; to: string }, index: number) => {
                   return (
