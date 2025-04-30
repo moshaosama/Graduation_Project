@@ -38,7 +38,7 @@ const ChooseDropDown = memo(
                 className="text-[#0a84ff7a] font-bold cursor-pointer hover:bg-[#eee] p-1 rounded-lg"
                 onClick={() => handleClick(el[Row])}
               >
-                {el[Row].slice(0, 20)}
+                {...el[Row].slice(0, 20)}
               </h1>
             ))}
           </div>
