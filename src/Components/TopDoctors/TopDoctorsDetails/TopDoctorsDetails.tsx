@@ -8,7 +8,7 @@ const TopDoctorsDetails = memo(() => {
     result: [];
   }>({ result: [] });
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(1);
 
   const handleClickPrevPage = () => {
     if (page > 1) {
@@ -27,17 +27,12 @@ const TopDoctorsDetails = memo(() => {
       .then((data) => setState(data));
   }, [page, limit]);
 
-  console.log(state && state?.result);
-
   const FindDoctors = useMemo(() => {
     if (!state?.result) return <p>No doctors found</p>;
 
     return state.result?.map((el: DoctorType, index: number) => (
-      <Link to={`/doctors/${el.DoctorID}`}>
-        <div
-          key={index}
-          className="bg-white py-10 w-96 px-2 max-h-80 flex flex-col gap-4 items-center rounded-xl hover:translate-x-1 transition-all duration-500 cursor-pointer hover:bg-gray-200 shadow-2xl"
-        >
+      <Link to={`/doctors/${el.DoctorID}`} key={index}>
+        <div className="bg-white py-10 w-80 max-sm:w-72 px-2 max-h-80 flex flex-col gap-4 items-center rounded-xl hover:translate-x-1 transition-all duration-500 cursor-pointer hover:bg-gray-200 shadow-2xl">
           <img
             src="WhatsApp_Image_2025-02-27_at_01.00.00_8ea27a5f-removebg-preview.png"
             alt="Person.png"
@@ -56,12 +51,12 @@ const TopDoctorsDetails = memo(() => {
 
   return (
     <>
-      <div className="my-14 flex bg-[#184c9917] py-3 justify-between items-center">
+      <div className="my-14 flex bg-[#184c9917] max-sm:w-[24.5pc] py-3 justify-between items-center">
         <div
-          className="bg-[#184c993a] w-10 h-24 py-20 px-12 rounded-r-full relative cursor-pointer"
+          className="bg-[#184c993a] max-sm:w-0 max-sm:h-0 max-sm:py-10 max-sm:px-5 w-10 h-24 py-20 px-12 rounded-r-full relative cursor-pointer"
           onClick={handleClickPrevPage}
         >
-          <div className="bg-[#184C99] w-16 h-24 absolute flex justify-center items-center left-0 top-7 rounded-r-full">
+          <div className="bg-[#184C99]  max-sm:py-2 max-sm:px-0 max-sm:w-7 w-16 max-sm:h-12 h-24  absolute flex justify-center items-center left-0 max-sm:top-4 top-7 rounded-r-full">
             <MdKeyboardArrowLeft className="text-3xl text-white" />
           </div>
         </div>
@@ -69,11 +64,11 @@ const TopDoctorsDetails = memo(() => {
         <div className="flex items-center gap-10">{FindDoctors}</div>
 
         <div
-          className="bg-[#184c993a] w-10 h-24 py-20 px-12 rounded-l-full relative cursor-pointer"
+          className="bg-[#184c993a] max-sm:w-0 max-sm:h-0 max-sm:py-10 max-sm:px-5 w-10 h-24 py-20 px-12 rounded-l-full relative cursor-pointer"
           onClick={handleClickNextPage}
         >
-          <div className="bg-[#184C99] w-16 h-24 absolute flex justify-center items-center right-0 top-7 rounded-l-full">
-            <MdKeyboardArrowRight className="text-3xl text-white" />
+          <div className="bg-[#184C99]  max-sm:py-2 max-sm:px-0 max-sm:w-7 w-16 max-sm:h-12 h-24  absolute flex justify-center items-center right-0 max-sm:top-4 top-7 rounded-l-full">
+            <MdKeyboardArrowRight className="text-3xl  text-white" />
           </div>
         </div>
       </div>
