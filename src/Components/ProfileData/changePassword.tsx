@@ -17,7 +17,7 @@ const ChangePassword = () => {
 
   const formConfig = [
     {
-      Label: ChangeTextByLanguage("كلمه المرور", "Password "),
+      Label: ChangeTextByLanguage("كلمه المرور", "Password"),
       Type: "password",
       placeHolder: "Enter a Password",
     },
