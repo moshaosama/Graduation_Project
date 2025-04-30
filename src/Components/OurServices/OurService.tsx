@@ -17,7 +17,7 @@ export const CartService = ({
   Paragraph: string;
 }) => {
   return (
-    <div className=" shadow-md cursor-pointer shadow-black rounded-xl  w-96 flex flex-col gap-3 items-center p-4 justify-center">
+    <div className=" shadow-md cursor-pointer shadow-black rounded-xl max-sm:mx-1 w-96 max-sm:w-[23pc] flex flex-col gap-3 items-center p-4 justify-center">
       <div className="flex flex-col items-center gap-2">
         {Icon}
         <h1 className="text-lg font-bold">{Text}</h1>
@@ -44,7 +44,7 @@ const OurService = () => {
       <div
         className={`bg-blue-700 rounded-t-xl py-16 flex ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        } gap-5 justify-center items-center`}
+        } gap-5 justify-center items-center max-sm:w-96`}
       >
         <CiSettings className="text-5xl text-white" />
         {language == "English" ? (
@@ -58,7 +58,7 @@ const OurService = () => {
 
       <div className="bg-white rounded-b-xl p-16">
         <div
-          className=" grid grid-cols-3 mx-64 gap-28 opacity-5 transition-all duration-500 "
+          className=" grid grid-cols-3 max-sm:grid-cols-1 mx-64 max-sm:-mx-14 gap-28 max-sm:gap-10 opacity-5 max-sm:opacity-100 transition-all duration-500 "
           id="CartService"
         >
           <CartService
