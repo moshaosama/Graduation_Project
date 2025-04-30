@@ -1,8 +1,8 @@
 const DownloadApp = () => {
   return (
     <>
-      <div className="bg-white mt-20 p-8 flex justify-center rounded-lg">
-        <div className="bg-blue-700 w-[80pc]  rounded-xl p-10 flex justify-between">
+      <div className="bg-white mt-20 p-8 max-sm:p-1 max-sm:block flex justify-center rounded-lg">
+        <div className="bg-blue-700 w-[80pc] max-sm:w-[24pc]  rounded-xl p-10 flex justify-between">
           <div className="text-white flex flex-col w-96  gap-10">
             <h1 className="text-3xl font-bold">
               Download Medipulse Application
