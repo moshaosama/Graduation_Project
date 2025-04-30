@@ -26,7 +26,7 @@ const Doctor = () => {
           No Doctors Yet!!
         </h1>
       ) : (
-        <div className="mx-80 my-2 flex gap-10 items-center flex-col">
+        <div className="mx-80 max-sm:ml-[13pc] my-2 flex gap-10 items-center flex-col">
           <DoctorsSec />
         </div>
       )}
