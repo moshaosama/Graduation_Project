@@ -20,6 +20,7 @@ import { fetchDoctor } from "../../../../Store/Reducer/Doctor/DoctorReducer";
 import { useNavigate } from "react-router-dom";
 import useConvertLanguage from "../../../../Hooks/useConvertLanguage";
 import useDropDownState from "../../../../Hooks/useDropDownState";
+import { fetchAllDoctor } from "../../../../Store/Reducer/AllDoctor/AllDoctor";
 
 const SpecialityCardListRender = () => {
   const { DropDownState, setDropDownState } = useDropDownState();
@@ -55,11 +56,25 @@ const SpecialityCardListRender = () => {
   };
 
   const handleClickSave = async () => {
-    setLoading(true);
-    await new Promise((resolver) => setTimeout(resolver, 1000));
-    setLoading(false);
-    dispatch(fetchDoctor(choooseDoctor));
-    Navigator("/doctors");
+    try {
+      setLoading(true);
+      await new Promise((resolver) => setTimeout(resolver, 1000));
+      setLoading(false);
+      if (
+        choooseDoctor.Speciality ===
+          ChangeTextByLanguage("أختار التخصص", "Choose specialty") &&
+        choooseDoctor.City === ChangeTextByLanguage("القاهره", "Choose city") &&
+        choooseDoctor.Area ===
+          ChangeTextByLanguage("اختار المنطقه", "Choose area")
+      ) {
+        dispatch(fetchAllDoctor());
+      } else {
+        dispatch(fetchDoctor(choooseDoctor));
+      }
+      Navigator("/doctors");
+    } catch (err) {
+      return err;
+    }
   };
 
   const SpecialityCardList = [
