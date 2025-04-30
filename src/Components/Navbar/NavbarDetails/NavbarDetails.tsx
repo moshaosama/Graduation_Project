@@ -43,7 +43,7 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
   const { toggleLanguage } = useConvertLanguage();
   return (
     <>
-      <div className="flex gap-40">
+      <div className="flex gap-40 max-sm:hidden">
         {Token ? (
           <div className="relative">
             <button
@@ -69,7 +69,10 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
             </Link>
           </div>
         )}
-        <div className="flex items-center gap-2" onClick={toggleLanguage}>
+        <div
+          className="flex items-center gap-2 max-sm:hidden"
+          onClick={toggleLanguage}
+        >
           <ImageRender src={FlagSrc} alt="Flags.png" width="10" />
           <p
             className={`hover:underline cursor-pointer text-${textColor} font-bold`}
