@@ -4,6 +4,12 @@
   gap: 10px;
   cursor: pointer;
 }
+
+@media (max-width: 800px) {
+  .LogoBrand {
+    margin: 0pc -9pc;
+  }
+}
 .TextLogo {
   font-size: 30px;
   font-family: "Arbutus Slab";
