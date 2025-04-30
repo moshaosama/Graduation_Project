@@ -13,7 +13,7 @@ const Login = () => {
   return (
     <>
       <div className="flex justify-center items-center h-screen bg-[#eee]">
-        <div className="rounded-xl bg-white w-96 max-sm:w-80 p-10 relative">
+        <div className="rounded-xl bg-white w-96 p-10 relative">
           <div className="bg-blue-500 w-full rounded-tr-lg rounded-tl-lg absolute top-0 left-0">
             <h1 className="text-center text-white font-bold p-1">login</h1>
           </div>
