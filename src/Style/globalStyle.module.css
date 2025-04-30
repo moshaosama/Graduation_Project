@@ -12,3 +12,12 @@
   flex-direction: column;
   gap: 20px;
 }
+
+@media (max-width: 800px) {
+  .Header_For_Section {
+    margin: 0px 28px;
+  }
+  .container {
+    margin: 1pc 1pc;
+  }
+}
