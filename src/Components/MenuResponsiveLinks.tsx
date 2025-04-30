@@ -4,7 +4,6 @@ import { useOpenMenu } from "../Context/OpenMenuProvider";
 import { Link, NavLink } from "react-router";
 import { ChangeTextByLanguage } from "../Language/Language";
 import useConvertLanguage from "../Hooks/useConvertLanguage";
-import ImageRender from "./ImageRender";
 
 const MenuResponsiveLinks = () => {
   const { OpenMenu, toggleMenu } = useOpenMenu();
