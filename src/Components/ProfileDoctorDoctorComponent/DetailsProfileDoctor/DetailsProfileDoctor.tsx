@@ -10,11 +10,11 @@ const DetailsProfileDoctor = () => {
   const Doctor: DoctorType = useFindDoctor(+id!)[0];
   return (
     <div className="w-full">
-      <div className="text-gray-500 font-semibold flex items-center  gap-2">
+      <div className="text-gray-500 font-semibold flex items-center max-sm:w-fit gap-2">
         <h1 className="underline cursor-pointer">Home</h1> {" > "}
         <h1 className="underline cursor-pointer">Find a specialist</h1>
       </div>
-      <div className="my-10 flex gap-5">
+      <div className="my-10 flex gap-5 w-fit">
         <img
           src={Doctor?.Gender == "Male" ? ImageMale : ImageFemale}
           alt="ImageDoctor.png"
@@ -29,7 +29,9 @@ const DetailsProfileDoctor = () => {
               <MdOutlineHealthAndSafety className="text-2xl text-blue-400" />
               <h1 className=" font-semibold">{Doctor?.Specialty_name}</h1>
             </div>
-            <p className="text-gray-700 font-medium">{Doctor?.Location}</p>
+            <p className="text-gray-700 font-medium max-sm:w-20">
+              {Doctor?.Location}
+            </p>
             <p>
               Fees:{" "}
               <span className="font-bold">{Doctor?.ConsultationFee} EGB</span>
@@ -40,8 +42,8 @@ const DetailsProfileDoctor = () => {
           </div>
         </div>
       </div>
-      <div className="justify-between flex mx-56">
-        <div className="flex gap-4 items-center">
+      <div className="justify-between flex max-sm:flex-col mx-56 max-sm:mx-0 w-fit">
+        <div className="flex gap-4 items-center w-fit">
           <div className="flex items-center">
             <img
               src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
@@ -59,7 +61,7 @@ const DetailsProfileDoctor = () => {
             Leave a review{" "}
           </a>
         </div>
-        <div className="bg-red-600 text-white cursor-pointer font-semibold hover:bg-red-400 transition-all duration-500  px-5 py-2 rounded-xl shadow-lg">
+        <div className="bg-red-600 max-sm:w-fit max-sm:mt-2 text-white cursor-pointer font-semibold hover:bg-red-400 transition-all duration-500  px-5 py-2 rounded-xl shadow-lg">
           <h1>Book Tomorrow  (01:00 PM - 04:00 PM)</h1>
         </div>
       </div>
