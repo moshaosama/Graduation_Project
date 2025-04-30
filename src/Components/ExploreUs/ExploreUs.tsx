@@ -14,7 +14,7 @@ import { fetchDoctor } from "../../Store/Reducer/Doctor/DoctorReducer";
 const SpecialityForm = React.memo(({ image }: { image: string }) => {
   return (
     <>
-      <div className="bg-[#184C99] border-dashed border-[1px] transition-all duration-500 hover:border-[10px] border-white w-32 h-32 flex justify-center items-center rounded-full">
+      <div className="bg-[#184C99]  border-dashed border-[1px] transition-all duration-500 hover:border-[10px] border-white w-32 max-sm:w-20 h-32 max-sm:h-20 flex justify-center items-center rounded-full">
         <ImageRender src={image} alt="icon.png" width="16" />
       </div>
     </>
@@ -48,7 +48,7 @@ const ExploreUs = () => {
 
   return (
     <>
-      <div className="mx-80 flex flex-col  gap-5">
+      <div className="mx-80 max-sm:mx-5 max-sm:-mt-[50pc] flex flex-col  gap-5">
         <TitleForSection
           Text={ChangeTextByLanguage("استكشفنا", "Explore US")}
         />
@@ -61,7 +61,7 @@ const ExploreUs = () => {
           <p>{ChangeTextByLanguage("الأعلى تقييما", "Top rated")}</p>
         </div>
         <div
-          className="flex justify-between gap-60 transition-all duration-500 opacity-5 items-center"
+          className="flex max-sm:overflow-x-scroll justify-between gap-60 transition-all duration-500 opacity-5 items-center"
           id="SpecialityForm"
         >
           {state.data?.result
@@ -74,7 +74,7 @@ const ExploreUs = () => {
                   onClick={() => handleClick({ Speciality: el.Specialty_name })}
                 >
                   <SpecialityForm image="WhatsApp_Image_2025-02-26_at_20.07.23_a843170e-removebg-preview.png" />
-                  <p className="my-2 text-[#184C99] font-bold">
+                  <p className="my-2 text-[#184C99] font-bold ">
                     {el.Specialty_name}
                   </p>
                 </div>
