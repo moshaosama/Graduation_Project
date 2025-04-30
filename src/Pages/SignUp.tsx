@@ -11,8 +11,8 @@ const SignUp = () => {
   );
 
   return (
-    <div className="flex justify-center items-center max-sm:h-full  h-screen bg-[#eee]">
-      <div className="rounded-xl bg-white w-[40pc] max-sm:w-80 p-10 relative max-sm:my-5">
+    <div className="flex justify-center items-center  h-screen bg-[#eee]">
+      <div className="rounded-xl bg-white w-[40pc] max-sm:w-[25pc] p-10 relative max-sm:my-5">
         <div className="bg-blue-500 w-full rounded-tr-lg rounded-tl-lg absolute top-0 left-0">
           <h1 className="text-center text-white font-bold p-1">Sign Up</h1>
         </div>
