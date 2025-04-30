@@ -23,7 +23,7 @@ const ChatBot = () => {
       <div
         className={`bg-blue-700 ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        }  flex justify-center py-10 max-sm:px-5  mt-6 items-center gap-10 max-sm:w-[24.5pc]`}
+        }  flex justify-center py-10 max-sm:px-5 max-sm:mx-[10px] max-sm:rounded-lg  mt-6 items-center gap-10 max-sm:w-[24.5pc]`}
       >
         <Suspense fallback={"Loading..."}>
           <ImageRender

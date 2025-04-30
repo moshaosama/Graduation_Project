@@ -22,8 +22,6 @@ const ChooseDropDown = memo(
       dispatch(fetchData());
     }, []);
 
-    console.log(state);
-
     return (
       <>
         <div className="bg-white absolute w-96 border-[1px] z-50 border-gray-700 rounded-xl py-3 px-7">

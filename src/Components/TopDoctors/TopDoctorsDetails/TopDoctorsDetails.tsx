@@ -7,8 +7,14 @@ const TopDoctorsDetails = memo(() => {
   const [state, setState] = useState<{
     result: [];
   }>({ result: [] });
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, [window.innerWidth]);
+
   const [page, setPage] = useState(1);
-  const [limit] = useState(1);
+  const [limit] = useState(width == 412 ? 1 : 4);
 
   const handleClickPrevPage = () => {
     if (page > 1) {
@@ -51,7 +57,7 @@ const TopDoctorsDetails = memo(() => {
 
   return (
     <>
-      <div className="my-14 flex bg-[#184c9917] max-sm:w-[24.5pc] py-3 justify-between items-center">
+      <div className="my-14 max-sm:mx-[10px] max-sm:rounded-lg flex bg-[#184c9917] max-sm:w-[24.5pc] py-3 justify-between items-center">
         <div
           className="bg-[#184c993a] max-sm:w-0 max-sm:h-0 max-sm:py-10 max-sm:px-5 w-10 h-24 py-20 px-12 rounded-r-full relative cursor-pointer"
           onClick={handleClickPrevPage}

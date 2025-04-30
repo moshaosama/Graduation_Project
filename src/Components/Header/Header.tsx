@@ -8,7 +8,6 @@ const Header = () => {
     <>
       <div className="absolute -top-24 right-0 bg-[#1F3FC3] w-[45pc] h-[40pc] rounded-b-3xl max-sm:hidden">
         <div className="flex items-center justify-between mx-10 p-4">
-          {/* ///////////////////////////////////// */}
           <NavbarDetails textColor="white" />
         </div>
         <img

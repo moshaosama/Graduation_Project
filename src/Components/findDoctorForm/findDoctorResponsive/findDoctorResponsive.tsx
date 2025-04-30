@@ -47,8 +47,8 @@ const FindDectorResponsive = () => {
     setFindDoctor(Title);
   };
   return (
-    <div>
-      <div className="flex justify-between max-sm:w-[24.5pc]  border-blue-500">
+    <div className="max-sm:mx-[10px]">
+      <div className="flex justify-center w-full max-sm:w-[24.5pc]  border-blue-500">
         {listFindDoctor.map((el) => (
           <div
             key={el.id}

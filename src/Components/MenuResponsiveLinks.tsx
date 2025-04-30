@@ -62,8 +62,7 @@ const MenuResponsiveLinks = () => {
               Login
             </NavLink>
           ) : (
-            <NavLink
-              to={""}
+            <div
               className="p-5 font-bold"
               onClick={() => {
                 window.localStorage.removeItem("Token");
@@ -71,7 +70,7 @@ const MenuResponsiveLinks = () => {
               }}
             >
               Logout
-            </NavLink>
+            </div>
           )}
           <NavLink to={"/joinnewdoctor"} className="p-5 font-bold">
             For_Doctors

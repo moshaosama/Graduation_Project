@@ -44,7 +44,7 @@ const OurService = () => {
       <div
         className={`bg-blue-700 rounded-t-xl py-16 flex ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        } gap-5 justify-center items-center max-sm:w-96`}
+        } gap-5 justify-center max-sm:mx-[14px] items-center max-sm:w-96`}
       >
         <CiSettings className="text-5xl text-white" />
         {language == "English" ? (
@@ -56,7 +56,7 @@ const OurService = () => {
         )}
       </div>
 
-      <div className="bg-white rounded-b-xl p-16">
+      <div className="bg-white max-sm:mx-[14px] rounded-b-xl p-16">
         <div
           className=" grid grid-cols-3 max-sm:grid-cols-1 mx-64 max-sm:-mx-14 gap-28 max-sm:gap-10 opacity-5 max-sm:opacity-100 transition-all duration-500 "
           id="CartService"
