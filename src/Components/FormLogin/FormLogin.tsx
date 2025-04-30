@@ -63,8 +63,8 @@ const FormLogin = () => {
 
   return (
     <>
-      <div className="my-7 ">
-        <form action="">
+      <div className="my-7">
+        <form action="" className="max-sm:-mx-6">
           {FormLoginList.map((el, index: number) => (
             <p className="flex flex-col" key={index}>
               <label htmlFor={el.Title} className="font-bold">
@@ -80,24 +80,26 @@ const FormLogin = () => {
             </p>
           ))}
         </form>
-        <ButtonForm
-          Width="full"
-          Value={isLoading ? "Loading..." : "Login"}
-          handleClick={handleClickFromLogin}
-        />
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-          transition={Bounce}
-        />
+        <div className="max-sm:-mx-6 max-sm:mt-4">
+          <ButtonForm
+            Width="full"
+            Value={isLoading ? "Loading..." : "Login"}
+            handleClick={handleClickFromLogin}
+          />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition={Bounce}
+          />
+        </div>
       </div>
     </>
   );
