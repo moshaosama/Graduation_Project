@@ -3,11 +3,14 @@ import "./index.css";
 import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { Store } from "./Store/Store.ts";
+import { OpenMenuProvider } from "./Context/OpenMenuProvider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <>
     <Provider store={Store}>
-      <App />
+      <OpenMenuProvider>
+        <App />
+      </OpenMenuProvider>
     </Provider>
   </>
 );
