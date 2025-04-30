@@ -12,7 +12,7 @@ const HeaderAllSpeciality = () => {
           <span>/</span>
           <h1>Find a Specialist</h1>
         </div>
-        <div className="flex flex-col gap-3 ">
+        <div className="flex flex-col gap-3">
           <h1 className="text-3xl font-bold">Find a Doctor By Specialty</h1>
           <p className="text-gray-500 font-semibold">
             Choose a specialty below to find local providers, research their
