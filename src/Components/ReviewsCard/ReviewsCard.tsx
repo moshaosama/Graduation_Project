@@ -26,7 +26,7 @@ const ReviewsCard = () => {
         ? state?.data?.result?.map((el: ReviewCartType) => {
             return (
               <div
-                className="w-full mt-5 border-[3px] p-4 border-solid"
+                className="w-full max-sm:w-96 mt-5 border-[3px] p-4 border-solid"
                 key={el.id}
               >
                 <img
