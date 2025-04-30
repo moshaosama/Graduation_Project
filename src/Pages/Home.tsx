@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative max-sm:w-[24.5pc]">
         <Header />
         <HeaderText />
         <div className="max-sm:hidden">
@@ -33,7 +33,7 @@ function Home() {
           <FindDectorResponsive />
         </div>
       </div>
-      <div className="mt-[55pc] max-sm:mx-3">
+      <div className="mt-[55pc]">
         {/* //mx-80 */}
         <ExploreUs />
         <ChatBot />
