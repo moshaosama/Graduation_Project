@@ -8,7 +8,7 @@ const TopDoctorsDetails = memo(() => {
     result: [];
   }>({ result: [] });
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(1);
+  const [limit] = useState(1);
 
   const handleClickPrevPage = () => {
     if (page > 1) {
