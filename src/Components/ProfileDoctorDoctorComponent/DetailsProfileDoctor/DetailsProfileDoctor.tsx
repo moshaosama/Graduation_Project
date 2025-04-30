@@ -42,7 +42,7 @@ const DetailsProfileDoctor = () => {
           </div>
         </div>
       </div>
-      <div className="justify-between flex max-sm:flex-col mx-56 max-sm:mx-0 w-fit">
+      <div className="justify-between flex max-sm:flex-col mx-56 max-sm:mx-0 ">
         <div className="flex gap-4 items-center w-fit">
           <div className="flex items-center">
             <img
