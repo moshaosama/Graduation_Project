@@ -23,7 +23,7 @@ const ChatBot = () => {
       <div
         className={`bg-blue-700 ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        } w-screen flex justify-center py-10  mt-6 items-center gap-10`}
+        }  flex justify-center py-10 max-sm:px-5  mt-6 items-center gap-10 max-sm:w-[24.5pc]`}
       >
         <Suspense fallback={"Loading..."}>
           <ImageRender
@@ -32,7 +32,7 @@ const ChatBot = () => {
             width="16"
           />
         </Suspense>
-        <h1 className="text-5xl font-bold text-white">
+        <h1 className="text-5xl font-bold text-white max-sm:text-3xl">
           {ChangeTextByLanguage(
             "تحقق من صحتك بشكل أكثر ذكاءً",
             "Check your health smarter"
@@ -59,7 +59,7 @@ const ChatBot = () => {
             <div
               className={`m-10 flex ${
                 language == "English" ? "flex-row-reverse" : "flex-row"
-              } items-center gap-10`}
+              } items-center gap-10 max-sm:gap-16`}
             >
               <Suspense fallback={"Loading..."}>
                 <ImageRender
@@ -68,12 +68,12 @@ const ChatBot = () => {
                   width="36"
                 />
               </Suspense>
-              <button className="py-4 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
+              <button className="py-4 max-sm:w-56 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
                 Ask....
               </button>
             </div>
           </div>
-          <div>
+          <div className="max-sm:hidden">
             <Suspense fallback={"Loading..."}>
               <ImageRender
                 src="WhatsApp_Image_2025-02-26_at_23.05.16_522ef8e0-removebg-preview.png"
