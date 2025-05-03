@@ -11,11 +11,20 @@ const initialState: ReduxData = {
 export const fetchCreateContact = createAsyncThunk(
   "createContact/fetchCreateContact",
   async (data: { Name: string; Email: string; Comment: string }) => {
-    const response = await axios.post("http://localhost:3000/createcontact", {
-      Name: data.Name,
-      Email: data.Email,
-      Comment: data.Comment,
-    });
+    const Token = window.localStorage.getItem("Token");
+    const response = await axios.post(
+      "http://localhost:3000/createcontact",
+      {
+        Name: data.Name,
+        Email: data.Email,
+        Comment: data.Comment,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${Token}`,
+        },
+      }
+    );
     return response.data;
   }
 );
