@@ -1,89 +1,78 @@
-import React, { useState, useTransition } from "react";
 import ButtonForm from "../Form/ButtonForm";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../Store/Store";
 import { fetchCreateContact } from "../../Store/Reducer/Contact/CreateContact";
-import useDelay from "../../Hooks/useDelay";
 import { Bounce, ToastContainer } from "react-toastify";
 import useNotifytoastify from "../../Hooks/useNotifytoastify";
+import { useForm } from "react-hook-form";
 
 const FormContectusList = () => {
-  const [, startTransition] = useTransition();
-  const [pending, setPending] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
-  const [Comment, setComment] = useState({
-    Name: "",
-    Email: "",
-    Comment: "",
-  });
   const { notifySuccess, notifyError } = useNotifytoastify();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    startTransition(() => {
-      setComment({ ...Comment, [e.target.name]: e.target.value });
-    });
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isLoading },
+  } = useForm();
 
-  const { delay } = useDelay();
-
-  const handleClick = async (event?: React.MouseEvent<HTMLButtonElement>) => {
-    event?.preventDefault();
-    setPending(true);
+  const handleSubmitForm = async (data: any) => {
     try {
-      if (Comment.Name == "" || Comment.Email == "" || Comment.Comment == "") {
-        notifyError("Error");
-      } else {
-        await delay(1000);
-        dispatch(fetchCreateContact(Comment));
-        notifySuccess("Successfully created contact");
-      }
+      dispatch(fetchCreateContact(data));
+      notifySuccess("Successfully created contact");
     } catch (error) {
       notifyError("Error");
-    } finally {
-      setPending(false);
     }
   };
-  const ListInput = [
-    {
-      Label: "Name",
-      placeHolder: "YourName",
-    },
-    {
-      Label: "Email",
-      placeHolder: "Email Address",
-    },
-  ];
+
   return (
     <>
-      <form action="" className="w-1/2 flex flex-col gap-2">
-        {ListInput?.map(
-          (el: { placeHolder: string; Label: string }, index: number) => {
-            return (
-              <div key={index}>
-                <input
-                  type="text"
-                  className="w-96 max-sm:w-[21.5pc] rounded-lg p-3 bg-gray-200"
-                  placeholder={el.placeHolder}
-                  name={el.Label}
-                  onChange={handleChange}
-                />
-              </div>
-            );
-          }
-        )}
-        <textarea
-          placeholder="Your Message"
-          className="w-96 max-sm:w-[21.5pc] rounded-lg px-3 bg-gray-200 h-20"
-          onChange={(el: React.ChangeEvent<HTMLTextAreaElement>) => {
-            setComment({ ...Comment, Comment: el.target.value });
-          }}
-        />
-        <div className="mt-3">
-          <ButtonForm
-            Value={pending ? "Loading..." : "Send"}
-            Width={"96"}
-            handleClick={handleClick}
+      <form
+        onSubmit={handleSubmit(handleSubmitForm)}
+        className="w-1/2 grid grid-col-2"
+      >
+        <p className="flex flex-col">
+          <label htmlFor="Name" className="font-bold">
+            Name <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="Name"
+            className="my-2 rounded-lg p-2 border-[2px] border-black"
+            {...register("Name", { required: "Name is required" })}
           />
+        </p>
+        <p className="text-red-500 font-bold">
+          {errors.Name?.message as string}
+        </p>
+        <p className="flex flex-col">
+          <label htmlFor="Email" className="font-bold">
+            Email <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="Email"
+            className="my-2 rounded-lg p-2 border-[2px] border-black"
+            {...register("Email", { required: "Email is required" })}
+          />
+        </p>
+        <p className="text-red-500 font-bold">
+          {errors.Email?.message as string}
+        </p>
+        <p className="flex flex-col">
+          <label htmlFor="Comment" className="font-bold">
+            Comment <span className="text-red-500">*</span>
+          </label>
+          <textarea
+            className="w-96 max-sm:w-[21.5pc] border-2 border-black rounded-lg px-3 h-20"
+            {...register("Comment", { required: "Comment is required" })}
+          />
+        </p>
+        <p className="text-red-500 font-bold">
+          {errors.Comment?.message as string}
+        </p>
+        <div className="mt-3">
+          <ButtonForm Value={isLoading ? "Loading..." : "Send"} Width={"96"} />
           <ToastContainer
             position="top-right"
             autoClose={5000}
