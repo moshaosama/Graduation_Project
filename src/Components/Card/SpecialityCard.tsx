@@ -26,7 +26,7 @@ const SpecialityCard = React.memo(
           >
             <div>
               <p
-                className={`text-sm ${
+                className={`text-sm${
                   language == '"English"' ? "text-start" : "text-end"
                 } font-semibold text-[#868686]`}
               >
