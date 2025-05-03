@@ -65,7 +65,7 @@ const SpecialityCardListRender = () => {
           ChangeTextByLanguage("أختار التخصص", "Choose specialty") &&
         choooseDoctor.City === ChangeTextByLanguage("القاهره", "Choose city") &&
         choooseDoctor.Area ===
-          ChangeTextByLanguage("اختار المنطقه", "Choose area")
+          ChangeTextByLanguage("اختار المنطقه", "Choose Facility")
       ) {
         dispatch(fetchAllDoctor());
       } else {
@@ -98,7 +98,7 @@ const SpecialityCardListRender = () => {
       ),
     },
     {
-      Label: ChangeTextByLanguage("في محافظه", "In this city"),
+      Label: ChangeTextByLanguage("في محافظه", "Select a  city"),
       Title: choooseDoctor.City,
       Element: <IoLocationSharp className="text-xl" />,
       onClick: handleLocationState,
@@ -117,7 +117,7 @@ const SpecialityCardListRender = () => {
       ),
     },
     {
-      Label: ChangeTextByLanguage("في منطقه", "In this area"),
+      Label: ChangeTextByLanguage("في منطقه", "Select a Facility"),
       Title: choooseDoctor.Area,
       Element: <IoLocationSharp className="text-xl" />,
       onClick: handleAreaState,
