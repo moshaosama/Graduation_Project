@@ -64,13 +64,13 @@ const FormSignUp = () => {
             <div key={index}>
               <p
                 className={`flex ${
-                  language == '"English"' ? "flex" : "flex-row-reverse"
+                  language == '"English"' ? "flex-row-reverse" : "flex"
                 } max-sm:flex-col max-sm:items-start  justify-between items-center`}
               >
                 <label
                   htmlFor=""
                   className={`font-bold ${
-                    language == '"English"' ? "flex" : "flex-row-reverse"
+                    language == '"English"' ? "flex-row-reverse" : "flex"
                   } flex gap-1`}
                 >
                   {el.Title} <span className="text-red-500">*</span>
@@ -81,7 +81,7 @@ const FormSignUp = () => {
                   name={el.Title}
                   placeholder={el.Title}
                   className={`my-2  ${
-                    language == '"English"' ? "text-start" : "text-end"
+                    language == '"English"' ? "text-end" : "text-start"
                   } w-96 max-sm:w-full rounded-lg p-1 border-[2px] border-black`}
                   onChange={ChangeFromState}
                 />
@@ -112,8 +112,8 @@ const FormSignUp = () => {
             </a>
           </p>
         </div>
-        <div className="flex justify-center">
-          <ButtonForm Value="Join Now" Width="48" handleClick={createUser} />
+        <div className="flex justify-center mt-5">
+          <ButtonForm Value="Join Now" Width="72" handleClick={createUser} />
         </div>
       </form>
     </div>
