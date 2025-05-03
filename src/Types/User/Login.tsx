@@ -8,5 +8,5 @@ export interface loginProps {
 export interface ButtonFormProps {
   Value: string;
   Width: string;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
