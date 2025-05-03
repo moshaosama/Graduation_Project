@@ -1,14 +1,26 @@
 import clsk from "clsx";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ReactNode } from "react";
+import { IoIosArrowBack } from "react-icons/io";
 
 interface MainComponentProps {
-  Open: boolean;
   Title: string;
   children: ReactNode;
 }
 
-const MainComponent = ({ Open, Title, children }: MainComponentProps) => {
+const MainComponent = ({ Title, children }: MainComponentProps) => {
+  const [Open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const OpenWindow = async () => {
+      try {
+        setOpen(true);
+      } catch (err) {
+        throw new Error(err as string);
+      }
+    };
+    OpenWindow();
+  }, [Open]);
   return (
     <div className="w-full h-full absolute top-0 left-0 bg-[#f0f0f0] flex justify-center items-center">
       <div
@@ -17,7 +29,10 @@ const MainComponent = ({ Open, Title, children }: MainComponentProps) => {
           Open ? "opacity-100 scale-100" : "opacity-0 scale-50"
         )}
       >
-        <h1 className="text-xl font-bold">{Title}</h1>
+        <div className="flex gap-3 items-center">
+          <IoIosArrowBack className="cursor-pointer" />
+          <h1 className="text-xl font-bold">{Title}</h1>
+        </div>
         {React.Children.map(children, () => {
           if (React.isValidElement(children)) {
             return React.cloneElement(children);
