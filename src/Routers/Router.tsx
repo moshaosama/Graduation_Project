@@ -16,6 +16,7 @@ import AllSpeciality from "../Pages/AllSpeciality";
 import Contact from "../Pages/Contact";
 import ProfileDoctor from "../Pages/ProfileDoctor";
 import JoinNewDoctor from "../Pages/JoinNewDoctor";
+import PersonalInfoProvider from "../Components/JoinNewDoctor/Context/PersonalInfoContext";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -64,7 +65,11 @@ const Router_pages = () => {
         },
         {
           path: "joinnewdoctor",
-          element: <JoinNewDoctor />,
+          element: (
+            <PersonalInfoProvider>
+              <JoinNewDoctor />
+            </PersonalInfoProvider>
+          ),
         },
         {
           path: "signup",
