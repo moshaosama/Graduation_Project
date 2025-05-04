@@ -131,7 +131,7 @@ const FindDoctorsWep = () => {
             </>
           ) : (
             <div
-              className={`rounded-xl flex ${Traslation.ConvertFLex} justify-center items-center`}
+              className={`rounded-xl flex ${Traslation.ConvertFLex} justify-center items-center mx-[26pc]`}
             >
               <SpecialityCard
                 Title={"Choose specialty"}
@@ -159,9 +159,9 @@ const FindDoctorsWep = () => {
                 }
               />
               <div
-                className={`h-[4.6pc] border border-solid bg-blue-700 cursor-pointer hover:bg-blue-950 ${
-                  Language == '"English"' ? "rounded-l-xl" : "rounded-r-xl"
-                } border-[#9b9b9b]  flex items-center justify-center w-40`}
+                className={`h-[4.9pc] border border-solid ${
+                  Language == "English" ? "rounded-l-xl" : "rounded-r-xl"
+                } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
               >
                 <div className="flex items-center gap-5">
                   <CiSearch className="text-white text-3xl font-bold" />
