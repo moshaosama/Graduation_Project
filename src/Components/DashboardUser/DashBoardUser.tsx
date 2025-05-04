@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { User } from "../../Types/Navbar";
+import RouteProfileFactory from "../../Utils/RouteProfileFactory";
 
 const DashBoardUser = () => {
   const handleClickLogout = () => {
@@ -6,10 +8,12 @@ const DashBoardUser = () => {
     window.localStorage.removeItem("User");
     window.location.reload();
   };
+  const User: User = JSON.parse(window.localStorage.getItem("User")!);
+
   return (
     <div className="absolute  bg-gray-200 w-44 z-50 rounded-lg mt-1">
       <div className="font-bold">
-        <Link to={"/profile/info"}>
+        <Link to={RouteProfileFactory(User.Status, User.DoctorId)}>
           <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">
             <h1>My Profile</h1>
           </div>
