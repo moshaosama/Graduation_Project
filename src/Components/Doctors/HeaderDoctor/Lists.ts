@@ -1,6 +1,6 @@
 import { ChangeTextByLanguage } from "../../../Language/Language";
-import useDescending from "../../../Hooks/useDescending";
 import useAscending from "../../../Hooks/useAscending";
+import useDescending from "../../../Hooks/useDescending";
 
 export type FilterDoctorType = {
   Title: string;
