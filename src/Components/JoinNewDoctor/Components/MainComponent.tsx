@@ -1,5 +1,5 @@
 import clsk from "clsx";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ReactNode } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 import useOpenWindow from "../../../Hooks/useOpenWindow";
