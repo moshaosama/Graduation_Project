@@ -5,6 +5,8 @@ import { AppDispatch, RootState } from "../../../Store/Store";
 import { useEffect } from "react";
 import { fetchSpeciality } from "../../../Store/Reducer/Speciality/SpecialityReducer";
 import { fetchLocation } from "../../../Store/Reducer/Location/LocationReducer";
+import { fetchJoinAsDoctor } from "../../../Store/Reducer/JoinAsDoctor/JoinAsDoctor";
+import { useNavigate } from "react-router";
 
 const PersonalInfo = () => {
   const {
@@ -19,9 +21,11 @@ const PersonalInfo = () => {
     dispatch(fetchSpeciality());
     dispatch(fetchLocation());
   }, [dispatch]);
+  const Navigate = useNavigate();
 
   const handleSubmitForm = (data: any) => {
-    console.log(data);
+    dispatch(fetchJoinAsDoctor(data));
+    Navigate("/login");
   };
 
   return (
@@ -91,6 +95,7 @@ const PersonalInfo = () => {
           className="border-[1px] rounded-lg border-gray-500 p-2"
           {...register("Speciality", { required: "Speciality is required" })}
         >
+          <option selected>Speciality</option>
           {allSpeciality.data.result?.map(
             (speciality: { Specialty_name: string }, index: number) => (
               <option value={speciality.Specialty_name} key={index}>
@@ -115,8 +120,9 @@ const PersonalInfo = () => {
           {...register("Gender", { required: "Gender is required" })}
           className="border-[1px] rounded-lg border-gray-500 p-2"
         >
-          <option value="male">Male</option>
-          <option value="female">Female</option>
+          <option selected>Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
         <p className="text-red-500 font-bold">
           {errors.Gender?.message as string}
@@ -134,6 +140,7 @@ const PersonalInfo = () => {
           className="border-[1px] rounded-lg border-gray-500 p-2"
           {...register("City", { required: "City is required" })}
         >
+          <option selected>City</option>
           {allLocation.data.result?.map(
             (speciality: { Location: string }, index: number) => (
               <option value={speciality.Location} key={index}>
