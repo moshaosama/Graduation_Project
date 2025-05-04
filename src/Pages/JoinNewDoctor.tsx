@@ -1,8 +1,9 @@
-import {  useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import JoinNewDoctorForm from "../Components/JoinNewDoctor/Components/JoinNewDoctorForm";
 import MainComponent from "../Components/JoinNewDoctor/Components/MainComponent";
 import PersonalInfo from "../Components/JoinNewDoctor/Components/PersonalInfo";
 import { usePersonalInfoContext } from "../Components/JoinNewDoctor/Context/PersonalInfoContext";
+import { ToastContainer, Bounce } from "react-toastify";
 
 const JoinNewDoctor = () => {
   const { OpenModelPersonalInfo, toogleOpenModelPersonalInfo } =
@@ -11,6 +12,10 @@ const JoinNewDoctor = () => {
 
   const handleClickBack = () => {
     Navigate("/");
+  };
+
+  const handleContinueWithLogin = () => {
+    Navigate("/login");
   };
   return (
     <>
@@ -21,6 +26,7 @@ const JoinNewDoctor = () => {
         >
           <JoinNewDoctorForm
             handleContinueWithEmail={toogleOpenModelPersonalInfo}
+            handleContinueWithLogin={handleContinueWithLogin}
           />
         </MainComponent>
       ) : null}
@@ -32,7 +38,20 @@ const JoinNewDoctor = () => {
           <PersonalInfo />
         </MainComponent>
       )}
-      {/* {OpenModelPersonalInfo ? null : <LoginFormAsDoctor />} */}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
     </>
   );
 };
