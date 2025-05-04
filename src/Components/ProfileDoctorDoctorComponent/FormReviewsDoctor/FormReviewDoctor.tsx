@@ -1,15 +1,23 @@
 import { useParams } from "react-router";
-import useFindDoctor from "../../../Hooks/useFindDoctor";
-import { DoctorType } from "../../../Types/Doctor/Doctor";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../Store/Store";
-import { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../Store/Store";
+import { useEffect, useMemo, useState } from "react";
 import { fetchCreateReview } from "../../../Store/Reducer/Review/CreateReviewSlice";
+import { fetchAllDoctor } from "../../../Store/Reducer/AllDoctor/AllDoctor";
 
 const FormReviewDoctor = () => {
   const { id } = useParams();
-  const Doctor: DoctorType = useFindDoctor(+id!)[0];
+  const Doctors = useSelector((state: RootState) => state.allDoctor);
   const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchAllDoctor());
+  }, [dispatch]);
+
+  const Doctor =
+    Doctors?.data?.result?.find(
+      (el: { DoctorID: number }) => el.DoctorID === +id!
+    ) || undefined;
   const [Title, setTitle] = useState("");
   const User = useMemo(
     () => JSON.parse(window.localStorage.getItem("User")!),
