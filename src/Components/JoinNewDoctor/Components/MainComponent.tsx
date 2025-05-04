@@ -2,6 +2,8 @@ import clsk from "clsx";
 import React, { useEffect, useState } from "react";
 import { ReactNode } from "react";
 import { IoIosArrowBack } from "react-icons/io";
+import useOpenWindow from "../../../Hooks/useOpenWindow";
+import { Bounce, ToastContainer } from "react-toastify";
 
 interface MainComponentProps {
   Title: string;
@@ -14,18 +16,7 @@ const MainComponent = ({
   children,
   handleClickBack,
 }: MainComponentProps) => {
-  const [Open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const OpenWindow = async () => {
-      try {
-        setOpen(true);
-      } catch (err) {
-        throw new Error(err as string);
-      }
-    };
-    OpenWindow();
-  }, [Open]);
+  const { Open } = useOpenWindow();
   return (
     <div className="w-full h-full absolute top-0 left-0 bg-[#f0f0f0] flex justify-center items-center">
       <div
@@ -47,6 +38,19 @@ const MainComponent = ({
           }
         })}
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Bounce}
+      />
     </div>
   );
 };
