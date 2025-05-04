@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
 import { MdOutlineEmail } from "react-icons/md";
-import clsk from "clsx";
 
 interface JoinNewDoctorFormProps {
   handleContinueWithEmail: () => void;
-  handleContinueWithLogin?: () => void;
+  handleContinueWithLogin: () => void;
 }
 
 const JoinNewDoctorForm = ({
