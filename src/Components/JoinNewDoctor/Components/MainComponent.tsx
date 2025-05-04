@@ -5,10 +5,15 @@ import { IoIosArrowBack } from "react-icons/io";
 
 interface MainComponentProps {
   Title: string;
+  handleClickBack: () => void;
   children: ReactNode;
 }
 
-const MainComponent = ({ Title, children }: MainComponentProps) => {
+const MainComponent = ({
+  Title,
+  children,
+  handleClickBack,
+}: MainComponentProps) => {
   const [Open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -30,7 +35,10 @@ const MainComponent = ({ Title, children }: MainComponentProps) => {
         )}
       >
         <div className="flex gap-3 items-center">
-          <IoIosArrowBack className="cursor-pointer" />
+          <IoIosArrowBack
+            className="cursor-pointer"
+            onClick={handleClickBack}
+          />
           <h1 className="text-xl font-bold">{Title}</h1>
         </div>
         {React.Children.map(children, () => {
