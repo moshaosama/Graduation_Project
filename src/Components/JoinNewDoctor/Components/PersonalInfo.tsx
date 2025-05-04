@@ -1,10 +1,34 @@
 import { useForm } from "react-hook-form";
 import { IoIosArrowForward } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../Store/Store";
+import { useEffect } from "react";
+import { fetchSpeciality } from "../../../Store/Reducer/Speciality/SpecialityReducer";
+import { fetchLocation } from "../../../Store/Reducer/Location/LocationReducer";
 
 const PersonalInfo = () => {
-  const {} = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+  const allSpeciality = useSelector((state: RootState) => state.Speciality);
+  const allLocation = useSelector((state: RootState) => state.Location);
+  const dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(fetchSpeciality());
+    dispatch(fetchLocation());
+  }, [dispatch]);
+
+  const handleSubmitForm = (data: any) => {
+    console.log(data);
+  };
+
   return (
-    <form action="" className="grid grid-cols-2 mt-5 gap-4">
+    <form
+      onSubmit={handleSubmit(handleSubmitForm)}
+      className="grid grid-cols-2 mt-5 gap-3"
+    >
       <p className="flex flex-col col-span-1 gap-1">
         <label
           htmlFor="First Name"
@@ -16,7 +40,11 @@ const PersonalInfo = () => {
           type="text"
           id="First Name"
           className="border-[1px] rounded-lg border-gray-500 p-2"
+          {...register("FirstName", { required: "First Name is required" })}
         />
+        <p className="text-red-500 font-bold">
+          {errors.FirstName?.message as string}
+        </p>
       </p>
       <p className="flex flex-col col-span-1 gap-1">
         <label
@@ -29,20 +57,27 @@ const PersonalInfo = () => {
           type="text"
           id="Last Name"
           className="border-[1px] rounded-lg border-gray-500 p-2"
+          {...register("LastName", { required: "Last Name is required" })}
         />
+        <p className="text-red-500 font-bold">
+          {errors.LastName?.message as string}
+        </p>
       </p>
       <p className="flex flex-col col-span-2 gap-1">
         <label
-          htmlFor="Mobile Phone"
+          htmlFor="Phone"
           className="text-gray-700 text-lg mx-1 font-semibold"
         >
-          Mobile Phone
+          Phone
         </label>
         <input
           type="number"
-          id="Mobile Phone"
           className="border-[1px] rounded-lg border-gray-500 p-2"
+          {...register("Phone", { required: "Phone is required" })}
         />
+        <p className="text-red-500 font-bold">
+          {errors.Phone?.message as string}
+        </p>
       </p>
       <p className="flex flex-col col-span-2 gap-1">
         <label
@@ -51,11 +86,41 @@ const PersonalInfo = () => {
         >
           Speciality
         </label>
-        <input
-          type="text"
+        <select
           id="Speciality"
           className="border-[1px] rounded-lg border-gray-500 p-2"
-        />
+          {...register("Speciality", { required: "Speciality is required" })}
+        >
+          {allSpeciality.data.result?.map(
+            (speciality: { Specialty_name: string }, index: number) => (
+              <option value={speciality.Specialty_name} key={index}>
+                {speciality.Specialty_name}
+              </option>
+            )
+          )}
+        </select>
+        <p className="text-red-500 font-bold">
+          {errors.Speciality?.message as string}
+        </p>
+      </p>
+      <p className="flex flex-col col-span-2 gap-1">
+        <label
+          htmlFor="Gender"
+          className="text-gray-700 text-lg mx-1 font-semibold"
+        >
+          Gender
+        </label>
+        <select
+          id="Gender"
+          {...register("Gender", { required: "Gender is required" })}
+          className="border-[1px] rounded-lg border-gray-500 p-2"
+        >
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <p className="text-red-500 font-bold">
+          {errors.Gender?.message as string}
+        </p>
       </p>
       <p className="flex flex-col col-span-2 gap-1">
         <label
@@ -64,11 +129,22 @@ const PersonalInfo = () => {
         >
           City
         </label>
-        <input
-          type="text"
+        <select
           id="City"
           className="border-[1px] rounded-lg border-gray-500 p-2"
-        />
+          {...register("City", { required: "City is required" })}
+        >
+          {allLocation.data.result?.map(
+            (speciality: { Location: string }, index: number) => (
+              <option value={speciality.Location} key={index}>
+                {speciality.Location}
+              </option>
+            )
+          )}
+        </select>
+        <p className="text-red-500 font-bold">
+          {errors.City?.message as string}
+        </p>
       </p>
       <p className="flex flex-col col-span-2 gap-1">
         <label
@@ -81,7 +157,11 @@ const PersonalInfo = () => {
           type="email"
           id="Email"
           className="border-[1px] rounded-lg border-gray-500 p-2"
+          {...register("Email", { required: "Email is required" })}
         />
+        <p className="text-red-500 font-bold">
+          {errors.Email?.message as string}
+        </p>
       </p>
       <p className="flex flex-col col-span-2 gap-1">
         <label
@@ -94,7 +174,11 @@ const PersonalInfo = () => {
           type="password"
           id="Password"
           className="border-[1px] rounded-lg border-gray-500 p-2"
+          {...register("Password", { required: "Password is required" })}
         />
+        <p className="text-red-500 font-bold">
+          {errors.Password?.message as string}
+        </p>
       </p>
 
       <div className="flex col-span-2 justify-center">
