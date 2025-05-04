@@ -12,7 +12,7 @@ const NavbarDetails = lazy(() => import("./NavbarDetails/NavbarDetails"));
 const Navbar = () => {
   const { LogoBrand, TextLogo } = style;
   const { OpenMenu, toggleMenu } = useOpenMenu();
-
+  const Token = localStorage.getItem("Token");
   const LinksPages = [
     {
       title: ChangeTextByLanguage("الرئيسيه", "Home"),
@@ -26,10 +26,10 @@ const Navbar = () => {
       title: ChangeTextByLanguage("اتصال", "Contact"),
       to: "/contact",
     },
-    {
-      title: ChangeTextByLanguage("عربي", "For_Doctors"),
-      to: "/joinnewdoctor",
-    },
+    // {
+    //   title: ChangeTextByLanguage("عربي", "For_Doctors"),
+    //   to: "/joinnewdoctor",
+    // },
   ];
 
   const ConditionNavbar = useCallback(() => {
@@ -84,6 +84,13 @@ const Navbar = () => {
                   );
                 }
               )}
+              {!Token ? (
+                <Link to={"/joinnewdoctor"}>
+                  <p className="hover:underline cursor-pointer text-gray-600 font-semibold">
+                    For_Doctors
+                  </p>
+                </Link>
+              ) : null}
             </div>
           </div>
         </div>
