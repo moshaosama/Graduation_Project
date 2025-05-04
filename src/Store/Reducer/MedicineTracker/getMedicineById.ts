@@ -13,7 +13,7 @@ export const fetchMedicineById = createAsyncThunk(
   async (id?: any) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/getMedicineById/${id}`
+        `https://graduationprojectserver-production.up.railway.app/getMedicineById/${id}`
       );
       return response.data;
     } catch (err) {

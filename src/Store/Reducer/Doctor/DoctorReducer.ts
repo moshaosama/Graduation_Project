@@ -12,9 +12,12 @@ export const fetchDoctor = createAsyncThunk(
   "Doctor/fetchDoctor",
   async (data: DataType) => {
     try {
-      const response = await axios.get("http://localhost:3000/findDoctor", {
-        params: data,
-      });
+      const response = await axios.get(
+        "https://graduationprojectserver-production.up.railway.app/findDoctor",
+        {
+          params: data,
+        }
+      );
       return response.data;
     } catch (error) {
       console.log("Something went wrong");

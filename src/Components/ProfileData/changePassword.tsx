@@ -33,7 +33,7 @@ const ChangePassword = () => {
   };
 
   const HandleClickSave = () => {
-    fetch(`http://localhost:3000/changepassword/${User?.Email}`, {
+    fetch(`https://graduationprojectserver-production.up.railway.app/changepassword/${User?.Email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

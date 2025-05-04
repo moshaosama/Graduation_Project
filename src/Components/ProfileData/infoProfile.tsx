@@ -47,7 +47,7 @@ const InfoProfile = () => {
   };
 
   const HandleClickSave = useCallback(() => {
-    fetch(`http://localhost:3000/changeprofile/${User?.Email}`, {
+    fetch(`https://graduationprojectserver-production.up.railway.app/changeprofile/${User?.Email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

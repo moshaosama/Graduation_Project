@@ -12,7 +12,7 @@ export const fetchgetReviews = createAsyncThunk(
   "getReview/fetchgetReviews",
   async (id: number) => {
     if (id) {
-      const response = await axios.get(`http://localhost:3000/getreview/${id}`);
+      const response = await axios.get(`https://graduationprojectserver-production.up.railway.app/getreview/${id}`);
       return response.data;
     }
   }

@@ -17,16 +17,19 @@ export const fetchJoinAsDoctor = createAsyncThunk(
     Email: string;
     Password: string;
   }) => {
-    const response = await axios.post("http://localhost:3000/joinasdoctor", {
-      FirstName: data.FirstName,
-      LastName: data.LastName,
-      Phone: data.Phone,
-      Speciality: data.Speciality,
-      City: data.City,
-      Email: data.Email,
-      Password: data.Password,
-      Gender: data.Gender,
-    });
+    const response = await axios.post(
+      "https://graduationprojectserver-production.up.railway.app/joinasdoctor",
+      {
+        FirstName: data.FirstName,
+        LastName: data.LastName,
+        Phone: data.Phone,
+        Speciality: data.Speciality,
+        City: data.City,
+        Email: data.Email,
+        Password: data.Password,
+        Gender: data.Gender,
+      }
+    );
     notifySuccess("Added Successfully!💕");
 
     return response.data;

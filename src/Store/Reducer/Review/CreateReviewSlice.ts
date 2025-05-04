@@ -12,7 +12,7 @@ export const fetchCreateReview = createAsyncThunk(
   "createReview/fetchCreateReview",
   async (data: { Title: string; DoctorId: number; userName: string }) => {
     const response = await axios.post(
-      "http://localhost:3000/createreview",
+      "https://graduationprojectserver-production.up.railway.app/createreview",
       data
     );
     return response.data;

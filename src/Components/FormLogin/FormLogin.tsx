@@ -18,7 +18,7 @@ const FormLogin = () => {
 
   const handleSubmitForm = useCallback(
     (data: any) => {
-      fetch("http://localhost:3000/login", {
+      fetch("https://graduationprojectserver-production.up.railway.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

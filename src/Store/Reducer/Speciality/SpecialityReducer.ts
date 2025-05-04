@@ -4,7 +4,7 @@ import useAxios from "../../../Hooks/useAxios";
 
 export const fetchSpeciality = useAxios(
   "Specialty/fetchSpeciality",
-  "http://localhost:3000/getSpeciality"
+  "https://graduationprojectserver-production.up.railway.app/getSpeciality"
 );
 
 const initialState: ReduxData = {

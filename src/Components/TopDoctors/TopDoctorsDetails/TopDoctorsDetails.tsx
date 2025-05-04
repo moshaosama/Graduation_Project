@@ -26,7 +26,7 @@ const TopDoctorsDetails = memo(() => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/findDoctor/all?page=${page}&limit=${limit}`)
+    fetch(`https://graduationprojectserver-production.up.railway.app/findDoctor/all?page=${page}&limit=${limit}`)
       .then((res) => {
         return res.json();
       })
