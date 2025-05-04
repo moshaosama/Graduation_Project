@@ -50,7 +50,11 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
               className="bg-gray-200 hover:bg-[#b1b1b1] transition-all duration-500 p-2 w-40 rounded-xl flex justify-around items-center"
               onClick={handleClickUser}
             >
-              <h1 className="font-bold">{User?.userName}</h1>
+              <h1 className="font-bold">
+                {User?.Status === "Doctor"
+                  ? `Dr / ${User?.userName}`
+                  : User?.userName}
+              </h1>
               <IoMdArrowDropdown />
             </button>
             {ActiveDashboard ? <DashBoardUser /> : null}
