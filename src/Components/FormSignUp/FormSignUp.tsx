@@ -1,6 +1,9 @@
 import { ChangeEvent, useCallback, useMemo, useState } from "react";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
 import ButtonForm from "../Form/ButtonForm";
+import { useNavigate } from "react-router";
+import useNotifytoastify from "../../Hooks/useNotifytoastify";
+import { ToastContainer, Bounce } from "react-toastify";
 
 const FormSignUp = () => {
   const [formState, setFormState] = useState({
@@ -10,10 +13,12 @@ const FormSignUp = () => {
     birthDate: "",
     Password: "",
   });
+  const { notifySuccess } = useNotifytoastify();
 
   const ChangeFromState = (e: ChangeEvent<HTMLInputElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
+  const Navigate = useNavigate();
   const formConfig = useMemo(
     () => ({
       FormInputs: [
@@ -43,29 +48,17 @@ const FormSignUp = () => {
   );
 
   const createUser = useCallback(() => {
-    const handleSubmit = (event: React.FormEvent) => {
-      event.preventDefault();
-
-      fetch(
-        "https://graduationprojectserver-production.up.railway.app/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formState),
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("Success:", data);
-        })
-        .catch((err) => {
-          console.error("Error:", err);
-        });
-    };
-
-    return handleSubmit;
+    fetch("https://graduationprojectserver-production.up.railway.app/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formState),
+    }).then((res) => {
+      Navigate("/login");
+      notifySuccess("Created Account Successfully!");
+      return res.json();
+    });
   }, [formState]);
 
   const { language } = useConvertLanguage();
@@ -128,6 +121,19 @@ const FormSignUp = () => {
         </div>
         <div className="flex justify-center mt-5">
           <ButtonForm Value="Join Now" Width="72" handleClick={createUser} />
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick={false}
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+            transition={Bounce}
+          />
         </div>
       </form>
     </div>
