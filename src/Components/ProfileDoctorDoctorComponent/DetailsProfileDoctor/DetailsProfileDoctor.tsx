@@ -52,7 +52,7 @@ const DetailsProfileDoctor = () => {
         </div>
         <div className="my-10 flex gap-5 w-fit">
           <img
-            src={Doctor?.Gender == "Male" ? ImageMale : ImageFemale}
+            src={Doctor?.Gender === "Male" ? ImageMale : ImageFemale}
             alt="ImageDoctor.png"
             loading="lazy"
             decoding="async"
@@ -63,7 +63,7 @@ const DetailsProfileDoctor = () => {
               <div className="flex items-center gap-10">
                 <h1 className="text-blue-700 text-xl font-bold flex items-center gap-4">
                   {Doctor.Name}{" "}
-                  {User.DoctorId === Doctor.DoctorID && (
+                  {User?.DoctorId === Doctor.DoctorID && (
                     <MdOutlineEdit
                       className="text-gray-500 text-xl cursor-pointer"
                       onClick={() => handleOpenModel(OpenModelTypes.Name)}
@@ -84,7 +84,7 @@ const DetailsProfileDoctor = () => {
                 <div className="flex items-center gap-10">
                   <h1 className="font-semibold flex items-center gap-4">
                     {Doctor.Specialty_name}
-                    {User.DoctorId === Doctor.DoctorID && (
+                    {User?.DoctorId === Doctor.DoctorID && (
                       <MdOutlineEdit
                         className="text-gray-500 text-xl cursor-pointer"
                         onClick={() =>
@@ -105,7 +105,7 @@ const DetailsProfileDoctor = () => {
               </div>
               <p className="text-gray-700 font-medium max-sm:w-20 flex items-center gap-4">
                 {Doctor?.Location || "no Location"}
-                {User.DoctorId === Doctor.DoctorID && (
+                {User?.DoctorId === Doctor.DoctorID && (
                   <MdOutlineEdit
                     className="text-gray-500 text-xl cursor-pointer"
                     onClick={() => handleOpenModel(OpenModelTypes.Location)}
@@ -124,7 +124,7 @@ const DetailsProfileDoctor = () => {
                 Fees:
                 <span className="font-bold flex items-center gap-4">
                   {Doctor?.ConsultationFee} EGB
-                  {User.DoctorId === Doctor.DoctorID && (
+                  {User?.DoctorId === Doctor.DoctorID && (
                     <MdOutlineEdit
                       className="text-gray-500 text-xl cursor-pointer"
                       onClick={() => handleOpenModel(OpenModelTypes.Fees)}
@@ -141,7 +141,7 @@ const DetailsProfileDoctor = () => {
                 />
               </p>
             </div>
-            <div className="border-[1px] font-semibold  hover:bg-red-500 hover:text-black  cursor-pointer transition-all duration-300 border-red-500 border-solid w-fit px-3 py-1 rounded-full">
+            <div className="border-[1px] font-semibold hover:bg-red-500 hover:text-black cursor-pointer transition-all duration-300 border-red-500 border-solid w-fit px-3 py-1 rounded-full">
               <p>01015151515</p>
             </div>
           </div>

@@ -18,7 +18,9 @@ const FormReviewDoctor = () => {
     Doctors?.data?.result?.find(
       (el: { DoctorID: number }) => el.DoctorID === +id!
     ) || undefined;
+
   const [Title, setTitle] = useState("");
+
   const User = useMemo(
     () => JSON.parse(window.localStorage.getItem("User")!),
     []
@@ -42,7 +44,7 @@ const FormReviewDoctor = () => {
         <h1 className="text-xl font-semibold">Leave a review</h1>
         <p>
           How was your experience with DR.{" "}
-          <span className="font-semibold">{Doctor?.Name}</span>
+          <span className="font-semibold">{Doctor?.Name || "Loading..."}</span>
         </p>
         <form
           action=""
@@ -56,8 +58,10 @@ const FormReviewDoctor = () => {
             onChange={handleChange}
           />
           <button
-            className="bg-red-600 p-3 text-white font-bold hover:bg-red-400 transition-all duration-500  rounded-md"
-            onClick={() => handleClick(Doctor?.DoctorID, User?.userName)}
+            className="bg-red-600 p-3 text-white font-bold hover:bg-red-400 transition-all duration-500 rounded-md"
+            onClick={() =>
+              Doctor && User && handleClick(Doctor.DoctorID, User.userName)
+            }
           >
             Continue
           </button>
