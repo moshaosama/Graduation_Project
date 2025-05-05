@@ -43,15 +43,29 @@ const FormSignUp = () => {
   );
 
   const createUser = useCallback(() => {
-    fetch("https://graduationprojectserver-production.up.railway.app/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formState),
-    }).then((res) => {
-      return res.json();
-    });
+    const handleSubmit = (event: React.FormEvent) => {
+      event.preventDefault();
+
+      fetch(
+        "https://graduationprojectserver-production.up.railway.app/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formState),
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Success:", data);
+        })
+        .catch((err) => {
+          console.error("Error:", err);
+        });
+    };
+
+    return handleSubmit;
   }, [formState]);
 
   const { language } = useConvertLanguage();
