@@ -19,7 +19,7 @@ const Doctor = () => {
   }, [state.data]);
 
   return (
-    <>
+    <div className="bg-[#EDEDED]">
       <HeaderDoctor Specialty_name={Doctors?.result[0]?.Specialty_name} />
       {Doctors == null ? (
         <h1 className="my-2 text-red-700 flex justify-center font-bold">
@@ -30,7 +30,7 @@ const Doctor = () => {
           <DoctorsSec />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
