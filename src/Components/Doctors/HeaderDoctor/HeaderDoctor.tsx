@@ -69,7 +69,7 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
           </div>
         </div>
       </div>
-      <div className="bg-gray-300 py-3 border-b-[1px] border-b-black">
+      <div className="bg-[#EDEDED] py-3 shadow-2xl">
         <div className=" mx-44 max-sm:mx-0 flex items-center gap-4">
           {FilterBTnsRender}
         </div>
