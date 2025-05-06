@@ -1,11 +1,12 @@
 import ImageRender from "../ImageRender";
 import style from "./Navbar.module.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
 import { lazy, useCallback } from "react";
 import { IoIosMenu } from "react-icons/io";
 import MenuResponsiveLinks from "../MenuResponsiveLinks";
 import { useOpenMenu } from "../../Context/OpenMenuProvider";
+import clsx from "clsx";
 
 const NavbarDetails = lazy(() => import("./NavbarDetails/NavbarDetails"));
 
@@ -20,7 +21,7 @@ const Navbar = () => {
     },
     {
       title: ChangeTextByLanguage("خدمات", "Services"),
-      to: "",
+      to: "/services",
     },
     {
       title: ChangeTextByLanguage("اتصال", "Contact"),
@@ -72,11 +73,15 @@ const Navbar = () => {
               {LinksPages.map(
                 (el: { title: string; to: string }, index: number) => {
                   return (
-                    <Link to={el.to} key={index}>
+                    <NavLink
+                      to={el.to}
+                      key={index}
+                      className={clsx("active:bg-blue-500")}
+                    >
                       <p className="hover:underline cursor-pointer text-gray-600 font-semibold">
                         {el.title}
                       </p>
-                    </Link>
+                    </NavLink>
                   );
                 }
               )}
