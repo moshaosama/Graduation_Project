@@ -26,7 +26,9 @@ const TopDoctorsDetails = memo(() => {
   };
 
   useEffect(() => {
-    fetch(`https://graduationprojectserver-production.up.railway.app/findDoctor/all?page=${page}&limit=${limit}`)
+    fetch(
+      `https://graduationprojectserver-production.up.railway.app/findDoctor/all?page=${page}&limit=${limit}`
+    )
       .then((res) => {
         return res.json();
       })
@@ -67,7 +69,9 @@ const TopDoctorsDetails = memo(() => {
           </div>
         </div>
 
-        <div className="flex items-center gap-10">{FindDoctors}</div>
+        <div className="flex items-center gap-10 max-sm:overflow-x-scroll">
+          {FindDoctors}
+        </div>
 
         <div
           className="bg-[#184c993a] max-sm:w-0 max-sm:h-0 max-sm:py-10 max-sm:px-5 w-10 h-24 py-20 px-12 rounded-l-full relative cursor-pointer"
