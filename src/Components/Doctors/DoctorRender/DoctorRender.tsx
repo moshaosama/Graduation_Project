@@ -21,7 +21,7 @@ const DoctorRender = () => {
               return (
                 <div
                   key={index}
-                  className="bg-white w-[70pc] max-sm:w-[24pc] border-[1px]  border-black border-solid p-7 py-16 rounded-xl shadow-md flex flex-col  my-4"
+                  className="bg-white w-[70pc] max-sm:w-[24pc]  border-solid p-7 py-16 rounded-xl shadow-2xl shadow-gray-500 flex flex-col  my-4"
                 >
                   <div className="flex justify-between">
                     <div className="flex flex-col">
