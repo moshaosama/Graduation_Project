@@ -36,7 +36,8 @@ const SignUp = () => {
           className="flex items-center justify-center gap-2"
           onClick={async () => {
             try {
-              window.location.href = "http://localhost:3000/auth/google";
+              window.location.href =
+                "https://graduationprojectserver-production.up.railway.app/auth/google";
             } catch (error) {
               console.error("Authentication failed:", error);
             }
