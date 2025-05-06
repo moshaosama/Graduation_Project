@@ -137,6 +137,7 @@ const FindDoctorsWep = () => {
                 Title={"Choose specialty"}
                 Label={"Select a specialty"}
                 Width="72"
+                lengthZero={true}
                 Element={<FaStethoscope className="text-2xl" />}
                 onCLick={handleSpecialityState}
                 DropDown={
