@@ -7,4 +7,5 @@ export interface SpecialityCardProps {
   onCLick: () => void;
   DropDown: ReactElement;
   Width: string;
+  lengthZero?: boolean;
 }
