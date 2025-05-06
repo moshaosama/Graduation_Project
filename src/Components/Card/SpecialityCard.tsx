@@ -4,6 +4,7 @@ import { SpecialityCardProps } from "../../Types/Card/SpecialityCard";
 import { MdArrowDropDown } from "react-icons/md";
 import React from "react";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
+import clsx from "clsx";
 
 const SpecialityCard = React.memo(
   ({
@@ -13,15 +14,19 @@ const SpecialityCard = React.memo(
     onCLick,
     DropDown,
     Width,
+    lengthZero,
   }: SpecialityCardProps) => {
     const { language } = useConvertLanguage();
 
     const width = useMemo(() => `w-${Width}`, [Width]);
     return (
       <>
-        <div className="flex w-96 flex-col relative">
+        <div className="flex w-96  flex-col relative">
           <div
-            className={`p-2 border border-solid border-[#9b9b9b] ${width} cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`}
+            className={clsx(
+              `p-2 border-2 border-solid border-gray-300 ${width} cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`,
+              lengthZero ? "rounded-l-xl" : ""
+            )}
             onClick={onCLick}
           >
             <div>
