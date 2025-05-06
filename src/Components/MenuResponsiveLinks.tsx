@@ -4,12 +4,13 @@ import { useOpenMenu } from "../Context/OpenMenuProvider";
 import { Link, NavLink } from "react-router";
 import { ChangeTextByLanguage } from "../Language/Language";
 import useConvertLanguage from "../Hooks/useConvertLanguage";
+import { User } from "../Types/Navbar";
 
 const MenuResponsiveLinks = () => {
   const { OpenMenu, toggleMenu } = useOpenMenu();
   const { toggleLanguage } = useConvertLanguage();
   const Token = window.localStorage.getItem("Token");
-  const User = JSON.parse(window.localStorage.getItem("User")!);
+  const User: User = JSON.parse(window.localStorage.getItem("User")!);
   return (
     <>
       <div
@@ -37,14 +38,20 @@ const MenuResponsiveLinks = () => {
             <div className="border-2 p-2 border-solid mb-5 flex items-center gap-5">
               <div>
                 <img
-                  src="download-removebg-preview.png"
+                  src={
+                    User.photos[0].value
+                      ? User.photos[0].value
+                      : "download-removebg-preview.png"
+                  }
                   alt="Person.png"
-                  className="w-16"
+                  className="w-16 rounded-full object-fill"
                 />
               </div>
               <div className="text-white">
-                <h1 className="text-xl font-bold">{User.userName}</h1>
-                <p>{User.Email}</p>
+                <h1 className="text-xl font-bold">
+                  {User.userName || User.displayName}
+                </h1>
+                <p>{User.Email || User.emails[0].value}</p>
               </div>
             </div>
           </Link>
@@ -72,9 +79,11 @@ const MenuResponsiveLinks = () => {
               Logout
             </div>
           )}
-          <NavLink to={"/joinnewdoctor"} className="p-5 font-bold">
-            For_Doctors
-          </NavLink>
+          {User ? null : (
+            <NavLink to={"/joinnewdoctor"} className="p-5 font-bold">
+              For_Doctors
+            </NavLink>
+          )}
           <NavLink to={"/contact"} className="p-5 font-bold">
             Contact
           </NavLink>
