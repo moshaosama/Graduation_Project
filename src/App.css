@@ -11,6 +11,5 @@ html {
 }
 
 .active {
-  background: rgb(0, 112, 205) !important;
-  color: white !important;
+  border-bottom: 4px solid blue;
 }
