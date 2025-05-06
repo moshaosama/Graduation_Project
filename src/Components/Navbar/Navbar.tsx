@@ -26,10 +26,6 @@ const Navbar = () => {
       title: ChangeTextByLanguage("اتصال", "Contact"),
       to: "/contact",
     },
-    // {
-    //   title: ChangeTextByLanguage("عربي", "For_Doctors"),
-    //   to: "/joinnewdoctor",
-    // },
   ];
 
   const ConditionNavbar = useCallback(() => {
