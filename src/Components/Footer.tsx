@@ -2,13 +2,13 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-700 w-full py-7 rounded-tr-lg">
-      <div className="flex justify-between mx-80 max-sm:mx-5">
-        <div className="flex flex-col gap-4 sm:contents">
-          <div className="flex justify-between sm:contents">
+    <div className="bg-blue-700 w-full py-7 rounded-tr-lg text-white">
+      <div className="flex justify-between mx-80 max-sm:mx-5 ">
+        <div className="flex flex-col gap-4 sm:contents ">
+          <div className="flex justify-between sm:contents ">
             <div>
               <div className="flex items-center gap-5">
-                <img src="Vector.png" alt="" className="w-10" loading="lazy" />
+                <img src="Vector.png" alt="" className="w-10 " loading="lazy" />
                 <h1
                   className="font-bold text-2xl max-sm:text-sm"
                   style={{ fontFamily: "Arbutus Slab" }}
@@ -17,28 +17,16 @@ const Footer = () => {
                 </h1>
               </div>
               <div className="flex flex-col gap-2  text-white my-5">
-                <a
-                  href=""
-                  className="hover:underline text-sm text-black font-bold"
-                >
+                <a href="" className="hover:underline text-sm  font-bold ">
                   About Us
                 </a>
-                <a
-                  href=""
-                  className="hover:underline text-sm text-black font-bold"
-                >
+                <a href="" className="hover:underline text-sm  font-bold ">
                   Our Team
                 </a>
-                <a
-                  href=""
-                  className="hover:underline text-sm text-black font-bold"
-                >
+                <a href="" className="hover:underline text-sm  font-bold ">
                   Careers
                 </a>
-                <a
-                  href=""
-                  className="hover:underline text-sm text-black font-bold"
-                >
+                <a href="" className="hover:underline text-sm  font-bold">
                   Press
                 </a>
               </div>
@@ -53,35 +41,35 @@ const Footer = () => {
               <div className="flex flex-col my-5 gap-2 text-white">
                 <a
                   href="/specialty-directory"
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Speciality
                 </a>
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Area
                 </a>
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Insurance
                 </a>
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Hospital
                 </a>
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Center
@@ -100,7 +88,7 @@ const Footer = () => {
               <div className="flex flex-col my-5 gap-2 text-white">
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Join Vezeeta doctors
@@ -114,38 +102,38 @@ const Footer = () => {
               >
                 Need Help ?
               </h1>
-              <div className="flex flex-col my-5 gap-2 text-black font-bold">
+              <div className="flex flex-col my-5 gap-2  font-bold">
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Medical Library
                 </a>
                 <Link
                   to={"/contact"}
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Contact Us
                 </Link>
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Terms Of Use
                 </a>
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Privacy Policy
                 </a>
                 <a
                   href=""
-                  className="hover:underline text-black font-bold text-lg"
+                  className="hover:underline  font-bold text-lg"
                   style={{ fontFamily: "Inter" }}
                 >
                   Doctors Privacy Policy
