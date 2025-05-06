@@ -140,7 +140,7 @@ const SpecialityCardListRender = () => {
   return (
     <>
       <div
-        className={`rounded-xl ${Traslation.ConvertFLex} flex  items-center`}
+        className={`rounded-xl ${Traslation.ConvertFLex} flex   items-center`}
       >
         {SpecialityCardList.map((el) => {
           return (
@@ -152,10 +152,11 @@ const SpecialityCardListRender = () => {
               Element={el.Element}
               DropDown={el.DropDown}
               Width="72"
+              lengthZero={el.Title === "Choose a specialty" ? true : false}
             />
           );
         })}
-        <div className="border max-h-[74px] border-[#9b9b9b]">
+        <div className="max-h-[80px] border-2 border-solid border-gray-300">
           <form action="" className="p-2 flex flex-col  gap-4">
             <label
               className={`text-sm ${
@@ -176,7 +177,7 @@ const SpecialityCardListRender = () => {
           </form>
         </div>
         <div
-          className={`h-[4.6pc] border border-solid ${
+          className={`h-[4.9pc] border border-solid ${
             language == "English" ? "rounded-l-xl" : "rounded-r-xl"
           } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
           onClick={handleClickSave}
