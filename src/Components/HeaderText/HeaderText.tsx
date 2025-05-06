@@ -15,7 +15,7 @@ const HeaderText = () => {
         <h1 className="text-blue-700 font-bold text-5xl w-[33pc] max-sm:w-[20pc] max-sm:text-3xl">
           {ChangeTextByLanguage(
             "اشعر بتحسن بشأن العثور على الرعاية الصحية",
-            "Fell better about finding healthcare"
+            "Feel better about finding healthcare"
           )}
         </h1>
       </div>
