@@ -1,91 +1,116 @@
-import { useState } from "react";
-import { FaClinicMedical } from "react-icons/fa";
-import { GiMedicines } from "react-icons/gi";
-import { IoIosCall } from "react-icons/io";
-import Clinic_Visit from "../FormfindDoctors/Clinic_Visit";
-import Order_Medicine from "../FormfindDoctors/Order_Medicine";
-import Doctor_Call from "../FormfindDoctors/Doctor_Call";
+import { useEffect } from "react";
+import { AppDispatch, RootState } from "../../../Store/Store";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSpeciality } from "../../../Store/Reducer/Speciality/SpecialityReducer";
+import { fetchArea } from "../../../Store/Reducer/Area/AreaReducer";
+import { fetchLocation } from "../../../Store/Reducer/Location/LocationReducer";
+import { useForm } from "react-hook-form";
+import { fetchDoctor } from "../../../Store/Reducer/Doctor/DoctorReducer";
+import { ChangeTextByLanguage } from "../../../Language/Language";
+import { fetchAllDoctor } from "../../../Store/Reducer/AllDoctor/AllDoctor";
+import { useNavigate } from "react-router";
 
-const FindDectorResponsive = () => {
-  const [ActiveFindDeoctor, setFindDoctor] = useState("Clinic Visit");
+const findDoctorResponsive = () => {
+  const Speciality = useSelector((state: RootState) => state.Speciality);
+  const Area = useSelector((state: RootState) => state.Area);
+  const Location = useSelector((state: RootState) => state.Location);
+  const dispatch = useDispatch<AppDispatch>();
+  const Navigate = useNavigate();
 
-  const formDoctors = () => {
-    if (ActiveFindDeoctor == "Clinic Visit") {
-      return <Clinic_Visit />;
-    } else if (ActiveFindDeoctor == "Order Medicine") {
-      return <Order_Medicine />;
-    } else if (ActiveFindDeoctor == "Doctor Call") {
-      return <Doctor_Call />;
+  useEffect(() => {
+    dispatch(fetchSpeciality());
+    dispatch(fetchArea());
+    dispatch(fetchLocation());
+  }, []);
+
+  const {
+    handleSubmit,
+    register,
+    formState: { isLoading },
+  } = useForm();
+
+  const handleFormSubmit = async (data: any) => {
+    try {
+      if (
+        data.Speciality ===
+          ChangeTextByLanguage("أختار التخصص", "Choose a specialty") &&
+        data.City === ChangeTextByLanguage("القاهره", "Choose City") &&
+        data.Area === ChangeTextByLanguage("اختار المنطقه", "Choose Facility")
+      ) {
+        dispatch(fetchAllDoctor());
+      } else {
+        dispatch(fetchDoctor(data));
+      }
+      Navigate("/doctors");
+    } catch (err) {
+      throw new Error(err as string);
     }
   };
-  const listFindDoctor = [
-    {
-      id: "3",
-      Name: "Clinic Visit",
-      Icon: <FaClinicMedical className="text-xl" />,
-    },
-    {
-      id: "4",
-      Name: "Order Medicine",
-      Icon: <GiMedicines className="text-xl" />,
-    },
-    {
-      id: "5",
-      Name: "Doctor Call",
-      Icon: <IoIosCall className="text-xl" />,
-    },
-  ];
 
-  const activeItem = (id: string, Title: string) => {
-    const Item = document.getElementById(id);
-    const Elements = document.querySelectorAll(".active");
-    Elements.forEach((item) => {
-      item.classList.remove("active");
-    });
-    Item?.classList.add("active");
-
-    setFindDoctor(Title);
-  };
   return (
-    <div className="max-sm:mx-[10px]">
-      <div className="flex justify-center w-full max-sm:w-[24.5pc]  border-blue-500">
-        {listFindDoctor.map((el) => (
-          <div
-            key={el.id}
-            className={`flex flex-col items-center ${
-              el.id === "3" ? "active rounded-tl-lg" : ""
-            } ${
-              el.id === "5" ? "rounded-tr-lg" : ""
-            } py-4 w-full text-blue-600 bg-[rgb(229,241,255)]`}
-            id={el.id}
-            onClick={() => activeItem(el.id, el.Name)}
-          >
-            <p>{el.Icon}</p>
-            <h1 className="font-semibold">{el.Name}</h1>
-          </div>
-        ))}
-      </div>
-      <div className="max-sm:w-[24.5pc]">{formDoctors()}</div>
-      <div>
-        {ActiveFindDeoctor == "Clinic Visit" ||
-        ActiveFindDeoctor == "Doctor Call" ? (
-          <div className="my-4">
-            <div className="bg-[red] max-sm:w-[24.5pc] rounded-lg flex justify-center py-5">
-              <button className="text-white font-bold text-md">
-                Browse Doctors
-              </button>
-            </div>
-            <div className="flex justify-center my-3">
-              <h1>
-                Or Call
-                <span className="text-blue-500 font-bold underline">16676</span>
-              </h1>
-            </div>
-          </div>
-        ) : null}
-      </div>
+    <div className="flex justify-center w-full mx-2">
+      <form
+        onSubmit={handleSubmit(handleFormSubmit)}
+        className="border-2 grid grid-cols-2 gap-3 border-gray-300 p-2 w-96 rounded-xl"
+      >
+        <select
+          className="p-5 bg-[#184c9928] col-span-2 rounded-xl font-bold border-2"
+          {...register("Speciality", {
+            required: "Speciality is required",
+          })}
+        >
+          <option selected>Choose a specialty</option>
+          {Speciality.data?.result?.map(
+            (Speciality: { Specialty_name: string }, index: number) => (
+              <option key={index} value={Speciality.Specialty_name}>
+                {Speciality.Specialty_name}
+              </option>
+            )
+          )}
+        </select>
+
+        <select
+          className="p-5 bg-[#184c9928] col-span-1 rounded-xl font-bold"
+          {...register("City", {
+            required: "City is required",
+          })}
+        >
+          <option selected>Choose City</option>
+          {Location.data?.result?.map(
+            (Location: { Location: string }, index: number) => (
+              <option key={index} value={Location.Location}>
+                {Location.Location}
+              </option>
+            )
+          )}
+        </select>
+        <select
+          className="p-5 bg-[#184c9928] col-span-1 rounded-xl font-bold"
+          {...register("Area", {
+            required: "Area is required",
+          })}
+        >
+          <option selected>Choose Facility</option>
+          {Area.data?.result?.map(
+            (Clinic: { Clinic: string }, index: number) => (
+              <option key={index} value={Clinic.Clinic}>
+                {Clinic.Clinic}
+              </option>
+            )
+          )}
+        </select>
+        <input
+          type="text"
+          placeholder="Or search by name"
+          className="p-5 bg-[#184c9928] col-span-2 rounded-xl font-bold"
+        />
+
+        <button className="col-span-2 bg-[#1F3FC3] p-5 rounded-xl text-white font-bold">
+          {isLoading ? "Loading..." : "Search"}
+        </button>
+      </form>
     </div>
   );
 };
 
-export default FindDectorResponsive;
+export default findDoctorResponsive;
