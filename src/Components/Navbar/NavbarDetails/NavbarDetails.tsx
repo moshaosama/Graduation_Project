@@ -47,13 +47,13 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
         {Token ? (
           <div className="relative">
             <button
-              className="bg-gray-200 hover:bg-[#b1b1b1] transition-all duration-500 p-2 w-40 rounded-xl flex justify-around items-center"
+              className="bg-gray-200 hover:bg-[#b1b1b1] transition-all duration-500 p-2 rounded-xl flex justify-around items-center"
               onClick={handleClickUser}
             >
               <h1 className="font-bold">
                 {User?.Status === "Doctor"
                   ? `Dr / ${User?.userName}`
-                  : User?.userName}
+                  : User?.userName || User?.displayName}
               </h1>
               <IoMdArrowDropdown />
             </button>
