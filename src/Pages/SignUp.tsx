@@ -1,12 +1,24 @@
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
-import { memo } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { memo, useEffect } from "react";
 import FormSignUp from "../Components/FormSignUp/FormSignUp";
 import useOpenWindow from "../Hooks/useOpenWindow";
 import clsx from "clsx";
 
 const SignUp = () => {
   const { Open } = useOpenWindow();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const user = JSON.parse(decodeURIComponent(params.get("user")!));
+  const Naviagte = useNavigate();
+
+  useEffect(() => {
+    if (user && user.accessToken) {
+      window.localStorage.setItem("Token", user.accessToken);
+      window.localStorage.setItem("User", JSON.stringify(user.profile));
+      Naviagte("/");
+    }
+  }, [user, Naviagte]);
 
   return (
     <div className="flex justify-center items-center  h-screen bg-[#eee]">
@@ -20,7 +32,16 @@ const SignUp = () => {
           <h1 className="text-center text-white font-bold p-1">Sign Up</h1>
         </div>
         <FormSignUp />
-        <div className="flex items-center justify-center gap-2">
+        <div
+          className="flex items-center justify-center gap-2"
+          onClick={async () => {
+            try {
+              window.location.href = "http://localhost:3000/auth/google";
+            } catch (error) {
+              console.error("Authentication failed:", error);
+            }
+          }}
+        >
           <div className=" flex items-center gap-2 px-5 py-2 mt-5 rounded-xl font-bold border-[1px] border-gray-500 w-fit cursor-pointer hover:bg-gray-300 transition-all duration-500">
             <FcGoogle className="text-2xl" />
             <p>Sign in with Google</p>
