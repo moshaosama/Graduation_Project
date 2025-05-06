@@ -1,6 +1,7 @@
 import { ChangeEvent, useCallback, useMemo, useState } from "react";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
 import ButtonForm from "../Form/ButtonForm";
+import { useNavigate } from "react-router";
 
 const FormSignUp = () => {
   const [formState, setFormState] = useState({
@@ -10,6 +11,7 @@ const FormSignUp = () => {
     birthDate: "",
     Password: "",
   });
+  const Navigate = useNavigate();
 
   const ChangeFromState = (e: ChangeEvent<HTMLInputElement>) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
@@ -42,16 +44,25 @@ const FormSignUp = () => {
     []
   );
 
-  const createUser = useCallback(() => {
-    fetch("https://graduationprojectserver-production.up.railway.app/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formState),
-    }).then((res) => {
-      return res.json();
-    });
+  const createUser = useCallback(async () => {
+    try {
+      fetch(
+        "https://graduationprojectserver-production.up.railway.app/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formState),
+        }
+      ).then((res) => {
+        return res.json();
+      });
+
+      Navigate("/login");
+    } catch (err) {
+      throw new Error(err as string);
+    }
   }, [formState]);
 
   const { language } = useConvertLanguage();
