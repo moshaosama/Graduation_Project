@@ -62,8 +62,8 @@ const SpecialityCardListRender = () => {
       setLoading(false);
       if (
         choooseDoctor.Speciality ===
-          ChangeTextByLanguage("أختار التخصص", "Choose specialty") &&
-        choooseDoctor.City === ChangeTextByLanguage("القاهره", "Choose city") &&
+          ChangeTextByLanguage("أختار التخصص", "Choose a specialty") &&
+        choooseDoctor.City === ChangeTextByLanguage("القاهره", "Choose City") &&
         choooseDoctor.Area ===
           ChangeTextByLanguage("اختار المنطقه", "Choose Facility")
       ) {
