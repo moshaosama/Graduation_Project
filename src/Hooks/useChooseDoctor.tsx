@@ -3,8 +3,8 @@ import { ChangeTextByLanguage } from "../Language/Language";
 
 const useChooseDoctor = () => {
   const [choooseDoctor, setChoooseDoctor] = useState({
-    Speciality: ChangeTextByLanguage("أختار التخصص", "Choose specialty"),
-    City: ChangeTextByLanguage("القاهره", "Choose city"),
+    Speciality: ChangeTextByLanguage("أختار التخصص", "Choose a specialty"),
+    City: ChangeTextByLanguage("القاهره", "Choose City"),
     Area: ChangeTextByLanguage("اختار المنطقه", "Choose Facility"),
   });
 
