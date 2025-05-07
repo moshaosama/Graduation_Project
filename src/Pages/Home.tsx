@@ -11,6 +11,7 @@ import WhyUs from "../Components/WhyUs/WhyUs";
 import DownloadApp from "../Components/DownloadApp/DownloadApp";
 import JoinUs from "../Components/JoinUs/JoinUs";
 import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDoctorResponsive";
+import TrendingItem from "../Components/TredingItems/TrendingItem";
 
 function Home() {
   useEffect(() => {
@@ -38,6 +39,7 @@ function Home() {
         <ExploreUs />
         <ChatBot />
         <TopDoctors />
+        <TrendingItem />
         <OurService />
         <WhyUs />
         <DownloadApp />
