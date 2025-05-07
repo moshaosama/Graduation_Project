@@ -77,14 +77,7 @@ const OurService = () => {
               "Explore clinics or hospitals based onspecialty and location.Our platform provides detailed facility information,helping you choose the best healthcare option."
             )}
           />
-          <CartService
-            Icon={<GiMedicines className="text-5xl text-blue-700" />}
-            Text={ChangeTextByLanguage("متتبع الأدوية", "Medicine Tracker")}
-            Paragraph={ChangeTextByLanguage(
-              "قم بإدارة وصفاتك الطبية بكفاءة من خلال التذكيرات بمواعيد الأدوية. تتبع عمليات إعادة التعبئة والجرعات للحفاظ على الاتساق في علاجك",
-              "Manage your prescriptions efficiently withreminders for medication schedules.Track refills and dosages to maintain consistency inyour treatment"
-            )}
-          />
+
           <CartService
             Icon={<FaMessage className="text-5xl text-blue-700" />}
             Text="Symptom Checker"
