@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import { BsHeadset } from "react-icons/bs";
 import { CiSettings } from "react-icons/ci";
 import { FaMessage, FaUserDoctor } from "react-icons/fa6";
-import { GiMedicines } from "react-icons/gi";
 import { MdLocalHospital, MdReviews } from "react-icons/md";
 import useConvertLanguage from "../../Hooks/useConvertLanguage";
 import { ChangeTextByLanguage } from "../../Language/Language";
