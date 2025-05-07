@@ -27,6 +27,10 @@ const Navbar = () => {
       title: ChangeTextByLanguage("اتصال", "Contact"),
       to: "/contact",
     },
+    {
+      title: ChangeTextByLanguage("اتصال", "Medicine Library"),
+      to: "/medicine-library",
+    },
   ];
 
   const ConditionNavbar = useCallback(() => {
@@ -54,7 +58,7 @@ const Navbar = () => {
           className={` ${location.pathname !== "/" ? "w-96" : ""}`}
           style={{ margin: "1pc 55pc 2pc 10pc" }}
         >
-          <div className="flex items-center gap-56 max-sm:gap-48">
+          <div className="flex items-center gap-36 max-sm:gap-48">
             <Link to={"/"}>
               <div className={LogoBrand}>
                 <ImageRender
@@ -76,9 +80,14 @@ const Navbar = () => {
                     <NavLink
                       to={el.to}
                       key={index}
-                      className={clsx("active:bg-blue-500")}
+                      className={clsx("active:bg-blue-500 ")}
                     >
-                      <p className="hover:underline cursor-pointer text-gray-600 font-semibold">
+                      <p
+                        className={clsx(
+                          "hover:underline cursor-pointer text-gray-600 font-semibold",
+                          el.title === "Medicine Library" ? "w-[8pc]" : ""
+                        )}
+                      >
                         {el.title}
                       </p>
                     </NavLink>
