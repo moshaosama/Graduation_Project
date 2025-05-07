@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar/Navbar";
+import CopyRight from "../Components/CopyRight";
 
 const Layout = () => {
   const location = useLocation().pathname;
@@ -15,7 +16,10 @@ const Layout = () => {
       {location == "/login" ||
       location === "/signup" ||
       location === "/joinnewdoctor" ? null : (
-        <Footer />
+        <>
+          <Footer />
+          <CopyRight />
+        </>
       )}
     </>
   );
