@@ -4,7 +4,7 @@ import TitleForSection from "../TitleForSection/TitleForSection";
 
 const TrendingItem = () => {
   return (
-    <div className="mx-80 max-sm:mx-5 my-3">
+    <div className="mx-80 max-2xl:mx-44 max-sm:mx-5 my-3">
       <div className="flex justify-between">
         <TitleForSection
           Text={ChangeTextByLanguage("العناصر الرائجة", "Trending Items")}
