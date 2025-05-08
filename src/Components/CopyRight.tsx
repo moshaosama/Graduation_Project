@@ -1,6 +1,6 @@
 const CopyRight = () => {
   return (
-    <div className="flex justify-between max-sm:flex-col-reverse max-sm:gap-5 mx-80 max-sm:mx-5 my-5">
+    <div className="flex justify-between max-2xl:mx-10 max-sm:flex-col-reverse max-sm:gap-5 mx-80 max-sm:mx-5 my-5">
       <div>
         <h1 className="font-bold">© 2025 MedicalPulse. All rights reserved.</h1>
       </div>
