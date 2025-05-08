@@ -12,7 +12,7 @@ const TopDoctors = () => {
           language == "English" ? "text-end" : "text-start"
         }  py-10  rounded`}
       >
-        <div className="mx-80 max-sm:mx-5">
+        <div className="mx-80 max-sm:mx-5 max-2xl:mx-44">
           <TitleForSection
             Text={ChangeTextByLanguage("أفضل الأطباء", "Top Doctors")}
           />
