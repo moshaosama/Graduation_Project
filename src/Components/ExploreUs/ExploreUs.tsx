@@ -48,7 +48,7 @@ const ExploreUs = () => {
 
   return (
     <>
-      <div className="mx-80 max-sm:mx-5 max-sm:-mt-[50pc] flex flex-col  gap-5">
+      <div className="mx-80 max-2xl:mx-40 max-sm:mx-5 max-sm:-mt-[50pc] flex flex-col  gap-5">
         <TitleForSection
           Text={ChangeTextByLanguage("استكشفنا", "Explore US")}
         />
