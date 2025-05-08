@@ -3,8 +3,8 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-[#1F3FC3]  w-full py-7 rounded-tr-lg text-white">
-      <div className="mx-80 max-sm:mx-5 border flex justify-between max-sm:flex-col max-sm:gap-8 border-[#ffffff59]  rounded-lg p-7 ">
+    <div className="bg-[#1F3FC3] w-full py-7 rounded-tr-lg text-white">
+      <div className="mx-80 max-sm:mx-5 border flex justify-between max-sm:flex-col max-sm:gap-8 max-2xl:mx-10 border-[#ffffff59]  rounded-lg p-7 ">
         <div className="flex flex-col gap-4 w-96 max-sm:w-80">
           <div className="flex gap-2 items-center">
             <img src="Vector.png" alt="" className="w-8 " loading="lazy" />
