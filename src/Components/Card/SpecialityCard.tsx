@@ -21,10 +21,10 @@ const SpecialityCard = React.memo(
     const width = useMemo(() => `w-${Width}`, [Width]);
     return (
       <>
-        <div className="flex w-96  flex-col relative">
+        <div className="flex w-96 max-2xl:w-48 flex-col relative">
           <div
             className={clsx(
-              `p-2 border-2 border-solid border-gray-300 ${width} cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`,
+              `p-2 border-2 max-2xl:w-48 border-solid border-gray-300 ${width} cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`,
               lengthZero ? "rounded-l-xl" : ""
             )}
             onClick={onCLick}
@@ -33,12 +33,12 @@ const SpecialityCard = React.memo(
               <p
                 className={`text-sm${
                   language == '"English"' ? "text-start" : "text-end"
-                } font-semibold text-[#868686]`}
+                } font-semibold text-[#868686] max-2xl:text-sm`}
               >
                 {Label}
               </p>
               <div
-                className={`my-2 max-h-5 flex items-center ${Traslation.ConvertFLex} gap-2 text-[#0a84ff7a]`}
+                className={`my-2 max-h-5 flex items-center max-2xl:text-[12px] max-2xl:gap-1 font-bold ${Traslation.ConvertFLex} gap-2 text-[#0a84ff7a]`}
               >
                 {Element}
                 <p className="text-md font-semibold">{Title}</p>
