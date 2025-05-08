@@ -57,7 +57,7 @@ const OurService = () => {
 
       <div className="bg-white max-sm:mx-[14px] rounded-b-xl p-16">
         <div
-          className=" grid grid-cols-3 max-sm:grid-cols-1 mx-64 max-sm:-mx-14 gap-28 max-sm:gap-10 opacity-5 max-sm:opacity-100 transition-all duration-500 "
+          className=" grid grid-cols-3 max-2xl:mx-0 max-sm:grid-cols-1 mx-64 max-sm:-mx-14 gap-28 max-sm:gap-10 opacity-5 max-sm:opacity-100 transition-all duration-500 "
           id="CartService"
         >
           <CartService
