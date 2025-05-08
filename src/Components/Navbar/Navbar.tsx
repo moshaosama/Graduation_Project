@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      {ConditionNavbar}
+      {ConditionNavbar()}
       <div
         className={`flex items-center ${
           location.pathname !== "/" ? " mb-7" : ""
@@ -66,21 +66,21 @@ const Navbar = () => {
                   alt="Logo.png"
                   width="10"
                 />
-                <h1 className={TextLogo}>MediPulse</h1>
+                <h1 className={`${TextLogo} max-2xl:text-[5px]`}>MediPulse</h1>
               </div>
             </Link>
             <div className="sm:hidden">
               <IoIosMenu className="text-3xl" onClick={toggleMenu} />
               {OpenMenu ? <MenuResponsiveLinks /> : null}
             </div>
-            <div className="flex gap-10 max-sm:hidden">
+            <div className="flex gap-10 max-2xl:-mx-16 max-2xl:gap-5 max-sm:hidden">
               {LinksPages.map(
                 (el: { title: string; to: string }, index: number) => {
                   return (
                     <NavLink
                       to={el.to}
                       key={index}
-                      className={clsx("active:bg-blue-500 ")}
+                      className={clsx("active:bg-blue-500 max-2xl:text-[12px]")}
                     >
                       <p
                         className={clsx(
@@ -110,7 +110,7 @@ const Navbar = () => {
           ) : null}
         </div>
       </div>
-    </>
+    </>  
   );
 };
 
