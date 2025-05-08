@@ -23,7 +23,7 @@ const ChatBot = () => {
       <div
         className={`bg-blue-700 ${
           language == "English" ? "flex-row-reverse" : "flex-row"
-        }  flex justify-center py-10 max-sm:px-5 max-sm:mx-[10px] max-sm:rounded-lg  mt-6 items-center gap-10 max-sm:w-[24.5pc]`}
+        }  flex justify-center py-10 max-sm:px-5 max-sm:mx-[10px]  max-sm:rounded-lg  mt-6 items-center gap-10 max-sm:w-[24.5pc]`}
       >
         <Suspense fallback={"Loading..."}>
           <ImageRender
@@ -40,7 +40,7 @@ const ChatBot = () => {
         </h1>
       </div>
 
-      <div className="bg-white p-10">
+      <div className="bg-white p-10 max-2xl:mx-32">
         <div
           className={`w-full  flex ${
             language == "English" ? "flex-row-reverse" : "flex-row"
@@ -75,11 +75,13 @@ const ChatBot = () => {
           </div>
           <div className="max-sm:hidden">
             <Suspense fallback={"Loading..."}>
+              <div className="max-2xl:w-40">
               <ImageRender
                 src="WhatsApp_Image_2025-02-26_at_23.05.16_522ef8e0-removebg-preview.png"
                 alt="DoctorIcon.png"
                 width="96"
               />
+              </div>
             </Suspense>
           </div>
         </div>
