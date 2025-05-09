@@ -21,13 +21,13 @@ const MedicinesRender = () => {
     },[dispatch])
     return (
         <div>
-            <div className="mx-40">
+            <div className="mx-40 max-sm:mx-7">
                 <TitleForSection Text="All Products" />
             </div>
-            <div className="grid grid-cols-4 gap-20 mx-40 mt-20">
+            <div className="grid grid-cols-4 gap-20 max-sm:gap-10 max-sm:mx-7 max-sm:grid-cols-2 mx-40 mt-20">
                 {
                     MedicineProducts.data.result?.map((medicineProduct: MedicineProductsData, index: number) => (
-                        <div className="w-fit cursor-pointer" key={index}>
+                        <div className="w-fit cursor-pointer " key={index}>
                             <div className="bg-[#006df318] p-4 rounded-tr-full transition-all duration-200 hover:rounded-md">
                                 <img src="download-removebg-preview (1).png" alt="" />
                                 <div className="flex items-center justify-between">
