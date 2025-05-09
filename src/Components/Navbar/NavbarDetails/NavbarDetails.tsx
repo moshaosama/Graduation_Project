@@ -43,11 +43,11 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
   const { toggleLanguage } = useConvertLanguage();
   return (
     <>
-      <div className="flex gap-40 max-sm:hidden">
+      <div className="flex gap-10  max-sm:hidden">
         {Token ? (
-          <div className="relative">
+          <div className="relative ">
             <button
-              className="bg-gray-200 hover:bg-[#b1b1b1] transition-all duration-500 p-2 rounded-xl flex justify-around items-center"
+              className="bg-gray-200   hover:bg-[#b1b1b1] transition-all duration-500 p-2 rounded-xl flex justify-around items-center"
               onClick={handleClickUser}
             >
               <h1 className="font-bold">
