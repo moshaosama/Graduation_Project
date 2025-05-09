@@ -8,6 +8,7 @@ import createMedicineReducer from "./Reducer/MedicineTracker/CreateNewMedicine.t
 import getMedicinesReducer from "./Reducer/MedicineTracker/getMedicines.ts";
 import getMedicineByIdReducer from "./Reducer/MedicineTracker/getMedicineById.ts";
 import getReviewsReducer from "./Reducer/Review/getReviewSlice.ts";
+import medicineProductsReducer from "./Reducer/MedicineProducts/getMedicineProducts.ts";
 
 export const Store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const Store = configureStore({
     getMedicine: getMedicinesReducer,
     getMedicineById: getMedicineByIdReducer,
     Reviews: getReviewsReducer,
+    medicineProducts: medicineProductsReducer,
   },
 });
 
