@@ -17,6 +17,7 @@ import Contact from "../Pages/Contact";
 import ProfileDoctor from "../Pages/ProfileDoctor";
 import JoinNewDoctor from "../Pages/JoinNewDoctor";
 import PersonalInfoProvider from "../Components/JoinNewDoctor/Context/PersonalInfoContext";
+import MedicinesRender from "../Components/MedicinesProductRender/MedicinesRender";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -92,6 +93,10 @@ const Router_pages = () => {
           path: "specialty-directory",
           element: <AllSpeciality />,
         },
+        {
+          path: "medicine-library",
+          element: <MedicinesRender/>,
+        }
       ],
     },
   ]);
