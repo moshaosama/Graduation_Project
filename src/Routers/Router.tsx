@@ -18,6 +18,7 @@ import ProfileDoctor from "../Pages/ProfileDoctor";
 import JoinNewDoctor from "../Pages/JoinNewDoctor";
 import PersonalInfoProvider from "../Components/JoinNewDoctor/Context/PersonalInfoContext";
 import MedicinesRender from "../Components/MedicinesProductRender/MedicinesRender";
+import AboutUs from "../Pages/AboutUs";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -96,6 +97,9 @@ const Router_pages = () => {
         {
           path: "medicine-library",
           element: <MedicinesRender/>,
+        },{
+          path: "aboutus",
+          element: <AboutUs/>
         }
       ],
     },
