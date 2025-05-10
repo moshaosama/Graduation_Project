@@ -1,5 +1,6 @@
 import { BsTwitterX } from "react-icons/bs";
 import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -39,7 +40,9 @@ const Footer = () => {
           <p>Home Page</p>
           <p>Our Services</p>
           <p>Contact Us</p>
-          <p>About Us</p>
+          <Link to={"/aboutus"}>
+            <p>About Us</p>
+          </Link>
           <p>FAQs</p>
         </div>
         <div className="flex flex-col max-sm:gap-4 justify-between">
