@@ -32,7 +32,7 @@ const OurStory = () => {
           {OurStoryCardData.map((story: OurStoryType) => (
             <div
               key={story.id}
-              className="bg-[#0056d642] rounded-xl p-5 max-w-80 h-[30pc] max-sm:w-[23pc] max-sm:h-fit"
+              className="bg-[#0056d642] rounded-xl p-5 w-80 h-[35pc] max-sm:w-full max-sm:h-fit"
             >
               <i>{story.icon}</i>
               <h1 className="text-black text-xl font-semibold">
