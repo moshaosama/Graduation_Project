@@ -34,8 +34,13 @@ const Navbar = () => {
   ];
 
   const ConditionNavbar = () => {
-    location.pathname === "/doctors" ||
-    location.pathname === "/joinnewdoctor" ? null : (
+    if (
+      location.pathname === "/doctors" ||
+      location.pathname === "/joinnewdoctor"
+    ) {
+      return null;
+    }
+    return (
       <div className="absolute z-50 top-0" id="ImageBlue">
         <ImageRender
           src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
@@ -52,14 +57,14 @@ const Navbar = () => {
       <div
         className={clsx(
           "flex items-center max-sm:mx-0 max-sm:w-[24.5pc]",
-          location.pathname !== "/" ? " mb-7 pt-[22px] h-[76px] shadow-xl" : ""
+          location.pathname !== "/" ? " mb-7 pt-[1pc] h-[5.7pc] shadow-xl" : ""
         )}
       >
         <div
           className={` ${location.pathname !== "/" ? "w-96" : ""}`}
           style={{ margin: "1pc 55pc 2pc 10pc" }}
         >
-          <div className="flex items-center gap-36 max-sm:gap-48">
+          <div className="flex items-center gap-24 max-sm:gap-48">
             <Link to={"/"}>
               <div className={LogoBrand}>
                 <ImageRender
@@ -74,7 +79,7 @@ const Navbar = () => {
               <IoIosMenu className="text-3xl" onClick={toggleMenu} />
               {OpenMenu ? <MenuResponsiveLinks /> : null}
             </div>
-            <div className="flex gap-10 max-2xl:-mx-16 max-2xl:gap-5 max-sm:hidden">
+            <div className="flex gap-9 max-2xl:-mx-16 max-2xl:gap-5 max-sm:hidden">
               {LinksPages.map(
                 (el: { title: string; to: string }, index: number) => {
                   return (
