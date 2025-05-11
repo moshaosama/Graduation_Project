@@ -18,9 +18,11 @@ const DashBoardUser = () => {
             <h1>My Profile</h1>
           </div>
         </Link>
-        <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">
-          <h1>My Appointments</h1>
-        </div>
+        <Link to={"/myappointments"}>
+          <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">
+            <h1>My Appointments</h1>
+          </div>
+        </Link>
         <Link to={"/listmedicine"}>
           <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">
             <h1>My MedicineList</h1>
