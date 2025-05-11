@@ -1,6 +1,6 @@
 import { memo, useEffect, useMemo, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
-import { DoctorType } from "../../../Types/Doctor/Doctor";
+import { DoctorType } from "../../../../Types/Doctor/Doctor";
 import { Link } from "react-router";
 
 const TopDoctorsDetails = memo(() => {
