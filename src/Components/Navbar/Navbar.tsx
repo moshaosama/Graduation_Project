@@ -41,11 +41,11 @@ const Navbar = () => {
       return null;
     }
     return (
-      <div className="absolute z-50 top-0" id="ImageBlue">
-        <ImageRender
+      <div className="absolute z-50 top-0 max-sm:hidden" id="ImageBlue">
+        <img
           src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
-          alt="Image.png"
-          width="40"
+          alt="Header.png"
+          className="w-32 h-full"
         />
       </div>
     );
