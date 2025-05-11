@@ -31,7 +31,7 @@ const DetailsDoctor = () => {
 
   return (
     <>
-      <div className="absolute right-40 -bottom-28">
+      <div className="absolute right-40 -bottom-28 max-sm:right-20">
         <div className="bg-white p-6 rounded-xl shadow-lg shadow-black">
           <div className="flex flex-col gap-6 justify-start">
             <img
