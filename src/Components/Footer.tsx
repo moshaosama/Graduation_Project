@@ -37,12 +37,10 @@ const Footer = () => {
         </div>
         <div className="flex flex-col max-sm:gap-4 justify-between">
           <h1 className="font-bold">Quick Links</h1>
-          <p>Home Page</p>
+          <a href="/">Home Page</a>
           <p>Our Services</p>
-          <p>Contact Us</p>
-          <Link to={"/aboutus"}>
-            <p>About Us</p>
-          </Link>
+          <a href="/contact">Contact Us</a>
+          <a href="/aboutus">About Us</a>
           <p>FAQs</p>
         </div>
         <div className="flex flex-col max-sm:gap-4 justify-between">
