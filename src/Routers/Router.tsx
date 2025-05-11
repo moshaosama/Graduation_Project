@@ -20,6 +20,7 @@ import PersonalInfoProvider from "../features/JoinNewDoctor/Context/PersonalInfo
 import MedicinesRender from "../Components/MedicinesProductRender/MedicinesRender";
 import AboutUs from "../Pages/AboutUs";
 import PrivacePolicy from "../Pages/PrivacePolicy";
+import BookDoctor from "../Pages/BookDoctor";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -87,7 +88,16 @@ const Router_pages = () => {
             },
             {
               path: ":id",
-              element: <ProfileDoctor />,
+              children: [
+                {
+                  index: true,
+                  element: <ProfileDoctor />,
+                },
+                {
+                  path: "bookdoctor",
+                  element: <BookDoctor />,
+                },
+              ],
             },
           ],
         },
