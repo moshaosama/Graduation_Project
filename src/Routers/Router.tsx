@@ -21,6 +21,7 @@ import MedicinesRender from "../Components/MedicinesProductRender/MedicinesRende
 import AboutUs from "../Pages/AboutUs";
 import PrivacePolicy from "../Pages/PrivacePolicy";
 import BookDoctor from "../Pages/BookDoctor";
+import MyAppointements from "../Pages/MyAppointements";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -116,6 +117,10 @@ const Router_pages = () => {
         {
           path: "privacy-policy",
           element: <PrivacePolicy />,
+        },
+        {
+          path: "myappointments",
+          element: <MyAppointements />,
         },
       ],
     },
