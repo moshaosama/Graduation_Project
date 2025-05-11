@@ -14,7 +14,7 @@ const LivePhoto = () => {
         <div className="bg-[#1f40c36b] rounded-xl w-60 max-sm:w-48 h-60 max-sm:h-48"></div>
         <div className="bg-[#1f40c36b] rounded-xl absolute  right-20 top-20 max-sm:w-48 max-sm:h-48 w-60 h-60"></div>
         <img
-          src="public\Ellipse 17.png"
+          src="Ellipse 17.png"
           alt="logo.png"
           className="w-36 max-sm:w-32 h-36 max-sm:h-32 absolute right-20 top-20"
         />
