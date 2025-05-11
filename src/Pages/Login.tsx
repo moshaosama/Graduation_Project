@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import { FaArrowLeft, FaFacebookSquare } from "react-icons/fa";
 import { useMemo } from "react";
-import FormLogin from "../Components/FormLogin/FormLogin";
+import FormLogin from "../features/Login/Components/FormLogin/FormLogin";
 import clsk from "clsx";
 import useOpenWindow from "../Hooks/useOpenWindow";
 

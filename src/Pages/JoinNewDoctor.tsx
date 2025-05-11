@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router";
-import JoinNewDoctorForm from "../Components/JoinNewDoctor/Components/JoinNewDoctorForm";
-import MainComponent from "../Components/JoinNewDoctor/Components/MainComponent";
-import PersonalInfo from "../Components/JoinNewDoctor/Components/PersonalInfo";
-import { usePersonalInfoContext } from "../Components/JoinNewDoctor/Context/PersonalInfoContext";
+import JoinNewDoctorForm from "../features/JoinNewDoctor/Components/JoinNewDoctorForm";
+import MainComponent from "../features/JoinNewDoctor/Components/MainComponent";
+import PersonalInfo from "../features/JoinNewDoctor/Components/PersonalInfo";
+import { usePersonalInfoContext } from "../features/JoinNewDoctor/Context/PersonalInfoContext";
 import { ToastContainer, Bounce } from "react-toastify";
 
 const JoinNewDoctor = () => {

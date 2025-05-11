@@ -1,17 +1,17 @@
 import { memo, useEffect } from "react";
-import FindDoctorsWep from "../Components/findDoctorForm/findDoctorWep/findDoctorsWep";
+import FindDoctorsWep from "../features/findDoctor/Components/findDoctorsWep";
 
-import ChatBot from "../Components/ChatBot/ChatBot";
-import HeaderText from "../Components/HeaderText/HeaderText";
-import Header from "../Components/Header/Header";
-import ExploreUs from "../Components/ExploreUs/ExploreUs";
-import TopDoctors from "../Components/TopDoctors/TopDoctors";
-import OurService from "../Components/OurServices/OurService";
-import WhyUs from "../Components/WhyUs/WhyUs";
-import DownloadApp from "../Components/DownloadApp/DownloadApp";
+import HeaderText from "../features/Home/Components/HeaderText/HeaderText";
+import Header from "../features/Home/Components/Header/Header";
+import DownloadApp from "../features/Home/Components/DownloadApp/DownloadApp";
 import JoinUs from "../Components/JoinUs/JoinUs";
-import FindDectorResponsive from "../Components/findDoctorForm/findDoctorResponsive/findDoctorResponsive";
-import TrendingItem from "../Components/TredingItems/TrendingItem";
+import FindDectorResponsive from "../features/findDoctor/Components/findDoctorResponsive";
+import ExploreUs from "../features/Home/Components/ExploreUs/ExploreUs";
+import ChatBot from "../features/Home/Components/ChatBot/ChatBot";
+import OurService from "../features/Home/Components/OurServices/OurService";
+import TrendingItem from "../features/Home/Components/TredingItems/TrendingItem";
+import WhyUs from "../features/Home/Components/WhyUs/WhyUs";
+import TopDoctors from "../features/Home/Components/TopDoctors/TopDoctors";
 
 function Home() {
   useEffect(() => {

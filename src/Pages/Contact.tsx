@@ -1,8 +1,8 @@
 import { memo } from "react";
 import { Link } from "react-router";
-import FormContactUs from "../Components/FormContactUs/FormContactUs";
+import FormContactUs from "../features/ContactUs/Components/FormContactUs/FormContactUs";
 import GlobalStyle from "../Style/globalStyle.module.css";
-import SpecialityStyle from "../Components/HeaderAllSpeciality/HeaderAllSpeciality.module.css";
+import SpecialityStyle from "../features/AllSpeciality/Components/HeaderAllSpeciality/HeaderAllSpeciality.module.css";
 
 const Contact = () => {
   const { Header_For_Section } = GlobalStyle;

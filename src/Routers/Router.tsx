@@ -16,7 +16,7 @@ import AllSpeciality from "../Pages/AllSpeciality";
 import Contact from "../Pages/Contact";
 import ProfileDoctor from "../Pages/ProfileDoctor";
 import JoinNewDoctor from "../Pages/JoinNewDoctor";
-import PersonalInfoProvider from "../Components/JoinNewDoctor/Context/PersonalInfoContext";
+import PersonalInfoProvider from "../features/JoinNewDoctor/Context/PersonalInfoContext";
 import MedicinesRender from "../Components/MedicinesProductRender/MedicinesRender";
 import AboutUs from "../Pages/AboutUs";
 
@@ -96,11 +96,12 @@ const Router_pages = () => {
         },
         {
           path: "medicine-library",
-          element: <MedicinesRender/>,
-        },{
+          element: <MedicinesRender />,
+        },
+        {
           path: "aboutus",
-          element: <AboutUs/>
-        }
+          element: <AboutUs />,
+        },
       ],
     },
   ]);

@@ -1,7 +1,7 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { memo, useEffect } from "react";
-import FormSignUp from "../Components/FormSignUp/FormSignUp";
+import FormSignUp from "../features/SignUp/Components/FormSignUp/FormSignUp";
 import useOpenWindow from "../Hooks/useOpenWindow";
 import clsx from "clsx";
 
