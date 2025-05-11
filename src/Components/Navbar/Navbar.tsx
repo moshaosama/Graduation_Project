@@ -33,7 +33,7 @@ const Navbar = () => {
     },
   ];
 
-  const ConditionNavbar = useCallback(() => {
+  const ConditionNavbar = () => {
     location.pathname === "/doctors" ||
     location.pathname === "/joinnewdoctor" ? null : (
       <div className="absolute z-50 top-0" id="ImageBlue">
@@ -44,15 +44,18 @@ const Navbar = () => {
         />
       </div>
     );
-  }, []);
+  };
 
   return (
     <>
       {ConditionNavbar()}
       <div
-        className={`flex items-center ${
-          location.pathname !== "/" ? " mb-7" : ""
-        } max-sm:mx-0 max-sm:w-[24.5pc]`}
+        className={clsx(
+          "flex items-center max-sm:mx-0 max-sm:w-[24.5pc]",
+          location.pathname !== "/"
+            ? " mb-7 pt-[22px] h-[76px] shadow-xl"
+            : ""
+        )}
       >
         <div
           className={` ${location.pathname !== "/" ? "w-96" : ""}`}
@@ -110,7 +113,7 @@ const Navbar = () => {
           ) : null}
         </div>
       </div>
-    </>  
+    </>
   );
 };
 
