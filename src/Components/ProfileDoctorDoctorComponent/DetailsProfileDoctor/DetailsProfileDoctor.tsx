@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { MdOutlineEdit, MdOutlineHealthAndSafety } from "react-icons/md";
 import { ImageFemale, ImageMale } from "../../../Utils/Images";
 import { useEffect } from "react";
@@ -154,7 +154,7 @@ const DetailsProfileDoctor = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 w-[165dvh]">
           <div className="flex gap-4 items-center">
             <img
               src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
@@ -173,12 +173,14 @@ const DetailsProfileDoctor = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-2 items-center">
-            <div className="bg-red-600 text-white cursor-pointer font-semibold hover:bg-red-400 transition-all duration-500 px-5 py-2 rounded-xl shadow-lg">
-              <h1>Book Tomorrow (01:00 PM - 04:00 PM)</h1>
-            </div>
+            <Link to={"bookdoctor"}>
+              <div className="bg-red-600 text-white cursor-pointer font-semibold hover:bg-red-400 transition-all duration-500 px-5 py-2 rounded-xl shadow-lg">
+                <h1>Book Tomorrow (01:00 PM - 04:00 PM)</h1>
+              </div>
+            </Link>
             <button
               type="submit"
-              className="bg-blue-500 px-5 font-bold hover:bg-blue-400 transition-all duration-200 rounded-lg text-white"
+              className="bg-blue-500 px-5 py-2 font-bold hover:bg-blue-400 transition-all duration-200 rounded-lg text-white"
             >
               Save Changes
             </button>
