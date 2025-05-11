@@ -154,7 +154,7 @@ const DetailsProfileDoctor = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 w-[165dvh]">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 w-[165dvh] max-sm:w-full">
           <div className="flex gap-4 items-center">
             <img
               src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
