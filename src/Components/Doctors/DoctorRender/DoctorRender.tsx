@@ -13,6 +13,8 @@ const DoctorRender = () => {
   const Doctors = JSON.parse(window.localStorage.getItem("Doctors")!);
   const state = useSelector((state: RootState) => state.allDoctor);
 
+  // console.log(Doctors?.result?.Gender);
+
   const DoctorsRender = useMemo(() => {
     return (
       <>
@@ -28,9 +30,13 @@ const DoctorRender = () => {
                       <div className="flex gap-5 max-sm:gap-10 items-center">
                         <div>
                           <img
-                            src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
+                            src={
+                              el?.Gender == "Male"
+                                ? "https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg"
+                                : "https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
+                            }
                             alt="Doctor.png"
-                            className="w-24 rounded-full border-[3px] border-gray-700"
+                            className="w-24 h-24 object-cover rounded-full border-[3px] border-gray-700"
                             loading="lazy"
                           />
                         </div>
