@@ -39,8 +39,8 @@ const MenuResponsiveLinks = () => {
               <div>
                 <img
                   src={
-                    User.photos[0].value
-                      ? User.photos[0].value
+                    User.photos?.[0]?.value
+                      ? User.photos?.[0]?.value
                       : "download-removebg-preview.png"
                   }
                   alt="Person.png"
@@ -51,7 +51,7 @@ const MenuResponsiveLinks = () => {
                 <h1 className="text-xl font-bold">
                   {User.userName || User.displayName}
                 </h1>
-                <p>{User.Email || User.emails[0].value}</p>
+                <p>{User.Email || User.emails?.[0]?.value}</p>
               </div>
             </div>
           </Link>
@@ -86,6 +86,9 @@ const MenuResponsiveLinks = () => {
           )}
           <NavLink to={"/contact"} className="p-5 font-bold">
             Contact
+          </NavLink>
+          <NavLink to={"/myappointments"} className="p-5 font-bold">
+            My Appointments
           </NavLink>
         </div>
         <div className="absolute bottom-5 w-72 flex justify-between">
