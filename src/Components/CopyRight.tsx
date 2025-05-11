@@ -5,7 +5,9 @@ const CopyRight = () => {
         <h1 className="font-bold">© 2025 MedicalPulse. All rights reserved.</h1>
       </div>
       <div className="flex gap-10 max-sm:flex-col max-sm:gap-2">
-        <h1 className="underline font-bold">Privacy Policy</h1>
+        <a href="/privacy-policy" className="underline font-bold">
+          Privacy Policy
+        </a>
         <h1 className="underline font-bold">Terms of Service</h1>
         <h1 className="underline font-bold">Cookie Settings</h1>
       </div>
