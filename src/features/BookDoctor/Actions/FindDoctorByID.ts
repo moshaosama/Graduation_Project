@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchFindDoctorByID = createAsyncThunk(
-  "Doctor/fetchFindDoctorByID",
+  "BookDoctor/fetchFindDoctorByID",
   async (id: string, { rejectWithValue }) => {
     try {
       const response = await axios.get(
