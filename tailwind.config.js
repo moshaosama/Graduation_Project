@@ -6,6 +6,9 @@ export default {
       animation: {
         "spin-slow": "spin 8s linear infinite",
       },
+      fontFamily: {
+        playwrite: ['"Marck Script"', "cursive"],
+      },
     },
   },
   plugins: [],
