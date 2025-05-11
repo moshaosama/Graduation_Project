@@ -19,6 +19,7 @@ import JoinNewDoctor from "../Pages/JoinNewDoctor";
 import PersonalInfoProvider from "../features/JoinNewDoctor/Context/PersonalInfoContext";
 import MedicinesRender from "../Components/MedicinesProductRender/MedicinesRender";
 import AboutUs from "../Pages/AboutUs";
+import PrivacePolicy from "../Pages/PrivacePolicy";
 
 const Router_pages = () => {
   const Router = createBrowserRouter([
@@ -101,6 +102,10 @@ const Router_pages = () => {
         {
           path: "aboutus",
           element: <AboutUs />,
+        },
+        {
+          path: "privacy-policy",
+          element: <PrivacePolicy />,
         },
       ],
     },
