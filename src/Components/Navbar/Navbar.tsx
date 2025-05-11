@@ -2,7 +2,7 @@ import ImageRender from "../ImageRender";
 import style from "./Navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
-import { lazy, useCallback } from "react";
+import { lazy } from "react";
 import { IoIosMenu } from "react-icons/io";
 import MenuResponsiveLinks from "../MenuResponsiveLinks";
 import { useOpenMenu } from "../../Context/OpenMenuProvider";
@@ -52,9 +52,7 @@ const Navbar = () => {
       <div
         className={clsx(
           "flex items-center max-sm:mx-0 max-sm:w-[24.5pc]",
-          location.pathname !== "/"
-            ? " mb-7 pt-[22px] h-[76px] shadow-xl"
-            : ""
+          location.pathname !== "/" ? " mb-7 pt-[22px] h-[76px] shadow-xl" : ""
         )}
       >
         <div
