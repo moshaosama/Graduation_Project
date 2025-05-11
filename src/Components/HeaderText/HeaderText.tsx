@@ -26,7 +26,9 @@ const HeaderText = () => {
         <Link to={"/contact"}>
           <Button Title="Contact us" backGround="[#23A6F0]" Color="white" />
         </Link>
-        <Button Title="Learn More" backGround="" Color="[#23A6F0]" />
+        <Link to={"/aboutus"}>
+          <Button Title="Learn More" backGround="" Color="[#23A6F0]" />
+        </Link>
       </div>
     </div>
   );
