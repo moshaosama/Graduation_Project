@@ -1,0 +1,8 @@
+.Paths {
+  color: rgba(75, 85, 99, 1);
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: fit-content;
+}
