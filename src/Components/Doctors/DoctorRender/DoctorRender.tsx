@@ -6,6 +6,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/Store";
 import { ChangeTextByLanguage } from "../../../Language/Language";
+import { Link } from "react-router-dom";
 
 const BookDoctor = React.lazy(() => import("../../BookDoctor/BookDoctor"));
 
@@ -79,9 +80,14 @@ const DoctorRender = () => {
                           </p>
                         </div>
                         <div className="sm:hidden ">
-                          <button className="bg-red-500 text-white p-2 rounded-xl">
-                            {ChangeTextByLanguage("أحجز الان", "Book now")}
-                          </button>
+                          <Link to={`/doctors/${el?.DoctorID}`}>
+                            <button className="bg-red-500 text-white p-2 rounded-xl">
+                              {ChangeTextByLanguage(
+                                "عرض الملف الشخصي",
+                                "View Profile"
+                              )}
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
