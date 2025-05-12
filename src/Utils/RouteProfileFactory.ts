@@ -1,7 +1,7 @@
-const RouteProfileFactory = (Type: string, id: number) => {
+const RouteProfileFactory = (Type: string) => {
   switch (Type) {
     case "Doctor":
-      return `/doctors/${id}`;
+      return "/profile-doctor";
     case "User":
       return "/profile/info";
     default:
