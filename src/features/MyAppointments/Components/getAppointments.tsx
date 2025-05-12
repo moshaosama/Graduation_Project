@@ -5,7 +5,7 @@ import useGetMyAppointements from "../Hooks/useGetMyAppointements";
 const getAppointments = () => {
   const { AppointementsData } = useGetMyAppointements();
 
-  if (!AppointementsData?.data) {
+  if (AppointementsData?.data?.result?.length === 0) {
     return (
       <h1 className="text-red-500 flex justify-center items-center mb-8 text-2xl font-bold">
         No Appointments
