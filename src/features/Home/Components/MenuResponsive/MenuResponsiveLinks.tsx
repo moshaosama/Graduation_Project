@@ -10,7 +10,7 @@ const MenuResponsiveLinks = () => {
   const { OpenMenu, toggleMenu } = useOpenMenu();
   const { toggleLanguage } = useConvertLanguage();
   const Token = window.localStorage.getItem("Token");
-  const { User, Doctor } = useGetDoctor();
+  const { User } = useGetDoctor();
   return (
     <>
       <div
