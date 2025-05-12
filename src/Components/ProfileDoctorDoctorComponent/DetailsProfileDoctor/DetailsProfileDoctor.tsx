@@ -1,14 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { MdOutlineEdit, MdOutlineHealthAndSafety } from "react-icons/md";
+import { MdOutlineHealthAndSafety } from "react-icons/md";
 import { ImageFemale, ImageMale } from "../../../Utils/Images";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllDoctor } from "../../../Store/Reducer/AllDoctor/AllDoctor";
 import { RootState, AppDispatch } from "../../../Store/Store";
-import { User } from "../../../Types/Navbar";
-import useFormTransition, { OpenModelTypes } from "./Hooks/useFormTransition";
-import clsx from "clsx";
-import { useForm } from "react-hook-form";
 
 const DetailsProfileDoctor = () => {
   const { id } = useParams();
@@ -24,15 +20,6 @@ const DetailsProfileDoctor = () => {
       (el: { DoctorID: number }) => el.DoctorID === +id!
     ) || undefined;
 
-  const User: User = JSON.parse(window.localStorage.getItem("User")!);
-
-  const { OpenModel, handleOpenModel } = useFormTransition();
-
-  const { handleSubmit, register } = useForm();
-  const handleFormSubmit = (data: any) => {
-    console.log(data);
-  };
-
   if (!Doctor) {
     return (
       <div className="w-full text-center py-20">
@@ -44,7 +31,7 @@ const DetailsProfileDoctor = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(handleFormSubmit)}>
+    <form>
       <div className="w-full px-6 md:px-10">
         <div className="text-gray-500 font-semibold flex items-center gap-2">
           <h1 className="underline cursor-pointer">Home</h1> {">"}
@@ -66,21 +53,7 @@ const DetailsProfileDoctor = () => {
               <div className="flex items-center gap-4">
                 <h1 className="text-blue-700 text-xl font-bold flex items-center gap-4">
                   {Doctor.Name}
-                  {User?.DoctorId === Doctor.DoctorID && (
-                    <MdOutlineEdit
-                      className="text-gray-500 text-xl cursor-pointer"
-                      onClick={() => handleOpenModel(OpenModelTypes.Name)}
-                    />
-                  )}
                 </h1>
-                <input
-                  type="text"
-                  className={clsx(
-                    "rounded-lg transition-all duration-300 border-black",
-                    OpenModel.Name ? "w-96 border-2 p-1" : "w-0"
-                  )}
-                  {...register("Name")}
-                />
               </div>
 
               {/* Specialty Field */}
@@ -88,63 +61,21 @@ const DetailsProfileDoctor = () => {
                 <MdOutlineHealthAndSafety className="text-2xl text-blue-400" />
                 <h1 className="font-semibold flex items-center gap-4">
                   {Doctor.Specialty_name}
-                  {User?.DoctorId === Doctor.DoctorID && (
-                    <MdOutlineEdit
-                      className="text-gray-500 text-xl cursor-pointer"
-                      onClick={() => handleOpenModel(OpenModelTypes.Speciality)}
-                    />
-                  )}
                 </h1>
-                <input
-                  type="text"
-                  className={clsx(
-                    "rounded-lg transition-all duration-300 border-black",
-                    OpenModel.Speciality ? "w-96 border-2 p-1" : "w-0"
-                  )}
-                  {...register("Specialty_name")}
-                />
               </div>
 
               {/* Location Field */}
               <div className="flex items-center gap-4">
                 <p className="text-gray-700 font-medium">
                   {Doctor?.Location || "No Location"}
-                  {User?.DoctorId === Doctor.DoctorID && (
-                    <MdOutlineEdit
-                      className="text-gray-500 text-xl cursor-pointer ml-4"
-                      onClick={() => handleOpenModel(OpenModelTypes.Location)}
-                    />
-                  )}
                 </p>
-                <input
-                  type="text"
-                  className={clsx(
-                    "rounded-lg transition-all duration-300 border-black",
-                    OpenModel.Location ? "w-96 border-2 p-1" : "w-0"
-                  )}
-                  {...register("Location")}
-                />
               </div>
 
               {/* Fees Field */}
               <div className="flex items-center gap-4">
                 <span className="font-bold">
                   Fees: {Doctor?.ConsultationFee} EGB
-                  {User?.DoctorId === Doctor.DoctorID && (
-                    <MdOutlineEdit
-                      className="text-gray-500 text-xl cursor-pointer ml-4"
-                      onClick={() => handleOpenModel(OpenModelTypes.Fees)}
-                    />
-                  )}
                 </span>
-                <input
-                  type="text"
-                  className={clsx(
-                    "rounded-lg transition-all duration-300 border-black",
-                    OpenModel.Fees ? "w-96 border-2 p-1" : "w-0"
-                  )}
-                  {...register("ConsultationFee")}
-                />
               </div>
             </div>
 
