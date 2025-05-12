@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const ProfileAsDoctor = () => {
   return (
     <div className="flex max-sm:flex-col">
-      <div className="bg-blue-500 w-96 p-4 -mt-7 rounded-r-xl mb-20  rounded-br-xl">
+      <div className="bg-blue-500 w-96 max-sm:w-full p-4 -mt-7 rounded-r-xl mb-20  rounded-br-xl">
         <div className="flex items-center justify-center gap-10">
           <h1 className="text-white font-bold text-2xl">My Profile</h1>
         </div>
