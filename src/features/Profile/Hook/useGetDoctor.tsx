@@ -9,6 +9,13 @@ interface User {
   Status: string;
   mobilePhone: string;
   userName: string;
+  photos: {
+    value: string;
+  }[];
+  displayName: string;
+  emails: {
+    value: string;
+  }[];
 }
 
 interface DoctorType {
