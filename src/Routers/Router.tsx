@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router";
 import Layout from "../Layout/layout";
 import NotFound from "../Pages/NotFound";
 import Home from "../Pages/Home";
-import Profile from "../Pages/Profile";
 import InfoProfile from "../Components/ProfileData/infoProfile";
 import ChangePassword from "../Components/ProfileData/changePassword";
 import { RouterProvider } from "react-router-dom";
@@ -22,7 +21,8 @@ import AboutUs from "../Pages/AboutUs";
 import PrivacePolicy from "../Pages/PrivacePolicy";
 import BookDoctor from "../Pages/BookDoctor";
 import MyAppointements from "../Pages/MyAppointements";
-
+import ProfileUser from "../features/Profile/Component/ProfileUser";
+import ProfileAsDoctor from "../features/Profile/Component/ProfileAsDoctor";
 const Router_pages = () => {
   const Router = createBrowserRouter([
     {
@@ -40,7 +40,7 @@ const Router_pages = () => {
         },
         {
           path: "profile",
-          element: <Profile />,
+          element: <ProfileUser />,
           children: [
             {
               path: "info",
@@ -51,6 +51,10 @@ const Router_pages = () => {
               element: <ChangePassword />,
             },
           ],
+        },
+        {
+          path: "profile-doctor",
+          element: <ProfileAsDoctor />,
         },
         {
           path: "login",
