@@ -36,7 +36,8 @@ const Navbar = () => {
   const ConditionNavbar = () => {
     if (
       location.pathname === "/doctors" ||
-      location.pathname === "/joinnewdoctor"
+      location.pathname === "/joinnewdoctor" ||
+      location.pathname === "/profile-doctor"
     ) {
       return null;
     }
