@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
 import { lazy } from "react";
 import { IoIosMenu } from "react-icons/io";
-import MenuResponsiveLinks from "../MenuResponsiveLinks";
+import MenuResponsiveLinks from "../../features/Home/Components/MenuResponsive/MenuResponsiveLinks";
 import { useOpenMenu } from "../../Context/OpenMenuProvider";
 import clsx from "clsx";
 
