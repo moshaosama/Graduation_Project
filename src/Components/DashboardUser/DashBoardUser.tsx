@@ -13,7 +13,7 @@ const DashBoardUser = () => {
   return (
     <div className="absolute  bg-gray-200 w-44 z-50 rounded-lg mt-1">
       <div className="font-bold">
-        <Link to={RouteProfileFactory(User.Status, User.DoctorId)}>
+        <Link to={RouteProfileFactory(User.Status)}>
           <div className="hover:bg-[#302e2e] cursor-pointer p-2 hover:text-white">
             <h1>My Profile</h1>
           </div>
