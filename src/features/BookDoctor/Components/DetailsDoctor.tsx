@@ -29,6 +29,8 @@ const DetailsDoctor = () => {
     dispatch(fetchFindDoctorByID(id as string));
   }, [id]);
 
+  console.log(id, Doctor);
+
   return (
     <>
       <div className="absolute right-40 -bottom-28 max-sm:right-20">

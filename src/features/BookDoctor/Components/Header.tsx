@@ -5,7 +5,7 @@ const Header = () => {
     <>
       <div className="mb-14 -mt-6 relative">
         <img
-          src="WhatsApp_Image_2025-02-26_at_15.50.41_23f1ec82-removebg-preview (1).png"
+          src="https://media.istockphoto.com/id/1264666749/photo/doctor.jpg?s=612x612&w=0&k=20&c=uAVTjDFT3YNbEVXkxRSwwH9uPa47n5FWxVZ8gI2w0KU="
           alt="Header.png"
           className="w-full h-[60vh] object-fill"
           loading="lazy"
