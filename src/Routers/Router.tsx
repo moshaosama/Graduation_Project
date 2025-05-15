@@ -23,6 +23,7 @@ import BookDoctor from "../Pages/BookDoctor";
 import MyAppointements from "../Pages/MyAppointements";
 import ProfileUser from "../features/Profile/Component/ProfileUser";
 import ProfileAsDoctor from "../features/Profile/Component/ProfileAsDoctor";
+import OpenChatApiProvider from "../features/PopUpChatBot/Context/useOpenChatApi";
 const Router_pages = () => {
   const Router = createBrowserRouter([
     {
@@ -32,7 +33,11 @@ const Router_pages = () => {
       children: [
         {
           index: true,
-          element: <Home />,
+          element: (
+            <OpenChatApiProvider>
+              <Home />
+            </OpenChatApiProvider>
+          ),
         },
         {
           path: "contact",
