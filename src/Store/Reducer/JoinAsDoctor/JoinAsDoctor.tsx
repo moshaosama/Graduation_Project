@@ -18,7 +18,8 @@ export const fetchJoinAsDoctor = createAsyncThunk(
     Password: string;
   }) => {
     const response = await axios.post(
-      "https://graduationprojectserver-production.up.railway.app/joinasdoctor",
+      // "https://graduationprojectserver-production.up.railway.app/joinasdoctor",
+      "http://localhost:3000/joinasdoctor",
       {
         FirstName: data.FirstName,
         LastName: data.LastName,

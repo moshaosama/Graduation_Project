@@ -11,6 +11,7 @@ import getReviewsReducer from "./Reducer/Review/getReviewSlice.ts";
 import medicineProductsReducer from "./Reducer/MedicineProducts/getMedicineProducts.ts";
 import bookDoctorReducer from "../features/BookDoctor/Reducer/BookDoctor.ts";
 import myAppointementsReducer from "../features/MyAppointments/Reducer/myAppointements.ts";
+import ChatBotReducer from "../features/PopUpChatBot/Reducer/ChatBotReducer.ts";
 export const Store = configureStore({
   reducer: {
     Speciality: specialityReducer,
@@ -25,6 +26,7 @@ export const Store = configureStore({
     medicineProducts: medicineProductsReducer,
     DoctorByID: bookDoctorReducer,
     myAppointements: myAppointementsReducer,
+    ChatBot: ChatBotReducer,
   },
 });
 

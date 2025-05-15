@@ -4,7 +4,8 @@ import useAxios from "../../../Hooks/useAxios";
 
 export const fetchArea = useAxios(
   "Area/fetchArea",
-  "https://graduationprojectserver-production.up.railway.app/getArea"
+  // "https://graduationprojectserver-production.up.railway.app/getArea"
+  "http://localhost:3000/getArea"
 );
 
 const initialState: ReduxData = {

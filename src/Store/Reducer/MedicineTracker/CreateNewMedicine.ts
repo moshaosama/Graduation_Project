@@ -20,7 +20,8 @@ export const createNewMedicine = createAsyncThunk(
   async ({ Name, Description }: DataMedicine) => {
     try {
       const response = await axios.post(
-        "https://graduationprojectserver-production.up.railway.app/create_new_medicine",
+        // "https://graduationprojectserver-production.up.railway.app/create_new_medicine",
+        "http://localhost:3000/create_new_medicine",
         {
           userId: user?.id,
           Name,

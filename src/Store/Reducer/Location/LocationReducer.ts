@@ -4,7 +4,8 @@ import useAxios from "../../../Hooks/useAxios";
 
 export const fetchLocation = useAxios(
   "location/fetchLocation",
-  "https://graduationprojectserver-production.up.railway.app/getLocation"
+  // "https://graduationprojectserver-production.up.railway.app/getLocation"
+  "http://localhost:3000/getLocation"
 );
 const initialState: ReduxData = {
   loading: true,

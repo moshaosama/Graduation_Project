@@ -13,7 +13,8 @@ export const fetchCreateContact = createAsyncThunk(
   async (data: { Name: string; Email: string; Comment: string }) => {
     const Token = window.localStorage.getItem("Token");
     const response = await axios.post(
-      "https://graduationprojectserver-production.up.railway.app/createcontact",
+      // "https://graduationprojectserver-production.up.railway.app/createcontact",
+      "http://localhost:3000/createcontact",
       {
         Name: data.Name,
         Email: data.Email,

@@ -13,7 +13,8 @@ export const fetchDoctor = createAsyncThunk(
   async (data: DataType) => {
     try {
       const response = await axios.get(
-        "https://graduationprojectserver-production.up.railway.app/findDoctor",
+        // "https://graduationprojectserver-production.up.railway.app/findDoctor",
+        "http://localhost:3000/findDoctor",
         {
           params: data,
         }
