@@ -56,6 +56,7 @@ const Navbar = () => {
     <>
       {ConditionNavbar()}
       <div
+        id="Navbar"
         className={clsx(
           "flex items-center max-sm:mx-0 max-sm:w-[24.5pc]",
           location.pathname !== "/" ? " mb-7 pt-[1pc] h-[5.7pc] shadow-xl" : ""

@@ -33,20 +33,6 @@ const Login = () => {
           </div>
           <hr className="p-1" />
 
-          <a
-            href={URL}
-            target="blank"
-            className="flex items-center  bg-blue-600 rounded-lg p-2 cursor-pointer"
-          >
-            <div className="text-white flex items-center gap-2">
-              <span>
-                <FaFacebookSquare />
-              </span>
-            </div>
-            <div className="w-full text-center">
-              <p className="text-white font-bold">Connect with Facebook</p>
-            </div>
-          </a>
           <div className="flex justify-between my-3">
             <Link to={"/"} className="underline">
               <div className="flex items-center gap-2">

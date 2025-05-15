@@ -12,6 +12,7 @@ import OurService from "../features/Home/Components/OurServices/OurService";
 import TrendingItem from "../features/Home/Components/TredingItems/TrendingItem";
 import WhyUs from "../features/Home/Components/WhyUs/WhyUs";
 import TopDoctors from "../features/Home/Components/TopDoctors/TopDoctors";
+import BobUpChatBot from "../features/PopUpChatBot/Components/BobUpChatBot";
 
 function Home() {
   useEffect(() => {
@@ -44,6 +45,7 @@ function Home() {
         <WhyUs />
         <DownloadApp />
         <JoinUs />
+        <BobUpChatBot />
       </div>
     </>
   );
