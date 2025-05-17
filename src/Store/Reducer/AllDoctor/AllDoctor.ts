@@ -11,8 +11,7 @@ const initialState: ReduxData = {
 
 export const fetchAllDoctor = useAxios(
   "allDoctor/fetchAllDoctor",
-  // "https://graduationprojectserver-production.up.railway.app/findDoctor/all"
-  "http://localhost:3000/findDoctor/all"
+  "https://graduationprojectserver-production.up.railway.app/findDoctor/all"
 );
 
 const allDoctorSlice = createSlice({
