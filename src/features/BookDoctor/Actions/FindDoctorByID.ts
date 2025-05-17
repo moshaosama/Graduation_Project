@@ -6,8 +6,7 @@ export const fetchFindDoctorByID = createAsyncThunk(
   async (id: string, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        // `https://graduationprojectserver-production.up.railway.app/findDoctor/${id}`
-        `http://localhost:3000/findDoctor/${id}`
+        `https://graduationprojectserver-production.up.railway.app/findDoctor/${id}`
       );
       return response.data;
     } catch (error) {
