@@ -14,7 +14,7 @@ const ChooseDropDown = memo(
   ({ stateData, fetchData, Row, handleClick }: ChooseDropDownProps) => {
     const dispatch = useDispatch<AppDispatch>();
 
-    const state = useSelector(
+    const state: any = useSelector(
       (state: RootState) => state[stateData as keyof RootState]
     );
 
