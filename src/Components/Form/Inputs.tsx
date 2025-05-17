@@ -35,6 +35,7 @@ const Inputs = React.memo(
             placeholder={placeHolder}
             onChange={ChangeEvent}
             name={Label}
+            disabled={disabled}
             value={Value}
           />
         </p>
