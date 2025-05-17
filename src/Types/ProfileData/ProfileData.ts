@@ -4,4 +4,5 @@ export interface ProfileDataProps {
   Lists: any;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleClickSave: () => void;
+  disabled?: boolean;
 }
