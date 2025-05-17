@@ -10,6 +10,7 @@ const Inputs = React.memo(
     ChangeEvent,
     Value,
     Active = true,
+    disabled = false,
   }: InputProps) => {
     return (
       <>
