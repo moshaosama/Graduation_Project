@@ -76,7 +76,7 @@ const InfoProfile = () => {
         Lists={formConfig}
         handleChange={ChangeFromState}
         handleClickSave={HandleClickSave}
-        disabled={true}
+        
       />
       <ToastContainer
         position="top-right"
