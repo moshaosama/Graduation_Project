@@ -5,13 +5,13 @@ import Chat from "./Chat";
 import { useOpenChatApi } from "../Context/useOpenChatApi";
 const BobUpChatBot = () => {
   const { isOpen } = useScrollOpen();
-  const { isOpenChat, handleOpenChat } = useOpenChatApi();
+  const { isOpenChat, handleTriggerChat } = useOpenChatApi();
   return (
     <>
       <div>
         {isOpenChat && <Chat />}
         <div
-          onClick={handleOpenChat}
+          onClick={handleTriggerChat}
           className={clsx(
             "w-16 h-16 flex justify-center items-center bg-blue-300 rounded-full fixed bottom-10 right-10 cursor-pointer transition-all duration-300"
           )}
