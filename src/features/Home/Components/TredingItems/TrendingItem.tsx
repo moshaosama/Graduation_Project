@@ -32,7 +32,7 @@ const TrendingItem = () => {
       </div>
 
       <div className="my-20 grid grid-cols-4 max-sm:gap-72 max-sm:overflow-x-scroll gap-20">
-        {MedicineProducts.data.result
+        {MedicineProducts?.data?.result
           ?.slice(0, 4)
           ?.map((medicineProduct: MedicineProductsData, index: number) => (
             <div className="w-fit cursor-pointer max-sm:w-60" key={index}>
