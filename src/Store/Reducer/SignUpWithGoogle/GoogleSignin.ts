@@ -10,7 +10,9 @@ const initialState: ReduxData = {
 export const fetchSignInWithGoogle = createAsyncThunk(
   "GoogleOAuth/fetchSignInWithGoogle",
   () => {
-    fetch("http://localhost:3000/auth/google")
+    fetch(
+      "https://graduationprojectserver-production.up.railway.app/auth/google"
+    )
       .then((res) => {
         return res.json();
       })
