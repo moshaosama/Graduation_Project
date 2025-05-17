@@ -47,8 +47,7 @@ const FormSignUp = () => {
   const createUser = useCallback(async () => {
     try {
       fetch(
-        // "https://graduationprojectserver-production.up.railway.app/signup",
-        "http://localhost:3000/signup",
+        "https://graduationprojectserver-production.up.railway.app/signup",
         {
           method: "POST",
           headers: {
