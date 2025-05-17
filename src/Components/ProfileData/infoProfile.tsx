@@ -21,22 +21,22 @@ const InfoProfile = () => {
       {
         Label: ChangeTextByLanguage("ألاسم", "userName"),
         Type: "text",
-        Placeholder: User.userName,
+        Placeholder: User.userName || "User?.displayName",
       },
       {
         Label: ChangeTextByLanguage("رقم الموبايل", "mobilePhone"),
         Type: "mobilePhone",
-        Placeholder: User.mobilePhone,
+        Placeholder: User.mobilePhone || "Not Found",
       },
       {
         Label: ChangeTextByLanguage("البريد الالكتروني", "Email"),
         Type: "Email",
-        Placeholder: User.Email,
+        Placeholder: User.Email || User?.emails?.[0]?.value,
       },
       {
         Label: ChangeTextByLanguage("تاريخ الميلاد", "birthDate"),
         Type: "birthDate",
-        Placeholder: User.birthDate,
+        Placeholder: User.birthDate || "Not Found",
       },
     ],
     []
@@ -47,13 +47,16 @@ const InfoProfile = () => {
   };
 
   const HandleClickSave = useCallback(() => {
-    fetch(`https://graduationprojectserver-production.up.railway.app/changeprofile/${User?.Email}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formState),
-    })
+    fetch(
+      `https://graduationprojectserver-production.up.railway.app/changeprofile/${User?.Email}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      }
+    )
       .then((res) => {
         return res.json();
       })
@@ -73,6 +76,7 @@ const InfoProfile = () => {
         Lists={formConfig}
         handleChange={ChangeFromState}
         handleClickSave={HandleClickSave}
+        disabled={true}
       />
       <ToastContainer
         position="top-right"
