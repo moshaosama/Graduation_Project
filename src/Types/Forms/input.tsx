@@ -7,4 +7,5 @@ export interface InputProps {
   ChangeEvent: (e: React.ChangeEvent<HTMLInputElement>) => void;
   Value?: string;
   Active?: boolean;
+  disabled?: boolean;
 }
