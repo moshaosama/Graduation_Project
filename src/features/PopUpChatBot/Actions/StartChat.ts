@@ -11,6 +11,7 @@ export const fetchStartChat = createAsyncThunk(
           headers: {
             "Content-Type": "application/json",
           },
+
           body: JSON.stringify({ language }),
         }
       );
