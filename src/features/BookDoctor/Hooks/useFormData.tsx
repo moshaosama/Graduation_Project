@@ -28,7 +28,7 @@ export const useFormData = () => {
         ...data,
         userId: User.id,
         DoctorName: Doctor?.data?.result?.[0]?.Name,
-        Place: Doctor?.data?.result?.[0]?.Clinic,
+        Place: Doctor?.data?.result?.[0]?.Clinic || "Not Found",
       })
     );
   };
