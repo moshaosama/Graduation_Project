@@ -11,8 +11,7 @@ const initialState: ReduxData = {
 
 export const getAllMedicines = useAxios(
   "getMedicine/getAllMedicines",
-  // `https://graduationprojectserver-production.up.railway.app/getMedicines/${user?.id}`
-  `http://localhost:3000/getMedicines/${user?.id}`
+  `https://graduationprojectserver-production.up.railway.app/getMedicines/${user?.id}`
 );
 
 const getMedicineSLice = createSlice({
