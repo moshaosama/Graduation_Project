@@ -12,10 +12,16 @@ const ProfileData = memo(
     Lists,
     handleChange,
     handleClickSave,
-    disabled = false,
   }: ProfileDataProps) => {
     const { language } = useConvertLanguage();
     const [Loading] = useState(false);
+    const User = JSON.parse(window.localStorage.getItem("User") || "{}");
+    const handleDisabledInput = () => {
+      if (User?.displayName) {
+        return true;
+      }
+      return false;
+    };
     return (
       <>
         <div className="bg-white border-[1px] shadow-xl border-solid border-black h-fit pb-4 w-[50rem] max-sm:w-full rounded-lg">
@@ -31,7 +37,7 @@ const ProfileData = memo(
                     Label={el.Label}
                     placeHolder={el.Placeholder}
                     ChangeEvent={handleChange}
-                    disabled={disabled}
+                    disabled={handleDisabledInput()}
                   />
                 );
               })}
