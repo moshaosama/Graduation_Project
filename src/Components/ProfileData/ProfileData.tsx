@@ -12,6 +12,7 @@ const ProfileData = memo(
     Lists,
     handleChange,
     handleClickSave,
+    disabled = false,
   }: ProfileDataProps) => {
     const { language } = useConvertLanguage();
     const [Loading] = useState(false);
@@ -30,6 +31,7 @@ const ProfileData = memo(
                     Label={el.Label}
                     placeHolder={el.Placeholder}
                     ChangeEvent={handleChange}
+                    disabled={disabled}
                   />
                 );
               })}
