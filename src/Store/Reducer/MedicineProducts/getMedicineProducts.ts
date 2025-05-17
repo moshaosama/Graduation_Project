@@ -10,8 +10,7 @@ const initialState: ReduxData = {
 
 export const fetchGetMedicineProducts = useAxios(
   "medicineProducts/getMedicineProducts",
-  // "https://graduationprojectserver-production.up.railway.app/get-medicine-product"
-  "http://localhost:3000/get-medicine-product"
+  "https://graduationprojectserver-production.up.railway.app/get-medicine-product"
 );
 
 const medicineProductsSlice = createSlice({
