@@ -28,7 +28,7 @@ const FormProfileDoctor = () => {
           <input
             type="text"
             className="border-2 border-gray-300 rounded-md p-2 w-[40pc] max-sm:w-[24pc]"
-            value={Doctor.data.result?.[0].Specialty_name}
+            value={Doctor?.data?.result?.[0]?.Specialty_name || ""}
           />
         </div>
         <div className="col-span-2">
@@ -43,9 +43,8 @@ const FormProfileDoctor = () => {
             type="text"
             className="border-2 border-gray-300 rounded-md p-2 w-[40pc] max-sm:w-[24pc]"
             value={
-              Doctor.data.result?.[0].ConsultationFee
-                ? Doctor.data.result?.[0].ConsultationFee.toString()
-                : "Please Enter Your Consultation Fee"
+              Doctor?.data?.result?.[0]?.ConsultationFee?.toString() ||
+              "Please Enter Your Consultation Fee"
             }
           />
         </div>
@@ -54,9 +53,7 @@ const FormProfileDoctor = () => {
             type="text"
             className="border-2 border-gray-300 rounded-md p-2 w-[40pc] max-sm:w-[24pc]"
             value={
-              Doctor.data.result?.[0].Clinic
-                ? Doctor.data.result?.[0].Clinic
-                : "Please Enter Your Clinic"
+              Doctor?.data?.result?.[0]?.Clinic || "Please Enter Your Clinic"
             }
           />
         </div>
