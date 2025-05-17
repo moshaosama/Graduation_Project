@@ -14,12 +14,17 @@ const OpenChatApiProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const handleCloseChat = () => {
-    setIsOpenChat(false);
+    setIsOpenChat(!isOpenChat);
+  };
+
+  const handleTriggerChat = () => {
+    setIsOpenChat(!isOpenChat);
+    dispatch(fetchStartChat("en"));
   };
 
   return (
     <OpenChatApiContext.Provider
-      value={{ isOpenChat, handleOpenChat, handleCloseChat }}
+      value={{ isOpenChat, handleOpenChat, handleCloseChat, handleTriggerChat }}
     >
       {children}
     </OpenChatApiContext.Provider>
