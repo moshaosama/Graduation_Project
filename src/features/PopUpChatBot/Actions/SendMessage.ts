@@ -2,10 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const fetchSendMessage = createAsyncThunk(
   "ChatBot/fetchSendMessage",
-  async (
-    data: { message: string; session_id: string },
-    { rejectWithValue }
-  ) => {
+  async (data: { message: string }, { rejectWithValue }) => {
     try {
       const response = await fetch(
         "https://web-production-d8197.up.railway.app/api/chat",
@@ -14,13 +11,15 @@ export const fetchSendMessage = createAsyncThunk(
           headers: {
             "Content-Type": "application/json",
           },
-          credentials: "same-origin",
+          credentials: "include",
           body: JSON.stringify({
-            message: data.message,
-            session_id: data.session_id,
+            message: data.message, 
           }),
         }
       );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
       const responseData = await response.json();
       return responseData;
     } catch (error) {
