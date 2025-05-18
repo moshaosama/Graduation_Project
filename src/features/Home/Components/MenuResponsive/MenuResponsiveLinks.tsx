@@ -11,6 +11,10 @@ const MenuResponsiveLinks = () => {
   const { toggleLanguage } = useConvertLanguage();
   const Token = window.localStorage.getItem("Token");
   const { User } = useGetDoctor();
+
+  if (!User) {
+    return <div>Loading user data...</div>;
+  }
   return (
     <>
       <div
