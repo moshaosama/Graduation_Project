@@ -34,6 +34,7 @@ const FormBookDoctor = () => {
               <input
                 type="number"
                 placeholder="Phone Number"
+                inputMode="numeric"
                 className="border-2 border-gray-400 py-4 rounded-lg px-2"
                 {...register("PhoneNumber", {
                   required: "Phone Number is required",
