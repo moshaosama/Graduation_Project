@@ -34,8 +34,15 @@ interface DoctorType {
 }
 
 const useGetDoctor = () => {
-  const storedUser = window.localStorage.getItem("User");
-  const User = storedUser ? (JSON.parse(storedUser) as User) : null;
+  const storedUser =
+    typeof window !== "undefined" ? localStorage.getItem("User") : null;
+
+  let User: User | null = null;
+  try {
+    User = storedUser ? (JSON.parse(storedUser) as User) : null;
+  } catch (error) {
+    console.error("Failed to parse user:", error);
+  }
 
   const Doctor = useSelector(
     (state: RootState) => state.DoctorByID
@@ -44,8 +51,7 @@ const useGetDoctor = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    // تحقق آمن 100%
-    if (User && typeof User.DoctorId === "number") {
+    if (User?.DoctorId != null) {
       dispatch(fetchFindDoctorByID(String(User.DoctorId)));
     }
   }, [dispatch, User?.DoctorId]);
