@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { container } from "../../../Style";
 import useGetMyAppointements from "../Hooks/useGetMyAppointements";
-
+import useDeleteAppointment from "../Hooks/useDeleteAppointment";
 const getAppointments = () => {
   const { AppointementsData } = useGetMyAppointements();
+  const { handleDeleteAppointment } = useDeleteAppointment();
 
   if (AppointementsData?.data?.result?.length === 0) {
     return (
@@ -39,7 +40,10 @@ const getAppointments = () => {
               </div>
             </div>
             <div className="flex flex-col max-sm:mt-5  gap-4 mx-24">
-              <button className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+              <button
+                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+                onClick={() => handleDeleteAppointment(data.id)}
+              >
                 Cancel
               </button>
               <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
