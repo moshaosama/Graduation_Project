@@ -44,8 +44,9 @@ const useGetDoctor = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    if (User?.DoctorId) {
-      dispatch(fetchFindDoctorByID(User.DoctorId.toString()));
+    // تحقق آمن 100%
+    if (User && typeof User.DoctorId === "number") {
+      dispatch(fetchFindDoctorByID(String(User.DoctorId)));
     }
   }, [dispatch, User?.DoctorId]);
 
