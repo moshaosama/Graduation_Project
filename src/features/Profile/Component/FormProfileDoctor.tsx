@@ -14,14 +14,14 @@ const FormProfileDoctor = () => {
           <input
             type="text"
             className="border-2 border-gray-300 rounded-md p-2 w-[40pc] max-sm:w-[24pc]"
-            value={User.userName}
+            value={User?.userName}
           />
         </div>
         <div className="col-span-2">
           <input
             type="text"
             className="border-2 border-gray-300 rounded-md p-2 w-[40pc] max-sm:w-[24pc]"
-            value={User.mobilePhone}
+            value={User?.mobilePhone}
           />
         </div>
         <div className="col-span-2">
@@ -35,7 +35,7 @@ const FormProfileDoctor = () => {
           <input
             type="text"
             className="border-2 border-gray-300 rounded-md p-2 w-[40pc] max-sm:w-[24pc]"
-            value={User.Email}
+            value={User?.Email}
           />
         </div>
         <div className="col-span-2">
