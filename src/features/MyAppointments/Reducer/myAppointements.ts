@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchGetAppointements } from "../Actions/getAppointements";
 import { fetchDeleteAppointment } from "../Actions/DeleteAppointment";
+import { fetchGetAppointmentById } from "../Actions/GetAppointmentById";
 const initialState = {
   data: {},
   loading: true,
@@ -38,4 +39,26 @@ const myAppointementsSlice = createSlice({
     });
   },
 });
-export default myAppointementsSlice.reducer;
+
+const rescheduleSlice = createSlice({
+  name: "reschedule",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchGetAppointmentById.pending, (state) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(fetchGetAppointmentById.fulfilled, (state, action) => {
+      state.loading = false;
+      state.data = action.payload;
+    });
+    builder.addCase(fetchGetAppointmentById.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+  },
+});
+
+export const myAppointementsReducer = myAppointementsSlice.reducer;
+export const rescheduleReducer = rescheduleSlice.reducer;
