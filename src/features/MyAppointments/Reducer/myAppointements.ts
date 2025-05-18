@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchGetAppointements } from "../Actions/getAppointements";
 import { fetchDeleteAppointment } from "../Actions/DeleteAppointment";
 import { fetchGetAppointmentById } from "../Actions/GetAppointmentById";
+import { fetchEditAppointment } from "../Actions/EditAppointment";
 const initialState = {
   data: {},
   loading: true,
@@ -34,6 +35,18 @@ const myAppointementsSlice = createSlice({
       state.data = action.payload;
     });
     builder.addCase(fetchDeleteAppointment.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
+    builder.addCase(fetchEditAppointment.pending, (state) => {
+      state.loading = true;
+      state.error = "";
+    });
+    builder.addCase(fetchEditAppointment.fulfilled, (state, action) => {
+      state.loading = false;
+      state.data = action.payload;
+    });
+    builder.addCase(fetchEditAppointment.rejected, (state, action) => {
       state.loading = false;
       state.error = action.payload as string;
     });
