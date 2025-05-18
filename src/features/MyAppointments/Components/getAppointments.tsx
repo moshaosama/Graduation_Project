@@ -2,9 +2,11 @@ import clsx from "clsx";
 import { container } from "../../../Style";
 import useGetMyAppointements from "../Hooks/useGetMyAppointements";
 import useDeleteAppointment from "../Hooks/useDeleteAppointment";
+import useGetAppointmentByID from "../Hooks/useGetAppointmentByID";
 const getAppointments = () => {
   const { AppointementsData } = useGetMyAppointements();
   const { handleDeleteAppointment } = useDeleteAppointment();
+  const { handleGetAppointmentByID } = useGetAppointmentByID();
 
   if (AppointementsData?.data?.result?.length === 0) {
     return (
@@ -46,7 +48,10 @@ const getAppointments = () => {
               >
                 Cancel
               </button>
-              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+              <button
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                onClick={() => handleGetAppointmentByID(String(data.id))}
+              >
                 Reschedule
               </button>
             </div>
