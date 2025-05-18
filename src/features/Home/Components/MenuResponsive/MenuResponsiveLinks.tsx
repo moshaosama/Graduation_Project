@@ -33,18 +33,16 @@ const MenuResponsiveLinks = () => {
           <IoMdArrowDropright className="text-5xl" onClick={toggleMenu} />
         </div>
 
-        {Token && (
+        {Token && User && (
           <Link
-            to={User?.Status == "Doctor" ? "/profile-doctor" : "/profile/info"}
+            to={User?.Status === "Doctor" ? "/profile-doctor" : "/profile/info"}
             onClick={toggleMenu}
           >
             <div className="border-2 p-2 border-solid mb-5 flex items-center gap-5">
               <div>
                 <img
                   src={
-                    User.photos?.[0]?.value
-                      ? User.photos?.[0]?.value
-                      : "download-removebg-preview.png"
+                    User?.photos?.[0]?.value || "download-removebg-preview.png"
                   }
                   alt="Person.png"
                   className="w-16 rounded-full object-fill"
@@ -52,11 +50,11 @@ const MenuResponsiveLinks = () => {
               </div>
               <div className="text-white">
                 <h1 className="text-xl font-bold">
-                  {User.Status == "Doctor"
-                    ? `Dr/ ${User.userName}`
-                    : User.userName || User.displayName}
+                  {User?.Status === "Doctor"
+                    ? `Dr/ ${User?.userName || "No Name"}`
+                    : User?.userName || User?.displayName || "No Name"}
                 </h1>
-                <p>{User.Email || User.emails?.[0]?.value}</p>
+                <p>{User?.Email || User?.emails?.[0]?.value || "No Email"}</p>
               </div>
             </div>
           </Link>
