@@ -24,6 +24,7 @@ import MyAppointements from "../Pages/MyAppointements";
 import ProfileUser from "../features/Profile/Component/ProfileUser";
 import ProfileAsDoctor from "../features/Profile/Component/ProfileAsDoctor";
 import OpenChatApiProvider from "../features/PopUpChatBot/Context/useOpenChatApi";
+import OpenRescheduleProvider from "../features/MyAppointments/Context/OpenReschedule";
 const Router_pages = () => {
   const Router = createBrowserRouter([
     {
@@ -129,7 +130,11 @@ const Router_pages = () => {
         },
         {
           path: "myappointments",
-          element: <MyAppointements />,
+          element: (
+            <OpenRescheduleProvider>
+              <MyAppointements />
+            </OpenRescheduleProvider>
+          ),
         },
       ],
     },
