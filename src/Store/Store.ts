@@ -10,8 +10,11 @@ import getMedicineByIdReducer from "./Reducer/MedicineTracker/getMedicineById.ts
 import getReviewsReducer from "./Reducer/Review/getReviewSlice.ts";
 import medicineProductsReducer from "./Reducer/MedicineProducts/getMedicineProducts.ts";
 import bookDoctorReducer from "../features/BookDoctor/Reducer/BookDoctor.ts";
-import myAppointementsReducer from "../features/MyAppointments/Reducer/myAppointements.ts";
 import ChatBotReducer from "../features/PopUpChatBot/Reducer/ChatBotReducer.ts";
+import {
+  myAppointementsReducer,
+  rescheduleReducer,
+} from "../features/MyAppointments/Reducer/myAppointements.ts";
 export const Store = configureStore({
   reducer: {
     Speciality: specialityReducer,
@@ -27,6 +30,7 @@ export const Store = configureStore({
     DoctorByID: bookDoctorReducer,
     myAppointements: myAppointementsReducer,
     ChatBot: ChatBotReducer,
+    AppointmentByID: rescheduleReducer,
   },
 });
 
