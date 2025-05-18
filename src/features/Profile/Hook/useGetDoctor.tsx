@@ -34,15 +34,20 @@ interface DoctorType {
 }
 
 const useGetDoctor = () => {
-  const User = JSON.parse(window.localStorage.getItem("User")!) as User;
+  const storedUser = window.localStorage.getItem("User");
+  const User = storedUser ? (JSON.parse(storedUser) as User) : null;
+
   const Doctor = useSelector(
     (state: RootState) => state.DoctorByID
   ) as DoctorType;
+
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(fetchFindDoctorByID(User.DoctorId.toString()));
-  }, [dispatch, User.DoctorId]);
+    if (User?.DoctorId) {
+      dispatch(fetchFindDoctorByID(User.DoctorId.toString()));
+    }
+  }, [dispatch, User?.DoctorId]);
 
   return { User, Doctor };
 };
