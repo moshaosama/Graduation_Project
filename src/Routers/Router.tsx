@@ -25,6 +25,7 @@ import ProfileUser from "../features/Profile/Component/ProfileUser";
 import ProfileAsDoctor from "../features/Profile/Component/ProfileAsDoctor";
 import OpenChatApiProvider from "../features/PopUpChatBot/Context/useOpenChatApi";
 import OpenRescheduleProvider from "../features/MyAppointments/Context/OpenReschedule";
+import { TermsService } from "../Pages/TermsService";
 const Router_pages = () => {
   const Router = createBrowserRouter([
     {
@@ -127,6 +128,10 @@ const Router_pages = () => {
         {
           path: "privacy-policy",
           element: <PrivacePolicy />,
+        },
+        {
+          path: "terms-of-service",
+          element: <TermsService />,
         },
         {
           path: "myappointments",
