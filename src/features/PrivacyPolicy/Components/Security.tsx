@@ -1,13 +1,7 @@
 import clsx from "clsx";
 import { container } from "../../../Style";
 import { SecurityData } from "../Data/SecurityData";
-
-type SecurityType = {
-  id: number;
-  icon: string;
-  title: string;
-  description: string;
-};
+import ServiceCard from "../../../Components/ServiceCard";
 
 const Security = () => {
   return (
@@ -23,19 +17,7 @@ const Security = () => {
           <h1 className="text-5xl font-bold">and Security</h1>
         </div>
 
-        <div className="grid grid-cols-3 max-sm:grid-cols-1 gap-5 mt-10">
-          {SecurityData?.map((data: SecurityType) => (
-            <div key={data.id} className="bg-[#1f40c35d] rounded-xl p-5">
-              <div className="flex gap-2 items-center">
-                <i>{data.icon}</i>
-                <h1 className="text-2xl font-bold text-[#1F3FC3]">
-                  {data.title}
-                </h1>
-              </div>
-              <p className="text-sm text-[#464646] mt-5">{data.description}</p>
-            </div>
-          ))}
-        </div>
+        <ServiceCard data={SecurityData} NumberGrid={3} />
       </div>
     </div>
   );
