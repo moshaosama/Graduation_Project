@@ -8,7 +8,9 @@ const CopyRight = () => {
         <a href="/privacy-policy" className="underline font-bold">
           Privacy Policy
         </a>
-        <h1 className="underline font-bold">Terms of Service</h1>
+        <a href="/terms-of-service" className="underline font-bold">
+          Terms of Service
+        </a>
         <h1 className="underline font-bold">Cookie Settings</h1>
       </div>
     </div>
