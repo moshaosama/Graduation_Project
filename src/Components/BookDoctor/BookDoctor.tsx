@@ -20,14 +20,16 @@ const BookDoctor = memo(({ id }: BookDoctorProps) => {
               From {hours}:{minutes} {ampm} to 12:00 {ampm}
             </h1>
           </div>
-          <div className="bg-red-600 cursor-pointer hover:bg-red-500 transition-all duration-300 text-center py-1">
-            <h1 className=" text-white font-bold h-fit w-full">Book</h1>
-          </div>
+          <Link to={`${id}/bookdoctor`}>
+            <div className="bg-red-600 cursor-pointer hover:bg-red-500 transition-all duration-300 text-center py-1">
+              <h1 className=" text-white font-bold h-fit w-full">Book</h1>
+            </div>
+          </Link>
         </div>
       </div>
 
       <div className="flex justify-center my-3 max-sm:hidden">
-        <Link to={`${id}`}>
+        <Link to={`${id}/bookdoctor`}>
           <button className="text-red-600 rounded-full w-56 hover:bg-gray-100 transition-all duration-200 font-bold border-[1px] p-1 border-red-400 ">
             View Profile
           </button>
