@@ -84,7 +84,7 @@ const FindDoctorsWep = () => {
     <>
       <div>
         <div
-          className="bg-white max-2xl:w-[60pc] max-2xl:left-40 shadow-2xl w-[80pc] transition-all duration-500 opacity-5 text-[rgb(116,116,112)] p-5 z-50 absolute top-[20pc] left-80  rounded-2xl"
+          className="bg-white max-2xl:w-[67pc] max-2xl:left-40 shadow-2xl w-[80pc] transition-all duration-500 opacity-5 text-[rgb(116,116,112)] p-5 z-50 absolute top-[20pc] left-80  rounded-2xl"
           id="findDoctorContainer"
         >
           <div
