@@ -25,7 +25,7 @@ const OurStory = () => {
         </div>
         <div
           className={clsx(
-            "mt-10 flex max-sm:flex-col justify-center w-[170dvh] max-sm:w-fit items-start transition-all duration-500",
+            "mt-10 max-2xl:w-full flex max-sm:flex-col justify-center w-[170dvh] max-sm:w-fit items-start transition-all duration-500",
             scrolled ? "opacity-100 gap-7" : "opacity-0 gap-96"
           )}
         >
