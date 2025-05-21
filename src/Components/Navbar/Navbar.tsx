@@ -66,29 +66,36 @@ const Navbar = () => {
           className={` ${location.pathname !== "/" ? "w-96" : ""}`}
           style={{ margin: "1pc 55pc 2pc 10pc" }}
         >
-          <div className="flex items-center gap-24 max-sm:gap-48">
+          <div className="flex items-center gap-24 max-sm:gap-48 ">
             <Link to={"/"}>
-              <div className={LogoBrand}>
+              <div className={clsx(LogoBrand, "max-2xl:w-[25px]")}>
                 <ImageRender
                   src="/WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
                   alt="Logo.png"
                   width="10"
                 />
-                <h1 className={`${TextLogo} max-2xl:text-[5px]`}>MediPulse</h1>
+                <h1 className={clsx(TextLogo, "max-2xl:text-[5px]")}>
+                  MediPulse
+                </h1>
               </div>
             </Link>
             <div className="sm:hidden">
               <IoIosMenu className="text-3xl" onClick={toggleMenu} />
               {OpenMenu ? <MenuResponsiveLinks /> : null}
             </div>
-            <div className="flex gap-9 max-2xl:-mx-16 max-2xl:gap-5 max-sm:hidden">
+            <div
+              className={clsx(
+                "flex gap-9 max-2xl:mx-20 max-sm:hidden",
+                Token ? "max-2xl:gap-10" : "max-2xl:gap-5"
+              )}
+            >
               {LinksPages.map(
                 (el: { title: string; to: string }, index: number) => {
                   return (
                     <NavLink
                       to={el.to}
                       key={index}
-                      className={clsx("active:bg-blue-500 max-2xl:text-[12px]")}
+                      className={clsx("active:bg-blue-500 max-2xl:text-[15px]")}
                     >
                       <p
                         className={clsx(
