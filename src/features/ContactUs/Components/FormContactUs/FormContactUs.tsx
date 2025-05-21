@@ -7,7 +7,7 @@ import FormContectusList from "./FormContectusList";
 
 const FormContactUs = () => {
   return (
-    <div className="border-[3px] border-solid m-10 h-fit mx-36 max-sm:-mx-4 max-sm:w-[24pc] p-[2.4pc] rounded-md shadow-2xl border-gray-500">
+    <div className="border-[3px] max-2xl:w-full max-2xl:ml-0 border-solid m-10 h-fit mx-36 max-sm:-mx-4 max-sm:w-[24pc] p-[2.4pc] rounded-md shadow-2xl border-gray-500">
       <h1 className="text-3xl font-bold text-[#343437] flex justify-center">
         Contact US
       </h1>
