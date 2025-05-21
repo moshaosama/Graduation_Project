@@ -21,10 +21,10 @@ const SpecialityCard = React.memo(
     const width = useMemo(() => `w-${Width}`, [Width]);
     return (
       <>
-        <div className="flex w-96 max-2xl:w-48 flex-col relative">
+        <div className="flex w-96 max-2xl:w-56 flex-col relative">
           <div
             className={clsx(
-              `p-2 border-2 max-2xl:w-48 border-solid border-gray-300 ${width} cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`,
+              `p-2 border-2 max-2xl:w-56 border-solid border-gray-300 ${width} cursor-pointer  hover:bg-[#7d98b37a] flex ${Traslation.ConvertFLex} justify-between items-center transition-all duration-500`,
               lengthZero ? "rounded-l-xl" : ""
             )}
             onClick={onCLick}
