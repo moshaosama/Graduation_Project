@@ -32,8 +32,8 @@ const DetailsProfileDoctor = () => {
 
   return (
     <form>
-      <div className="w-full px-6 md:px-10">
-        <div className="text-gray-500 font-semibold flex items-center gap-2">
+      <div className="w-full px-6 md:px-10 max-2xl:-ml-14 max-2xl:w-full">
+        <div className="text-gray-500 font-semibold flex items-center gap-2 ">
           <h1 className="underline cursor-pointer">Home</h1> {">"}
           <h1 className="underline cursor-pointer">Find a specialist</h1>
         </div>
@@ -85,7 +85,7 @@ const DetailsProfileDoctor = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 w-[165dvh] max-sm:w-full">
+        <div className="flex flex-col md:flex-row max-2xl:w-full justify-between items-center gap-4 w-[165dvh] max-sm:w-full">
           <div className="flex gap-4 items-center">
             <img
               src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
@@ -103,18 +103,12 @@ const DetailsProfileDoctor = () => {
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2 items-center">
+          <div className="flex flex-col sm:flex-row gap-2 items-center max-2xl:ml-56">
             <Link to={"bookdoctor"}>
               <div className="bg-red-600 text-white cursor-pointer font-semibold hover:bg-red-400 transition-all duration-500 px-5 py-2 rounded-xl shadow-lg">
                 <h1>Book Tomorrow (01:00 PM - 04:00 PM)</h1>
               </div>
             </Link>
-            <button
-              type="submit"
-              className="bg-blue-500 px-5 py-2 font-bold hover:bg-blue-400 transition-all duration-200 rounded-lg text-white"
-            >
-              Save Changes
-            </button>
           </div>
         </div>
 
