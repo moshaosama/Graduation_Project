@@ -11,7 +11,7 @@ const HeaderPages = ({ title, path }: HeaderPagesProps) => {
         <p className="text-[#00194F] text-xl font-bold">{path}</p>
       </div>
       <img
-        src="/WhatsApp Image 2025-05-21 at 15.21.31_a0fac298.jpg"
+        src="/WhatsApp Image 2025-05-21 at 15.34.08_6f2ea2d1.jpg"
         alt="ImageHeader.png"
         className="w-full h-[900px] object-fill"
       />

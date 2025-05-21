@@ -175,8 +175,8 @@ const FindDoctorsWep = () => {
           <img
             src="WhatsApp_Image_2025-02-26_at_19.26.09_761871f5-removebg-preview.png"
             alt="Form.png"
-            style={{ width: "125pc", height: "25pc" }}
             loading="lazy"
+            className="max-2xl:w-[125pc] w-[136pc] h-[25pc] "
           />
         </div>
       </div>

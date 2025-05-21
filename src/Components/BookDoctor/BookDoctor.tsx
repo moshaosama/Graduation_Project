@@ -1,31 +1,24 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import usegetTime from "../../Hooks/usegetTime";
 
 type BookDoctorProps = {
   id: string;
 };
 
 const BookDoctor = memo(({ id }: BookDoctorProps) => {
+  const { hours, minutes, ampm } = usegetTime();
   return (
     <div>
-      <div className="flex gap-10 h-full max-sm:hidden">
+      <div className="flex gap-10 h-full justify-center max-sm:hidden">
         <div className="border-black  w-32 border-[1px] flex flex-col justify-between rounded-md  h-full">
           <div className="bg-[#0056D6] text-center py-1">
             <h1 className=" text-white font-bold h-fit w-full">Today</h1>
           </div>
           <div className="text-center flex">
-            <h1>From 5:00 PM to 11:00 PM</h1>
-          </div>
-          <div className="bg-red-600 cursor-pointer hover:bg-red-500 transition-all duration-300 text-center py-1">
-            <h1 className=" text-white font-bold h-fit w-full">Book</h1>
-          </div>
-        </div>
-        <div className="border-black  w-32 border-[1px] flex flex-col justify-between rounded-md  h-full">
-          <div className="bg-[#0056D6] text-center py-1">
-            <h1 className=" text-white font-bold h-fit w-full">Today</h1>
-          </div>
-          <div className="text-center flex">
-            <h1>From 5:00 PM to 11:00 PM</h1>
+            <h1>
+              From {hours}:{minutes} {ampm} to 12:00 {ampm}
+            </h1>
           </div>
           <div className="bg-red-600 cursor-pointer hover:bg-red-500 transition-all duration-300 text-center py-1">
             <h1 className=" text-white font-bold h-fit w-full">Book</h1>
