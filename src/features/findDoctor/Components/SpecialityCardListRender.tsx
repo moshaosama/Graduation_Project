@@ -19,7 +19,6 @@ import { fetchLocation } from "../../../Store/Reducer/Location/LocationReducer";
 import { fetchSpeciality } from "../../../Store/Reducer/Speciality/SpecialityReducer";
 import { AppDispatch } from "../../../Store/Store";
 
-
 const SpecialityCardListRender = () => {
   const { DropDownState, setDropDownState } = useDropDownState();
   const { choooseDoctor, setChoooseDoctor } = useChooseDoctor();
@@ -154,7 +153,7 @@ const SpecialityCardListRender = () => {
             />
           );
         })}
-        <div className="max-h-[80px] max-2xl:h-[76px] max-2xl:w-40 border-2 border-solid border-gray-300">
+        <div className="max-h-[80px] max-2xl:h-[74px] max-2xl:w-52 border-2 border-solid border-gray-300">
           <form action="" className="p-2 flex flex-col  gap-4">
             <label
               className={`text-sm ${
@@ -175,7 +174,7 @@ const SpecialityCardListRender = () => {
           </form>
         </div>
         <div
-          className={`h-[4.9pc] max-2xl:w-32 border border-solid ${
+          className={`h-[4.6pc] max-2xl:w-32 border border-solid ${
             language == "English" ? "rounded-l-xl" : "rounded-r-xl"
           } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
           onClick={handleClickSave}

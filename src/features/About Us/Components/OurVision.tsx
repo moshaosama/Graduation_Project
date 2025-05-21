@@ -32,7 +32,7 @@ const OurVision = () => {
               services they can access anytime, anywhere.
             </p>
           </div>
-          <div className="bg-[#0056d642] rounded-xl max-sm:hidden p-5 w-72 h-52 absolute top-64 right-0">
+          <div className="bg-[#0056d642] rounded-xl max-sm:hidden p-5 w-72 h-52 absolute top-64 right-0 max-2xl:-right-[21pc] max-2xl:top-20">
             <div className="flex items-center gap-4">
               <i className="text-">💡</i>
               <h1>Innovation</h1>
@@ -43,7 +43,7 @@ const OurVision = () => {
               and find care.
             </p>
           </div>
-          <div className="bg-[#0056d642] rounded-xl max-sm:hidden p-5 w-72 h-52 absolute bottom-0 left-[55pc]">
+          <div className="bg-[#0056d642] rounded-xl max-sm:hidden p-5 w-72 h-52 absolute bottom-0 left-[55pc] max-2xl:left-[45pc]">
             <div className="flex items-center gap-4">
               <i className="text-">🔮</i>
               <h1>Innovation</h1>

@@ -12,12 +12,14 @@ const ProfileDoctorCom = () => {
       className={container}
       style={{ flexDirection: "column", alignItems: "start" }}
     >
-      <DetailsProfileDoctor />
-      <AboutDoctor />
-      <Suspense fallback="Loading...">
-        <ReviewsCard />
-      </Suspense>
-      <FormReviewDoctor />
+      <div className="max-2xl:w-full">
+        <DetailsProfileDoctor />
+        <AboutDoctor />
+        <Suspense fallback="Loading...">
+          <ReviewsCard />
+        </Suspense>
+        <FormReviewDoctor />
+      </div>
     </div>
   );
 };

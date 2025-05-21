@@ -3,9 +3,10 @@ import { ChangeTextByLanguage } from "../../../Language/Language";
 import useConvertLanguage from "../../../Hooks/useConvertLanguage";
 import ImageRender from "../../ImageRender";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import DashBoardUser from "../../DashboardUser/DashBoardUser";
 import { User } from "../../../Types/Navbar";
+import clsx from "clsx";
 
 const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
   const Token = window.localStorage.getItem("Token");
@@ -13,6 +14,7 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
     () => JSON.parse(window.localStorage.getItem("User")!),
     []
   );
+  const { pathname } = useLocation();
   const [, startTransition] = useTransition();
   const [ActiveDashboard, setActiveDashboard] = useState(false);
   const handleClickUser = () => {
@@ -43,7 +45,12 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
   const { toggleLanguage } = useConvertLanguage();
   return (
     <>
-      <div className="flex gap-10  max-sm:hidden">
+      <div
+        className={clsx(
+          "flex gap-10 max-2xl:gap-20 max-sm:hidden",
+          pathname === "/" ? "" : "max-2xl:-mx-[27pc] max-2xl:w-fit"
+        )}
+      >
         {Token ? (
           <div className="relative ">
             <button
