@@ -1,7 +1,9 @@
 const AboutDoctor = () => {
   return (
     <>
-      <h1 className="text-3xl font-semibold max-sm:w-fit">About Doctor</h1>
+      <h1 className="text-3xl font-semibold max-sm:w-fit max-2xl:w-full">
+        About Doctor
+      </h1>
       <p className="my-4 text-md text-gray-700 max-sm:w-96">
         Dr. Ahmed Mohamed, Cardiologist specializing in the treatment of
         hypertension, chronic coronary artery insufficiency, and coronary artery
