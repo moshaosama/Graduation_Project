@@ -10,6 +10,7 @@ const useFormData = () => {
   } = useForm();
   const [Messages, setMessages] = useState<any[]>([]);
   const Session = JSON.parse(window.localStorage.getItem("SessionID")!);
+  const [MessageResponse, setMessageResponse] = useState<any[]>([]);
 
   const onSubmit = async (dataMessage: any) => {
     fetch("https://medipulse12-production.up.railway.app/api/chat", {
@@ -27,13 +28,24 @@ const useFormData = () => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        setMessageResponse((prevMessage) => [
+          ...prevMessage,
+          { message: data },
+        ]);
       });
+    console.log(MessageResponse);
 
     setMessages([...Messages, dataMessage]);
   };
 
-  return { register, handleSubmit, errors, onSubmit, Messages };
+  return {
+    register,
+    handleSubmit,
+    errors,
+    onSubmit,
+    Messages,
+    MessageResponse,
+  };
 };
 
 export default useFormData;

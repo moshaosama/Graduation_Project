@@ -5,7 +5,14 @@ import useFormData from "../Hooks/useFormData";
 
 const Chat = () => {
   const { handleCloseChat, isOpenChat } = useOpenChatApi();
-  const { register, handleSubmit, errors, onSubmit, Messages } = useFormData();
+  const {
+    register,
+    handleSubmit,
+    errors,
+    onSubmit,
+    Messages,
+    MessageResponse,
+  } = useFormData();
   const ChatBot: { session_id: string; response: string } = JSON.parse(
     localStorage.getItem("SessionID") || "{}"
   );
@@ -14,7 +21,7 @@ const Chat = () => {
     <div className="relative">
       <div
         className={clsx(
-          "fixed bottom-28 w-[30pc] z-50 h-[30pc] bg-white border-2 border-solid border-gray-700 rounded-xl transition-all duration-300",
+          "fixed bottom-28 w-[30pc] max-sm:w-[24pc] z-50 h-[30pc] bg-white border-2 border-solid border-gray-700 rounded-xl transition-all duration-300",
           isOpenChat ? "opacity-100 right-4" : "opacity-0 right-0"
         )}
       >
@@ -30,14 +37,25 @@ const Chat = () => {
           />
         </div>
         <div className="overflow-y-scroll h-[23pc]">
-          <h1 className="bg-gray-300 shadow-xl w-96 m-3 p-2 rounded-xl text-sm font-semibold">
+          <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
             {ChatBot.response}
           </h1>
+
           {Messages?.length > 0 &&
-            Messages?.map((el: { message: string }) => (
-              <h1 className="bg-gray-300 relative left-20 shadow-xl mt-3 w-96 p-2 rounded-xl text-sm font-semibold">
-                {el.message}
-              </h1>
+            Messages?.map((el: { message: string }, index: number) => (
+              <>
+                <h1
+                  className="bg-blue-300 relative left-20 shadow-xl mt-3 w-96 max-sm:w-72  p-2 rounded-xl text-sm font-semibold"
+                  key={index}
+                >
+                  {el.message}
+                </h1>
+                {MessageResponse?.[index]?.message?.response && (
+                  <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
+                    {MessageResponse[index].message.response}
+                  </h1>
+                )}
+              </>
             ))}
         </div>
         {/* UserQuestion */}
