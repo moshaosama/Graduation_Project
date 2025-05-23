@@ -6,7 +6,7 @@ export const fetchSendMessage = createAsyncThunk(
     try {
       const { sessionId } = useShareSession();
       const response = await fetch(
-        "https://web-production-d8197.up.railway.app/api/chat",
+        "https://medipulse12-production.up.railway.app/api/chat",
         {
           method: "POST",
           headers: {
