@@ -5,13 +5,12 @@ export const fetchStartChat = createAsyncThunk(
   async (language: string, { rejectWithValue }) => {
     try {
       const response = await fetch(
-        "https://web-production-d8197.up.railway.app/api/start",
+        "https://medipulse12-production.up.railway.app/api/start",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-
           body: JSON.stringify({ language }),
         }
       );
