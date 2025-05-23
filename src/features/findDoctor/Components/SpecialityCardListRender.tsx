@@ -18,11 +18,12 @@ import { fetchDoctor } from "../../../Store/Reducer/Doctor/DoctorReducer";
 import { fetchLocation } from "../../../Store/Reducer/Location/LocationReducer";
 import { fetchSpeciality } from "../../../Store/Reducer/Speciality/SpecialityReducer";
 import { AppDispatch } from "../../../Store/Store";
+import { useGetDoctorByName } from "../Hook/useGetDoctorByName";
 
 const SpecialityCardListRender = () => {
   const { DropDownState, setDropDownState } = useDropDownState();
   const { choooseDoctor, setChoooseDoctor } = useChooseDoctor();
-
+  const { register, handleSubmit, onSubmit } = useGetDoctorByName();
   const { language } = useConvertLanguage();
   const [isLoading, setLoading] = useState(false);
   const Navigator = useNavigate();
@@ -163,18 +164,22 @@ const SpecialityCardListRender = () => {
             >
               {ChangeTextByLanguage("أو اكتب اسم", "Or search by name")}
             </label>
-            <div className={`flex ${Traslation.ConvertFLex} gap-2`}>
+            <form
+              className={`flex ${Traslation.ConvertFLex} gap-2`}
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <FaPersonBreastfeeding className="text-2xl text-[#0a84ff7a]" />
               <input
                 type="text"
                 id="personName"
                 className="focus:border-none max-2xl:w-20"
+                {...register("Name")}
               />
-            </div>
+            </form>
           </form>
         </div>
         <div
-          className={`h-[4.6pc] max-2xl:w-32 border border-solid ${
+          className={`h-[4.6pc] max-2xlg:w-32 border border-solid ${
             language == "English" ? "rounded-l-xl" : "rounded-r-xl"
           } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
           onClick={handleClickSave}
