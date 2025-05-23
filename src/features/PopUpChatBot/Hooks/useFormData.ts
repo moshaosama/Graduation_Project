@@ -8,18 +8,19 @@ const useFormData = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // const dispatch = useDispatch<AppDispatch>();
   const [Messages, setMessages] = useState<any[]>([]);
+  const Session = JSON.parse(window.localStorage.getItem("SessionID")!);
 
   const onSubmit = async (dataMessage: any) => {
-    fetch("https://web-production-d8197.up.railway.app/api/chat", {
+    fetch("https://medipulse12-production.up.railway.app/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify({
         message: dataMessage.message,
-        session_id: "BjqS6GeQAgEjR51lCzJFGo3V5itaSDGnWhSCeLsOZc0",
+        session_id: Session.session_id,
       }),
     })
       .then((res) => {
