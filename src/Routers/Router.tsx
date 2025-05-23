@@ -26,6 +26,7 @@ import ProfileAsDoctor from "../features/Profile/Component/ProfileAsDoctor";
 import OpenChatApiProvider from "../features/PopUpChatBot/Context/useOpenChatApi";
 import OpenRescheduleProvider from "../features/MyAppointments/Context/OpenReschedule";
 import { TermsService } from "../Pages/TermsService";
+import { ChatBot } from "../Pages/ChatBot";
 const Router_pages = () => {
   const Router = createBrowserRouter([
     {
@@ -132,6 +133,10 @@ const Router_pages = () => {
         {
           path: "terms-of-service",
           element: <TermsService />,
+        },
+        {
+          path: "chatbot",
+          element: <ChatBot />,
         },
         {
           path: "myappointments",

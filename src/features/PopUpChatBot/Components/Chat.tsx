@@ -2,6 +2,7 @@ import { GrNext } from "react-icons/gr";
 import { useOpenChatApi } from "../Context/useOpenChatApi";
 import clsx from "clsx";
 import useFormData from "../Hooks/useFormData";
+import { useGetStartMessage } from "../Hooks/useGetStartMessage";
 
 const Chat = () => {
   const { handleCloseChat, isOpenChat } = useOpenChatApi();
@@ -13,10 +14,7 @@ const Chat = () => {
     Messages,
     MessageResponse,
   } = useFormData();
-  const ChatBot: { session_id: string; response: string } = JSON.parse(
-    localStorage.getItem("SessionID") || "{}"
-  );
-
+  const { ChatBot } = useGetStartMessage();
   return (
     <div className="relative">
       <div
