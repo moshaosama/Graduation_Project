@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import useConvertLanguage from "../../../../Hooks/useConvertLanguage";
 import { ChangeTextByLanguage } from "../../../../Language/Language";
+import { Link } from "react-router";
 
 const TitleForSection = lazy(
   () => import("../../../../Components/TitleForSection/TitleForSection")
@@ -68,9 +69,11 @@ const ChatBot = () => {
                   width="36"
                 />
               </Suspense>
-              <button className="py-4 max-sm:w-56 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
-                Ask....
-              </button>
+              <Link to={"/chatbot"}>
+                <button className="py-4 max-sm:w-56 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
+                  Ask....
+                </button>
+              </Link>
             </div>
           </div>
           <div className="max-sm:hidden">
