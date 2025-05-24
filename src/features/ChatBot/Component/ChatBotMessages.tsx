@@ -1,6 +1,6 @@
 import { useGetStartMessage } from "../../PopUpChatBot/Hooks/useGetStartMessage";
-import useFormData from "../../PopUpChatBot/Hooks/useFormData";
 import { SyncLoader } from "react-spinners";
+import useFormData from "../Hook/useFormData";
 export const ChatBotMessages = () => {
   const { ChatBot } = useGetStartMessage();
 
@@ -22,11 +22,8 @@ export const ChatBotMessages = () => {
         </h1>
         {Messages?.length > 0 &&
           Messages?.map((el: { message: string }, index: number) => (
-            <>
-              <h1
-                className="bg-blue-300 relative left-[33pc] max-sm:left-[8pc] shadow-xl mt-10 w-96 max-sm:w-56  p-2 rounded-xl text-sm font-semibold"
-                key={index}
-              >
+            <div key={index}>
+              <h1 className="bg-blue-300 relative left-[33pc] max-sm:left-[8pc] shadow-xl mt-10 w-96 max-sm:w-56  p-2 rounded-xl text-sm font-semibold">
                 {el.message}
               </h1>
 
@@ -57,7 +54,7 @@ export const ChatBotMessages = () => {
                   </>
                 )
               )}
-            </>
+            </div>
           ))}
         <form
           className="flex items-center justify-center mt-10 gap-4"
