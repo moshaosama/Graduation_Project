@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 // import { useDispatch } from "react-redux";
 // import { AppDispatch } from "../../../Store/Store";
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../Store/Store";
+import { fetchSendMessage } from "../Actions/SendMessage";
 const useFormData = () => {
   const {
     register,
@@ -14,6 +17,7 @@ const useFormData = () => {
   const [MessageResponse, setMessageResponse] = useState<any[]>([]);
   const [isLoadMessage, setIsLoadMessage] = useState(false);
   const chatScreen = useRef<HTMLDivElement | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     chatScreen.current?.scrollIntoView({ behavior: "smooth" });
@@ -47,6 +51,34 @@ const useFormData = () => {
     setMessages([...Messages, dataMessage]);
   };
 
+  const handleAddmessageFromBtns = async (el: any) => {
+    setIsLoadMessage(true);
+    reset();
+    fetch("https://medipulse12-production.up.railway.app/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        message: el.target.value,
+        session_id: Session.session_id,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then(async (data) => {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setIsLoadMessage(false);
+        setMessageResponse((prevMessage) => [
+          ...prevMessage,
+          { message: data },
+        ]);
+      });
+    setMessages([...Messages, { message: el.target.value }]);
+  };
+
   return {
     register,
     handleSubmit,
@@ -56,6 +88,7 @@ const useFormData = () => {
     MessageResponse,
     isLoadMessage,
     chatScreen,
+    handleAddmessageFromBtns,
   };
 };
 

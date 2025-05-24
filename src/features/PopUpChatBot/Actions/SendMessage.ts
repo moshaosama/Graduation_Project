@@ -2,7 +2,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import useShareSession from "../Hooks/useShareSession";
 export const fetchSendMessage = createAsyncThunk(
   "ChatBot/fetchSendMessage",
-  async (data: { message: string }, { rejectWithValue }) => {
+  async (
+    data: { message: string; session_id: string },
+    { rejectWithValue }
+  ) => {
     try {
       const { sessionId } = useShareSession();
       const response = await fetch(
