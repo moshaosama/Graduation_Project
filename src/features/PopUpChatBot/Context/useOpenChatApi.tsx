@@ -8,9 +8,13 @@ const OpenChatApiContext = createContext<any>(null);
 const OpenChatApiProvider = ({ children }: { children: React.ReactNode }) => {
   const [isOpenChat, setIsOpenChat] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
+  const SessionId = JSON.parse(window.localStorage.getItem("SessionID")!);
   const handleOpenChat = () => {
     setIsOpenChat(true);
-    dispatch(fetchStartChat("en"));
+    if (SessionId) {
+    } else {
+      dispatch(fetchStartChat("en"));
+    }
   };
 
   const handleCloseChat = () => {
@@ -19,7 +23,10 @@ const OpenChatApiProvider = ({ children }: { children: React.ReactNode }) => {
 
   const handleTriggerChat = () => {
     setIsOpenChat(!isOpenChat);
-    dispatch(fetchStartChat("en"));
+    if (SessionId) {
+    } else {
+      dispatch(fetchStartChat("en"));
+    }
   };
 
   return (
