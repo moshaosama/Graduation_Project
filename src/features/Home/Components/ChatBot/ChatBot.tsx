@@ -69,11 +69,11 @@ const ChatBot = () => {
                   width="36"
                 />
               </Suspense>
-              <Link to={"/chatbot"}>
+              <a href="/chatbot">
                 <button className="py-4 max-sm:w-56 w-96 rounded-xl text-white bg-gradient-to-r from-[#184C99] to-black text-3xl font-semibold">
                   Ask....
                 </button>
-              </Link>
+              </a>
             </div>
           </div>
           <div className="max-sm:hidden">
