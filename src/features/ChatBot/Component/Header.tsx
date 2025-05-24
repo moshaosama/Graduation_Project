@@ -17,7 +17,6 @@ export const Header = () => {
     onSubmit,
     errors,
     isLoadMessage,
-    chatScreen,
   } = useFormData();
 
   const dispatch = useDispatch<AppDispatch>();
