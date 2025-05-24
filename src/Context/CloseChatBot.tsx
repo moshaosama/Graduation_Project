@@ -50,7 +50,6 @@ export const CloseChatBotProvider = ({ children }: { children: ReactNode }) => {
 
   const handleCloseChatWithCreateHoistory = async (chatData: any[]) => {
     setChatMessage(chatData);
-    console.log(chatData);
   };
 
   return (
