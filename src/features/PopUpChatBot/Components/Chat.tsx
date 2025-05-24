@@ -4,9 +4,10 @@ import clsx from "clsx";
 import useFormData from "../Hooks/useFormData";
 import { useGetStartMessage } from "../Hooks/useGetStartMessage";
 import { SyncLoader } from "react-spinners";
+import HeaderChat from "./HeaderChat";
 
 const Chat = () => {
-  const { handleCloseChat, isOpenChat } = useOpenChatApi();
+  const { isOpenChat } = useOpenChatApi();
 
   const {
     register,
@@ -29,17 +30,7 @@ const Chat = () => {
           isOpenChat ? "opacity-100 right-4" : "opacity-0 right-0"
         )}
       >
-        <div className="flex justify-between items-center p-4 bg-blue-200 rounded-t-xl">
-          <img
-            src="WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
-            alt="Logo.png"
-            className="w-10"
-          />
-          <GrNext
-            className="text-2xl font-bold cursor-pointer"
-            onClick={handleCloseChat}
-          />
-        </div>
+        <HeaderChat />
         <div className="overflow-y-scroll h-[21.3pc]">
           <h1 className="bg-gray-300 shadow-xl w-[25pc] max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
             {ChatBot.response}

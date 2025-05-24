@@ -27,6 +27,7 @@ import OpenChatApiProvider from "../features/PopUpChatBot/Context/useOpenChatApi
 import OpenRescheduleProvider from "../features/MyAppointments/Context/OpenReschedule";
 import { TermsService } from "../Pages/TermsService";
 import { ChatBot } from "../Pages/ChatBot";
+import { CloseChatBotProvider } from "../Context/CloseChatBot";
 const Router_pages = () => {
   const Router = createBrowserRouter([
     {
@@ -38,7 +39,9 @@ const Router_pages = () => {
           index: true,
           element: (
             <OpenChatApiProvider>
-              <Home />
+              <CloseChatBotProvider>
+                <Home />
+              </CloseChatBotProvider>
             </OpenChatApiProvider>
           ),
         },
