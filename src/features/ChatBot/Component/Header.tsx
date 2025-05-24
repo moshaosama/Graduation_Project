@@ -4,9 +4,11 @@ import { useGetStartMessage } from "../../PopUpChatBot/Hooks/useGetStartMessage"
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../Store/Store";
 import { fetchStartChat } from "../../PopUpChatBot/Actions/StartChat";
+import { SyncLoader } from "react-spinners";
 
 export const Header = () => {
   const { ChatBot } = useGetStartMessage();
+
   const {
     Messages,
     MessageResponse,
@@ -14,7 +16,10 @@ export const Header = () => {
     handleSubmit,
     onSubmit,
     errors,
+    isLoadMessage,
+    chatScreen,
   } = useFormData();
+
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
@@ -33,7 +38,7 @@ export const Header = () => {
         />
       </div>
 
-      <div className="border-4  rounded-xl p-4 shadow-lg shadow-gray-500 my-10 border-blue-200 w-[60pc] max-sm:w-[25pc] max-sm:ml-0">
+      <div className="border-4 rounded-xl p-4 shadow-lg shadow-gray-500 my-10 border-blue-200 w-[60pc] max-sm:w-[25pc] max-sm:ml-0">
         <h1 className="bg-gray-300 shadow-xl w-[70%]  m-3 p-2 rounded-xl text-sm font-semibold">
           {ChatBot.response}
         </h1>
@@ -46,10 +51,15 @@ export const Header = () => {
               >
                 {el.message}
               </h1>
-              {MessageResponse?.[index]?.message?.response && (
-                <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
-                  {MessageResponse[index].message.response}
-                </h1>
+
+              {isLoadMessage && index === Messages?.length - 1 ? (
+                <SyncLoader className="m-3 p-2" size={10} />
+              ) : (
+                MessageResponse?.[index]?.message?.response && (
+                  <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
+                    {MessageResponse[index].message.response}
+                  </h1>
+                )
               )}
             </>
           ))}

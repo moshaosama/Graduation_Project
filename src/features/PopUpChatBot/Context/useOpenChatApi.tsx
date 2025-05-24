@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../Store/Store";
 import { fetchStartChat } from "../Actions/StartChat";
@@ -24,7 +24,12 @@ const OpenChatApiProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <OpenChatApiContext.Provider
-      value={{ isOpenChat, handleOpenChat, handleCloseChat, handleTriggerChat }}
+      value={{
+        isOpenChat,
+        handleOpenChat,
+        handleCloseChat,
+        handleTriggerChat,
+      }}
     >
       {children}
     </OpenChatApiContext.Provider>
