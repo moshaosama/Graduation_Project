@@ -17,6 +17,7 @@ export const Header = () => {
     onSubmit,
     errors,
     isLoadMessage,
+    handleAddmessageFromBtns,
   } = useFormData();
 
   const dispatch = useDispatch<AppDispatch>();
@@ -55,9 +56,27 @@ export const Header = () => {
                 <SyncLoader className="m-3 p-2" size={10} />
               ) : (
                 MessageResponse?.[index]?.message?.response && (
-                  <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
-                    {MessageResponse[index].message.response}
-                  </h1>
+                  <>
+                    <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
+                      {MessageResponse[index].message.response}
+                    </h1>
+                    {MessageResponse[index].message.options ? (
+                      <div className="flex justify-between m-5 gap-2">
+                        {MessageResponse[index].message?.options?.map(
+                          (btns: any, index: number) => (
+                            <button
+                              key={index}
+                              value={btns}
+                              className="bg-blue-200 px-6  w-96 max-sm:w-fit max-sm:px-4 py-3  rounded-xl font-bold hover:bg-blue-300 transition-all duration-300 max-sm:py-1"
+                              onClick={handleAddmessageFromBtns}
+                            >
+                              {btns}
+                            </button>
+                          )
+                        )}
+                      </div>
+                    ) : null}
+                  </>
                 )
               )}
             </>
