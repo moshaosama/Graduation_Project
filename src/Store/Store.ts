@@ -11,6 +11,7 @@ import getReviewsReducer from "./Reducer/Review/getReviewSlice.ts";
 import medicineProductsReducer from "./Reducer/MedicineProducts/getMedicineProducts.ts";
 import bookDoctorReducer from "../features/BookDoctor/Reducer/BookDoctor.ts";
 import ChatBotReducer from "../features/PopUpChatBot/Reducer/ChatBotReducer.ts";
+import chatBotHistoryReducer from "../features/ChatBot/Reducer/HistorySlice.ts";
 import {
   myAppointementsReducer,
   rescheduleReducer,
@@ -31,6 +32,7 @@ export const Store = configureStore({
     myAppointements: myAppointementsReducer,
     ChatBot: ChatBotReducer,
     AppointmentByID: rescheduleReducer,
+    Histories: chatBotHistoryReducer,
   },
 });
 
