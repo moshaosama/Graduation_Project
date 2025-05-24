@@ -42,5 +42,5 @@ MediPulse is a fullstack medical web application designed to streamline healthca
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/medipulse.git
+   git https://github.com/yourusername/medipulse.git](https://github.com/moshaosama/Graduation_Project.git
    cd medipulse
