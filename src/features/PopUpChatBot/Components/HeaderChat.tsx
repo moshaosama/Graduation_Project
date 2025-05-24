@@ -1,9 +1,7 @@
 import { GrNext } from "react-icons/gr";
-import { useOpenChatApi } from "../Context/useOpenChatApi";
 import { useCloseChatBotContext } from "../../../Context/CloseChatBot";
 
 const HeaderChat = () => {
-  const { handleCloseChat } = useOpenChatApi();
   const { OpenCloseChat } = useCloseChatBotContext();
   return (
     <div className="flex justify-between items-center p-4 bg-blue-200 rounded-t-xl">
@@ -15,7 +13,6 @@ const HeaderChat = () => {
       <GrNext
         className="text-2xl font-bold cursor-pointer"
         onClick={() => {
-          handleCloseChat();
           OpenCloseChat();
         }}
       />
