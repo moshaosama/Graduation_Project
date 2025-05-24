@@ -1,5 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../Store/Store";
+import { fetchCreateHistory } from "../Action/CreateHistory";
 const useFormData = () => {
   const {
     register,
@@ -13,6 +16,8 @@ const useFormData = () => {
   const [isLoadMessage, setIsLoadMessage] = useState(false);
   const [ChatMessage, setChatMessage] = useState<any>([]);
   const chatScreen = useRef<HTMLDivElement | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
+  const User = JSON.parse(window.localStorage.getItem("User")!);
 
   useEffect(() => {
     chatScreen.current?.scrollIntoView({ behavior: "smooth" });
@@ -49,10 +54,17 @@ const useFormData = () => {
             MessageResponse: data.response,
           },
         ];
-
         setChatMessage(newChatMessage);
       });
     setMessages([...Messages, dataMessage]);
+  };
+  const handleEndChat = async () => {
+    await dispatch(
+      fetchCreateHistory({
+        Data: JSON.stringify(ChatMessage),
+        userId: User?.id,
+      })
+    );
   };
 
   const handleAddmessageFromBtns = async (el: any) => {
@@ -93,6 +105,7 @@ const useFormData = () => {
     isLoadMessage,
     chatScreen,
     handleAddmessageFromBtns,
+    handleEndChat,
   };
 };
 
