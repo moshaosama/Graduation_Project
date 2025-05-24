@@ -1,6 +1,8 @@
 import { useGetStartMessage } from "../../PopUpChatBot/Hooks/useGetStartMessage";
 import { SyncLoader } from "react-spinners";
 import useFormData from "../Hook/useFormData";
+import { RxExit } from "react-icons/rx";
+
 export const ChatBotMessages = () => {
   const { ChatBot } = useGetStartMessage();
 
@@ -12,10 +14,20 @@ export const ChatBotMessages = () => {
     register,
     handleSubmit,
     onSubmit,
+    handleEndChat,
     errors,
   } = useFormData();
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col items-center justify-center">
+      <div className="relative top-7 ml-[52pc]">
+        <button
+          className="flex gap-4 items-center bg-red-500 p-2 rounded-xl text-white font-bold hover:bg-red-700 transition-all duration-300"
+          onClick={handleEndChat}
+        >
+          <RxExit />
+          End Chat
+        </button>
+      </div>
       <div className="border-4 rounded-xl p-4 shadow-lg shadow-gray-500 my-10 border-blue-200 w-[60pc] max-sm:w-[25pc] max-sm:ml-0">
         <h1 className="bg-gray-300 shadow-xl w-[70%]  m-3 p-2 rounded-xl text-sm font-semibold">
           {ChatBot.response}
