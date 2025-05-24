@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
-import { useCloseChatBotContext } from "../../../Context/CloseChatBot";
 const useFormData = () => {
   const {
     register,
@@ -14,7 +13,6 @@ const useFormData = () => {
   const [isLoadMessage, setIsLoadMessage] = useState(false);
   const [ChatMessage, setChatMessage] = useState<any>([]);
   const chatScreen = useRef<HTMLDivElement | null>(null);
-  const { handleCloseChatWithCreateHoistory } = useCloseChatBotContext();
 
   useEffect(() => {
     chatScreen.current?.scrollIntoView({ behavior: "smooth" });
@@ -51,7 +49,7 @@ const useFormData = () => {
             MessageResponse: data.response,
           },
         ];
-        handleCloseChatWithCreateHoistory(newChatMessage);
+
         setChatMessage(newChatMessage);
       });
     setMessages([...Messages, dataMessage]);
