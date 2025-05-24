@@ -1,7 +1,6 @@
 import { useGetStartMessage } from "../../PopUpChatBot/Hooks/useGetStartMessage";
 import useFormData from "../../PopUpChatBot/Hooks/useFormData";
 import { SyncLoader } from "react-spinners";
-
 export const ChatBotMessages = () => {
   const { ChatBot } = useGetStartMessage();
 
