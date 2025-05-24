@@ -19,7 +19,7 @@ export const ChatBotMessages = () => {
   } = useFormData();
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="relative top-7 ml-[52pc]">
+      <div className="relative top-7 ml-[52pc] max-sm:ml-[17pc]">
         <button
           className="flex gap-4 items-center bg-red-500 p-2 rounded-xl text-white font-bold hover:bg-red-700 transition-all duration-300"
           onClick={handleEndChat}
