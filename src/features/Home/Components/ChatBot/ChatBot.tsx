@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import useConvertLanguage from "../../../../Hooks/useConvertLanguage";
 import { ChangeTextByLanguage } from "../../../../Language/Language";
-import { Link } from "react-router";
 
 const TitleForSection = lazy(
   () => import("../../../../Components/TitleForSection/TitleForSection")
