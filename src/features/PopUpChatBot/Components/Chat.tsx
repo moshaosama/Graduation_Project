@@ -3,9 +3,11 @@ import { useOpenChatApi } from "../Context/useOpenChatApi";
 import clsx from "clsx";
 import useFormData from "../Hooks/useFormData";
 import { useGetStartMessage } from "../Hooks/useGetStartMessage";
+import { SyncLoader } from "react-spinners";
 
 const Chat = () => {
   const { handleCloseChat, isOpenChat } = useOpenChatApi();
+
   const {
     register,
     handleSubmit,
@@ -13,13 +15,16 @@ const Chat = () => {
     onSubmit,
     Messages,
     MessageResponse,
+    isLoadMessage,
+    chatScreen,
   } = useFormData();
   const { ChatBot } = useGetStartMessage();
+
   return (
     <div className="relative">
       <div
         className={clsx(
-          "fixed bottom-28 w-[30pc] max-sm:w-[24pc] z-50 h-[30pc] bg-white border-2 border-solid border-gray-700 rounded-xl transition-all duration-300",
+          "fixed bottom-28 w-[30pc] max-sm:w-[24pc] z-50 h-[30pc] bg-white  border-2 border-solid border-gray-700 rounded-xl transition-all duration-300",
           isOpenChat ? "opacity-100 right-4" : "opacity-0 right-0"
         )}
       >
@@ -34,26 +39,27 @@ const Chat = () => {
             onClick={handleCloseChat}
           />
         </div>
-        <div className="overflow-y-scroll h-[23pc]">
+        <div className="overflow-y-scroll h-[21.3pc]">
           <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
             {ChatBot.response}
           </h1>
 
           {Messages?.length > 0 &&
             Messages?.map((el: { message: string }, index: number) => (
-              <>
-                <h1
-                  className="bg-blue-300 relative left-20 shadow-xl mt-3 w-96 max-sm:w-72  p-2 rounded-xl text-sm font-semibold"
-                  key={index}
-                >
+              <div key={index} ref={chatScreen}>
+                <h1 className="bg-blue-300 relative left-20 shadow-xl mt-3 w-96 max-sm:w-72  p-2 rounded-xl text-sm font-semibold">
                   {el.message}
                 </h1>
-                {MessageResponse?.[index]?.message?.response && (
-                  <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
-                    {MessageResponse[index].message.response}
-                  </h1>
+                {isLoadMessage && index === Messages.length - 1 ? (
+                  <SyncLoader className="mt-3 p-2" size={6} />
+                ) : (
+                  MessageResponse?.[index]?.message?.response && (
+                    <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
+                      {MessageResponse[index].message.response}
+                    </h1>
+                  )
                 )}
-              </>
+              </div>
             ))}
         </div>
         {/* UserQuestion */}
@@ -66,8 +72,8 @@ const Chat = () => {
               <p className="col-span-1">
                 <input
                   type="text"
-                  className="p-3 w-80 rounded-xl"
                   placeholder="Type Your Message..."
+                  className="p-3 w-80 rounded-xl"
                   {...register("message", { required: "Message is required" })}
                 />
                 {errors.message && (
