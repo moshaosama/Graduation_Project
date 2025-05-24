@@ -14,7 +14,6 @@ const useFormData = () => {
   const [MessageResponse, setMessageResponse] = useState<any[]>([]);
   const [isLoadMessage, setIsLoadMessage] = useState(false);
   const chatScreen = useRef<HTMLDivElement | null>(null);
-  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     chatScreen.current?.scrollIntoView({ behavior: "smooth" });
