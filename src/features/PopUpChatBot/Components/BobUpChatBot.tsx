@@ -5,11 +5,11 @@ import Chat from "./Chat";
 import { useOpenChatApi } from "../Context/useOpenChatApi";
 const BobUpChatBot = () => {
   const { isOpen } = useScrollOpen();
-  const { isOpenChat, handleTriggerChat } = useOpenChatApi();
+  const { handleTriggerChat } = useOpenChatApi();
   return (
     <>
       <div>
-        {isOpenChat && <Chat />}
+        <Chat />
         <div
           onClick={handleTriggerChat}
           className={clsx(
