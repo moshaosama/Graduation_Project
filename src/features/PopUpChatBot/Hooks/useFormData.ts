@@ -51,7 +51,7 @@ const useFormData = () => {
             MessageResponse: data.response,
           },
         ];
-        await handleCloseChatWithCreateHoistory(newChatMessage);
+        handleCloseChatWithCreateHoistory(newChatMessage);
         setChatMessage(newChatMessage);
       });
     setMessages([...Messages, dataMessage]);
