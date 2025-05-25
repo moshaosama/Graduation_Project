@@ -5,11 +5,11 @@ import { SideBarHistory } from "../features/ChatBot/Component/SideBarHistory";
 export const ChatBot = () => {
   return (
     <>
-      <div className="flex w-full gap-8">
+      <div className="flex w-full justify-between">
         <div>
           <SideBarHistory />
         </div>
-        <div>
+        <div className="mr-[30pc]">
           <Header />
           <ChatBotMessages />
         </div>
