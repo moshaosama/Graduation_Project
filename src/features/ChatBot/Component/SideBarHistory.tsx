@@ -38,17 +38,16 @@ export const SideBarHistory = () => {
           />
         </div>
         <div className="mt-10 flex flex-col gap-2">
-          {Histories?.History?.data?.result?.map((el: any) => {
-            return el?.Data?.map((el: any, index: number) => {
-              return (
-                <>
-                  <div className="hover:bg-gray-500 transition-all duration-300 p-2 rounded-lg cursor-pointer">
-                    <h1 key={index}>{el?.MessageRequest?.message}</h1>
-                  </div>
-                </>
-              );
-            });
-          })}
+          {Histories?.History?.data?.result?.flatMap((el: any) =>
+            el?.Data?.map((msg: any, index: number) => (
+              <div
+                key={index}
+                className="hover:bg-gray-500 transition-all duration-300 p-2 rounded-lg cursor-pointer"
+              >
+                <h1>{msg?.MessageRequest?.message}</h1>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </>
