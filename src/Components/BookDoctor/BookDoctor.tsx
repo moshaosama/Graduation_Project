@@ -10,26 +10,26 @@ const BookDoctor = memo(({ id }: BookDoctorProps) => {
   const { hours, minutes, ampm } = usegetTime();
   return (
     <div>
-      <div className="flex gap-10 h-full justify-center max-sm:hidden">
+      <div className="flex justify-center h-full gap-10 max-sm:hidden">
         <div className="border-black  w-32 border-[1px] flex flex-col justify-between rounded-md  h-full">
           <div className="bg-[#0056D6] text-center py-1">
-            <h1 className=" text-white font-bold h-fit w-full">Today</h1>
+            <h1 className="w-full font-bold text-white h-fit">Today</h1>
           </div>
-          <div className="text-center flex">
+          <div className="flex text-center">
             <h1>
               From {hours}:{minutes} {ampm} to 12:00 {ampm}
             </h1>
           </div>
           <Link to={`${id}/bookdoctor`}>
-            <div className="bg-red-600 cursor-pointer hover:bg-red-500 transition-all duration-300 text-center py-1">
-              <h1 className=" text-white font-bold h-fit w-full">Book</h1>
+            <div className="py-1 text-center transition-all duration-300 bg-red-600 cursor-pointer hover:bg-red-500">
+              <h1 className="w-full font-bold text-white h-fit">Book</h1>
             </div>
           </Link>
         </div>
       </div>
 
       <div className="flex justify-center my-3 max-sm:hidden">
-        <Link to={`${id}/bookdoctor`}>
+        <Link to={`/doctors/${id}`}>
           <button className="text-red-600 rounded-full w-56 hover:bg-gray-100 transition-all duration-200 font-bold border-[1px] p-1 border-red-400 ">
             View Profile
           </button>
