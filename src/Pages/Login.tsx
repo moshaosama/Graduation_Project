@@ -3,21 +3,32 @@ import { FaArrowLeft } from "react-icons/fa";
 import FormLogin from "../features/Login/Components/FormLogin/FormLogin";
 import clsk from "clsx";
 import useOpenWindow from "../Hooks/useOpenWindow";
+import { useRef } from "react";
+import useTransition from "../Hooks/useTransition";
 
 const initalStyle = {
   opacity: "0",
-  transform: "scale(1.5)",
+  transform: "scale(0.5)",
+};
+
+const Styles = {
+  opacity: "1",
+  transform: "scale(1)",
 };
 
 const Login = () => {
   const { Open } = useOpenWindow();
+  const LoginForm = useRef(null);
+
+  useTransition(LoginForm, initalStyle, Styles);
 
   return (
     <>
       <div className="flex justify-center opacity-100 transition-all duration-1000 scale-100 items-center h-screen bg-[#eee]">
         <div
+          ref={LoginForm}
           className={clsk(
-            "rounded-xl bg-white w-96 p-10 relative transition-all duration-500",
+            "rounded-xl bg-white w-96 p-10 relative transition-all duration-1000",
             Open ? "opacity-100 scale-100" : "opacity-0 scale-50"
           )}
         >
