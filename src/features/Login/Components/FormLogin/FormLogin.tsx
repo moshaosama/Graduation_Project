@@ -63,7 +63,7 @@ const FormLogin = () => {
               {...register("Email", { required: "Email is required" })}
             />
           </p>
-          <p className="text-red-500 font-bold">
+          <p className="font-bold text-red-500">
             {errors.Email?.message as string}
           </p>
 
@@ -78,11 +78,11 @@ const FormLogin = () => {
               {...register("Password", { required: "Password is required" })}
             />
           </p>
-          <p className="text-red-500 font-bold">
+          <p className="font-bold text-red-500">
             {errors.Password?.message as string}
           </p>
 
-          <div className="max-sm:-mx-6 max-sm:mt-4 flex justify-center">
+          <div className="flex justify-center max-sm:-mx-6 max-sm:mt-4">
             <ButtonForm
               Width="full"
               Value={isLoading ? "Loading..." : "Login"}
