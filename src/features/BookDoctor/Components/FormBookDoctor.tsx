@@ -1,10 +1,27 @@
+import { useRef } from "react";
 import { useFormData } from "../Hooks/useFormData";
+import useTransition from "../../../Hooks/useTransition";
+
+const InitialStyle = {
+  opacity: "0",
+  bottom: "40pc",
+};
+
+const Styles = {
+  bottom: "0",
+  opacity: "1",
+};
 
 const FormBookDoctor = () => {
   const { register, handleSubmit, handleFormSubmit, errors } = useFormData();
+  const FormBook = useRef(null);
+  useTransition(FormBook, InitialStyle, Styles);
   return (
     <>
-      <div className="mt-40 mb-10 flex justify-center w-full">
+      <div
+        ref={FormBook}
+        className="mt-40 relative mb-10 flex justify-center w-full transition-all duration-1000"
+      >
         <div className="shadow-lg border-2 border-black w-[40pc] p-4 rounded-lg">
           <h1 className="text-[#184C99] font-bold text-3xl">
             Book An Appointment
