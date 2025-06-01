@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../../../Language/Language";
 import Button from "../../../../Components/Button/Button";
+import { useRef } from "react";
+import useTransition from "../../../../Hooks/useTransition";
+
+const initialStyles = {
+  top: "0px",
+  left: "0px",
+  opacity: "0",
+};
+const Styles = {
+  top: "0px",
+  left: "10pc",
+  opacity: "1",
+};
 
 const HeaderText = () => {
+  const Text = useRef<HTMLDivElement>(null);
+  useTransition(Text, initialStyles, Styles);
   return (
     <div
-      className="absolute top-10 max-2xl:left-40 max-sm:w-fit w-[80pc]   max-sm:relative sm:my-10 max-sm:ml-10  opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex  flex-col gap-10 text-black"
-      id="HeaderText"
+      className="absolute top-[10pc] max-2xl:left-40 max-sm:w-fit w-[80pc]   max-sm:relative sm:my-10 max-sm:ml-10  opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex  flex-col gap-10 text-black"
+      ref={Text}
     >
-      <div className="max-sm:w-[24.5pc] max-sm:-mx-5">
+      <div className="max-sm:w-[24.5pc] max-sm:-mx-5 ">
         <p className="text-[#3790c4] font-bold max-sm:w-fit">
           {ChangeTextByLanguage("من أجل مستقبل أفضل", "For Better Future")}
         </p>
