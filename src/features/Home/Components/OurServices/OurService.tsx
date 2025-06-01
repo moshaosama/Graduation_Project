@@ -1,10 +1,11 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useRef } from "react";
 import { BsHeadset } from "react-icons/bs";
 import { CiSettings } from "react-icons/ci";
 import { FaMessage, FaUserDoctor } from "react-icons/fa6";
 import { MdLocalHospital, MdReviews } from "react-icons/md";
 import useConvertLanguage from "../../../../Hooks/useConvertLanguage";
 import { ChangeTextByLanguage } from "../../../../Language/Language";
+import useTransition from "../../../../Hooks/useTransition";
 
 export const CartService = ({
   Icon,
@@ -28,16 +29,21 @@ export const CartService = ({
   );
 };
 
-window.addEventListener("scroll", () => {
-  const CartService = document.getElementById("CartService");
-  if (window.scrollY >= 1900) {
-    CartService?.style.setProperty("gap", "34px");
-    CartService?.style.setProperty("opacity", "100%");
-  }
-});
-
 const OurService = () => {
   const { language } = useConvertLanguage();
+  const CartServices = useRef(null);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 1900) {
+        useTransition(
+          CartServices,
+          { top: "10pc", opacity: "0" },
+          { top: "20pc", opacity: "1" }
+        );
+      }
+    });
+  }, [CartService]);
   return (
     <>
       <div
@@ -49,16 +55,16 @@ const OurService = () => {
         {language == "English" ? (
           <span className="text-5xl font-bold text-white">خدمتنا</span>
         ) : (
-          <h1 className="text-white text-2xl flex items-center gap-2">
-            our <span className="text-5xl  font-bold">Services</span>
+          <h1 className="flex items-center gap-2 text-2xl text-white">
+            our <span className="text-5xl font-bold">Services</span>
           </h1>
         )}
       </div>
 
       <div className="bg-white max-sm:mx-[14px] rounded-b-xl p-16">
         <div
-          className=" grid grid-cols-3 max-2xl:mx-0 max-sm:grid-cols-1 mx-64 max-sm:-mx-14 gap-28 max-sm:gap-10 opacity-5 max-sm:opacity-100 transition-all duration-500 "
-          id="CartService"
+          className="grid grid-cols-3 mx-64 transition-all duration-1000 max-2xl:mx-0 max-sm:grid-cols-1 max-sm:-mx-14 gap-28 max-sm:gap-10 max-sm:opacity-100"
+          ref={CartServices}
         >
           <CartService
             Icon={<FaUserDoctor className="text-5xl text-blue-700" />}

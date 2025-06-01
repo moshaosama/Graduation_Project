@@ -17,13 +17,6 @@ import EndChatBot from "../Components/EndChatBot";
 import { useCloseChatBotContext } from "../Context/CloseChatBot";
 
 function Home() {
-  useEffect(() => {
-    const HeaderText = document.getElementById("HeaderText");
-    if (HeaderText) {
-      HeaderText.style.setProperty("top", "0");
-      HeaderText.style.setProperty("opacity", "100");
-    }
-  }, []);
   const { isCloseChat } = useCloseChatBotContext();
 
   return (

@@ -20,10 +20,6 @@ const Navbar = () => {
       to: "/",
     },
     {
-      title: ChangeTextByLanguage("خدمات", "Services"),
-      to: "/services",
-    },
-    {
       title: ChangeTextByLanguage("اتصال", "Contact"),
       to: "/contact",
     },
@@ -43,7 +39,7 @@ const Navbar = () => {
       return null;
     }
     return (
-      <div className="absolute z-50 top-0 max-sm:hidden" id="ImageBlue">
+      <div className="absolute top-0 z-50 max-sm:hidden" id="ImageBlue">
         <img
           src="WhatsApp_Image_2025-02-26_at_15.18.19_4b4a77c1-removebg-preview.png"
           alt="Header.png"
@@ -112,7 +108,7 @@ const Navbar = () => {
               )}
               {!Token ? (
                 <Link to={"/joinnewdoctor"}>
-                  <p className="hover:underline cursor-pointer text-gray-600 font-semibold">
+                  <p className="font-semibold text-gray-600 cursor-pointer hover:underline">
                     For_Doctors
                   </p>
                 </Link>

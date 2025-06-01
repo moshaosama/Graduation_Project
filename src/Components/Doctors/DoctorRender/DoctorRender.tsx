@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo } from "react";
+import React, { Suspense, useMemo, useRef } from "react";
 import { FaStethoscope } from "react-icons/fa";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { GrMoney } from "react-icons/gr";
@@ -7,18 +7,29 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../Store/Store";
 import { ChangeTextByLanguage } from "../../../Language/Language";
 import { Link } from "react-router-dom";
+import useTransition from "../../../Hooks/useTransition";
 
 const BookDoctor = React.lazy(() => import("../../BookDoctor/BookDoctor"));
+
+const initalStyle = {
+  left: "24pc",
+  opacity: "-1",
+};
+
+const Styles = {
+  left: "0px",
+  opacity: "1",
+};
 
 const DoctorRender = () => {
   const Doctors = JSON.parse(window.localStorage.getItem("Doctors")!);
   const state = useSelector((state: RootState) => state.allDoctor);
-
-  // console.log(Doctors?.result?.Gender);
+  const CardDoctor = useRef(null);
+  useTransition(CardDoctor, initalStyle, Styles);
 
   const DoctorsRender = useMemo(() => {
     return (
-      <>
+      <div ref={CardDoctor} className="relative transition-all duration-1000">
         {Doctors?.result?.length !== 0
           ? Doctors?.result?.map((el: any, index: number) => {
               return (
@@ -28,7 +39,7 @@ const DoctorRender = () => {
                 >
                   <div className="flex justify-between">
                     <div className="flex flex-col">
-                      <div className="flex gap-5 max-sm:gap-10 items-center">
+                      <div className="flex items-center gap-5 max-sm:gap-10">
                         <div>
                           <img
                             src={
@@ -41,7 +52,7 @@ const DoctorRender = () => {
                             loading="lazy"
                           />
                         </div>
-                        <div className="flex flex-col mx-3 text-sm items-start justify-center">
+                        <div className="flex flex-col items-start justify-center mx-3 text-sm">
                           <p className="text-blue-500">
                             <span className="text-sm">Dr /</span>
                             <span className="font-bold text-md">{el.Name}</span>
@@ -54,34 +65,34 @@ const DoctorRender = () => {
                           />
                         </div>
                       </div>
-                      <div className="my-1 mx-32 flex flex-col max-sm:mx-0 max-sm:mt-10 gap-2">
-                        <div className="flex gap-3 items-center">
+                      <div className="flex flex-col gap-2 mx-32 my-1 max-sm:mx-0 max-sm:mt-10">
+                        <div className="flex items-center gap-3">
                           <FaStethoscope className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             {el?.Specialty_name}
                           </p>
                         </div>
-                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-3">
                           <IoLocationSharp className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             {el?.Clinic}
                           </p>
                         </div>
-                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-3">
                           <GrMoney className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             {el?.ConsultationFee} EGB
                           </p>
                         </div>
-                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-3">
                           <FaPhoneFlip className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             16676 - Cost of regular call
                           </p>
                         </div>
                         <div className="sm:hidden ">
                           <Link to={`/doctors/${el?.DoctorID}`}>
-                            <button className="bg-red-500 text-white p-2 rounded-xl">
+                            <button className="p-2 text-white bg-red-500 rounded-xl">
                               {ChangeTextByLanguage(
                                 "عرض الملف الشخصي",
                                 "View Profile"
@@ -106,7 +117,7 @@ const DoctorRender = () => {
                 >
                   <div className="flex justify-between">
                     <div className="flex flex-col">
-                      <div className="flex gap-5 items-center">
+                      <div className="flex items-center gap-5">
                         <div>
                           <img
                             src="https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
@@ -115,7 +126,7 @@ const DoctorRender = () => {
                             loading="lazy"
                           />
                         </div>
-                        <div className="flex flex-col mx-3 text-sm items-start justify-center">
+                        <div className="flex flex-col items-start justify-center mx-3 text-sm">
                           <p className="text-blue-500">
                             <span className="text-sm">Dr /</span>
                             <span className="font-bold text-md">{el.Name}</span>
@@ -128,28 +139,28 @@ const DoctorRender = () => {
                           />
                         </div>
                       </div>
-                      <div className="my-1 mx-32 flex flex-col gap-2">
-                        <div className="flex gap-3 items-center">
+                      <div className="flex flex-col gap-2 mx-32 my-1">
+                        <div className="flex items-center gap-3">
                           <FaStethoscope className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             {el?.Specialty_name}
                           </p>
                         </div>
-                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-3">
                           <IoLocationSharp className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             {el?.Clinic}
                           </p>
                         </div>
-                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-3">
                           <GrMoney className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             {el?.ConsultationFee} EGB
                           </p>
                         </div>
-                        <div className="flex gap-3 items-center">
+                        <div className="flex items-center gap-3">
                           <FaPhoneFlip className="text-blue-500" />
-                          <p className="text-md font-semibold text-gray-600">
+                          <p className="font-semibold text-gray-600 text-md">
                             16676 - Cost of regular call
                           </p>
                         </div>
@@ -160,7 +171,7 @@ const DoctorRender = () => {
                 </div>
               );
             })}
-      </>
+      </div>
     );
   }, [Doctors, state.data]);
   return <>{DoctorsRender}</>;
