@@ -1,8 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { AppDispatch, RootState } from "../../../Store/Store";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { fetchFindDoctorByID } from "../Actions/FindDoctorByID";
+import useTransition from "../../../Hooks/useTransition";
+
+const InitialStyle = {
+  right: "100pc",
+};
+const Styles = {
+  right: "10pc",
+};
 
 interface DoctorType {
   data: {
@@ -20,20 +28,23 @@ interface DoctorType {
 
 const DetailsDoctor = () => {
   const { id } = useParams();
+  const CardDoctor = useRef(null);
   const Doctor = useSelector(
     (state: RootState) => state.DoctorByID
   ) as DoctorType;
   const dispatch = useDispatch<AppDispatch>();
+  useTransition(CardDoctor, InitialStyle, Styles);
 
   useEffect(() => {
     dispatch(fetchFindDoctorByID(id as string));
   }, [id]);
 
-  console.log(id, Doctor);
-
   return (
     <>
-      <div className="absolute right-40 -bottom-28 max-sm:right-20">
+      <div
+        ref={CardDoctor}
+        className="absolute  -bottom-28 max-sm:right-20 transition-all duration-1000"
+      >
         <div className="bg-white p-6 rounded-xl shadow-lg shadow-black">
           <div className="flex flex-col gap-6 justify-start">
             <img
