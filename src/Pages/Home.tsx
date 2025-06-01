@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { memo } from "react";
 import FindDoctorsWep from "../features/findDoctor/Components/findDoctorsWep";
 
 import HeaderText from "../features/Home/Components/HeaderText/HeaderText";

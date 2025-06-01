@@ -1,12 +1,23 @@
 import { Link, useParams } from "react-router-dom";
 import { MdOutlineHealthAndSafety } from "react-icons/md";
 import { ImageFemale, ImageMale } from "../../../Utils/Images";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllDoctor } from "../../../Store/Reducer/AllDoctor/AllDoctor";
 import { RootState, AppDispatch } from "../../../Store/Store";
+import useTransition from "../../../Hooks/useTransition";
+
+const initalStyle = {
+  gap: "60pc",
+};
+
+const Styles = {
+  gap: "4pc",
+};
 
 const DetailsProfileDoctor = () => {
+  const AboutDoctor = useRef(null);
+  useTransition(AboutDoctor, initalStyle, Styles);
   const { id } = useParams();
   const Doctors = useSelector((state: RootState) => state.allDoctor);
   const dispatch = useDispatch<AppDispatch>();
@@ -22,8 +33,8 @@ const DetailsProfileDoctor = () => {
 
   if (!Doctor) {
     return (
-      <div className="w-full text-center py-20">
-        <h1 className="text-xl text-red-600 font-bold">
+      <div className="w-full py-20 text-center">
+        <h1 className="text-xl font-bold text-red-600">
           Doctor not found or still loading...
         </h1>
       </div>
@@ -32,26 +43,29 @@ const DetailsProfileDoctor = () => {
 
   return (
     <form>
-      <div className="w-full px-6 md:px-10 max-2xl:-ml-14 max-2xl:w-full">
-        <div className="text-gray-500 font-semibold flex items-center gap-2 ">
+      <div className="w-full relative right-12 px-6 md:px-10 max-2xl:-ml-14 max-2xl:w-full">
+        <div className="flex items-center gap-2 font-semibold text-gray-500 ">
           <h1 className="underline cursor-pointer">Home</h1> {">"}
           <h1 className="underline cursor-pointer">Find a specialist</h1>
         </div>
 
-        <div className="my-10 flex flex-col md:flex-row gap-5">
+        <div
+          ref={AboutDoctor}
+          className="flex flex-col gap-10 my-10 transition-all duration-1000 md:flex-row"
+        >
           <img
             src={Doctor?.Gender === "Male" ? ImageMale : ImageFemale}
             alt="ImageDoctor.png"
             loading="lazy"
             decoding="async"
-            className="w-52 object-cover rounded self-center"
+            className="self-center object-cover rounded w-52"
           />
 
           <div className="flex flex-col justify-between gap-5">
             <div className="space-y-4">
               {/* Name Field */}
               <div className="flex items-center gap-4">
-                <h1 className="text-blue-700 text-xl font-bold flex items-center gap-4">
+                <h1 className="flex items-center gap-4 text-xl font-bold text-blue-700">
                   {Doctor.Name}
                 </h1>
               </div>
@@ -59,14 +73,14 @@ const DetailsProfileDoctor = () => {
               {/* Specialty Field */}
               <div className="flex items-center gap-4">
                 <MdOutlineHealthAndSafety className="text-2xl text-blue-400" />
-                <h1 className="font-semibold flex items-center gap-4">
+                <h1 className="flex items-center gap-4 font-semibold">
                   {Doctor.Specialty_name}
                 </h1>
               </div>
 
               {/* Location Field */}
               <div className="flex items-center gap-4">
-                <p className="text-gray-700 font-medium">
+                <p className="font-medium text-gray-700">
                   {Doctor?.Location || "No Location"}
                 </p>
               </div>
@@ -79,14 +93,14 @@ const DetailsProfileDoctor = () => {
               </div>
             </div>
 
-            <div className="border font-semibold hover:bg-red-500 hover:text-black cursor-pointer transition-all duration-300 border-red-500 w-fit px-3 py-1 rounded-full">
+            <div className="px-3 py-1 font-semibold transition-all duration-300 border border-red-500 rounded-full cursor-pointer hover:bg-red-500 hover:text-black w-fit">
               <p>01015151515</p>
             </div>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row max-2xl:w-full justify-between items-center gap-4 w-[165dvh] max-sm:w-full">
-          <div className="flex gap-4 items-center">
+          <div className="flex items-center gap-4">
             <img
               src="/1_k5m8q1rRpdQ-H5NogaHnBQ-removebg-preview.png"
               alt="Rating.png"
@@ -94,25 +108,25 @@ const DetailsProfileDoctor = () => {
               decoding="async"
               className="w-24"
             />
-            <h1 className="text-blue-500 font-bold">4.0 (6 ratings)</h1>
+            <h1 className="font-bold text-blue-500">4.0 (6 ratings)</h1>
             <a
               href="#leaveReview"
-              className="text-blue-500 font-bold hover:underline"
+              className="font-bold text-blue-500 hover:underline"
             >
               Leave a review
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2 items-center max-2xl:ml-56">
+          <div className="flex flex-col items-center gap-2 sm:flex-row max-2xl:ml-56">
             <Link to={"bookdoctor"}>
-              <div className="bg-red-600 text-white cursor-pointer font-semibold hover:bg-red-400 transition-all duration-500 px-5 py-2 rounded-xl shadow-lg">
+              <div className="px-5 py-2 font-semibold text-white transition-all duration-500 bg-red-600 shadow-lg cursor-pointer hover:bg-red-400 rounded-xl">
                 <h1>Book Tomorrow (01:00 PM - 04:00 PM)</h1>
               </div>
             </Link>
           </div>
         </div>
 
-        <hr className="my-10 h-1" />
+        <hr className="h-1 my-10" />
       </div>
     </form>
   );
