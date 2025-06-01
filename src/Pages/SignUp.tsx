@@ -1,12 +1,25 @@
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { memo, useEffect } from "react";
+import { memo, useEffect, useRef } from "react";
 import FormSignUp from "../features/SignUp/Components/FormSignUp/FormSignUp";
 import useOpenWindow from "../Hooks/useOpenWindow";
 import clsx from "clsx";
+import useTransition from "../Hooks/useTransition";
+
+const initalStyle = {
+  opacity: "0",
+  transform: "scale(0)",
+};
+
+const Styles = {
+  opacity: "1",
+  transform: "scale(1)",
+};
 
 const SignUp = () => {
   const { Open } = useOpenWindow();
+  const SignUpForm = useRef(null);
+  useTransition(SignUpForm, initalStyle, Styles);
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const user = JSON.parse(decodeURIComponent(params.get("user")!));
@@ -23,13 +36,14 @@ const SignUp = () => {
   return (
     <div className="flex justify-center items-center  h-screen bg-[#eee]">
       <div
+        ref={SignUpForm}
         className={clsx(
-          "rounded-xl bg-white w-[40pc] max-sm:w-[25pc] p-10 relative max-sm:my-5 transition-all duration-500",
+          "rounded-xl bg-white w-[40pc] max-sm:w-[25pc] p-10 relative max-sm:my-5 transition-all duration-1000",
           Open ? "opacity-100 scale-100" : "opacity-0 scale-50"
         )}
       >
-        <div className="bg-blue-500 w-full rounded-tr-lg rounded-tl-lg absolute top-0 left-0">
-          <h1 className="text-center text-white font-bold p-1">Sign Up</h1>
+        <div className="absolute top-0 left-0 w-full bg-blue-500 rounded-tl-lg rounded-tr-lg">
+          <h1 className="p-1 font-bold text-center text-white">Sign Up</h1>
         </div>
         <FormSignUp />
         <div
