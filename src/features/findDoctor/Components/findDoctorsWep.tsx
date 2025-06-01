@@ -1,7 +1,8 @@
 import { FaStethoscope } from "react-icons/fa";
 import { CgFolderAdd } from "react-icons/cg";
 import { CiSearch } from "react-icons/ci";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import useTransition from "../../../Hooks/useTransition";
 import "../../../App.css";
 import SpecialityCard from "../../../Components/Card/SpecialityCard";
 import { ChangeTextByLanguage, Traslation } from "../../../Language/Language";
@@ -15,6 +16,17 @@ const FindDoctorsWep = () => {
     () => JSON.stringify(window.localStorage.getItem("Language")!),
     []
   );
+  const FilterSpeciality = useRef(null);
+  const initialStyle = {
+    top: "20pc",
+    opacity: "0",
+  };
+
+  const Styles = {
+    top: "26pc",
+    opacity: "1",
+  };
+  useTransition(FilterSpeciality, initialStyle, Styles);
 
   const [data, setData] = useState({
     Speciality: ChangeTextByLanguage("أختار التخصص", "Choose specialty"),
@@ -71,21 +83,12 @@ const FindDoctorsWep = () => {
     ELement?.classList.add("Active");
   };
 
-  useEffect(() => {
-    const findDoctorContainer = document.getElementById("findDoctorContainer");
-
-    if (findDoctorContainer) {
-      findDoctorContainer.style.setProperty("top", "26pc");
-      findDoctorContainer.style.setProperty("opacity", "100%");
-    }
-  });
-
   return (
     <>
       <div>
         <div
-          className="bg-white max-2xl:w-[67pc] max-2xl:left-40 shadow-2xl w-[80pc] transition-all duration-500 opacity-5 text-[rgb(116,116,112)] p-5 z-50 absolute top-[20pc] left-80  rounded-2xl"
-          id="findDoctorContainer"
+          ref={FilterSpeciality}
+          className="bg-white max-2xl:w-[67pc] max-2xl:left-40 shadow-2xl w-[80pc] transition-all duration-1000  text-[rgb(116,116,112)] p-5 z-50 absolute  left-80  rounded-2xl"
         >
           <div
             className={`flex ${
@@ -164,8 +167,8 @@ const FindDoctorsWep = () => {
                 } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
               >
                 <div className="flex items-center gap-5">
-                  <CiSearch className="text-white text-3xl font-bold" />
-                  <h1 className="text-white font-semibold">Search</h1>
+                  <CiSearch className="text-3xl font-bold text-white" />
+                  <h1 className="font-semibold text-white">Search</h1>
                 </div>
               </div>
             </div>
