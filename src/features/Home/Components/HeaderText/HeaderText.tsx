@@ -20,7 +20,7 @@ const HeaderText = () => {
   useTransition(Text, initialStyles, Styles);
   return (
     <div
-      className="absolute top-[10pc] max-2xl:left-40 max-sm:w-fit w-[80pc]   max-sm:relative sm:my-10 max-sm:ml-10  opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex  flex-col gap-10 text-black"
+      className="absolute top-[10pc] max-2xl:left-40 max-sm:w-fit w-[80pc]   max-sm:relative sm:my-10 max-sm:-ml-28  opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex  flex-col gap-10 text-black"
       ref={Text}
     >
       <div className="max-sm:w-[24.5pc] max-sm:-mx-5 ">

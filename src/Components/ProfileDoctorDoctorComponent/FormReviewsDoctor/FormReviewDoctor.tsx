@@ -40,7 +40,7 @@ const FormReviewDoctor = () => {
 
   return (
     <>
-      <div className="bg-gray-300 relative right-5 mt-10 w-full max-sm:w-96 p-4 rounded-lg shadow-md">
+      <div className="bg-gray-300 relative right-5 max-sm:right-1 mt-10 w-full max-sm:w-[23pc] p-4 rounded-lg shadow-md">
         <h1 className="text-xl font-semibold">Leave a review</h1>
         <p>
           How was your experience with DR.{" "}

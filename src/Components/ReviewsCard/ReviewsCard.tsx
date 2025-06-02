@@ -42,7 +42,7 @@ const ReviewsCard = () => {
       {state?.data?.result?.length > 0 ? (
         state.data.result.map((el: ReviewCartType) => (
           <div
-            className="w-full right-5 relative max-sm:w-96 mt-5 mb-3 rounded-xl transition-all duration-1000 shadow-xl border-[3px] p-4 border-solid"
+            className="w-full right-5 max-sm:right-2  relative max-sm:w-[23pc] mt-5 mb-3 rounded-xl transition-all duration-1000 shadow-xl border-[3px] p-4 border-solid"
             key={el.id}
             ref={ReviewsCard}
           >

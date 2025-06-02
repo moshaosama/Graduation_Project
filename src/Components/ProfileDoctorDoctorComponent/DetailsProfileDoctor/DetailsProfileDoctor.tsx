@@ -43,7 +43,7 @@ const DetailsProfileDoctor = () => {
 
   return (
     <form>
-      <div className="w-full relative right-12 px-6 md:px-10 max-2xl:-ml-14 max-2xl:w-full">
+      <div className="w-full relative right-12 px-6 md:px-10 max-2xl:-ml-14 max-sm:mx-10 max-2xl:w-full">
         <div className="flex items-center gap-2 font-semibold text-gray-500 ">
           <h1 className="underline cursor-pointer">Home</h1> {">"}
           <h1 className="underline cursor-pointer">Find a specialist</h1>
@@ -117,9 +117,9 @@ const DetailsProfileDoctor = () => {
             </a>
           </div>
 
-          <div className="flex flex-col items-center gap-2 sm:flex-row max-2xl:ml-56">
+          <div className="flex flex-col  items-center gap-2 sm:flex-row max-2xl:ml-56">
             <Link to={"bookdoctor"}>
-              <div className="px-5 py-2 font-semibold text-white transition-all duration-500 bg-red-600 shadow-lg cursor-pointer hover:bg-red-400 rounded-xl">
+              <div className="px-5 py-2 font-semibold text-white transition-all duration-500 bg-red-600 max-sm:w-80 max-sm:relative max-sm:right-28 shadow-lg cursor-pointer hover:bg-red-400 rounded-xl">
                 <h1>Book Tomorrow (01:00 PM - 04:00 PM)</h1>
               </div>
             </Link>
