@@ -14,7 +14,6 @@ export const useFormData = () => {
   } = useForm();
   const { id } = useParams();
   const Navigate = useNavigate();
-
   const User = JSON.parse(window.localStorage.getItem("User")!);
   const Doctor: any = useSelector((state: RootState) => state.DoctorByID);
   const dispatch = useDispatch<AppDispatch>();
