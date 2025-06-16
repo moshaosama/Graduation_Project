@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../../../Language/Language";
 import Button from "../../../../Components/Button/Button";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import useTransition from "../../../../Hooks/useTransition";
 
 const initialStyles = {
@@ -18,6 +18,24 @@ const Styles = {
 const HeaderText = () => {
   const Text = useRef<HTMLDivElement>(null);
   useTransition(Text, initialStyles, Styles);
+  const Texts = ["Feel better about finding healthcare"];
+  const [startText, setStartText] = useState("");
+
+  useEffect(() => {
+    let currentIndex = 1;
+    const interval = setInterval(async () => {
+      if (currentIndex <= Texts[0].length) {
+        setStartText(Texts[0].slice(0, currentIndex));
+        currentIndex++;
+      } else {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        currentIndex = 1;
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div
       className="absolute top-[10pc] max-2xl:left-40 max-sm:w-fit w-[80pc]   max-sm:relative sm:my-10 max-sm:-ml-28  opacity-15 transition-all duration-1000 left-80 max-sm:left-0 flex  flex-col gap-10 text-black"
@@ -30,7 +48,7 @@ const HeaderText = () => {
         <h1 className="text-blue-700 font-bold text-5xl w-[33pc] max-sm:w-[20pc] max-sm:text-3xl">
           {ChangeTextByLanguage(
             "اشعر بتحسن بشأن العثور على الرعاية الصحية",
-            "Feel better about finding healthcare"
+            startText + "|"
           )}
         </h1>
       </div>
