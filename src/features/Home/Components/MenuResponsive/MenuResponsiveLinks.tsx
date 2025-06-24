@@ -1,40 +1,35 @@
-import { IoMdArrowDropright } from "react-icons/io";
-import clsk from "clsx";
+import { FaX } from "react-icons/fa6";
 import { useOpenMenu } from "../../../../Context/OpenMenuProvider";
+import clsx from "clsx";
 import { Link, NavLink } from "react-router";
-import { ChangeTextByLanguage } from "../../../../Language/Language";
-import useConvertLanguage from "../../../../Hooks/useConvertLanguage";
 import useGetDoctor from "../../../Profile/Hook/useGetDoctor";
+import useConvertLanguage from "../../../../Hooks/useConvertLanguage";
+import { ChangeTextByLanguage } from "../../../../Language/Language";
 
 const MenuResponsiveLinks = () => {
   const { OpenMenu, toggleMenu } = useOpenMenu();
-  const { toggleLanguage } = useConvertLanguage();
   const Token = window.localStorage.getItem("Token");
   const { User } = useGetDoctor();
-
-  if (!User) {
-    return <div>Loading user data...</div>;
-  }
+  const { toggleLanguage } = useConvertLanguage();
   return (
     <>
       <div
-        className={clsk(
-          "absolute top-0 right-0 h-full w-0 z-50 bg-blue-500 duration-500 transition-[width]",
-          OpenMenu ? "w-80" : "w-0"
+        className={clsx(
+          "overflow-hidden fixed top-0 right-0 z-50 p-5 h-full bg-blue-300 transition-all duration-700",
+          OpenMenu ? "w-full opacity-100" : "w-0 opacity-0"
         )}
       >
-        <div className="text-white m-5 flex items-center justify-between">
-          <Link to={"/"} onClick={toggleMenu}>
-            <div className="flex gap-2">
-              <img
-                src="/WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
-                alt="Brand.png"
-                className="w-8"
-              />
-              <h1 className="text-2xl font-semibold">MediPulse</h1>
-            </div>
-          </Link>
-          <IoMdArrowDropright className="text-5xl" onClick={toggleMenu} />
+        <div className="flex justify-between">
+          <div onClick={toggleMenu}>
+            <FaX size={30} />
+          </div>
+          <div>
+            <img
+              src="/WhatsApp_Image_2025-02-26_at_15.32.48_0ec7bdab-removebg-preview.png"
+              alt="Brand.png"
+              className="w-8"
+            />
+          </div>
         </div>
 
         {Token && User && (
@@ -42,14 +37,14 @@ const MenuResponsiveLinks = () => {
             to={User?.Status === "Doctor" ? "/profile-doctor" : "/profile/info"}
             onClick={toggleMenu}
           >
-            <div className="border-2 p-2 border-solid mb-5 flex items-center gap-5">
+            <div className="flex gap-5 items-center p-2 mb-5 border-2 border-solid">
               <div>
                 <img
                   src={
                     User?.photos?.[0]?.value || "download-removebg-preview.png"
                   }
                   alt="Person.png"
-                  className="w-16 rounded-full object-fill"
+                  className="object-fill w-16 rounded-full"
                 />
               </div>
               <div className="text-white">
@@ -98,14 +93,17 @@ const MenuResponsiveLinks = () => {
             My Appointments
           </NavLink>
         </div>
-        <div className="absolute bottom-5 w-72 flex justify-between">
+
+        <div className="flex absolute bottom-5 justify-between w-80">
           <div
-            className="mx-5 font-extrabold text-lg text-white"
+            className="mx-5 text-lg font-extrabold text-white"
             onClick={toggleLanguage}
           >
-            <h1>{ChangeTextByLanguage("English", "عربي")}</h1>
+            <h1 className="text-black">
+              {ChangeTextByLanguage("English", "عربي")}
+            </h1>
           </div>
-          <div className="text-xl -mx-5 text-white flex items-center gap-1">
+          <div className="flex gap-1 items-center -mx-5 text-xl text-black">
             <img
               src="/Flag_of_the_United_Kingdom_(1-2).svg.png"
               alt="ENG.flag"
