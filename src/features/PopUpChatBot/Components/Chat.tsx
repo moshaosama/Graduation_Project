@@ -25,10 +25,10 @@ const Chat = () => {
     <div className="relative">
       <div
         className={clsx(
-          "overflow-hidden fixed bottom-28 z-50 bg-white rounded-xl border-2 border-gray-700 border-solid transition-all duration-300 w-[33pc] max-sm:w-[24pc] h-[30pc]",
+          "overflow-hidden fixed bottom-28 bg-white rounded-xl border-2 border-gray-700 border-solid transition-all duration-300 w-[33pc] max-sm:w-[24pc] h-[30pc]",
           isOpenChat
-            ? "right-4 mr-0 opacity-100"
-            : "right-0 opacity-0 mr-[50pc]"
+            ? "right-4 z-50 mr-0 opacity-100"
+            : "right-0 z-0 opacity-0 mr-[100pc]"
         )}
       >
         <HeaderChat />
