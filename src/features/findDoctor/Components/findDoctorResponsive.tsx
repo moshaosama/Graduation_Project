@@ -48,18 +48,16 @@ const findDoctorResponsive = () => {
   };
 
   return (
-    <div className="flex justify-center w-full mx-2">
+    <div className="flex justify-center mx-2 w-full">
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
-        className="border-2 grid grid-cols-2 gap-3 border-gray-300 p-2 w-96 rounded-xl"
+        className="grid grid-cols-2 gap-3 p-2 w-96 rounded-xl border-2 border-gray-300"
       >
         <select
           className="p-5 bg-[#184c9928] col-span-2 rounded-xl font-bold border-2"
-          {...register("Speciality", {
-            required: "Speciality is required",
-          })}
+          {...register("Speciality")}
         >
-          <option selected>Choose a specialty</option>
+          <option>Choose a specialty</option>
           {Speciality.data?.result?.map(
             (Speciality: { Specialty_name: string }, index: number) => (
               <option key={index} value={Speciality.Specialty_name}>
@@ -75,7 +73,7 @@ const findDoctorResponsive = () => {
             required: "City is required",
           })}
         >
-          <option selected>Choose City</option>
+          <option>Choose City</option>
           {Location.data?.result?.map(
             (Location: { Location: string }, index: number) => (
               <option key={index} value={Location.Location}>
@@ -86,11 +84,9 @@ const findDoctorResponsive = () => {
         </select>
         <select
           className="p-5 bg-[#184c9928] col-span-1 rounded-xl font-bold"
-          {...register("Area", {
-            required: "Area is required",
-          })}
+          {...register("Area")}
         >
-          <option selected>Choose Facility</option>
+          <option>Choose Facility</option>
           {Area.data?.result?.map(
             (Clinic: { Clinic: string }, index: number) => (
               <option key={index} value={Clinic.Clinic}>
