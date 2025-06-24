@@ -15,8 +15,8 @@ const MenuResponsiveLinks = () => {
     <>
       <div
         className={clsx(
-          "overflow-hidden fixed top-0 right-0 z-50 p-5 h-full bg-blue-300 transition-all duration-700",
-          OpenMenu ? "w-full opacity-100" : "w-0 opacity-0"
+          "overflow-hidden fixed top-0 right-0 z-50 h-full bg-blue-300 transition-all duration-700",
+          OpenMenu ? "p-5 w-full opacity-100" : "w-0"
         )}
       >
         <div className="flex justify-between">
@@ -37,7 +37,7 @@ const MenuResponsiveLinks = () => {
             to={User?.Status === "Doctor" ? "/profile-doctor" : "/profile/info"}
             onClick={toggleMenu}
           >
-            <div className="flex gap-5 items-center p-2 mb-5 border-2 border-solid">
+            <div className="flex gap-5 items-center p-2 mt-10 mb-5 border-2 border-solid">
               <div>
                 <img
                   src={
@@ -66,6 +66,20 @@ const MenuResponsiveLinks = () => {
           <NavLink to={"/service"} className="p-5 font-bold">
             Services
           </NavLink>
+
+          {User ? null : (
+            <NavLink to={"/joinnewdoctor"} className="p-5 font-bold">
+              For_Doctors
+            </NavLink>
+          )}
+          <NavLink to={"/contact"} className="p-5 font-bold">
+            Contact
+          </NavLink>
+          <NavLink to={"/myappointments"} className="p-5 font-bold">
+            My Appointments
+          </NavLink>
+        </div>
+        <div className="mt-5">
           {!Token ? (
             <NavLink to={"/login"} className="p-5 font-bold">
               Login
@@ -81,17 +95,6 @@ const MenuResponsiveLinks = () => {
               Logout
             </div>
           )}
-          {User ? null : (
-            <NavLink to={"/joinnewdoctor"} className="p-5 font-bold">
-              For_Doctors
-            </NavLink>
-          )}
-          <NavLink to={"/contact"} className="p-5 font-bold">
-            Contact
-          </NavLink>
-          <NavLink to={"/myappointments"} className="p-5 font-bold">
-            My Appointments
-          </NavLink>
         </div>
 
         <div className="flex absolute bottom-5 justify-between w-80">
