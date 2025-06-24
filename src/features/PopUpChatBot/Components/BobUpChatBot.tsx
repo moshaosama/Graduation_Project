@@ -13,15 +13,15 @@ const BobUpChatBot = () => {
         <div
           onClick={handleTriggerChat}
           className={clsx(
-            "w-16 h-16 flex justify-center items-center bg-blue-300 rounded-full fixed bottom-10 right-10 cursor-pointer transition-all duration-300"
+            "flex fixed right-10 bottom-10 justify-center items-center w-16 h-16 bg-blue-300 rounded-full transition-all duration-300 cursor-pointer"
           )}
         >
           <FaRobot className="text-3xl text-white" />
         </div>
         <div
           className={clsx(
-            "w-16 h-16 flex justify-center items-center bg-blue-300 rounded-full fixed bottom-10 cursor-pointer transition-all duration-300",
-            isOpen ? "opacity-100 left-10" : "opacity-0 left-0"
+            "flex fixed bottom-10 justify-center items-center w-16 h-16 bg-blue-300 rounded-full transition-all duration-300 cursor-pointer",
+            isOpen ? "left-10 opacity-100" : "left-0 opacity-0"
           )}
         >
           <a href="#Navbar">
