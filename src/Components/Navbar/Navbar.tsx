@@ -12,7 +12,7 @@ const NavbarDetails = lazy(() => import("./NavbarDetails/NavbarDetails"));
 
 const Navbar = () => {
   const { LogoBrand, TextLogo } = style;
-  const { toggleMenu, OpenMenu } = useOpenMenu();
+  const { toggleMenu } = useOpenMenu();
   const Token = localStorage.getItem("Token");
   const LinksPages = [
     {
