@@ -13,6 +13,7 @@ const ProfileUser = () => {
           {DetailsList.map((el) => (
             <NavLink
               to={el.link}
+              key={el.id}
               className={`${el.id == 1 ? "rounded-t-lg" : null} ${
                 el.id == 3 ? "rounded-b-lg" : null
               }  p-1`}

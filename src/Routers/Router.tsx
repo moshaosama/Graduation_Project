@@ -1,9 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import Layout from "../Layout/layout";
-import NotFound from "../Pages/NotFound";
 import Home from "../Pages/Home";
-import InfoProfile from "../Components/ProfileData/infoProfile";
-import ChangePassword from "../Components/ProfileData/changePassword";
+import InfoProfile from "../features/ProfileData/Components/infoProfile";
+import ChangePassword from "../features/ProfileData/Components/changePassword";
 import { RouterProvider } from "react-router-dom";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
@@ -28,12 +27,13 @@ import OpenRescheduleProvider from "../features/MyAppointments/Context/OpenResch
 import { TermsService } from "../Pages/TermsService";
 import { ChatBot } from "../Pages/ChatBot";
 import { CloseChatBotProvider } from "../Context/CloseChatBot";
+import Processing from "../Pages/Processing";
 const Router_pages = () => {
   const Router = createBrowserRouter([
     {
       path: "",
       element: <Layout />,
-      errorElement: <NotFound />,
+      errorElement: <Processing />,
       children: [
         {
           index: true,

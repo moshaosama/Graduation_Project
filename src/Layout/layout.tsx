@@ -5,6 +5,7 @@ import CopyRight from "../Components/CopyRight";
 
 const Layout = () => {
   const location = useLocation().pathname;
+
   return (
     <>
       {location == "/login" ||
