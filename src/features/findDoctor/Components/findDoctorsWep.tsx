@@ -1,7 +1,7 @@
 import { FaStethoscope } from "react-icons/fa";
 import { CgFolderAdd } from "react-icons/cg";
 import { CiSearch } from "react-icons/ci";
-import { useMemo, useRef, useState } from "react";
+import { useState } from "react";
 import useTransition from "../../../Hooks/useTransition";
 import "../../../App.css";
 import SpecialityCard from "../../../Components/Card/SpecialityCard";
@@ -11,42 +11,24 @@ import ChooseDropDown from "../../../Components/ChooseDropdown/ChooseDropDown";
 import { fetchSpeciality } from "../../../Store/Reducer/Speciality/SpecialityReducer";
 import SpecialityCardListRender from "./SpecialityCardListRender";
 
+import useGetLanguage from "../../../Hooks/useGetLanguage";
+import { useGetDoctorsData } from "../Hook/useGetDoctorsData";
+
 const FindDoctorsWep = () => {
-  const Language = useMemo(
-    () => JSON.stringify(window.localStorage.getItem("Language")!),
-    []
-  );
-  const FilterSpeciality = useRef(null);
-  const initialStyle = {
-    top: "20pc",
-    opacity: "0",
-  };
-
-  const Styles = {
-    top: "26pc",
-    opacity: "1",
-  };
+  const { Language } = useGetLanguage();
+  const {
+    FilterSpeciality,
+    Styles,
+    initialStyle,
+    setData,
+    data,
+    hancleClick,
+    handleClickSave,
+    handleSpecialityState,
+    DropDownState,
+    setDropDownState,
+  } = useGetDoctorsData();
   useTransition(FilterSpeciality, initialStyle, Styles);
-
-  const [data, setData] = useState({
-    Speciality: ChangeTextByLanguage("أختار التخصص", "Choose specialty"),
-    City: ChangeTextByLanguage("القاهره", "Choose city"),
-    Area: ChangeTextByLanguage("اختار المنطقه", "Choose area"),
-  });
-
-  const [DropDownState, setDropDownState] = useState({
-    Speciality: false,
-    Location: false,
-    Area: false,
-  });
-
-  const handleSpecialityState = () => {
-    setDropDownState({
-      ...DropDownState,
-      Speciality: !DropDownState.Speciality,
-    });
-    window.scrollTo({ top: 510, behavior: "smooth" });
-  };
 
   const [ActiveSpecialityCard, setActiveSpecialityCard] =
     useState<boolean>(true);
@@ -73,15 +55,6 @@ const FindDoctorsWep = () => {
       onclick: () => setActiveSpecialityCard(false),
     },
   ];
-
-  const hancleClick = (id: string) => {
-    const ELement = document.getElementById(id);
-    const allElements = document.querySelectorAll(".Active");
-    allElements.forEach((ele) => {
-      ele.classList.remove("Active");
-    });
-    ELement?.classList.add("Active");
-  };
 
   return (
     <>
@@ -136,7 +109,7 @@ const FindDoctorsWep = () => {
               className={`rounded-xl flex ${Traslation.ConvertFLex} justify-center items-center mx-[26pc]`}
             >
               <SpecialityCard
-                Title={"Choose specialty"}
+                Title={data.Speciality}
                 Label={"Select a specialty"}
                 Width="72"
                 lengthZero={true}
@@ -165,8 +138,9 @@ const FindDoctorsWep = () => {
                 className={`h-[4.9pc] border border-solid ${
                   Language == "English" ? "rounded-l-xl" : "rounded-r-xl"
                 } bg-blue-700 cursor-pointer hover:bg-blue-950 transition-all duration-500  border-[#9b9b9b] flex items-center justify-center w-96`}
+                onClick={handleClickSave}
               >
-                <div className="flex items-center gap-5">
+                <div className="flex gap-5 items-center">
                   <CiSearch className="text-3xl font-bold text-white" />
                   <h1 className="font-semibold text-white">Search</h1>
                 </div>
@@ -174,13 +148,16 @@ const FindDoctorsWep = () => {
             </div>
           )}
         </div>
-        <div className="absolute top-[20pc]">
-          <img
-            src="WhatsApp_Image_2025-02-26_at_19.26.09_761871f5-removebg-preview.png"
-            alt="Form.png"
-            loading="lazy"
-            className="max-2xl:w-[125pc] w-[136pc] h-[25pc] "
-          />
+        <div className="top-[20pc] relative">
+          <div className="absolute right-0 bottom-24 w-10 h-40 bg-[#1d3dba]"></div>
+          <div>
+            <img
+              src="WhatsApp_Image_2025-02-26_at_19.26.09_761871f5-removebg-preview.png"
+              alt="Form.png"
+              loading="lazy"
+              className="max-2xl:w-[125pc] w-[136pc] h-[25pc] "
+            />
+          </div>
         </div>
       </div>
     </>

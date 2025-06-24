@@ -31,7 +31,7 @@ function Home() {
           <FindDectorResponsive />
         </div>
       </div>
-      <div className="mt-[55pc]">
+      <div className="mt-[35pc] max-sm:mt-[55pc]">
         {/* //mx-80 */}
         <ExploreUs />
         <ChatBot />

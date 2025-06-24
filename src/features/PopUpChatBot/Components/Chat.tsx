@@ -25,8 +25,10 @@ const Chat = () => {
     <div className="relative">
       <div
         className={clsx(
-          "fixed bottom-28 w-[33pc] max-sm:w-[24pc] z-50 h-[30pc] bg-white  border-2 border-solid border-gray-700 rounded-xl transition-all duration-300",
-          isOpenChat ? "opacity-100 right-4" : "opacity-0 right-0"
+          "overflow-hidden fixed bottom-28 z-50 bg-white rounded-xl border-2 border-gray-700 border-solid transition-all duration-300 w-[33pc] max-sm:w-[24pc] h-[30pc]",
+          isOpenChat
+            ? "right-4 mr-0 opacity-100"
+            : "right-0 opacity-0 mr-[50pc]"
         )}
       >
         <HeaderChat />
@@ -38,25 +40,25 @@ const Chat = () => {
           {Messages?.length > 0 &&
             Messages?.map((el: { message: string }, index: number) => (
               <div key={index} ref={chatScreen}>
-                <h1 className="bg-blue-300 relative left-32 max-sm:left-28  shadow-xl my-5 w-96 max-sm:w-64  p-2 rounded-xl text-sm font-semibold">
+                <h1 className="relative left-32 p-2 my-5 w-96 text-sm font-semibold bg-blue-300 rounded-xl shadow-xl max-sm:left-28 max-sm:w-64">
                   {el.message}
                 </h1>
                 {isLoadMessage && index === Messages.length - 1 ? (
-                  <SyncLoader className="mt-3 p-2" size={6} />
+                  <SyncLoader className="p-2 mt-3" size={6} />
                 ) : (
                   MessageResponse?.[index]?.message?.response && (
                     <>
-                      <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
+                      <h1 className="p-2 m-3 w-96 text-sm font-semibold bg-gray-300 rounded-xl shadow-xl max-sm:w-72">
                         {MessageResponse[index].message.response}
                       </h1>
                       {MessageResponse[index].message.options ? (
-                        <div className="flex justify-between m-5 gap-2">
+                        <div className="flex gap-2 justify-between m-5">
                           {MessageResponse[index].message?.options?.map(
                             (btns: any, index: number) => (
                               <button
                                 key={index}
                                 value={btns}
-                                className="bg-blue-200 px-6 max-sm:px-4 rounded-xl font-bold hover:bg-blue-300 transition-all duration-300 py-1"
+                                className="px-6 py-1 font-bold bg-blue-200 rounded-xl transition-all duration-300 max-sm:px-4 hover:bg-blue-300"
                                 onClick={handleAddmessageFromBtns}
                               >
                                 {btns}
@@ -86,12 +88,12 @@ const Chat = () => {
                   {...register("message", { required: "Message is required" })}
                 />
                 {errors.message && (
-                  <p className="text-red-500 text-sm">
+                  <p className="text-sm text-red-500">
                     {errors.message.message as string}
                   </p>
                 )}
               </p>
-              <p className="absolute right-2 bg-blue-700 w-32 p-3 rounded-xl text-center text-white font-bold">
+              <p className="absolute right-2 p-3 w-32 font-bold text-center text-white bg-blue-700 rounded-xl">
                 <button>Send</button>
               </p>
             </form>

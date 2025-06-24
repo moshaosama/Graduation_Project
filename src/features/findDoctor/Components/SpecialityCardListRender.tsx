@@ -155,7 +155,11 @@ const SpecialityCardListRender = () => {
           );
         })}
         <div className="max-h-[80px] max-2xl:h-[74px] max-2xl:w-52 border-2 border-solid border-gray-300">
-          <form action="" className="p-2 flex flex-col  gap-4">
+          <form
+            action=""
+            className={`flex ${Traslation.ConvertFLex} flex flex-col gap-4 p-2`}
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <label
               className={`text-sm ${
                 language == "English" ? "text-start" : "text-end"
@@ -164,18 +168,14 @@ const SpecialityCardListRender = () => {
             >
               {ChangeTextByLanguage("أو اكتب اسم", "Or search by name")}
             </label>
-            <form
-              className={`flex ${Traslation.ConvertFLex} gap-2`}
-              onSubmit={handleSubmit(onSubmit)}
-            >
-              <FaPersonBreastfeeding className="text-2xl text-[#0a84ff7a]" />
-              <input
-                type="text"
-                id="personName"
-                className="focus:border-none max-2xl:w-20"
-                {...register("Name")}
-              />
-            </form>
+
+            <FaPersonBreastfeeding className="text-2xl text-[#0a84ff7a]" />
+            <input
+              type="text"
+              id="personName"
+              className="-mt-10 focus:border-none max-2xl:w-20"
+              {...register("Name")}
+            />
           </form>
         </div>
         <div
@@ -185,8 +185,8 @@ const SpecialityCardListRender = () => {
           onClick={handleClickSave}
         >
           <div className={`flex ${Traslation.ConvertFLex} items-center gap-3`}>
-            <CiSearch className="text-white text-3xl font-bold" />
-            <h1 className="text-white font-semibold">
+            <CiSearch className="text-3xl font-bold text-white" />
+            <h1 className="font-semibold text-white">
               {isLoading ? "Loading..." : ChangeTextByLanguage("بحث", "Search")}
             </h1>
           </div>

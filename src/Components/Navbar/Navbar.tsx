@@ -4,15 +4,15 @@ import { Link, NavLink } from "react-router-dom";
 import { ChangeTextByLanguage } from "../../Language/Language";
 import { lazy } from "react";
 import { IoIosMenu } from "react-icons/io";
-import MenuResponsiveLinks from "../../features/Home/Components/MenuResponsive/MenuResponsiveLinks";
 import { useOpenMenu } from "../../Context/OpenMenuProvider";
 import clsx from "clsx";
+import MenuResponsiveLinks from "../../features/Home/Components/MenuResponsive/MenuResponsiveLinks";
 
 const NavbarDetails = lazy(() => import("./NavbarDetails/NavbarDetails"));
 
 const Navbar = () => {
   const { LogoBrand, TextLogo } = style;
-  const { OpenMenu, toggleMenu } = useOpenMenu();
+  const { toggleMenu, OpenMenu } = useOpenMenu();
   const Token = localStorage.getItem("Token");
   const LinksPages = [
     {
@@ -63,7 +63,7 @@ const Navbar = () => {
           className={` ${location.pathname !== "/" ? "w-96" : ""}`}
           style={{ margin: "1pc 55pc 2pc 10pc" }}
         >
-          <div className="flex items-center gap-24 max-sm:gap-48 ">
+          <div className="flex gap-24 items-center max-sm:gap-48">
             <Link to={"/"}>
               <div className={clsx(LogoBrand, "max-2xl:w-[25px]")}>
                 <ImageRender
@@ -78,7 +78,6 @@ const Navbar = () => {
             </Link>
             <div className="sm:hidden">
               <IoIosMenu className="text-3xl" onClick={toggleMenu} />
-              {OpenMenu ? <MenuResponsiveLinks /> : null}
             </div>
             <div
               className={clsx(
@@ -116,12 +115,13 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="w-full mb-5">
+        <div className="mb-5 w-full">
           {location.pathname !== "/" ? (
             <NavbarDetails textColor="black" />
           ) : null}
         </div>
       </div>
+      <MenuResponsiveLinks />
     </>
   );
 };
