@@ -45,7 +45,7 @@ const HeaderText = () => {
         <p className="text-[#3790c4] font-bold max-sm:w-fit">
           {ChangeTextByLanguage("من أجل مستقبل أفضل", "For Better Future")}
         </p>
-        <h1 className="text-blue-700  font-bold text-5xl  max-sm:w-[20pc] max-sm:text-3xl">
+        <h1 className="text-blue-700  font-bold text-5xl w-[33pc] max-sm:w-[20pc] max-sm:text-3xl">
           {ChangeTextByLanguage(
             "اشعر بتحسن بشأن العثور على الرعاية الصحية",
             startText + "|"
