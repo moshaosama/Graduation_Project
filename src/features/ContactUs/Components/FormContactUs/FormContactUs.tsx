@@ -32,17 +32,17 @@ const FormContactUs = () => {
           <FormContectusList />
         </div>
         <div className="flex flex-col gap-7">
-          <div className="flex items-center gap-3">
+          <div className="flex gap-3 items-center">
             <CiLocationOn className="text-xl" />
             <p>Akhbar Academy, 6th of October city</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex gap-3 items-center">
             <BiPhoneCall className="text-xl" />
             <p>+20 1004365707</p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex gap-3 items-center">
             <MdEmail className="text-xl" />
-            <p>mohamedOSFekry@gmail.com</p>
+            <p>medipul1se@gmail.com</p>
           </div>
 
           <div className="flex gap-7">
