@@ -52,7 +52,7 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
         )}
       >
         {Token ? (
-          <div className="relative ">
+          <div className="relative">
             <button
               className="bg-gray-200   hover:bg-[#b1b1b1] transition-all duration-500 p-2 rounded-xl flex justify-around items-center"
               onClick={handleClickUser}
@@ -67,9 +67,14 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
             {ActiveDashboard ? <DashBoardUser /> : null}
           </div>
         ) : (
-          <div className="flex items-center gap-10">
+          <div className="flex gap-10 items-center">
             <Link to={"/login"}>
-              <p className="cursor-pointer text-[#23A6F0] font-bold">
+              <p
+                className={clsx(
+                  "font-bold cursor-pointer",
+                  pathname === "/" ? "text-white" : "text-[#23A6F0]"
+                )}
+              >
                 {ConvertLogin}
               </p>
             </Link>
@@ -81,12 +86,12 @@ const NavbarDetails = memo(({ textColor }: { textColor: string }) => {
           </div>
         )}
         <div
-          className="flex items-center gap-2 max-sm:hidden"
+          className="flex gap-2 items-center max-sm:hidden"
           onClick={toggleLanguage}
         >
           <ImageRender src={FlagSrc} alt="Flags.png" width="10" />
           <p
-            className={`hover:underline cursor-pointer text-${textColor} font-bold`}
+            className={`font-bold cursor-pointer hover:underline text-${textColor}`}
             style={{ fontFamily: "Crimson Text" }}
           >
             {ConvertLang}

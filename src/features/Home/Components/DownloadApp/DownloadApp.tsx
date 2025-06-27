@@ -2,16 +2,16 @@ const DownloadApp = () => {
   return (
     <>
       <div className="bg-white max-sm:mx-[10px] mt-20 p-8 max-sm:p-1 max-sm:block flex justify-center rounded-lg">
-        <div className="bg-blue-700 w-[80pc] max-sm:w-[24pc]  rounded-xl p-10 flex justify-between">
-          <div className="text-white flex flex-col w-96  gap-10">
-            <h1 className="text-3xl font-bold">
+        <div className="bg-blue-700 w-[80pc] max-sm:w-[24pc]  rounded-xl px-10 pt-10 flex justify-between">
+          <div className="flex flex-col gap-10 w-[30pc] max-sm:w-96 text-white">
+            <h1 className="text-5xl font-bold">
               Download Medipulse Application
             </h1>
             <p className="font-semibold text-md">
               Search, compare and book doctor consultations with ease. Track
               your medicine &make sure you feel alright
             </p>
-            <button className="w-fit rounded-full">
+            <button className="rounded-full w-fit">
               <img
                 src="WhatsApp Image 2025-02-27 at 17.42.34_ca5194f6.jpg"
                 alt="googleMobile.png"

@@ -40,14 +40,18 @@ const TopDoctorsDetails = memo(() => {
 
     return state.result?.map((el: DoctorType, index: number) => (
       <Link to={`/doctors/${el.DoctorID}`} key={index}>
-        <div className="bg-white py-10 w-80 max-sm:w-72 max-2xl:w-60 px-2 max-h-80 flex flex-col gap-4 items-center rounded-xl hover:translate-x-1 transition-all duration-500 cursor-pointer hover:bg-gray-200 shadow-2xl">
+        <div className="flex flex-col gap-4 items-center px-2 py-10 w-80 max-h-80 bg-white rounded-xl shadow-2xl transition-all duration-500 cursor-pointer max-sm:w-72 max-2xl:w-60 hover:translate-x-1 hover:bg-gray-200">
           <img
-            src="WhatsApp_Image_2025-02-27_at_01.00.00_8ea27a5f-removebg-preview.png"
+            src={
+              el?.Gender == "Male"
+                ? "https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg"
+                : "https://img.freepik.com/free-photo/female-doctor-hospital-with-stethoscope_23-2148827774.jpg"
+            }
             alt="Person.png"
-            className="w-36"
+            className="w-24 h-24 object-cover rounded-full border-[3px] border-gray-700"
             loading="lazy"
           />
-          <h1 className="text-md font-bold">{el.Name}</h1>
+          <h1 className="font-bold text-md">{el.Name}</h1>
           <p className="text-sm font-semibold">{el.Specialty_name}</p>
           <div>
             <p>{el?.Location?.slice(0, 40)}....</p>
@@ -69,7 +73,7 @@ const TopDoctorsDetails = memo(() => {
           </div>
         </div>
 
-        <div className="flex items-center gap-10 max-sm:overflow-x-scroll">
+        <div className="flex gap-10 items-center max-sm:overflow-x-scroll">
           {FindDoctors}
         </div>
 
@@ -78,7 +82,7 @@ const TopDoctorsDetails = memo(() => {
           onClick={handleClickNextPage}
         >
           <div className="bg-[#184C99]  max-sm:py-2 max-sm:px-0 max-sm:w-7 w-16 max-sm:h-12 h-24  absolute flex justify-center items-center right-0 max-sm:top-4 top-7 rounded-l-full">
-            <MdKeyboardArrowRight className="text-3xl  text-white" />
+            <MdKeyboardArrowRight className="text-3xl text-white" />
           </div>
         </div>
       </div>

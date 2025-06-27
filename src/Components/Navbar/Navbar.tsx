@@ -7,6 +7,7 @@ import { IoIosMenu } from "react-icons/io";
 import { useOpenMenu } from "../../Context/OpenMenuProvider";
 import clsx from "clsx";
 import MenuResponsiveLinks from "../../features/Home/Components/MenuResponsive/MenuResponsiveLinks";
+import { TbActivityHeartbeat } from "react-icons/tb";
 
 const NavbarDetails = lazy(() => import("./NavbarDetails/NavbarDetails"));
 
@@ -71,8 +72,13 @@ const Navbar = () => {
                   alt="Logo.png"
                   width="10"
                 />
-                <h1 className={clsx(TextLogo, "max-2xl:text-[5px]")}>
-                  MediPulse
+                <h1
+                  className={clsx(
+                    TextLogo,
+                    "flex items-center max-2xl:text-[5px]"
+                  )}
+                >
+                  MediPulse <TbActivityHeartbeat />
                 </h1>
               </div>
             </Link>

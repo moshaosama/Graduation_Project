@@ -57,12 +57,12 @@ const FormProfileDoctor = () => {
             }
           />
         </div>
-        <div className="col-span-2 flex gap-5">
-          <button className="bg-red-500 text-white  py-2 rounded-md w-52 max-sm:w-32 hover:bg-red-600 transition-all duration-200">
+        <div className="flex col-span-2 gap-5">
+          <button className="py-2 w-52 text-white bg-red-500 rounded-md transition-all duration-200 max-sm:w-32 hover:bg-red-600">
             Save
           </button>
           <Link to={"/"}>
-            <button className="bg-blue-500 text-white py-2 rounded-md w-52 max-sm:w-32 hover:bg-blue-600 transition-all duration-200">
+            <button className="bg-[#1f3fc3] text-white py-2 rounded-md w-52 max-sm:w-32 hover:bg-blue-600 transition-all duration-200">
               Cancel
             </button>
           </Link>

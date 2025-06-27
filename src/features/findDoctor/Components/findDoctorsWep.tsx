@@ -149,7 +149,7 @@ const FindDoctorsWep = () => {
           )}
         </div>
         <div className="top-[20pc] relative">
-          <div className="absolute right-0 bottom-24 w-10 h-40 bg-[#1d3dba]"></div>
+          <div className="absolute right-0 bottom-24 w-10 h-40 bg-[#1e3fc1]"></div>
           <div>
             <img
               src="WhatsApp_Image_2025-02-26_at_19.26.09_761871f5-removebg-preview.png"

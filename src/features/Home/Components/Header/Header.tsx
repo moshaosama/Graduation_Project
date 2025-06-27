@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <>
       <div className="absolute -top-24 right-0 bg-[#1F3FC3] w-[40pc] max-2xl:w-[37pc] h-[40pc] rounded-b-3xl max-sm:hidden">
-        <div className="flex items-center justify-between p-4 mx-10">
+        <div className="flex justify-between items-center p-4 mx-10">
           <NavbarDetails textColor="white" />
         </div>
         <img

@@ -3,20 +3,26 @@ import { ChangeTextByLanguage, Traslation } from "../../../Language/Language";
 import { ProfileDataProps } from "../../../Types/ProfileData/ProfileData";
 import useFormChangePassword from "../Hooks/useFormChangePassword";
 import useConvertLanguage from "../../../Hooks/useConvertLanguage";
+import clsx from "clsx";
 
 const FormChangePassword = ({ TitleEN, TitleAR }: ProfileDataProps) => {
   const { register, HandleClickSave, handleSubmit } = useFormChangePassword();
   const { language } = useConvertLanguage();
   return (
     <>
-      <div className="bg-white border-[1px] shadow-xl border-solid border-black h-fit pb-4 w-[50rem] max-sm:w-full rounded-lg">
+      <div
+        className={clsx(
+          "pb-4 bg-white rounded-lg border-black border-solid shadow-xl border-[1px] h-fit max-sm:w-full",
+          language === "English" ? "w-[60rem]" : "w-[60rem]"
+        )}
+      >
         <div className="bg-[rgb(0,112,205)] text-center text-white font-bold p-1 rounded-lg">
           <h1>{ChangeTextByLanguage(TitleEN, TitleAR)}</h1>
         </div>
 
         <form
           onSubmit={handleSubmit(HandleClickSave)}
-          className="grid m-5 bg-white grid-col-1"
+          className="m-5 bg-white"
         >
           <p
             className={`flex ${Traslation.ConvertFLex} max-sm:flex-col my-2 gap-4 items-center  justify-between`}
@@ -25,7 +31,7 @@ const FormChangePassword = ({ TitleEN, TitleAR }: ProfileDataProps) => {
               htmlFor={"Password"}
               className={`font-bold flex gap-2 ${Traslation.ConvertFLex}`}
             >
-              <span>Password</span>
+              <span>{ChangeTextByLanguage("كلمه المرور", "Password")}</span>
               <span className="text-[red]">*</span>
             </label>
 
@@ -43,7 +49,9 @@ const FormChangePassword = ({ TitleEN, TitleAR }: ProfileDataProps) => {
               htmlFor={"newPassword"}
               className={`font-bold flex gap-2 ${Traslation.ConvertFLex}`}
             >
-              <span>newPassword</span>
+              <span>
+                {ChangeTextByLanguage("كلمه المرور الجديده", "newPassword")}
+              </span>
               <span className="text-[red]">*</span>
             </label>
 
@@ -58,7 +66,7 @@ const FormChangePassword = ({ TitleEN, TitleAR }: ProfileDataProps) => {
           <p
             className={`flex ${
               language == "English" ? "flex-row-reverse" : "flex-row"
-            } gap-3 my-4 mx-[19pc]  max-sm:mx-10`}
+            } mx-96`}
           >
             <div>
               <button className="rounded-lg text-white font-bold bg-[#5669FF] hover:bg-[#4e59ac] transition-all duration-300  w-28 p-1">

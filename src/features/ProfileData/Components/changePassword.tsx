@@ -5,8 +5,8 @@ const ChangePassword = () => {
   return (
     <>
       <FormChangePassword
-        TitleAR="تغيير كلمه المرور"
-        TitleEN="Change Password"
+        TitleAR="Change Password"
+        TitleEN="تغيير كلمه المرور"
       />
       <ToastContainer
         position="top-right"
