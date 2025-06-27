@@ -4,21 +4,24 @@ import { memo } from "react";
 import useFormProfileData from "../Hooks/useFormProfileData";
 import useConvertLanguage from "../../../Hooks/useConvertLanguage";
 import { Link } from "react-router";
+import clsx from "clsx";
 
 const ProfileData = memo(({ TitleEN, TitleAR }: ProfileDataProps) => {
   const { register, handleSubmit, HandleClickSave } = useFormProfileData();
   const { language } = useConvertLanguage();
   return (
     <>
-      <div className="bg-white border-[1px] shadow-xl border-solid border-black h-fit pb-4 w-[50rem] max-sm:w-full rounded-lg">
+      <div
+        className={clsx(
+          "bg-white border-[1px] shadow-xl border-solid border-black h-fit pb-4 max-sm:w-full rounded-lg",
+          language === "English" ? "w-[60rem]" : "w-[60rem]"
+        )}
+      >
         <div className="bg-[rgb(0,112,205)] text-center text-white font-bold p-1 rounded-lg">
           <h1>{ChangeTextByLanguage(TitleEN, TitleAR)}</h1>
         </div>
 
-        <form
-          onSubmit={handleSubmit(HandleClickSave)}
-          className="grid m-5 bg-white grid-col-1"
-        >
+        <form onSubmit={handleSubmit(HandleClickSave)} className="m-5 bg-white">
           <p
             className={`flex ${Traslation.ConvertFLex} max-sm:flex-col my-2 gap-4 items-center  justify-between`}
           >
@@ -26,7 +29,7 @@ const ProfileData = memo(({ TitleEN, TitleAR }: ProfileDataProps) => {
               htmlFor={"userName"}
               className={`font-bold flex gap-2 ${Traslation.ConvertFLex}`}
             >
-              <span>userName</span>
+              <span>{ChangeTextByLanguage("ألاسم", "userName")}</span>
               <span className="text-[red]">*</span>
             </label>
 
@@ -44,7 +47,7 @@ const ProfileData = memo(({ TitleEN, TitleAR }: ProfileDataProps) => {
               htmlFor={"mobilePhone"}
               className={`font-bold flex gap-2 ${Traslation.ConvertFLex}`}
             >
-              <span>mobilePhone</span>
+              <span>{ChangeTextByLanguage("التليفون", "mobilePhone")}</span>
               <span className="text-[red]">*</span>
             </label>
 
@@ -64,7 +67,7 @@ const ProfileData = memo(({ TitleEN, TitleAR }: ProfileDataProps) => {
               htmlFor={"Email"}
               className={`font-bold flex gap-2 ${Traslation.ConvertFLex}`}
             >
-              <span>Email</span>
+              <span>{ChangeTextByLanguage("البريد الاكتروني", "Email")}</span>
               <span className="text-[red]">*</span>
             </label>
 
@@ -83,7 +86,7 @@ const ProfileData = memo(({ TitleEN, TitleAR }: ProfileDataProps) => {
               htmlFor={"birthDate"}
               className={`font-bold flex gap-2 ${Traslation.ConvertFLex}`}
             >
-              <span>birthDate</span>
+              <span>{ChangeTextByLanguage("تاريخ الميلاد", "birthDate")}</span>
               <span className="text-[red]">*</span>
             </label>
 
@@ -99,7 +102,7 @@ const ProfileData = memo(({ TitleEN, TitleAR }: ProfileDataProps) => {
           <p
             className={`flex ${
               language == "English" ? "flex-row-reverse" : "flex-row"
-            } gap-3 my-4 mx-[19pc]  max-sm:mx-10`}
+            } gap-3 my-4 mx-96  max-sm:mx-10`}
           >
             <div>
               <button className="rounded-lg text-white font-bold bg-[#5669FF] hover:bg-[#4e59ac] transition-all duration-300  w-28 p-1">

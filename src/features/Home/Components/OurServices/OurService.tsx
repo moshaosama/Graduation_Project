@@ -17,8 +17,8 @@ export const CartService = ({
   Paragraph: string;
 }) => {
   return (
-    <div className=" shadow-md cursor-pointer shadow-black rounded-xl max-sm:mx-1 w-96 max-sm:w-[23pc] flex flex-col gap-3 items-center p-4 justify-center">
-      <div className="flex flex-col items-center gap-2">
+    <div className=" shadow-md shadow-black rounded-xl max-sm:mx-1 w-96 max-sm:w-[23pc] flex flex-col gap-3 items-center p-4 justify-center">
+      <div className="flex flex-col gap-2 items-center">
         {Icon}
         <h1 className="text-lg font-bold">{Text}</h1>
       </div>
@@ -55,7 +55,7 @@ const OurService = () => {
         {language == "English" ? (
           <span className="text-5xl font-bold text-white">خدمتنا</span>
         ) : (
-          <h1 className="flex items-center gap-2 text-2xl text-white">
+          <h1 className="flex gap-2 items-center text-2xl text-white">
             our <span className="text-5xl font-bold">Services</span>
           </h1>
         )}
@@ -63,7 +63,7 @@ const OurService = () => {
 
       <div className="bg-white max-sm:mx-[14px] rounded-b-xl p-16">
         <div
-          className="grid grid-cols-3 mx-64 transition-all duration-1000 max-2xl:mx-0 max-sm:grid-cols-1 max-sm:-mx-14 gap-28 max-sm:gap-10 max-sm:opacity-100"
+          className="grid grid-cols-3 gap-28 mx-64 transition-all duration-1000 max-2xl:mx-0 max-sm:grid-cols-1 max-sm:-mx-14 max-sm:gap-10 max-sm:opacity-100"
           ref={CartServices}
         >
           <CartService

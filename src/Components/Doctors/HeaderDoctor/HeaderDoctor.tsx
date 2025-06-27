@@ -24,10 +24,10 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
   const { FilterBtns, Locations } = style;
   const HeaderSection = useRef(null);
   useTransition(HeaderSection, initalStyle, Styles);
-  const Doctors = useMemo(() => {
+  const Doctors = () => {
     const stored = window.localStorage.getItem("Doctors");
     return stored ? JSON.parse(stored) : null;
-  }, []);
+  };
   const state = useSelector((state: RootState) => state.allDoctor);
   const BtnFilter = useRef(null);
 
@@ -59,22 +59,22 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
     });
   }, []);
 
-  const LengthDoctor = useMemo(() => {
-    if (Doctors?.result?.length !== 0) {
-      return Doctors?.result?.length;
+  const LengthDoctor = () => {
+    if (Doctors()?.result?.length !== 0) {
+      return Doctors()?.result?.length;
     } else {
       return state.data?.result?.length;
     }
-  }, [Doctors?.result?.length, state.data?.result?.length]);
+  };
   return (
     <>
       <div className="bg-[#1F3FC3] -mt-6 py-3">
         <div
           ref={HeaderSection}
-          className={`${container} relative transition-all duration-1000`}
+          className={`relative transition-all duration-1000 ${container}`}
           style={{ flexDirection: "column", alignItems: "start" }}
         >
-          <div className="flex items-center gap-2 font-semibold text-gray-300">
+          <div className="flex gap-2 items-center font-semibold text-gray-300">
             <h1 className="underline cursor-pointer">Home</h1> {" > "}
             <h1 className="underline cursor-pointer">Find a specialist</h1>
             {" > "}
@@ -82,13 +82,13 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
           </div>
           <div className="text-white">
             <h1 className="mt-5 font-bold text-md">
-              {LengthDoctor} Result For
+              {LengthDoctor()} Result For
             </h1>
             <h1 className="text-4xl font-semibold shadow-lg">
               {Specialty_name}
             </h1>
           </div>
-          <div className="flex items-center gap-3 mt-5">
+          <div className="flex gap-3 items-center mt-5">
             <div className={Locations}>
               <h1>Giza</h1>
             </div>
@@ -102,7 +102,7 @@ const HeaderDoctor = memo(({ Specialty_name }: HeaderDoctorProps) => {
         </div>
       </div>
       <div className="bg-[#EDEDED] py-3 shadow-2xl">
-        <div className="flex items-center gap-4 mx-44 max-sm:mx-0">
+        <div className="flex gap-4 items-center mx-44 max-sm:mx-0">
           {FilterBTnsRender}
         </div>
       </div>
