@@ -61,7 +61,7 @@ const ExploreUs = () => {
           <p>{ChangeTextByLanguage("الأعلى تقييما", "Top rated")}</p>
         </div>
         <div
-          className="flex max-sm:overflow-x-scroll justify-between gap-60 transition-all duration-500 opacity-5 items-center"
+          className="flex max-sm:overflow-x-scroll max-sm:w-[24.4pc] justify-between gap-60 transition-all duration-500 opacity-5 items-center"
           id="SpecialityForm"
         >
           {state.data?.result
