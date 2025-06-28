@@ -1,8 +1,8 @@
 const JoinUs = () => {
   return (
     <>
-      <div className="flex flex-col items-center justify-center mt-20">
-        <div className="flex flex-col gap-4 items-center justify-center">
+      <div className="flex flex-col justify-center items-center mt-20">
+        <div className="flex flex-col gap-4 justify-center items-center">
           <p className="text-[#23A6F0] font-semibold">Newsletter</p>
           <h1 className="text-4xl font-bold">JOIN US</h1>
         </div>
@@ -10,7 +10,7 @@ const JoinUs = () => {
           One step away from connecting with your health
         </p>
 
-        <form action="" className="p-10 my-10">
+        <form action="" className="p-10 my-10 max-sm:flex">
           <input
             type="text"
             placeholder="Your Email"
