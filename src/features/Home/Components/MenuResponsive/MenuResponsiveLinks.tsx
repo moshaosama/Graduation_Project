@@ -75,9 +75,11 @@ const MenuResponsiveLinks = () => {
           <NavLink to={"/contact"} className="p-5 font-bold">
             Contact
           </NavLink>
-          <NavLink to={"/myappointments"} className="p-5 font-bold">
-            My Appointments
-          </NavLink>
+          {Token ? (
+            <NavLink to={"/myappointments"} className="p-5 font-bold">
+              My Appointments
+            </NavLink>
+          ) : null}
         </div>
         <div className="mt-5">
           {!Token ? (
