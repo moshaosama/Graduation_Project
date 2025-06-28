@@ -18,17 +18,17 @@ export const ChatBotMessages = () => {
     errors,
   } = useFormData();
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col justify-center items-center">
       <div className="relative top-7 ml-[52pc] max-sm:ml-[17pc]">
         <button
-          className="flex gap-4 items-center bg-red-500 p-2 rounded-xl text-white font-bold hover:bg-red-700 transition-all duration-300"
+          className="flex gap-4 items-center p-2 font-bold text-white bg-red-500 rounded-xl transition-all duration-300 hover:bg-red-700"
           onClick={handleEndChat}
         >
           <RxExit />
           End Chat
         </button>
       </div>
-      <div className="border-4 rounded-xl p-4 shadow-lg shadow-gray-500 my-10 border-blue-200 w-[60pc] max-sm:w-[25pc] max-sm:ml-0">
+      <div className="border-4 rounded-xl p-4 shadow-lg shadow-gray-500 my-10 border-blue-200 w-[60pc] max-sm:w-[24pc] max-sm:ml-8">
         <h1 className="bg-gray-300 shadow-xl w-[70%]  m-3 p-2 rounded-xl text-sm font-semibold">
           {ChatBot.response}
         </h1>
@@ -40,21 +40,21 @@ export const ChatBotMessages = () => {
               </h1>
 
               {isLoadMessage && index === Messages?.length - 1 ? (
-                <SyncLoader className="m-3 p-2" size={10} />
+                <SyncLoader className="p-2 m-3" size={10} />
               ) : (
                 MessageResponse?.[index]?.message?.response && (
                   <>
-                    <h1 className="bg-gray-300 shadow-xl w-96 max-sm:w-72 m-3 p-2 rounded-xl text-sm font-semibold">
+                    <h1 className="p-2 m-3 w-96 text-sm font-semibold bg-gray-300 rounded-xl shadow-xl max-sm:w-72">
                       {MessageResponse[index].message.response}
                     </h1>
                     {MessageResponse[index].message.options ? (
-                      <div className="flex justify-between m-5 gap-2">
+                      <div className="flex gap-2 justify-between m-5">
                         {MessageResponse[index].message?.options?.map(
                           (btns: any, index: number) => (
                             <button
                               key={index}
                               value={btns}
-                              className="bg-blue-200 px-6  w-96 max-sm:w-fit max-sm:px-4 py-3  rounded-xl font-bold hover:bg-blue-300 transition-all duration-300 max-sm:py-1"
+                              className="px-6 py-3 w-96 font-bold bg-blue-200 rounded-xl transition-all duration-300 max-sm:w-fit max-sm:px-4 hover:bg-blue-300 max-sm:py-1"
                               onClick={handleAddmessageFromBtns}
                             >
                               {btns}
@@ -69,7 +69,7 @@ export const ChatBotMessages = () => {
             </div>
           ))}
         <form
-          className="flex items-center justify-center mt-10 gap-4"
+          className="flex gap-4 justify-center items-center mt-10"
           onSubmit={handleSubmit(onSubmit)}
         >
           <p className="flex flex-col">
@@ -79,13 +79,13 @@ export const ChatBotMessages = () => {
               {...register("message", { required: "Message is required" })}
             />
             {errors.message && (
-              <p className="text-red-500 font-bold text-sm">
+              <p className="text-sm font-bold text-red-500">
                 {errors.message.message as string}
               </p>
             )}
           </p>
 
-          <button className="bg-blue-600 px-10 max-sm:px-3  py-3 rounded-xl text-white font-bold max-sm:font-semibold max-sm:text-sm hover:bg-blue-400 transition-all duration-300">
+          <button className="px-10 py-3 font-bold text-white bg-blue-600 rounded-xl transition-all duration-300 max-sm:px-3 max-sm:font-semibold max-sm:text-sm hover:bg-blue-400">
             Send Message
           </button>
         </form>
