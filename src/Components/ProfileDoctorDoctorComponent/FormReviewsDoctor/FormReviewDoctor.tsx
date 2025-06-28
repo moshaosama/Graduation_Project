@@ -5,6 +5,7 @@ import { useEffect, useMemo } from "react";
 import { fetchCreateReview } from "../../../Store/Reducer/Review/CreateReviewSlice";
 import { fetchAllDoctor } from "../../../Store/Reducer/AllDoctor/AllDoctor";
 import { useForm } from "react-hook-form";
+import { fetchgetReviews } from "../../../Store/Reducer/Review/getReviewSlice";
 
 const FormReviewDoctor = () => {
   const { id } = useParams();
@@ -41,6 +42,8 @@ const FormReviewDoctor = () => {
         userName: User.userName,
       })
     );
+
+    dispatch(fetchgetReviews(Doctor.DoctorID));
   };
 
   return (
